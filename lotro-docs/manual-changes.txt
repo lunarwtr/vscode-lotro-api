@@ -1,0 +1,119 @@
+--- Turbine.lua	2022-03-06 14:40:29.317584400 -0700
++++ Turbine.lua.bak	2022-03-06 14:39:58.037584400 -0700
+@@ -110,13 +110,13 @@
+ ---Provides engine level information to user plugins.
+ ---@class Engine
+ local Engine = {}
+ 
+ ---Gets the current callstack.
+----@param arguments (Unrecognized type) 
++---@vararg any
+ ---@return string #The current callstack.
+-Engine.GetCallStack = function (arguments) end
++Engine.GetCallStack = function (...) end
+ 
+ ---Gets the current date.
+ ---@return Object #Returns a table containing information about the current date. The following fields are available: Year, Month, Day, Hour, Minute, Second, DayOfWeek, DayOfYear, and IsDST.
+ Engine.GetDate = function () end
+ 
+@@ -331,30 +331,30 @@
+ ---Gets the number of chest that are available.
+ ---@return number #The number of chest that are available.
+ function Bank:GetChestCount() end
+ 
+ ---Gets the name of a chest.
+----@param chestType (Unrecognized type) 
++---@param chestType string
+ ---@return string #The name of the specified chest.
+ function Bank:GetChestName(chestType) end
+ 
+ ---Gets the numbers of items in the bank.
+ ---@return number #The number of items in the bank.
+ function Bank:GetCount() end
+ 
+ ---Gets and item from the player's bank.
+ ---@param index number The index of the item to get.
+----@return (Unrecognized type) #Either nil if there is no item there or the index is invalid, or the Item that is in the given index.
++---@return Item #Either nil if there is no item there or the index is invalid, or the Item that is in the given index.
+ function Bank:GetItem(index) end
+ 
+ ---Gets a flag indicating if the bank is currently available.
+ ---@return boolean #
+ function Bank:IsAvailable() end
+ 
+ ---Handles the dropping of items into a bank.
+ ---@param shortcut Shortcut The shortcut information that was generated as part of a drag and drop event that should contain an item to perform an action on.
+----@param targetChest (Unrecognized type) The target chest the drop should occur into.
++---@param targetChest any The target chest the drop should occur into.
+ ---@param split boolean Flag indicating if the item split dialog should be displayed for the operation.
+ function Bank:PerformShortcutDrop(shortcut, targetChest, split) end
+ 
+ 
+ ---A basic mount.
+@@ -1356,11 +1356,11 @@
+ ---Gets the party the player is a member of.
+ ---@return Party #Returns the party the player is a member of. If the player is not currently in a party this will return nil.
+ function PartyMember:GetParty() end
+ 
+ ---Gets the raid the player is a member of.
+----@return (Unrecognized type) #Returns the raid the player is a member of. If the player is not currently in a raid this will return nil.
++---@return Party #Returns the raid the player is a member of. If the player is not currently in a raid this will return nil.
+ function PartyMember:GetRaid() end
+ 
+ ---Gets the ready state of a player based on the result of a ready check.
+ ---@return number #Returns a value indicating the ready state of a player based on a ready check.
+ function PartyMember:GetReadyState() end
+@@ -1657,11 +1657,11 @@
+ ---Gets the description of the item.
+ ---@return string #The description of the item.
+ function SkillInfo:GetDescription() end
+ 
+ ---Gets the image ID for the icon of the item.
+----@return (Unrecognized type) #The ID for the skill icon.
++---@return number #The ID for the skill icon.
+ function SkillInfo:GetIconImageID() end
+ 
+ ---Gets the name of the item.
+ ---@return string #The name of the item.
+ function SkillInfo:GetName() end
+@@ -1762,11 +1762,11 @@
+ ---Gets the description of the wallet item.
+ ---@return string #The description of the wallet item.
+ function WalletItem:GetDescription() end
+ 
+ ---Gets the image used to identity the wallet item.
+----@return (Unrecognized type) #The image used to identity the wallet item.
++---@return any #The image used to identity the wallet item.
+ function WalletItem:GetImage() end
+ 
+ ---Gets the maximum quantity of this wallet item that a player can have.
+ ---@return number #The maximum quantity of this wallet item that a player can have.
+ function WalletItem:GetMaxQuantity() end
+@@ -1778,11 +1778,11 @@
+ ---Gets the quantity of the wallet item that the player has.
+ ---@return number #The quantity of the wallet item that the player has.
+ function WalletItem:GetQuantity() end
+ 
+ ---Gets the small image used to identity the wallet item.
+----@return (Unrecognized type) #The small image used to identity the wallet item.
++---@return any #The small image used to identity the wallet item.
+ function WalletItem:GetSmallImage() end
+ 
+ ---Gets a flag indicating if the item is shared across all characters of an account.
+ ---@return boolean #A flag indicating if the item is shared across all characters of an account.
+ function WalletItem:IsAccountItem() end
+@@ -2552,12 +2552,12 @@
+ ---Constructs an empty graphics.
+ ---`Graphic()` : Constructs an empty graphics.
+ ---`Graphic(dataId)` : Constructs a graphic from a game asset by its ID.
+ ---`Graphic(filename)` : Constructs a graphic from a file.
+ ---@overload fun():Graphic
+----@overload fun(dataId:(Unrecognized type)):Graphic
+----@param dataId (Unrecognized type) 
++---@overload fun(dataId:number):Graphic
++---@param dataId number Game asset ID
+ ---@param filename string 
+ ---@return Graphic
+ Turbine.UI.Graphic = function (filename) end
+ 
+ 
