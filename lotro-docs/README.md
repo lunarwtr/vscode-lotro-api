@@ -32,7 +32,10 @@ $ lua TurbineDump.lua > TurbineDump.json
 perl ripdocs.pl
 ```
 * Manual change lines as described in [manual-changes.txt](manual-changes.txt)
-
+```bash
+cd EmmyLua/Turbine
+patch -p0 < ../../lotro-docs/manual-changes.txt
+```
 ## Perl Modules
 
 You may need to install perl modules

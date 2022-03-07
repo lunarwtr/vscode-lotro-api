@@ -11,6 +11,7 @@
 		"Linters",
 		"Programming Languages"
 	],
+	"icon": "img/vscode-lotro-api.png",
 	"activationEvents": [
 		"onLanguage:lua"
 	],

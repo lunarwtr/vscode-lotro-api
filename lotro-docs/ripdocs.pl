@@ -65,8 +65,11 @@ sub emmylua {
 	print OUT "---\@class $class\n";
 	foreach my $field (sort keys %{ $node }) {
 		next if ($field =~ m/^(__details|constructor|event|field|method|overload)$/);
-		next if (defined $node->{$field}{constructor});
+		my $hasconstructor = defined $node->{$field}{constructor};
 		my $type = determineclassname($node->{$field}{__details}{longname});
+		if ($hasconstructor) {
+			$type = "$type | function";
+		}
 		my $desc = commentnewline($node->{$field}{__details}{description}, 1);
 		print OUT "---\@field $field $type $desc\n";
 	}
@@ -95,16 +98,16 @@ sub emmylua {
 	if (defined $node->{constructor}) {
 		my $c = $node->{constructor};
 		my $desc = commentnewline($c->{description});
-		print OUT "\n---$desc\n";
 		my $num = scalar @{$c->{overload}};
 		my @allparams = ();
+		my @descriptions = ("\n---$desc\n");
 		my @overloads = ();
 		my %paraminfos = ();
 		for (my $i = 0; $i < $num; $i++) {
 			my $ref = $c->{overload}[$i];
 			if ($ref->{description}) {
 				my $desc = commentnewline($ref->{description});
-				print OUT "---`$ref->{name}` : $desc\n";
+				push(@descriptions, "---`$ref->{name}` : $desc\n");
 			}
 			my $s = $ref->{syntax};
 			my $islast = $i == ($num - 1);
@@ -120,15 +123,31 @@ sub emmylua {
 			}
 			my $paramstr = join(", ", @params);
 			if ($islast) {
+				# __call constructor
+				foreach my $val (@descriptions) {
+					print OUT "$val";
+				}
 				foreach my $val (@overloads) {
 					print OUT "$val";
 				}
 				foreach my $param (@allparams) {
-					my $val = $paraminfos{$param};
-					print OUT "$val";
+					print OUT $paraminfos{$param};
 				}
 				print OUT "---\@return $name\n";
 				print OUT "$d->{longname} = function ($paramstr) end\n";
+
+				# now literal constructors
+				foreach my $val (@descriptions) {
+					print OUT "$val";
+				}
+				foreach my $val (@overloads) {
+					print OUT "$val";
+				}
+				foreach my $param (@allparams) {
+					print OUT $paraminfos{$param};
+				}
+				print OUT "---\@return $name\n";
+				print OUT "function $name:Constructor($paramstr) end\n";				
 			} else {
 				push(@overloads, "---\@overload fun($paramstr):$name\n");
 			}
@@ -136,41 +155,42 @@ sub emmylua {
 	}
 
 	# Methods
-	if (defined $node->{method}) {
-		foreach my $ref (sort { $a->{name} cmp $b->{name} } @{ $node->{method} }) {
-			print OUT "\n";
-			if ($ref->{description}) {
-				my $desc = commentnewline($ref->{description});
-				print OUT "---$desc\n";
-			}
-			my $s = $ref->{syntax};
-			my @params = ();
-			if (defined $s->{params}) {
-				foreach my $param (@{$s->{params}}) {
-					my $type = determineclassname($param->{type});
-					my $desc = commentnewline($param->{description});
-					print OUT "---\@param $param->{name} $type $desc\n";
-					push(@params, $param->{name});
+	foreach my $methodtype ("method", "event") {
+		if (defined $node->{$methodtype}) {
+			foreach my $ref (sort { $a->{name} cmp $b->{name} } @{ $node->{$methodtype} }) {
+				print OUT "\n";
+				if ($ref->{description}) {
+					my $desc = commentnewline($ref->{description});
+					print OUT "---$desc\n";
 				}
-			}
-			if (defined $s->{return}) {
-				my $r = $s->{return};
-				my $type = determineclassname($r->{type});
-				my $desc = commentnewline($r->{description});
-				foreach my $rpiece (split(/,\s*/, $type)) {
-					print OUT "---\@return $rpiece \#$desc\n";
-					$desc = '';
+				my $s = $ref->{syntax};
+				my @params = ();
+				if (defined $s->{params}) {
+					foreach my $param (@{$s->{params}}) {
+						my $type = determineclassname($param->{type});
+						my $desc = commentnewline($param->{description});
+						print OUT "---\@param $param->{name} $type $desc\n";
+						push(@params, $param->{name});
+					}
 				}
-			}
-			my $paramstr = join(", ", @params);
-			if ($ref->{icon} =~ m/static/i) {
-				print OUT "$name.$ref->{name} = function ($paramstr) end\n";
-			} else {
-				print OUT "function $name:$ref->{name}($paramstr) end\n";
+				if (defined $s->{return}) {
+					my $r = $s->{return};
+					my $type = determineclassname($r->{type});
+					my $desc = commentnewline($r->{description});
+					foreach my $rpiece (split(/,\s*/, $type)) {
+						print OUT "---\@return $rpiece \#$desc\n";
+						$desc = '';
+					}
+				}
+				my $paramstr = join(", ", @params);
+				if ($ref->{icon} =~ m/static/i || $methodtype eq 'event') {
+					print OUT "$name.$ref->{name} = function ($paramstr) end\n";
+				} else {
+					print OUT "function $name:$ref->{name}($paramstr) end\n";
+				}
 			}
 		}
 	}
-
 	foreach my $field (sort keys %{ $node }) {
 		next if ($field =~ m/^(__details|constructor|event|field|method|overload)$/);
 		print OUT "\n\n";

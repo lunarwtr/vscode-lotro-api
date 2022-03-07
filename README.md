@@ -1,4 +1,6 @@
 ## LotRO API
+![](img/vscode-lotro-api.png)
+
 [![](https://img.shields.io/github/license/lunarwtr/vscode-lotro-api)](https://opensource.org/licenses/MIT)
 [![](https://img.shields.io/github/v/release/lunarwtr/vscode-lotro-api)](https://github.com/lunarwtr/vscode-lotro-api/releases)
 

@@ -12,7 +12,7 @@ export function activate(context: vscode.ExtensionContext) {
 		globals.import = 'require';
 		config.update("runtime.special", globals);
 	}
-
+	config.update("runtime.version", "Lua 5.1");
 }
 
 // this method is called when your extension is deactivated

@@ -7,10 +7,12 @@
 ---@field Gameplay Gameplay Provides classes for accessing game related information.
 ---@field Language Language Defines the client languages.
 ---@field LotroPluginManager LotroPluginManager Provides access to plugin management methods.
+---@field Object Object | function The base object class for API classes.
 ---@field Plugin Plugin Provides information about a specific plugin that has been loaded.
 ---@field PluginData PluginData Provides the ability to save and load plugin data.
 ---@field PluginManager PluginManager Provides access to plugin management methods.
 ---@field Shell Shell Provides programmer extensibility to the chat window.
+---@field ShellCommand ShellCommand | function A command that can be register for use in the chat window.
 ---@field UI UI The core UI package that allows users to create low level controls.
 Turbine = {}
 
@@ -19,6 +21,11 @@ Turbine = {}
 ---              tells, in game messages, and announcements.
 ---@class Chat : Object
 Chat = {}
+
+---This event is fired whenever a chat message is received.
+---@param sender table The event sender.
+---@param args table The event arguments
+Chat.Received = function (sender, args) end
 
 
 ---Defines the type of chat data.
@@ -219,6 +226,11 @@ function ActiveSkill:GetResetTime() end
 ---@return boolean #
 function ActiveSkill:IsUsable() end
 
+---Event fired when the reset time of a skill changes.
+---@param sender table The event sender.
+---@param args table The event arguments
+ActiveSkill.ResetTimeChanged = function (sender, args) end
+
 
 ---Base class for any entity that interacts in the world.
 ---@class Actor : Entity
@@ -276,6 +288,66 @@ function Actor:GetTemporaryMorale() end
 ---@return number #The temporary power of the actor.
 function Actor:GetTemporaryPower() end
 
+---Event fired when the actor's base max morale changes.
+---@param sender table The event sender.
+---@param args table The event arguments
+Actor.BaseMaxMoraleChanged = function (sender, args) end
+
+---Event fired when he actor's base max power changes.
+---@param sender table The event sender.
+---@param args table The event arguments
+Actor.BaseMaxPowerChanged = function (sender, args) end
+
+---Event fired when the actor's level changes.
+---@param sender table The event sender.
+---@param args table The event arguments
+Actor.LevelChanged = function (sender, args) end
+
+---Event fired when the actor's max morale changes.
+---@param sender table The event sender.
+---@param args table The event arguments
+Actor.MaxMoraleChanged = function (sender, args) end
+
+---Event fired when he actor's max power changes.
+---@param sender table The event sender.
+---@param args table The event arguments
+Actor.MaxPowerChanged = function (sender, args) end
+
+---Event fired when the actor's max temporary morale changes.
+---@param sender table The event sender.
+---@param args table The event arguments
+Actor.MaxTemporaryMoraleChanged = function (sender, args) end
+
+---Event fired when he actor's max temporary power changes.
+---@param sender table The event sender.
+---@param args table The event arguments
+Actor.MaxTemporaryPowerChanged = function (sender, args) end
+
+---Event fired when the actor's morale changes.
+---@param sender table The event sender.
+---@param args table The event arguments
+Actor.MoraleChanged = function (sender, args) end
+
+---Event fired when he actor's power changes.
+---@param sender table The event sender.
+---@param args table The event arguments
+Actor.PowerChanged = function (sender, args) end
+
+---Event fired when the actor's target changes.
+---@param sender table The event sender.
+---@param args table The event arguments
+Actor.TargetChanged = function (sender, args) end
+
+---Event fired when the actor's temporary morale changes.
+---@param sender table The event sender.
+---@param args table The event arguments
+Actor.TemporaryMoraleChanged = function (sender, args) end
+
+---Event fired when he actor's temporary power changes.
+---@param sender table The event sender.
+---@param args table The event arguments
+Actor.TemporaryPowerChanged = function (sender, args) end
+
 
 ---The alignment of a player.
 ---@class Alignment
@@ -319,6 +391,26 @@ function Backpack:PerformItemDrop(item, destinationIndex, split) end
 ---@param split boolean Whether or not we want to split the item's stack while dragging it
 function Backpack:PerformShortcutDrop(shortcut, destinationIndex, split) end
 
+---Event fired when an item is added to the backpack.
+---@param sender table The event sender.
+---@param args table The event arguments
+Backpack.ItemAdded = function (sender, args) end
+
+---Event fired when an item is moved in the backpack.
+---@param sender table The event sender.
+---@param args table The event arguments
+Backpack.ItemMoved = function (sender, args) end
+
+---Event fired when an item is removed from the backpack.
+---@param sender table The event sender.
+---@param args table The event arguments
+Backpack.ItemRemoved = function (sender, args) end
+
+---Event fired when the size of the backpack has changed.
+---@param sender table The event sender.
+---@param args table The event arguments
+Backpack.SizeChanged = function (sender, args) end
+
 
 ---A container of items that are only accessible at designated bank locations.
 ---@class Bank : Object
@@ -356,6 +448,46 @@ function Bank:IsAvailable() end
 ---@param split boolean Flag indicating if the item split dialog should be displayed for the operation.
 function Bank:PerformShortcutDrop(shortcut, targetChest, split) end
 
+---Event fired when the capacity of the bank has changed.
+---@param sender table The event sender.
+---@param args table The event arguments
+Bank.CapacityChanged = function (sender, args) end
+
+---Event fired when the name of a chest has changed.
+---@param sender table The event sender.
+---@param args table The event arguments
+Bank.ChestNameChanged = function (sender, args) end
+
+---Event fired when the count of items in the bank changes.
+---@param sender table The event sender.
+---@param args table The event arguments
+Bank.CountChanged = function (sender, args) end
+
+---Event fired when the availability of the bank changes.
+---@param sender table The event sender.
+---@param args table The event arguments
+Bank.IsAvailableChanged = function (sender, args) end
+
+---Event fired when an item is added to a bank.
+---@param sender table The event sender.
+---@param args table The event arguments
+Bank.ItemAdded = function (sender, args) end
+
+---Event fired when an item is moved from one chest to another.
+---@param sender table The event sender.
+---@param args table The event arguments
+Bank.ItemMoved = function (sender, args) end
+
+---Event fired when an item is removed from a bank.
+---@param sender table The event sender.
+---@param args table The event arguments
+Bank.ItemRemoved = function (sender, args) end
+
+---Event fired when the contents of the bank has been refreshed.
+---@param sender table The event sender.
+---@param args table The event arguments
+Bank.ItemsRefreshed = function (sender, args) end
+
 
 ---A basic mount.
 ---@class BasicMount : Mount
@@ -368,6 +500,16 @@ function BasicMount:GetMaxMorale() end
 ---Gets the morale of a basic mount.
 ---@return number #The morale of a basic mount.
 function BasicMount:GetMorale() end
+
+---Event fired when the mount's max morale changes.
+---@param sender table The event sender.
+---@param args table The event arguments
+BasicMount.MaxMoraleChanged = function (sender, args) end
+
+---Event fired when the mount's morale changes.
+---@param sender table The event sender.
+---@param args table The event arguments
+BasicMount.MoraleChanged = function (sender, args) end
 
 
 ---The Class of a player.
@@ -497,6 +639,61 @@ function CombatMount:GetTemporaryMorale() end
 ---@return number #The temporary power of the mount.
 function CombatMount:GetTemporaryPower() end
 
+---Event fired when the mount's base max morale changes.
+---@param sender table The event sender.
+---@param args table The event arguments
+CombatMount.BaseMaxMoraleChanged = function (sender, args) end
+
+---Event fired when he mount's base max power changes.
+---@param sender table The event sender.
+---@param args table The event arguments
+CombatMount.BaseMaxPowerChanged = function (sender, args) end
+
+---Event fired when he mount's max temporary power changes.
+---@param sender table The event sender.
+---@param args table The event arguments
+CombatMount.FuryChanged = function (sender, args) end
+
+---Event fired when the mount's max morale changes.
+---@param sender table The event sender.
+---@param args table The event arguments
+CombatMount.MaxMoraleChanged = function (sender, args) end
+
+---Event fired when he mount's max power changes.
+---@param sender table The event sender.
+---@param args table The event arguments
+CombatMount.MaxPowerChanged = function (sender, args) end
+
+---Event fired when the mount's max temporary morale changes.
+---@param sender table The event sender.
+---@param args table The event arguments
+CombatMount.MaxTemporaryMoraleChanged = function (sender, args) end
+
+---Event fired when he mount's max temporary power changes.
+---@param sender table The event sender.
+---@param args table The event arguments
+CombatMount.MaxTemporaryPowerChanged = function (sender, args) end
+
+---Event fired when the mount's morale changes.
+---@param sender table The event sender.
+---@param args table The event arguments
+CombatMount.MoraleChanged = function (sender, args) end
+
+---Event fired when he mount's power changes.
+---@param sender table The event sender.
+---@param args table The event arguments
+CombatMount.PowerChanged = function (sender, args) end
+
+---Event fired when the mount's temporary morale changes.
+---@param sender table The event sender.
+---@param args table The event arguments
+CombatMount.TemporaryMoraleChanged = function (sender, args) end
+
+---Event fired when he mount's temporary power changes.
+---@param sender table The event sender.
+---@param args table The event arguments
+CombatMount.TemporaryPowerChanged = function (sender, args) end
+
 
 ---A crafting tier.
 ---@class CraftTier
@@ -568,6 +765,51 @@ function Effect:IsDebuff() end
 ---@return boolean #True if the effect is dispellable.
 function Effect:IsDispellable() end
 
+---Event fired when the category changes.
+---@param sender table The event sender.
+---@param args table The event arguments
+Effect.CategoryChanged = function (sender, args) end
+
+---Event fired when the description changes.
+---@param sender table The event sender.
+---@param args table The event arguments
+Effect.DescriptionChanged = function (sender, args) end
+
+---Event fired when the duration changes.
+---@param sender table The event sender.
+---@param args table The event arguments
+Effect.DurationChanged = function (sender, args) end
+
+---Event fired when the icon changes.
+---@param sender table The event sender.
+---@param args table The event arguments
+Effect.IconChanged = function (sender, args) end
+
+---Event fired when the curable state changes.
+---@param sender table The event sender.
+---@param args table The event arguments
+Effect.IsCurableChanged = function (sender, args) end
+
+---Event fired when the debuff state changes.
+---@param sender table The event sender.
+---@param args table The event arguments
+Effect.IsDebuffChanged = function (sender, args) end
+
+---Event fired when the dispellable state changes.
+---@param sender table The event sender.
+---@param args table The event arguments
+Effect.IsDispellableChanged = function (sender, args) end
+
+---Event fired when the name changes.
+---@param sender table The event sender.
+---@param args table The event arguments
+Effect.NameChanged = function (sender, args) end
+
+---Event fired when the start time changes.
+---@param sender table The event sender.
+---@param args table The event arguments
+Effect.StartTimeChanged = function (sender, args) end
+
 
 ---Describes the category of an effect.
 ---@class EffectCategory
@@ -620,6 +862,21 @@ function EffectList:GetCount() end
 ---@return number #The index of the effect or -1 if it is not in the list.
 function EffectList:IndexOf(value) end
 
+---Event fired when an effect is added.
+---@param sender table The event sender.
+---@param args table The event arguments
+EffectList.EffectAdded = function (sender, args) end
+
+---Event fired when an effect is removed.
+---@param sender table The event sender.
+---@param args table The event arguments
+EffectList.EffectRemoved = function (sender, args) end
+
+---Event fired when all the effects are cleared.
+---@param sender table The event sender.
+---@param args table The event arguments
+EffectList.EffectsCleared = function (sender, args) end
+
 
 ---Base class for any entity in the game.
 ---@class Entity : PropertyHandler
@@ -632,6 +889,11 @@ function Entity:GetName() end
 ---Returns true if this entity is the local player entity. (Deprecated).
 ---@return boolean #Whether this is the local player entity or not.
 function Entity:IsLocalPlayer() end
+
+---Event fired when the actor's name changes.
+---@param sender table The event sender.
+---@param args table The event arguments
+Entity.NameChanged = function (sender, args) end
 
 
 ---@class EntityReference : Object
@@ -697,6 +959,16 @@ function Equipment:GetItem(index) end
 ---Gets the number of items that can be equipped.
 ---@return number #The number of items that can be equipped.
 function Equipment:GetSize() end
+
+---Event fired when an item is equipped.
+---@param sender table The event sender.
+---@param args table The event arguments
+Equipment.ItemEquipped = function (sender, args) end
+
+---Event fired when an item is unequipped.
+---@param sender table The event sender.
+---@param args table The event arguments
+Equipment.ItemUnequipped = function (sender, args) end
 
 
 ---Information about a gambit skill.
@@ -1291,6 +1563,16 @@ function LocalPlayer:IsLinkDead() end
 ---@return boolean #A flag indicating if the player has voice communication enabled.
 function LocalPlayer:IsVoiceEnabled() end
 
+---Event fired when the player's in combat state changes.
+---@param sender table The event sender.
+---@param args table The event arguments
+LocalPlayer.InCombatChanged = function (sender, args) end
+
+---Event fired when the player's mount has changed.
+---@param sender table The event sender.
+---@param args table The event arguments
+LocalPlayer.MountChanged = function (sender, args) end
+
 
 ---Class representing an in game mount.
 ---@class Mount : Entity
@@ -1336,6 +1618,31 @@ function Party:IsAssistTarget(player) end
 ---@param player Player The player to test.
 ---@return boolean #True if the player is a member of this party.
 function Party:IsMember(player) end
+
+---Event fired when an assist target has been added.
+---@param sender table The event sender.
+---@param args table The event arguments
+Party.AssistTargetAdded = function (sender, args) end
+
+---Event fired when an assist target has been removed.
+---@param sender table The event sender.
+---@param args table The event arguments
+Party.AssistTargetRemoved = function (sender, args) end
+
+---Event fired when the leader of the fellowship has changed.
+---@param sender table The event sender.
+---@param args table The event arguments
+Party.LeaderChanged = function (sender, args) end
+
+---Event fired when a member has joined the party.
+---@param sender table The event sender.
+---@param args table The event arguments
+Party.MemberAdded = function (sender, args) end
+
+---Event fired when a member has been removed from the party.
+---@param sender table The event sender.
+---@param args table The event arguments
+Party.MemberRemoved = function (sender, args) end
 
 
 ---@class PartyMember : Player
@@ -1419,6 +1726,41 @@ function Player:IsVoiceActive() end
 ---@return boolean #A flag indicating if the player has voice communication enabled.
 function Player:IsVoiceEnabled() end
 
+---Event fired when the link dead state of the player has changed.
+---@param sender table The event sender.
+---@param args table The event arguments
+Player.IsLinkDeadChanged = function (sender, args) end
+
+---Event fired when the state of the player transmitting voice data has changed.
+---@param sender table The event sender.
+---@param args table The event arguments
+Player.IsVoiceActiveChanged = function (sender, args) end
+
+---Event fired when the voice enabled state of the player has changed.
+---@param sender table The event sender.
+---@param args table The event arguments
+Player.IsVoiceEnabledChanged = function (sender, args) end
+
+---Event fired when the party of the player has changed.
+---@param sender table The event sender.
+---@param args table The event arguments
+Player.PartyChanged = function (sender, args) end
+
+---Event fired when the pet of the player has changed.
+---@param sender table The event sender.
+---@param args table The event arguments
+Player.PetChanged = function (sender, args) end
+
+---Event fired when the raid of the player has changed.
+---@param sender table The event sender.
+---@param args table The event arguments
+Player.RaidChanged = function (sender, args) end
+
+---Event fired when the ready state of the player has changed.
+---@param sender table The event sender.
+---@param args table The event arguments
+Player.ReadyStateChanged = function (sender, args) end
+
 
 ---A profession a free people player can have.
 ---@class Profession
@@ -1496,6 +1838,56 @@ function ProfessionInfo:GetRecipe(index) end
 ---Gets the number of recipes the player knows for this profession.
 ---@return number #The number of recipes the player knows for this profession.
 function ProfessionInfo:GetRecipeCount() end
+
+---Event fired when the current mastery experience earned for the profession has changed.
+---@param sender table The event sender.
+---@param args table The event arguments
+ProfessionInfo.MasteryExperienceChanged = function (sender, args) end
+
+---Event fired when the target mastery experience for the profession has changed.
+---@param sender table The event sender.
+---@param args table The event arguments
+ProfessionInfo.MasteryExperienceTargetChanged = function (sender, args) end
+
+---Event fired when the current mastery level of the profession has changed.
+---@param sender table The event sender.
+---@param args table The event arguments
+ProfessionInfo.MasteryLevelChanged = function (sender, args) end
+
+---Event fired when the current mastery title of the profession has changed.
+---@param sender table The event sender.
+---@param args table The event arguments
+ProfessionInfo.MasteryTitleChanged = function (sender, args) end
+
+---Event fired when the current proficiency experience earned for the profession has changed.
+---@param sender table The event sender.
+---@param args table The event arguments
+ProfessionInfo.ProficiencyExperienceChanged = function (sender, args) end
+
+---Event fired when the target proficiency experience for the profession has changed.
+---@param sender table The event sender.
+---@param args table The event arguments
+ProfessionInfo.ProficiencyExperienceTargetChanged = function (sender, args) end
+
+---Event fired when the current proficiency level of the profession has changed.
+---@param sender table The event sender.
+---@param args table The event arguments
+ProfessionInfo.ProficiencyLevelChanged = function (sender, args) end
+
+---Event fired when the current proficiency title of the profession has changed.
+---@param sender table The event sender.
+---@param args table The event arguments
+ProfessionInfo.ProficiencyTitleChanged = function (sender, args) end
+
+---Event fired when a recipe has been added.
+---@param sender table The event sender.
+---@param args table The event arguments
+ProfessionInfo.RecipeAdded = function (sender, args) end
+
+---Event fired when a recipe has been removed.
+---@param sender table The event sender.
+---@param args table The event arguments
+ProfessionInfo.RecipeRemoved = function (sender, args) end
 
 
 ---@class PropertyHandler : EntityReference
@@ -1754,6 +2146,16 @@ function Wallet:GetItem(index) end
 ---@return number #The number of items in the player's wallet.
 function Wallet:GetSize() end
 
+---Event fired when an item is added to the wallet.
+---@param sender table The event sender.
+---@param args table The event arguments
+Wallet.ItemAdded = function (sender, args) end
+
+---Event fired when an item is removed from the wallet.
+---@param sender table The event sender.
+---@param args table The event arguments
+Wallet.ItemRemoved = function (sender, args) end
+
 
 ---An item that is contained in a user's wallet.
 ---@class WalletItem : Object
@@ -1786,6 +2188,16 @@ function WalletItem:GetSmallImage() end
 ---Gets a flag indicating if the item is shared across all characters of an account.
 ---@return boolean #A flag indicating if the item is shared across all characters of an account.
 function WalletItem:IsAccountItem() end
+
+---Event fired when the max quantity of the wallet item changes.
+---@param sender table The event sender.
+---@param args table The event arguments
+WalletItem.MaxQuantityChanged = function (sender, args) end
+
+---Event fired when the quantity of the wallet item changes.
+---@param sender table The event sender.
+---@param args table The event arguments
+WalletItem.QuantityChanged = function (sender, args) end
 
 
 ---Defines the client languages.
@@ -1824,6 +2236,11 @@ Object = {}
 ---@return Object
 Turbine.Object = function () end
 
+---Initializes a new Object
+---`Object()` : Initializes a new Object
+---@return Object
+function Object:Constructor() end
+
 
 ---Provides information about a specific plugin that has been loaded.
 ---@class Plugin : Object
@@ -1844,6 +2261,16 @@ function Plugin:GetName() end
 ---Gets the version of the plugin.
 ---@return string #The version of the plugin.
 function Plugin:GetVersion() end
+
+---Event fired when a plugin's main package has finished loading.
+---@param sender table The event sender.
+---@param args table The event arguments
+Plugin.Load = function (sender, args) end
+
+---Event fired before a plugin is unloaded.
+---@param sender table The event sender.
+---@param args table The event arguments
+Plugin.Unload = function (sender, args) end
 
 
 ---Provides the ability to save and load plugin data.
@@ -1927,6 +2354,11 @@ ShellCommand = {}
 ---@return ShellCommand
 Turbine.ShellCommand = function () end
 
+---Initializes a new ShellCommand
+---`ShellCommand()` : Initializes a new ShellCommand
+---@return ShellCommand
+function ShellCommand:Constructor() end
+
 ---Executes the command.
 ---@param argumentText string The arguments string passed along with the command.
 function ShellCommand:Execute(argumentText) end
@@ -1943,15 +2375,33 @@ function ShellCommand:GetShortHelp() end
 ---The core UI package that allows users to create low level controls.
 ---@class UI
 ---@field BlendMode BlendMode Specifies a blending method.
+---@field Button Button | function A simple button control.
+---@field CheckBox CheckBox | function A control used to indicate a boolean state.
+---@field Color Color | function Represents a 4 channel color with red, green, blue, and alpha.
 ---@field ContentAlignment ContentAlignment Specifies the alignment of content within a region.
+---@field ContextMenu ContextMenu | function Defines a menu that can be displayed to the user.
+---@field Control Control | function The base control class for all available user interface elements.
+---@field ControlList ControlList | function Defines a list of controls.
 ---@field Display Display Provides display information.
 ---@field DragDropInfo DragDropInfo Container for information about drag drop events.
 ---@field FontStyle FontStyle Specifies styles that can be applied to fonts.
+---@field Graphic Graphic | function Represents a graphic resources that is loaded from the DAT files or from disk.
 ---@field HorizontalLayout HorizontalLayout Specifies how to perform horizontal layouts.
+---@field Label Label | function A simple label for displaying text.
+---@field ListBox ListBox | function A simple list box for laying out child controls in a list.
 ---@field Lotro Lotro The Lord of the Rings UI package.
+---@field MenuItem MenuItem | function Defines a menu item.
+---@field MenuItemList MenuItemList | function Defines a list of menu items.
 ---@field MouseButton MouseButton Defines one of the mouse buttons.
 ---@field Orientation Orientation Specifies orientation of objects.
+---@field ScrollBar ScrollBar | function A control for scrolling contents.
+---@field ScrollableControl ScrollableControl | function Defines a control that can be scrolled.
+---@field TextBox TextBox | function A control for inputting text.
+---@field TreeNode TreeNode | function The base for any element that will be part of a tree view control.
+---@field TreeNodeList TreeNodeList | function Defines a list of controls.
+---@field TreeView TreeView | function A control to display data in a tree.
 ---@field VerticalLayout VerticalLayout Specifies how to perform vertical layouts.
+---@field Window Window | function A top level window control.
 UI = {}
 
 
@@ -1978,7 +2428,6 @@ BlendMode = {
 	Undefined = 8,
 }
 
-
 ---A simple button control.
 ---@class Button : Label
 Button = {}
@@ -1987,6 +2436,21 @@ Button = {}
 ---`Button()` : Initializes a new Button
 ---@return Button
 Turbine.UI.Button = function () end
+
+---Initializes a new Button
+---`Button()` : Initializes a new Button
+---@return Button
+function Button:Constructor() end
+
+---Event fired when the user clicks on the button.
+---@param sender table The event sender.
+---@param args table The event arguments
+Button.Click = function (sender, args) end
+
+---Event fired when the enabled state of the control changes.
+---@param sender table The event sender.
+---@param args table The event arguments
+Button.EnabledChanged = function (sender, args) end
 
 
 ---A control used to indicate a boolean state.
@@ -1997,6 +2461,11 @@ CheckBox = {}
 ---`CheckBox()` : Initializes a new CheckBox
 ---@return CheckBox
 Turbine.UI.CheckBox = function () end
+
+---Initializes a new CheckBox
+---`CheckBox()` : Initializes a new CheckBox
+---@return CheckBox
+function CheckBox:Constructor() end
 
 ---Gets the alignment of the check within the check box.
 ---@return number #The alignment of the check in the check box.
@@ -2013,6 +2482,16 @@ function CheckBox:SetCheckAlignment(value) end
 ---Sets a flag indicating if the check box is checked.
 ---@param value boolean True to check the check box.
 function CheckBox:SetChecked(value) end
+
+---Event fired when the checked state changes.
+---@param sender table The event sender.
+---@param args table The event arguments
+CheckBox.CheckedChanged = function (sender, args) end
+
+---Event fired when the enabled state of the control changes.
+---@param sender table The event sender.
+---@param args table The event arguments
+CheckBox.EnabledChanged = function (sender, args) end
 
 
 ---Represents a 4 channel color with red, green, blue, and alpha.
@@ -2175,6 +2654,19 @@ Color = {}
 ---@return Color
 Turbine.UI.Color = function (a, r, g, b) end
 
+---Initializes a new color.
+---`Color()` : Initializes a new color.
+---`Color(r, g, b)` : Initializes a new color from r, g, b components.
+---`Color(a, r, g, b)` : Initializes a new color from a, r, g, b components.
+---@overload fun():Color
+---@overload fun(r:number, g:number, b:number):Color
+---@param r number The red component.
+---@param g number The green component.
+---@param b number The blue component.
+---@param a number The alpha component.
+---@return Color
+function Color:Constructor(a, r, g, b) end
+
 
 ---Specifies the alignment of content within a region.
 ---@class ContentAlignment
@@ -2211,6 +2703,11 @@ ContextMenu = {}
 ---@return ContextMenu
 Turbine.UI.ContextMenu = function () end
 
+---Initializes a new ContextMenu
+---`ContextMenu()` : Initializes a new ContextMenu
+---@return ContextMenu
+function ContextMenu:Constructor() end
+
 ---Closes the menu if it is displayed.
 function ContextMenu:Close() end
 
@@ -2235,6 +2732,11 @@ Control = {}
 ---`Control()` : Initializes a new Control
 ---@return Control
 Turbine.UI.Control = function () end
+
+---Initializes a new Control
+---`Control()` : Initializes a new Control
+---@return Control
+function Control:Constructor() end
 
 ---Request that the control take focus.
 function Control:Focus() end
@@ -2438,6 +2940,116 @@ function Control:SetWidth(value) end
 ---@param value number The new Z order of the control.
 function Control:SetZOrder(value) end
 
+---Event fired when a drag drop operation is completed.
+---@param sender table The event sender.
+---@param args table The event arguments
+Control.DragDrop = function (sender, args) end
+
+---Event fired when a drag drop operation enters the control.
+---@param sender table The event sender.
+---@param args table The event arguments
+Control.DragEnter = function (sender, args) end
+
+---Event fired when a drag drop operation leaves the control.
+---@param sender table The event sender.
+---@param args table The event arguments
+Control.DragLeave = function (sender, args) end
+
+---Event fired when a drag drop operation starts the control.
+---@param sender table The event sender.
+---@param args table The event arguments
+Control.DragStart = function (sender, args) end
+
+---Event fired when the enabled state of the control changes.
+---@param sender table The event sender.
+---@param args table The event arguments
+Control.EnabledChanged = function (sender, args) end
+
+---Event fired when the control gains focus.
+---@param sender table The event sender.
+---@param args table The event arguments
+Control.FocusGained = function (sender, args) end
+
+---Event fired when the control loses focus.
+---@param sender table The event sender.
+---@param args table The event arguments
+Control.FocusLost = function (sender, args) end
+
+---Event fired when a key is pressed down.
+---@param sender table The event sender.
+---@param args table The event arguments
+Control.KeyDown = function (sender, args) end
+
+---Event fired when a key is released.
+---@param sender table The event sender.
+---@param args table The event arguments
+Control.KeyUp = function (sender, args) end
+
+---Event fired when a mouse button is clicked.
+---@param sender table The event sender.
+---@param args table The event arguments
+Control.MouseClick = function (sender, args) end
+
+---Event fired when a mouse button is double clicked.
+---@param sender table The event sender.
+---@param args table The event arguments
+Control.MouseDoubleClick = function (sender, args) end
+
+---Event fired when a mouse button is pressed.
+---@param sender table The event sender.
+---@param args table The event arguments
+Control.MouseDown = function (sender, args) end
+
+---Event fired when the mouse enters the control.
+---@param sender table The event sender.
+---@param args table The event arguments
+Control.MouseEnter = function (sender, args) end
+
+---Event fired when the mouse is hovering over the control.
+---@param sender table The event sender.
+---@param args table The event arguments
+Control.MouseHover = function (sender, args) end
+
+---Event fired when the mouse leaves the cotnrol.
+---@param sender table The event sender.
+---@param args table The event arguments
+Control.MouseLeave = function (sender, args) end
+
+---Event fired when the mouse moves.
+---@param sender table The event sender.
+---@param args table The event arguments
+Control.MouseMove = function (sender, args) end
+
+---Event fired when a mouse button is released.
+---@param sender table The event sender.
+---@param args table The event arguments
+Control.MouseUp = function (sender, args) end
+
+---Event fired when a mouse wheel moves.
+---@param sender table The event sender.
+---@param args table The event arguments
+Control.MouseWheel = function (sender, args) end
+
+---Event fired when the position of the control changes.
+---@param sender table The event sender.
+---@param args table The event arguments
+Control.PositionChanged = function (sender, args) end
+
+---Event fired when the size of the control changes.
+---@param sender table The event sender.
+---@param args table The event arguments
+Control.SizeChanged = function (sender, args) end
+
+---Event fired every frame when WantsUpdates is enabled.
+---@param sender table The event sender.
+---@param args table The event arguments
+Control.Update = function (sender, args) end
+
+---Event fired when the visible state of the control changes.
+---@param sender table The event sender.
+---@param args table The event arguments
+Control.VisibleChanged = function (sender, args) end
+
 
 ---Defines a list of controls.
 ---@class ControlList : Object
@@ -2447,6 +3059,11 @@ ControlList = {}
 ---`ControlList()` : Initializes a new ControlList
 ---@return ControlList
 Turbine.UI.ControlList = function () end
+
+---Initializes a new ControlList
+---`ControlList()` : Initializes a new ControlList
+---@return ControlList
+function ControlList:Constructor() end
 
 ---Adds a menu item.
 ---@param item Control The menu item to add.
@@ -2556,9 +3173,20 @@ Graphic = {}
 ---@overload fun():Graphic
 ---@overload fun(dataId:number):Graphic
 ---@param dataId number Game asset ID
----@param filename string
+---@param filename string 
 ---@return Graphic
 Turbine.UI.Graphic = function (filename) end
+
+---Constructs an empty graphics.
+---`Graphic()` : Constructs an empty graphics.
+---`Graphic(dataId)` : Constructs a graphic from a game asset by its ID.
+---`Graphic(filename)` : Constructs a graphic from a file.
+---@overload fun():Graphic
+---@overload fun(dataId:number):Graphic
+---@param dataId number
+---@param filename string
+---@return Graphic
+function Graphic:Constructor(filename) end
 
 
 ---Specifies how to perform horizontal layouts.
@@ -2579,6 +3207,11 @@ Label = {}
 ---`Label()` : Initializes a new Label
 ---@return Label
 Turbine.UI.Label = function () end
+
+---Initializes a new Label
+---`Label()` : Initializes a new Label
+---@return Label
+function Label:Constructor() end
 
 ---Appends text to the end of the label.
 ---@param value string The text to append.
@@ -2708,6 +3341,11 @@ ListBox = {}
 ---`ListBox()` : Initializes a new ListBox
 ---@return ListBox
 Turbine.UI.ListBox = function () end
+
+---Initializes a new ListBox
+---`ListBox()` : Initializes a new ListBox
+---@return ListBox
+function ListBox:Constructor() end
 
 ---Adds an item to the list box.
 ---@param item Control The item to add.
@@ -2847,16 +3485,45 @@ function ListBox:SetWrapIndentAmount(value) end
 ---@param sortMethod Object The function used to sort the elements in the list box.
 function ListBox:Sort(sortMethod) end
 
+---Event fired when an item is added.
+---@param sender table The event sender.
+---@param args table The event arguments
+ListBox.ItemAdded = function (sender, args) end
+
+---Event fired when an item is removed.
+---@param sender table The event sender.
+---@param args table The event arguments
+ListBox.ItemRemoved = function (sender, args) end
+
+---Event fired when the selected index has changed.
+---@param sender table The event sender.
+---@param args table The event arguments
+ListBox.SelectedIndexChanged = function (sender, args) end
+
 
 ---The Lord of the Rings UI package.
 ---@class Lotro
 ---@field Action Action List available actions that can be interpretted.
 ---@field BaseItemControl BaseItemControl Base item control for Lotro interface item classes.
+---@field Button LotroButton | function A standard Lord of the Rings silver button.
+---@field CheckBox LotroCheckBox | function A standard Lord of the Rings check box.
 ---@field DragDropInfo LotroDragDropInfo Container for information about drag drop events.
+---@field EffectDisplay EffectDisplay | function Provides a control for displaying an effect indicator.
+---@field EntityControl EntityControl | function A control for providing standard entity selection and context sensitive menu support.
+---@field EquipmentSlot EquipmentSlot | function A EquipmentSlot button for for equipping items.
 ---@field Font Font The list of available fonts.
+---@field GoldButton GoldButton | function A standard Lord of the Rings gold button.
+---@field GoldWindow GoldWindow | function A standard Lord of the Rings gold window.
+---@field ItemControl ItemControl | function Provides a control for displaying an item.
+---@field ItemInfoControl ItemInfoControl | function Provides a control for displaying item information.
 ---@field LotroUI LotroUI Provides access to the built in game UIs.
 ---@field LotroUIElement LotroUIElement The list of UIs that can be enabled or disabled.
+---@field Quickslot Quickslot | function A quickslot button for using skills or items.
+---@field ScrollBar LotroScrollBar | function A standard Lord of the Rings scroll bar.
+---@field Shortcut Shortcut | function Encapsulates information about a short cut.
 ---@field ShortcutType ShortcutType Defines one of the shortcut types.
+---@field TextBox LotroTextBox | function A standard Lord of the Rings text box.
+---@field Window LotroWindow | function A standard Lord of the Rings silver window.
 Lotro = {}
 
 
@@ -3420,6 +4087,11 @@ LotroButton = {}
 ---@return LotroButton
 Turbine.UI.Lotro.Button = function () end
 
+---Initializes a new Button
+---`Button()` : Initializes a new Button
+---@return LotroButton
+function LotroButton:Constructor() end
+
 
 ---A standard Lord of the Rings check box.
 ---@class LotroCheckBox : CheckBox
@@ -3429,6 +4101,11 @@ LotroCheckBox = {}
 ---`CheckBox()` : Initializes a new CheckBox
 ---@return LotroCheckBox
 Turbine.UI.Lotro.CheckBox = function () end
+
+---Initializes a new CheckBox
+---`CheckBox()` : Initializes a new CheckBox
+---@return LotroCheckBox
+function LotroCheckBox:Constructor() end
 
 
 ---Container for information about drag drop events.
@@ -3449,6 +4126,11 @@ EffectDisplay = {}
 ---@return EffectDisplay
 Turbine.UI.Lotro.EffectDisplay = function () end
 
+---Initializes a new EffectDisplay
+---`EffectDisplay()` : Initializes a new EffectDisplay
+---@return EffectDisplay
+function EffectDisplay:Constructor() end
+
 ---Gets the effect displayed by the control.
 ---@return Effect #The effect the control is displaying.
 function EffectDisplay:GetEffect() end
@@ -3467,6 +4149,11 @@ EntityControl = {}
 ---@return EntityControl
 Turbine.UI.Lotro.EntityControl = function () end
 
+---Initializes a new EntityControl
+---`EntityControl()` : Initializes a new EntityControl
+---@return EntityControl
+function EntityControl:Constructor() end
+
 
 ---A EquipmentSlot button for for equipping items.
 ---@class EquipmentSlot : BaseItemControl
@@ -3477,6 +4164,11 @@ EquipmentSlot = {}
 ---@return EquipmentSlot
 Turbine.UI.Lotro.EquipmentSlot = function () end
 
+---Initializes a new EquipmentSlot
+---`EquipmentSlot()` : Initializes a new EquipmentSlot
+---@return EquipmentSlot
+function EquipmentSlot:Constructor() end
+
 ---Gets the equipment slot visualized by this UI equipment slot.
 ---@return number #The equipment slot visualized by this UI equipment slot.
 function EquipmentSlot:GetEquipmentSlot() end
@@ -3484,6 +4176,11 @@ function EquipmentSlot:GetEquipmentSlot() end
 ---Sets the equipment slot visualized by this UI equipment slot.
 ---@param value number The equipment slot visualized by this UI equipment slot.
 function EquipmentSlot:SetEquipmentSlot(value) end
+
+---Event fired when a drag drop operation is completed.
+---@param sender table The event sender.
+---@param args table The event arguments
+EquipmentSlot.DragDrop = function (sender, args) end
 
 
 ---The list of available fonts.
@@ -3599,6 +4296,11 @@ GoldButton = {}
 ---@return GoldButton
 Turbine.UI.Lotro.GoldButton = function () end
 
+---Initializes a new GoldButton
+---`GoldButton()` : Initializes a new GoldButton
+---@return GoldButton
+function GoldButton:Constructor() end
+
 
 ---A standard Lord of the Rings gold window.
 ---@class GoldWindow : LotroWindow
@@ -3609,6 +4311,11 @@ GoldWindow = {}
 ---@return GoldWindow
 Turbine.UI.Lotro.GoldWindow = function () end
 
+---Initializes a new GoldWindow
+---`GoldWindow()` : Initializes a new GoldWindow
+---@return GoldWindow
+function GoldWindow:Constructor() end
+
 
 ---Provides a control for displaying an item.
 ---@class ItemControl : BaseItemControl
@@ -3618,6 +4325,11 @@ ItemControl = {}
 ---`ItemControl()` : Initializes a new ItemControl
 ---@return ItemControl
 Turbine.UI.Lotro.ItemControl = function () end
+
+---Initializes a new ItemControl
+---`ItemControl()` : Initializes a new ItemControl
+---@return ItemControl
+function ItemControl:Constructor() end
 
 ---Gets the item displayed by the control.
 ---@return Item #The item the control is displaying.
@@ -3637,6 +4349,11 @@ ItemInfoControl = {}
 ---@return ItemInfoControl
 Turbine.UI.Lotro.ItemInfoControl = function () end
 
+---Initializes a new ItemInfoControl
+---`ItemInfoControl()` : Initializes a new ItemInfoControl
+---@return ItemInfoControl
+function ItemInfoControl:Constructor() end
+
 ---Gets the item displayed by the control.
 ---@return ItemInfo #The item the control is displaying.
 function ItemInfoControl:GetItemInfo() end
@@ -3652,6 +4369,11 @@ function ItemInfoControl:SetItemInfo(value) end
 ---Gets the quantity displayed.
 ---@param value number The quantity displayed.
 function ItemInfoControl:SetQuantity(value) end
+
+---Event fired when the enabled state of the control changes.
+---@param sender table The event sender.
+---@param args table The event arguments
+ItemInfoControl.EnabledChanged = function (sender, args) end
 
 
 ---Provides access to the built in game UIs.
@@ -3707,6 +4429,11 @@ Quickslot = {}
 ---@return Quickslot
 Turbine.UI.Lotro.Quickslot = function () end
 
+---Initializes a new Quickslot
+---`Quickslot()` : Initializes a new Quickslot
+---@return Quickslot
+function Quickslot:Constructor() end
+
 ---Gets the shortcut on the quickslot.
 ---@return Shortcut #The shortcut info for the quickslot.
 function Quickslot:GetShortcut() end
@@ -3723,6 +4450,16 @@ function Quickslot:SetShortcut(value) end
 ---@param value boolean True if right mouse clicks will activate the quickslot.
 function Quickslot:SetUseOnRightClick(value) end
 
+---Event fired when a drag drop operation is completed.
+---@param sender table The event sender.
+---@param args table The event arguments
+Quickslot.DragDrop = function (sender, args) end
+
+---Event fired when the shortcut changes.
+---@param sender table The event sender.
+---@param args table The event arguments
+Quickslot.ShortcutChanged = function (sender, args) end
+
 
 ---A standard Lord of the Rings scroll bar.
 ---@class LotroScrollBar : ScrollBar
@@ -3732,6 +4469,16 @@ LotroScrollBar = {}
 ---`ScrollBar()` : Initializes a new ScrollBar
 ---@return LotroScrollBar
 Turbine.UI.Lotro.ScrollBar = function () end
+
+---Initializes a new ScrollBar
+---`ScrollBar()` : Initializes a new ScrollBar
+---@return LotroScrollBar
+function LotroScrollBar:Constructor() end
+
+---Event fired when the orientation has changed.
+---@param sender table The event sender.
+---@param args table The event arguments
+LotroScrollBar.OrientationChanged = function (sender, args) end
 
 
 ---Encapsulates information about a short cut.
@@ -3749,6 +4496,18 @@ Shortcut = {}
 ---@param data string the data string associated with this shortcut.
 ---@return Shortcut
 Turbine.UI.Lotro.Shortcut = function (type, data) end
+
+---Initializes a new shortcut.
+---`Shortcut()` : Initializes a new shortcut.
+---`Shortcut(item)` : Initializes a new shortcut.
+---`Shortcut(type, data)` : Initializes a new shortcut.
+---@overload fun():Shortcut
+---@overload fun(item:Item):Shortcut
+---@param item Item The item to create the shortcut from.
+---@param type ShortcutType The type of shortcut that will be created.
+---@param data string the data string associated with this shortcut.
+---@return Shortcut
+function Shortcut:Constructor(type, data) end
 
 ---Gets the data associated with the shortcut.
 ---@return string #The shortcut data.
@@ -3798,6 +4557,11 @@ LotroTextBox = {}
 ---@return LotroTextBox
 Turbine.UI.Lotro.TextBox = function () end
 
+---Initializes a new TextBox
+---`TextBox()` : Initializes a new TextBox
+---@return LotroTextBox
+function LotroTextBox:Constructor() end
+
 
 ---A standard Lord of the Rings silver window.
 ---@class LotroWindow : Window
@@ -3807,6 +4571,11 @@ LotroWindow = {}
 ---`Window()` : Initializes a new Window
 ---@return LotroWindow
 Turbine.UI.Lotro.Window = function () end
+
+---Initializes a new Window
+---`Window()` : Initializes a new Window
+---@return LotroWindow
+function LotroWindow:Constructor() end
 
 ---Gets if the window is resizable.
 ---@return boolean #True if the window can be resized.
@@ -3837,6 +4606,18 @@ MenuItem = {}
 ---@return MenuItem
 Turbine.UI.MenuItem = function (text, enabled, checked) end
 
+---Constructs a new menu item.
+---`MenuItem(text)` : Constructs a new menu item.
+---`MenuItem(text, enabled)` : Constructs a new menu item.
+---`MenuItem(text, enabled, checked)` : Constructs a new menu item.
+---@overload fun(text:string):MenuItem
+---@overload fun(text:string, enabled:boolean):MenuItem
+---@param text string The text to use for the menu item.
+---@param enabled boolean Flag indicating if the menu item is enabled.
+---@param checked boolean Flag indicating if the menu item is checked.
+---@return MenuItem
+function MenuItem:Constructor(text, enabled, checked) end
+
 ---Gets the text of the menu item.
 ---@return string #The text displayed for the item.
 function MenuItem:GetText() end
@@ -3861,6 +4642,11 @@ function MenuItem:SetEnabled(value) end
 ---@param value string The text displayed for the item.
 function MenuItem:SetText(value) end
 
+---Event fired when a user clicks on the menu item.
+---@param sender table The event sender.
+---@param args table The event arguments
+MenuItem.Click = function (sender, args) end
+
 
 ---Defines a list of menu items.
 ---@class MenuItemList : Object
@@ -3870,6 +4656,11 @@ MenuItemList = {}
 ---`MenuItemList()` : Initializes a new MenuItemList
 ---@return MenuItemList
 Turbine.UI.MenuItemList = function () end
+
+---Initializes a new MenuItemList
+---`MenuItemList()` : Initializes a new MenuItemList
+---@return MenuItemList
+function MenuItemList:Constructor() end
 
 ---Adds a menu item.
 ---@param item MenuItem The menu item to add.
@@ -3947,6 +4738,11 @@ ScrollBar = {}
 ---@return ScrollBar
 Turbine.UI.ScrollBar = function () end
 
+---Initializes a new ScrollBar
+---`ScrollBar()` : Initializes a new ScrollBar
+---@return ScrollBar
+function ScrollBar:Constructor() end
+
 ---Gets the button that is used to decrement the value.
 ---@return Object #The button to decrement the value.
 function ScrollBar:GetDecrementButton() end
@@ -4019,6 +4815,16 @@ function ScrollBar:SetThumbButton(value) end
 ---@param value number The current value of the scroll bar.
 function ScrollBar:SetValue(value) end
 
+---Event fired when the orientation has changed.
+---@param sender table The event sender.
+---@param args table The event arguments
+ScrollBar.OrientationChanged = function (sender, args) end
+
+---Event fired when the value has changed.
+---@param sender table The event sender.
+---@param args table The event arguments
+ScrollBar.ValueChanged = function (sender, args) end
+
 
 ---Defines a control that can be scrolled.
 ---@class ScrollableControl : Control
@@ -4028,6 +4834,11 @@ ScrollableControl = {}
 ---`ScrollableControl()` : Initializes a new ScrollableControl
 ---@return ScrollableControl
 Turbine.UI.ScrollableControl = function () end
+
+---Initializes a new ScrollableControl
+---`ScrollableControl()` : Initializes a new ScrollableControl
+---@return ScrollableControl
+function ScrollableControl:Constructor() end
 
 ---Gets the horizontal scroll bar.
 ---@return Object #The horizontal scroll bar.
@@ -4055,6 +4866,11 @@ TextBox = {}
 ---@return TextBox
 Turbine.UI.TextBox = function () end
 
+---Initializes a new TextBox
+---`TextBox()` : Initializes a new TextBox
+---@return TextBox
+function TextBox:Constructor() end
+
 ---Gets a flag indicating if the text in the control is read only.
 ---@return boolean #True if the control is read only.
 function TextBox:IsReadOnly() end
@@ -4062,6 +4878,16 @@ function TextBox:IsReadOnly() end
 ---Sets a flag indicating if the text in the control is read only.
 ---@param value boolean True to set the control to read only.
 function TextBox:SetReadOnly(value) end
+
+---Event fired when the enabled state of the control changes.
+---@param sender table The event sender.
+---@param args table The event arguments
+TextBox.EnabledChanged = function (sender, args) end
+
+---Event fired when the text is changed.
+---@param sender table The event sender.
+---@param args table The event arguments
+TextBox.TextChanged = function (sender, args) end
 
 
 ---The base for any element that will be part of a tree view control.
@@ -4072,6 +4898,11 @@ TreeNode = {}
 ---`TreeNode()` : Initializes a new TreeNode
 ---@return TreeNode
 Turbine.UI.TreeNode = function () end
+
+---Initializes a new TreeNode
+---`TreeNode()` : Initializes a new TreeNode
+---@return TreeNode
+function TreeNode:Constructor() end
 
 ---Collapses the node.
 function TreeNode:Collapse() end
@@ -4108,6 +4939,11 @@ function TreeNode:IsSelected() end
 ---@param value boolean True if this node should be expanded.
 function TreeNode:SetExpanded(value) end
 
+---Event fired when the selected state of the node has changed.
+---@param sender table The event sender.
+---@param args table The event arguments
+TreeNode.SelectedChanged = function (sender, args) end
+
 
 ---Defines a list of controls.
 ---@class TreeNodeList : Object
@@ -4117,6 +4953,11 @@ TreeNodeList = {}
 ---`TreeNodeList()` : Initializes a new TreeNodeList
 ---@return TreeNodeList
 Turbine.UI.TreeNodeList = function () end
+
+---Initializes a new TreeNodeList
+---`TreeNodeList()` : Initializes a new TreeNodeList
+---@return TreeNodeList
+function TreeNodeList:Constructor() end
 
 ---Adds a tree node.
 ---@param node TreeNode The tree node to add.
@@ -4161,6 +5002,11 @@ TreeView = {}
 ---`TreeView()` : Initializes a new TreeView
 ---@return TreeView
 Turbine.UI.TreeView = function () end
+
+---Initializes a new TreeView
+---`TreeView()` : Initializes a new TreeView
+---@return TreeView
+function TreeView:Constructor() end
 
 ---Collapses all nodes in the tree view.
 function TreeView:CollapseAll() end
@@ -4207,6 +5053,11 @@ function TreeView:SetSelectedNode(value) end
 ---@param value Object The function to sort tree elements.
 function TreeView:SetSortMethod(value) end
 
+---Event fired when the selected node has changed.
+---@param sender table The event sender.
+---@param args table The event arguments
+TreeView.SelectedNodeChanged = function (sender, args) end
+
 
 ---Specifies how to perform vertical layouts.
 ---@class VerticalLayout
@@ -4226,6 +5077,11 @@ Window = {}
 ---`Window()` : Initializes a new Window
 ---@return Window
 Turbine.UI.Window = function () end
+
+---Initializes a new Window
+---`Window()` : Initializes a new Window
+---@return Window
+function Window:Constructor() end
 
 ---Activates a window, bringing it to the front.
 function Window:Activate() end
@@ -4292,3 +5148,23 @@ function Window:SetMinimumWidth(value) end
 ---Sets the text of the window.
 ---@param value string The text of the window.
 function Window:SetText(value) end
+
+---Event fired when a window is activated.
+---@param sender table The event sender.
+---@param args table The event arguments
+Window.Activated = function (sender, args) end
+
+---Event fired when a window is closed.
+---@param sender table The event sender.
+---@param args table The event arguments
+Window.Closed = function (sender, args) end
+
+---Event fired when a window is closing.
+---@param sender table The event sender.
+---@param args table The event arguments
+Window.Closing = function (sender, args) end
+
+---Event fired when a window is deactivated.
+---@param sender table The event sender.
+---@param args table The event arguments
+Window.Deactivated = function (sender, args) end
