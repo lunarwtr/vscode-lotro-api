@@ -2,8 +2,12 @@
 	"name": "lotro-api",
 	"displayName": "LotRO API",
 	"description": "Lord of the Rings Online API",
-	"version": "0.0.1",
+	"version": "1.0.0",
 	"publisher": "lunarwtr",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/lunarwtr/vscode-lotro-api.git"
+	},
 	"engines": {
 		"vscode": "^1.65.0"
 	},
