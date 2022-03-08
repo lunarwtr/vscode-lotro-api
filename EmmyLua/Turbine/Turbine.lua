@@ -363,7 +363,529 @@ Alignment = {
 
 ---Provides classes for accessing game related information.
 ---@class Attributes : PropertyHandler
+---@field BeorningAttributes BeorningAttributes 
+---@field BlackArrowAttributes BlackArrowAttributes 
+---@field BurglarAttributes BurglarAttributes 
+---@field CaptainAttributes CaptainAttributes 
+---@field ChampionAttributes ChampionAttributes 
+---@field ChickenAttributes ChickenAttributes 
+---@field DefilerAttributes DefilerAttributes 
+---@field DwarfAttributes DwarfAttributes 
+---@field ElfAttributes ElfAttributes 
+---@field FreePeopleAttributes FreePeopleAttributes 
+---@field GuardianAttributes GuardianAttributes 
+---@field HighElfAttributes HighElfAttributes 
+---@field HobbitAttributes HobbitAttributes 
+---@field HunterAttributes HunterAttributes 
+---@field LoreMasterAttributes LoreMasterAttributes 
+---@field ManAttributes ManAttributes 
+---@field MinstrelAttributes MinstrelAttributes 
+---@field MonsterPlayerAttributes MonsterPlayerAttributes 
+---@field RangerAttributes RangerAttributes 
+---@field ReaverAttributes ReaverAttributes 
+---@field RuneKeeperAttributes RuneKeeperAttributes 
+---@field StalkerAttributes StalkerAttributes 
+---@field StoutAxeAttributes StoutAxeAttributes 
+---@field TrollAttributes TrollAttributes 
+---@field WarLeaderAttributes WarLeaderAttributes 
+---@field WardenAttributes WardenAttributes 
+---@field WeaverAttributes WeaverAttributes 
 Attributes = {}
+
+
+---@class BeorningAttributes : ClassAttributes
+BeorningAttributes = {}
+
+---Gets the current wrath amount of a Beorning.
+---@return number #The current wrath amount of a Beorning.
+function BeorningAttributes:GetWrath() end
+
+---Returns true if the Beorning is in bear form.
+---@return boolean #True if the Beorning is in bear form.
+function BeorningAttributes:IsInBearForm() end
+
+---Event fired when the form state of the Beorning changes.
+---@param sender table The event sender.
+---@param args table The event arguments
+BeorningAttributes.FormChanged = function (sender, args) end
+
+---Event fired when the wrath level of a Beorning has changed.
+---@param sender table The event sender.
+---@param args table The event arguments
+BeorningAttributes.WrathChanged = function (sender, args) end
+
+
+---@class BlackArrowAttributes : ClassAttributes
+BlackArrowAttributes = {}
+
+
+---@class BurglarAttributes : ClassAttributes
+BurglarAttributes = {}
+
+---Gets the current stance.
+---@return number #The current stance.
+function BurglarAttributes:GetStance() end
+
+---Returns true if the first tier critical skills are usable.
+---@return boolean #True if the first tier critical skills are usable.
+function BurglarAttributes:IsCriticalTier1Available() end
+
+---Returns true if the second tier critical skills are usable.
+---@return boolean #True if the second tier critical skills are usable.
+function BurglarAttributes:IsCriticalTier2Available() end
+
+---Event fired when the critical tier 1 availability has changed.
+---@param sender table The event sender.
+---@param args table The event arguments
+BurglarAttributes.IsCriticalTier1Changed = function (sender, args) end
+
+---Event fired when the critical tier 2 availability has changed.
+---@param sender table The event sender.
+---@param args table The event arguments
+BurglarAttributes.IsCriticalTier2Changed = function (sender, args) end
+
+---Event fired when the stance changes.
+---@param sender table The event sender.
+---@param args table The event arguments
+BurglarAttributes.StanceChanged = function (sender, args) end
+
+
+---@class CaptainAttributes : ClassAttributes
+CaptainAttributes = {}
+
+---Returns true if the champion is ready to respond to defeating an enemy.
+---@return boolean #True if the champion is ready to respond to defeating an enemy.
+function CaptainAttributes:IsInEnemyDefeatResponse() end
+
+---Returns true if the champion is ready to respond to a fellow being defeated.
+---@return boolean #True if the champion is ready to respond to a fellow being defeated.
+function CaptainAttributes:IsInFellowDefeatResponse() end
+
+---Returns true if the first tier readied skills are usable.
+---@return boolean #True if the first tier readied skills are usable.
+function CaptainAttributes:IsReadiedTier1Available() end
+
+---Returns true if the second tier readied skills are usable.
+---@return boolean #True if the second tier readied skills are usable.
+function CaptainAttributes:IsReadiedTier2Available() end
+
+---Event fired when the enemy defeat response changes.
+---@param sender table The event sender.
+---@param args table The event arguments
+CaptainAttributes.IsInEnemyDefeatResponseChanged = function (sender, args) end
+
+---Event fired when the fellow defeat response changes.
+---@param sender table The event sender.
+---@param args table The event arguments
+CaptainAttributes.IsInFellowDefeatResponseChanged = function (sender, args) end
+
+---Event fired when the readied tier 1 availability has changed.
+---@param sender table The event sender.
+---@param args table The event arguments
+CaptainAttributes.IsReadiedTier1Changed = function (sender, args) end
+
+---Event fired when the readied tier 2 availability has changed.
+---@param sender table The event sender.
+---@param args table The event arguments
+CaptainAttributes.IsReadiedTier2Changed = function (sender, args) end
+
+
+---@class ChampionAttributes : ClassAttributes
+ChampionAttributes = {}
+
+---Gets the current fervor of a champion.
+---@return number #The current fervor of a champion.
+function ChampionAttributes:GetFervor() end
+
+---Gets the current stance.
+---@return number #The current stance.
+function ChampionAttributes:GetStance() end
+
+---Event fired when the fervor of a champion has changed.
+---@param sender table The event sender.
+---@param args table The event arguments
+ChampionAttributes.FervorChanged = function (sender, args) end
+
+---Event fired when the stance changes.
+---@param sender table The event sender.
+---@param args table The event arguments
+ChampionAttributes.StanceChanged = function (sender, args) end
+
+
+---@class ChickenAttributes : ClassAttributes
+ChickenAttributes = {}
+
+
+---@class DefilerAttributes : ClassAttributes
+DefilerAttributes = {}
+
+
+---@class DwarfAttributes : Attributes
+DwarfAttributes = {}
+
+
+---@class ElfAttributes : Attributes
+ElfAttributes = {}
+
+
+---@class FreePeopleAttributes : Attributes
+FreePeopleAttributes = {}
+
+---Gets the modified agility of the player.
+---@return number #The modified agility of the player.
+function FreePeopleAttributes:GetAgility() end
+
+---Gets the armor value of the player.
+---@return number #The armor value of the player.
+function FreePeopleAttributes:GetArmor() end
+
+---Gets the unmodified agility of the player.
+---@return number #The unmodified agility of the player.
+function FreePeopleAttributes:GetBaseAgility() end
+
+---Gets the base armor value of the player.
+---@return number #The base armor value of the player.
+function FreePeopleAttributes:GetBaseArmor() end
+
+---Gets the unmodified fate of the player.
+---@return number #The unmodified fate of the player.
+function FreePeopleAttributes:GetBaseFate() end
+
+---Gets the unmodified might of the player.
+---@return number #The unmodified might of the player.
+function FreePeopleAttributes:GetBaseMight() end
+
+---Gets the base resistance of the player.
+---@return number #The base resistance of the player.
+function FreePeopleAttributes:GetBaseResistance() end
+
+---Gets the unmodified vitality of the player.
+---@return number #The unmodified vitality of the player.
+function FreePeopleAttributes:GetBaseVitality() end
+
+---Gets the unmodified will of the player.
+---@return number #The unmodified will of the player.
+function FreePeopleAttributes:GetBaseWill() end
+
+---Gets the destiny points of the player.
+---@return number #. The destiny points of the player.
+function FreePeopleAttributes:GetDestinyPoints() end
+
+---Gets the disease resistance of the player.
+---@return number #The disease resistance of the player.
+function FreePeopleAttributes:GetDiseaseResistance() end
+
+---Gets the modified fate of the player.
+---@return number #The modified fate of the player.
+function FreePeopleAttributes:GetFate() end
+
+---Gets the fear resistance of the player.
+---@return number #The fear resistance of the player.
+function FreePeopleAttributes:GetFearResistance() end
+
+---Gets the modified might of the player.
+---@return number #The modified might of the player.
+function FreePeopleAttributes:GetMight() end
+
+---Gets the money of the player in copper.
+---@return number #. The money of the player in copper.
+function FreePeopleAttributes:GetMoney() end
+
+---Gets the money of the player in copper, silver, gold.
+---@return number #copper
+---@return number #silver
+---@return number #gold
+function FreePeopleAttributes:GetMoneyComponents() end
+
+---Gets the poison resistance of the player.
+---@return number #The poison resistance of the player.
+function FreePeopleAttributes:GetPoisonResistance() end
+
+---Gets information about a player's profession.
+---@param profession number 
+---@return ProfessionInfo #The profession information for the specified profession if that player has that profession. If the player does not have that profession, nil will be returned.
+function FreePeopleAttributes:GetProfessionInfo(profession) end
+
+---Gets the modified vitality of the player.
+---@return number #The modified vitality of the player.
+function FreePeopleAttributes:GetVitality() end
+
+---Gets the current vocation of the player.
+---@return number #The current vocation of the player.
+function FreePeopleAttributes:GetVocation() end
+
+---Gets the modified will of the player.
+---@return number #The modified will of the player.
+function FreePeopleAttributes:GetWill() end
+
+---Gets the wound resistance of the player.
+---@return number #The wound resistance of the player.
+function FreePeopleAttributes:GetWoundResistance() end
+
+
+---@class GuardianAttributes : ClassAttributes
+GuardianAttributes = {}
+
+---Gets the current stance.
+---@return number #The current stance.
+function GuardianAttributes:GetStance() end
+
+---Returns true if the first tier block skills are usable.
+---@return boolean #True if the first tier block skills are usable.
+function GuardianAttributes:IsBlockTier1Available() end
+
+---Returns true if the second tier block skills are usable.
+---@return boolean #True if the second tier block skills are usable.
+function GuardianAttributes:IsBlockTier2Available() end
+
+---Returns true if the third tier block skills are usable.
+---@return boolean #True if the third tier block skills are usable.
+function GuardianAttributes:IsBlockTier3Available() end
+
+---Returns true if the first tier parry skills are usable.
+---@return boolean #True if the first tier parry skills are usable.
+function GuardianAttributes:IsParryTier1Available() end
+
+---Returns true if the second tier parry skills are usable.
+---@return boolean #True if the second tier parry skills are usable.
+function GuardianAttributes:IsParryTier2Available() end
+
+---Returns true if the third tier parry skills are usable.
+---@return boolean #True if the third tier parry skills are usable.
+function GuardianAttributes:IsParryTier3Available() end
+
+---Event fired when the block tier 1 availability has changed.
+---@param sender table The event sender.
+---@param args table The event arguments
+GuardianAttributes.IsBlockTier1AvailableChanged = function (sender, args) end
+
+---Event fired when the block tier 2 availability has changed.
+---@param sender table The event sender.
+---@param args table The event arguments
+GuardianAttributes.IsBlockTier2AvailableChanged = function (sender, args) end
+
+---Event fired when the block tier 2 availability has changed.
+---@param sender table The event sender.
+---@param args table The event arguments
+GuardianAttributes.IsBlockTier3AvailableChanged = function (sender, args) end
+
+---Event fired when the parry tier 1 availability has changed.
+---@param sender table The event sender.
+---@param args table The event arguments
+GuardianAttributes.IsParryTier1AvailableChanged = function (sender, args) end
+
+---Event fired when the parry tier 2 availability has changed.
+---@param sender table The event sender.
+---@param args table The event arguments
+GuardianAttributes.IsParryTier2AvailableChanged = function (sender, args) end
+
+---Event fired when the parry tier 2 availability has changed.
+---@param sender table The event sender.
+---@param args table The event arguments
+GuardianAttributes.IsParryTier3AvailableChanged = function (sender, args) end
+
+---Event fired when the stance changes.
+---@param sender table The event sender.
+---@param args table The event arguments
+GuardianAttributes.StanceChanged = function (sender, args) end
+
+
+---@class HighElfAttributes : Attributes
+HighElfAttributes = {}
+
+
+---@class HobbitAttributes : Attributes
+HobbitAttributes = {}
+
+
+---@class HunterAttributes : ClassAttributes
+HunterAttributes = {}
+
+---Gets the current focus of a hunter.
+---@return number #The current focus of a hunter.
+function HunterAttributes:GetFocus() end
+
+---Gets the current stance.
+---@return number #The current stance.
+function HunterAttributes:GetStance() end
+
+---Event fired when the focus of a hunter has changed.
+---@param sender table The event sender.
+---@param args table The event arguments
+HunterAttributes.FocusChanged = function (sender, args) end
+
+---Event fired when the stance changes.
+---@param sender table The event sender.
+---@param args table The event arguments
+HunterAttributes.StanceChanged = function (sender, args) end
+
+
+---@class LoreMasterAttributes : ClassAttributes
+LoreMasterAttributes = {}
+
+
+---@class ManAttributes : Attributes
+ManAttributes = {}
+
+
+---@class MinstrelAttributes : ClassAttributes
+MinstrelAttributes = {}
+
+---Gets the current stance.
+---@return number #The current stance.
+function MinstrelAttributes:GetStance() end
+
+---Returns true if the first tier serenade skills are usable.
+---@return boolean #True if the first tier serenade skills are usable.
+function MinstrelAttributes:IsSerenadeTier1Available() end
+
+---Returns true if the second tier serenade skills are usable.
+---@return boolean #True if the second tier serenade skills are usable.
+function MinstrelAttributes:IsSerenadeTier2Available() end
+
+---Returns true if the third tier serenade skills are usable.
+---@return boolean #True if the third tier serenade skills are usable.
+function MinstrelAttributes:IsSerenadeTier3Available() end
+
+---Event fired when the serenade tier 1 availability has changed.
+---@param sender table The event sender.
+---@param args table The event arguments
+MinstrelAttributes.IsSerenadeTier1Changed = function (sender, args) end
+
+---Event fired when the serenade tier 2 availability has changed.
+---@param sender table The event sender.
+---@param args table The event arguments
+MinstrelAttributes.IsSerenadeTier2Changed = function (sender, args) end
+
+---Event fired when the serenade tier 2 availability has changed.
+---@param sender table The event sender.
+---@param args table The event arguments
+MinstrelAttributes.IsSerenadeTier3Changed = function (sender, args) end
+
+---Event fired when the stance changes.
+---@param sender table The event sender.
+---@param args table The event arguments
+MinstrelAttributes.StanceChanged = function (sender, args) end
+
+
+---@class MonsterPlayerAttributes : Attributes
+MonsterPlayerAttributes = {}
+
+---Gets the destiny points of the player.
+---@return number #. The destiny points of the player.
+function MonsterPlayerAttributes:GetDestinyPoints() end
+
+---Gets the money of the player in copper.
+---@return number #. The money of the player in copper.
+function MonsterPlayerAttributes:GetMoney() end
+
+---Gets the money of the player in copper, silver, gold.
+---@return number #copper
+---@return number #silver
+---@return number #gold
+function MonsterPlayerAttributes:GetMoneyComponents() end
+
+---@class RangerAttributes : ClassAttributes
+RangerAttributes = {}
+
+
+---@class ReaverAttributes : ClassAttributes
+ReaverAttributes = {}
+
+
+---@class RuneKeeperAttributes : ClassAttributes
+RuneKeeperAttributes = {}
+
+---Gets the current attunement of a Rune-Keeper.
+---@return number #The current attunement of a Rune-Keeper.
+function RuneKeeperAttributes:GetAttunement() end
+
+---Returns true if the Rune-Keeper is charged.
+---@return boolean #True if the Rune-Keeper is charged.
+function RuneKeeperAttributes:IsCharged() end
+
+---Event fired when the attunement of a Rune-Keeper has changed.
+---@param sender table The event sender.
+---@param args table The event arguments
+RuneKeeperAttributes.AttunementChanged = function (sender, args) end
+
+---Event fired when the charge state of the Rune-Keeper changes.
+---@param sender table The event sender.
+---@param args table The event arguments
+RuneKeeperAttributes.IsChargedChanged = function (sender, args) end
+
+
+---@class StalkerAttributes : ClassAttributes
+StalkerAttributes = {}
+
+
+---@class StoutAxeAttributes : Attributes
+StoutAxeAttributes = {}
+
+
+---@class TrollAttributes : ClassAttributes
+TrollAttributes = {}
+
+---Gets the current rampage of a Troll.
+---@return number #The current rampage of a Troll.
+function TrollAttributes:GetRampage() end
+
+---Event fired when the rampage of a Troll has changed.
+---@param sender table The event sender.
+---@param args table The event arguments
+TrollAttributes.RampageChanged = function (sender, args) end
+
+
+---@class WarLeaderAttributes : ClassAttributes
+WarLeaderAttributes = {}
+
+
+---@class WardenAttributes : ClassAttributes
+WardenAttributes = {}
+
+---Gets the active gambit at the specified index.
+---@param index number 
+---@return number #The active gambit at the specified index.
+function WardenAttributes:GetGambit(index) end
+
+---Gets the number of gambits active.
+---@return number #The number of gambits active.
+function WardenAttributes:GetGambitCount() end
+
+---Gets the maximum gambits the warden can use.
+---@return number #The maximum gambits the warden can use.
+function WardenAttributes:GetMaxGambitCount() end
+
+---Gets the current stance.
+---@return number #The current stance.
+function WardenAttributes:GetStance() end
+
+---Gets the list of trained gambits.
+---@return SkillList #The list of trained gambits.
+function WardenAttributes:GetTrainedGambits() end
+
+---Gets the list of untrained gambits.
+---@return SkillList #The list of untrained gambits.
+function WardenAttributes:GetUntrainedGambits() end
+
+---Event fired when the gambit has changed.
+---@param sender table The event sender.
+---@param args table The event arguments
+WardenAttributes.GambitChanged = function (sender, args) end
+
+---Event fired when the number of gambit slots has changed.
+---@param sender table The event sender.
+---@param args table The event arguments
+WardenAttributes.MaxGambitCountChanged = function (sender, args) end
+
+---Event fired when the stance changes.
+---@param sender table The event sender.
+---@param args table The event arguments
+WardenAttributes.StanceChanged = function (sender, args) end
+
+
+---@class WeaverAttributes : ClassAttributes
+WeaverAttributes = {}
 
 
 ---Provides access to a player's backpack.
@@ -998,6 +1520,10 @@ Item = {}
 ---@return ItemInfo #Information about the item.
 function Item:GetItemInfo() end
 
+---Gets the wear state of the item.
+---@see ItemWearState
+---@return number #the `ItemWearState` of the item
+function Item:GetWearState() end
 
 ---Describes the category of an item.
 ---@class ItemCategory
@@ -1484,14 +2010,14 @@ ItemQuality = {
 ItemWearState = {
 	-- An unknown wear state.
 	Undefined = 0,
-	-- A damaged wear state.
+	-- A damaged wear state. (1% - 20%)
 	Damaged = 1,
-	-- A pristine wear state.
+	-- A pristine wear state. (100%)
 	Pristine = 2,
-	-- A broken wear state.
-	Broken = 3,
-	-- A worn wear state.
-	Worn = 4,
+	-- A broken wear state. (0%)
+	Broken = 3, 
+	-- A worn wear state.  (21% - 99%)
+	Worn = 4, 
 }
 
 
@@ -1500,7 +2026,7 @@ ItemWearState = {
 LocalPlayer = {}
 
 ---Gets the general attributes of a player.
----@return Attributes #
+---@return Attributes | BeorningAttributes | BlackArrowAttributes | BurglarAttributes | CaptainAttributes | ChampionAttributes | ChickenAttributes | ClassAttributes | DefilerAttributes | DwarfAttributes | ElfAttributes | FreePeopleAttributes | GuardianAttributes | HighElfAttributes | HobbitAttributes | HunterAttributes | LoreMasterAttributes | ManAttributes | MinstrelAttributes | MonsterPlayerAttributes | RangerAttributes | ReaverAttributes | RuneKeeperAttributes | StalkerAttributes | StoutAxeAttributes | TrollAttributes | WarLeaderAttributes | WardenAttributes | WeaverAttributes
 function LocalPlayer:GetAttributes() end
 
 ---Gets the player's backpack.
@@ -2428,6 +2954,7 @@ BlendMode = {
 	Undefined = 8,
 }
 
+
 ---A simple button control.
 ---@class Button : Label
 Button = {}
@@ -2496,11 +3023,13 @@ CheckBox.EnabledChanged = function (sender, args) end
 
 ---Represents a 4 channel color with red, green, blue, and alpha.
 ---@class Color : Object
+---@field A number The alpha component.
 ---@field AliceBlue Color `Turbine.UI.Color(1,0.94099998474121,0.97299998998642,1)`
 ---@field AntiqueWhite Color `Turbine.UI.Color(1,0.98000001907349,0.92199999094009,0.84299999475479)`
 ---@field Aqua Color `Turbine.UI.Color(1,0,1,1)`
 ---@field Aquamarine Color `Turbine.UI.Color(1,0.49799999594688,1,0.8309999704361)`
 ---@field Azure Color `Turbine.UI.Color(1,0.94099998474121,1,1)`
+---@field B number The blue component.
 ---@field Beige Color `Turbine.UI.Color(1,0.96100002527237,0.96100002527237,0.8629999756813)`
 ---@field Bisque Color `Turbine.UI.Color(1,1,0.89399999380112,0.76899999380112)`
 ---@field Black Color `Turbine.UI.Color(1,0,0,0)`
@@ -2543,6 +3072,7 @@ CheckBox.EnabledChanged = function (sender, args) end
 ---@field FloralWhite Color `Turbine.UI.Color(1,1,0.98000001907349,0.94099998474121)`
 ---@field ForestGreen Color `Turbine.UI.Color(1,0.1330000013113,0.5450000166893,0.1330000013113)`
 ---@field Fuchsia Color `Turbine.UI.Color(1,1,0,1)`
+---@field G number The green component.
 ---@field Gainsboro Color `Turbine.UI.Color(1,0.8629999756813,0.8629999756813,0.8629999756813)`
 ---@field GhostWhite Color `Turbine.UI.Color(1,0.97299998998642,0.97299998998642,1)`
 ---@field Gold Color `Turbine.UI.Color(1,1,0.84299999475479,0)`
@@ -2611,6 +3141,7 @@ CheckBox.EnabledChanged = function (sender, args) end
 ---@field Plum Color `Turbine.UI.Color(1,0.86699998378754,0.62699997425079,0.86699998378754)`
 ---@field PowderBlue Color `Turbine.UI.Color(1,0.68999999761581,0.87800002098083,0.90200001001358)`
 ---@field Purple Color `Turbine.UI.Color(1,0.50199997425079,0,0.50199997425079)`
+---@field R number The red component.
 ---@field Red Color `Turbine.UI.Color(1,1,0,0)`
 ---@field RosyBrown Color `Turbine.UI.Color(1,0.73699998855591,0.56099998950958,0.56099998950958)`
 ---@field RoyalBlue Color `Turbine.UI.Color(1,0.25499999523163,0.41200000047684,0.88200002908707)`
@@ -2877,6 +3408,16 @@ function Control:SetBackColorBlendMode(value) end
 ---Sets the background image of the control.
 ---@param backgroundImage any The path or id of the image to set the background of the control to.
 function Control:SetBackground(backgroundImage) end
+
+---Allow dynamically scaling the display size of a control's background image
+---
+---* **StretchMode 0** - *turns off scaling of a control (and incidentally set the alpha to 0). Any background image will be cropped or tiled. This is the only setting where the image will be properly bounded by a parent control.*
+---* **StretchMode 1** - *scale an image based on the size it had when the stretch mode was assigned and its current size. When using StretchMode 1 it is important to set the control to the image's original size BEFORE assigning StretchMode 1, then set the size to the desired stretched size after assigning StretchMode 1. This stretchmode can cause an image to exceed the bounds of its parent. If this happens, the control will only respond to mouse events within the bounds of its parent even though the control is rendered outside those bounds.*
+---* **StretchMode 2** - *scale a control to the size of its background image. When StretchMode 2 is initially assigned, the control will resize to fit the image size. If the control is subsequently resized, the background will be stretched to fit the control. Note that in StretchMode 2, the control will not respond to any mouse events even if mouse visibility is true.*
+---* **StretchMode 3** - *similar to StretchMode 0 and will turn off scaling of a control. Any background image will be tiled or cropped but if the control exceeds the bounds of its parent, the image will not be properly cropped by the parent's bounds.*
+---* **StretchMode 4** - *similar to StretchMode 1 except the control will not receive mouse events even if mouse visibility is set true. This is likely an accidental glitch.*
+---@param mode number
+function Control:SetStretchMode(mode) end
 
 ---Sets the blend mode applied to the background image.
 ---@param value number The new background blend mode.
@@ -3184,7 +3725,7 @@ Turbine.UI.Graphic = function (filename) end
 ---@overload fun():Graphic
 ---@overload fun(dataId:number):Graphic
 ---@param dataId number
----@param filename string
+---@param filename string 
 ---@return Graphic
 function Graphic:Constructor(filename) end
 

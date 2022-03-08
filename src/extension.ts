@@ -13,6 +13,16 @@ export function activate(context: vscode.ExtensionContext) {
 		config.update("runtime.special", globals);
 	}
 	config.update("runtime.version", "Lua 5.1");
+	config.update("runtime.pathStrict", false);
+	
+	const searchPaths: string[] | undefined = config.get("runtime.path");
+	if (searchPaths) {
+		if (searchPaths.indexOf('?/__init__.lua') === -1) {
+			searchPaths.push('?/__init__.lua');
+		}
+		config.update("runtime.path",searchPaths);
+	}
+
 }
 
 // this method is called when your extension is deactivated

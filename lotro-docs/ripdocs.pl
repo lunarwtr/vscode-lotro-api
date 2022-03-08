@@ -75,7 +75,7 @@ sub emmylua {
 	}
 	if (defined $node->{field}) {
 		my @fields = @{ $node->{field} };
-		my $hasprimval = $d->{langtype} eq 'enumeration' || $fields[0]{type} !~ /Turbine/;
+		my $hasprimval = $d->{langtype} eq 'enumeration' || ($fields[0]{type} !~ /Turbine/ && $name ne 'Color');
 		if ($hasprimval) {
 			print OUT "$d->{name} = {\n";
 			foreach my $ref (sort { $a->{value} <=> $b->{value} } @fields) {
@@ -300,7 +300,8 @@ sub rippage {
 		# hack to get missing documentation ripped.. the attributes is both a package and a class
 		# and their html generation looks messed up.
 		my @rows = ();
-		foreach my $newfile (glob('Turbine_Gameplay_Attributes_*Attributes.html Turbine_Gameplay_ClassAttributes.html')) {
+		foreach my $newfile (glob("$DOC_BASE_PATH/Turbine_Gameplay_Attributes_*Attributes.html $DOC_BASE_PATH/Turbine_Gameplay_ClassAttributes.html")) {
+			$newfile =~ s/^.*\///;
 			my $longname = file2id($newfile);
 			my $name = $longname;
 			$name =~ s/^.*\.//;
@@ -319,7 +320,7 @@ sub rippage {
 			}
 			push(@rows, \%rec);
 		}
-		$page{sections}{'classes'} = \@rows
+		$page{sections}{'classes'} = \@rows;
 	}
 	for my $dd ($dom->find('div[class*="Section"]')->each) {
         my $section = lc($dd->attr->{id});
@@ -395,7 +396,7 @@ sub rippage {
 					} else {
 						#print "DIDN'T FIND: $page{longname}.$rec->{name}\n";
 						# likely removed from API
-						next;
+						next if ($page{longname} !~ m/Turbine.UI.Color/);
 					}
 				} elsif ($section eq 'classes' && $rec->{link}) {
 				# sub in class member infos

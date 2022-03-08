@@ -1,5 +1,5 @@
---- Turbine.lua.orig	2022-03-06 18:45:30.704749500 -0700
-+++ Turbine.lua	2022-03-06 18:47:13.734749500 -0700
+--- Turbine.lua.orig	2022-03-07 20:16:38.650368700 -0700
++++ Turbine.lua	2022-03-07 21:07:12.850368700 -0700
 @@ -119,9 +119,9 @@
  Engine = {}
  
@@ -12,7 +12,36 @@
  
  ---Gets the current date.
  ---@return Object #Returns a table containing information about the current date. The following fields are available: Year, Month, Day, Hour, Minute, Second, DayOfWeek, DayOfYear, and IsDST.
-@@ -425,7 +425,7 @@
+@@ -591,8 +591,10 @@
+ ---@return number #. The money of the player in copper.
+ function FreePeopleAttributes:GetMoney() end
+ 
+----Gets the money of the player in gold, silver, and copper.
+----@return (Unrecognized type) #. The money of the player returned as three values that are the gold, silver, and copper.
++---Gets the money of the player in copper, silver, gold.
++---@return number #copper
++---@return number #silver
++---@return number #gold
+ function FreePeopleAttributes:GetMoneyComponents() end
+ 
+ ---Gets the poison resistance of the player.
+@@ -777,11 +779,12 @@
+ ---@return number #. The money of the player in copper.
+ function MonsterPlayerAttributes:GetMoney() end
+ 
+----Gets the money of the player in gold, silver, and copper.
+----@return (Unrecognized type) #. The money of the player returned as three values that are the gold, silver, and copper.
++---Gets the money of the player in copper, silver, gold.
++---@return number #copper
++---@return number #silver
++---@return number #gold
+ function MonsterPlayerAttributes:GetMoneyComponents() end
+ 
+-
+ ---@class RangerAttributes : ClassAttributes
+ RangerAttributes = {}
+ 
+@@ -944,7 +947,7 @@
  function Bank:GetChestCount() end
  
  ---Gets the name of a chest.
@@ -21,7 +50,7 @@
  ---@return string #The name of the specified chest.
  function Bank:GetChestName(chestType) end
  
-@@ -435,7 +435,7 @@
+@@ -954,7 +957,7 @@
  
  ---Gets and item from the player's bank.
  ---@param index number The index of the item to get.
@@ -30,7 +59,7 @@
  function Bank:GetItem(index) end
  
  ---Gets a flag indicating if the bank is currently available.
-@@ -444,7 +444,7 @@
+@@ -963,7 +966,7 @@
  
  ---Handles the dropping of items into a bank.
  ---@param shortcut Shortcut The shortcut information that was generated as part of a drag and drop event that should contain an item to perform an action on.
@@ -39,7 +68,45 @@
  ---@param split boolean Flag indicating if the item split dialog should be displayed for the operation.
  function Bank:PerformShortcutDrop(shortcut, targetChest, split) end
  
-@@ -1665,7 +1665,7 @@
+@@ -1517,6 +1520,10 @@
+ ---@return ItemInfo #Information about the item.
+ function Item:GetItemInfo() end
+ 
++---Gets the wear state of the item.
++---@see ItemWearState
++---@return number #the `ItemWearState` of the item
++function Item:GetWearState() end
+ 
+ ---Describes the category of an item.
+ ---@class ItemCategory
+@@ -2003,13 +2010,13 @@
+ ItemWearState = {
+ 	-- An unknown wear state.
+ 	Undefined = 0,
+-	-- A damaged wear state.
++	-- A damaged wear state. (1% - 20%)
+ 	Damaged = 1,
+-	-- A pristine wear state.
++	-- A pristine wear state. (100%)
+ 	Pristine = 2,
+-	-- A broken wear state.
++	-- A broken wear state. (0%)
+ 	Broken = 3,
+-	-- A worn wear state.
++	-- A worn wear state.  (21% - 99%)
+ 	Worn = 4,
+ }
+ 
+@@ -2019,7 +2026,7 @@
+ LocalPlayer = {}
+ 
+ ---Gets the general attributes of a player.
+----@return Attributes #
++---@return Attributes | BeorningAttributes | BlackArrowAttributes | BurglarAttributes | CaptainAttributes | ChampionAttributes | ChickenAttributes | ClassAttributes | DefilerAttributes | DwarfAttributes | ElfAttributes | FreePeopleAttributes | GuardianAttributes | HighElfAttributes | HobbitAttributes | HunterAttributes | LoreMasterAttributes | ManAttributes | MinstrelAttributes | MonsterPlayerAttributes | RangerAttributes | ReaverAttributes | RuneKeeperAttributes | StalkerAttributes | StoutAxeAttributes | TrollAttributes | WarLeaderAttributes | WardenAttributes | WeaverAttributes
+ function LocalPlayer:GetAttributes() end
+ 
+ ---Gets the player's backpack.
+@@ -2184,7 +2191,7 @@
  function PartyMember:GetParty() end
  
  ---Gets the raid the player is a member of.
@@ -48,7 +115,7 @@
  function PartyMember:GetRaid() end
  
  ---Gets the ready state of a player based on the result of a ready check.
-@@ -2051,7 +2051,7 @@
+@@ -2570,7 +2577,7 @@
  function SkillInfo:GetDescription() end
  
  ---Gets the image ID for the icon of the item.
@@ -57,7 +124,7 @@
  function SkillInfo:GetIconImageID() end
  
  ---Gets the name of the item.
-@@ -2166,7 +2166,7 @@
+@@ -2685,7 +2692,7 @@
  function WalletItem:GetDescription() end
  
  ---Gets the image used to identity the wallet item.
@@ -66,7 +133,7 @@
  function WalletItem:GetImage() end
  
  ---Gets the maximum quantity of this wallet item that a player can have.
-@@ -2182,7 +2182,7 @@
+@@ -2701,7 +2708,7 @@
  function WalletItem:GetQuantity() end
  
  ---Gets the small image used to identity the wallet item.
@@ -75,7 +142,58 @@
  function WalletItem:GetSmallImage() end
  
  ---Gets a flag indicating if the item is shared across all characters of an account.
-@@ -3171,8 +3171,8 @@
+@@ -3016,13 +3023,13 @@
+ 
+ ---Represents a 4 channel color with red, green, blue, and alpha.
+ ---@class Color : Object
+----@field A  `The alpha component.`
++---@field A number The alpha component.
+ ---@field AliceBlue Color `Turbine.UI.Color(1,0.94099998474121,0.97299998998642,1)`
+ ---@field AntiqueWhite Color `Turbine.UI.Color(1,0.98000001907349,0.92199999094009,0.84299999475479)`
+ ---@field Aqua Color `Turbine.UI.Color(1,0,1,1)`
+ ---@field Aquamarine Color `Turbine.UI.Color(1,0.49799999594688,1,0.8309999704361)`
+ ---@field Azure Color `Turbine.UI.Color(1,0.94099998474121,1,1)`
+----@field B  `The blue component.`
++---@field B number The blue component.
+ ---@field Beige Color `Turbine.UI.Color(1,0.96100002527237,0.96100002527237,0.8629999756813)`
+ ---@field Bisque Color `Turbine.UI.Color(1,1,0.89399999380112,0.76899999380112)`
+ ---@field Black Color `Turbine.UI.Color(1,0,0,0)`
+@@ -3065,7 +3072,7 @@
+ ---@field FloralWhite Color `Turbine.UI.Color(1,1,0.98000001907349,0.94099998474121)`
+ ---@field ForestGreen Color `Turbine.UI.Color(1,0.1330000013113,0.5450000166893,0.1330000013113)`
+ ---@field Fuchsia Color `Turbine.UI.Color(1,1,0,1)`
+----@field G  `The green component.`
++---@field G number The green component.
+ ---@field Gainsboro Color `Turbine.UI.Color(1,0.8629999756813,0.8629999756813,0.8629999756813)`
+ ---@field GhostWhite Color `Turbine.UI.Color(1,0.97299998998642,0.97299998998642,1)`
+ ---@field Gold Color `Turbine.UI.Color(1,1,0.84299999475479,0)`
+@@ -3134,7 +3141,7 @@
+ ---@field Plum Color `Turbine.UI.Color(1,0.86699998378754,0.62699997425079,0.86699998378754)`
+ ---@field PowderBlue Color `Turbine.UI.Color(1,0.68999999761581,0.87800002098083,0.90200001001358)`
+ ---@field Purple Color `Turbine.UI.Color(1,0.50199997425079,0,0.50199997425079)`
+----@field R  `The red component.`
++---@field R number The red component.
+ ---@field Red Color `Turbine.UI.Color(1,1,0,0)`
+ ---@field RosyBrown Color `Turbine.UI.Color(1,0.73699998855591,0.56099998950958,0.56099998950958)`
+ ---@field RoyalBlue Color `Turbine.UI.Color(1,0.25499999523163,0.41200000047684,0.88200002908707)`
+@@ -3402,6 +3409,16 @@
+ ---@param backgroundImage any The path or id of the image to set the background of the control to.
+ function Control:SetBackground(backgroundImage) end
+ 
++---Allow dynamically scaling the display size of a control's background image
++---
++---* **StretchMode 0** - *turns off scaling of a control (and incidentally set the alpha to 0). Any background image will be cropped or tiled. This is the only setting where the image will be properly bounded by a parent control.*
++---* **StretchMode 1** - *scale an image based on the size it had when the stretch mode was assigned and its current size. When using StretchMode 1 it is important to set the control to the image's original size BEFORE assigning StretchMode 1, then set the size to the desired stretched size after assigning StretchMode 1. This stretchmode can cause an image to exceed the bounds of its parent. If this happens, the control will only respond to mouse events within the bounds of its parent even though the control is rendered outside those bounds.*
++---* **StretchMode 2** - *scale a control to the size of its background image. When StretchMode 2 is initially assigned, the control will resize to fit the image size. If the control is subsequently resized, the background will be stretched to fit the control. Note that in StretchMode 2, the control will not respond to any mouse events even if mouse visibility is true.*
++---* **StretchMode 3** - *similar to StretchMode 0 and will turn off scaling of a control. Any background image will be tiled or cropped but if the control exceeds the bounds of its parent, the image will not be properly cropped by the parent's bounds.*
++---* **StretchMode 4** - *similar to StretchMode 1 except the control will not receive mouse events even if mouse visibility is set true. This is likely an accidental glitch.*
++---@param mode number
++function Control:SetStretchMode(mode) end
++
+ ---Sets the blend mode applied to the background image.
+ ---@param value number The new background blend mode.
+ function Control:SetBlendMode(value) end
+@@ -3695,8 +3712,8 @@
  ---`Graphic(dataId)` : Constructs a graphic from a game asset by its ID.
  ---`Graphic(filename)` : Constructs a graphic from a file.
  ---@overload fun():Graphic
@@ -86,7 +204,7 @@
  ---@param filename string 
  ---@return Graphic
  Turbine.UI.Graphic = function (filename) end
-@@ -3182,8 +3182,8 @@
+@@ -3706,8 +3723,8 @@
  ---`Graphic(dataId)` : Constructs a graphic from a game asset by its ID.
  ---`Graphic(filename)` : Constructs a graphic from a file.
  ---@overload fun():Graphic
