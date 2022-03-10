@@ -6,6 +6,7 @@ export function activate(context: vscode.ExtensionContext) {
 	console.log("activate lunarwtr.lotro-api", context.extension.id);
 	setExternalLibrary("Turbine", true);
 
+	const extensionPath = vscode.extensions.getExtension(context.extension.id)?.extensionPath;
 	const config = vscode.workspace.getConfiguration("Lua");
 	let globals: {[id: string] : string} | undefined = config.get("runtime.special");
 	if (globals && !globals.import) {
@@ -14,7 +15,7 @@ export function activate(context: vscode.ExtensionContext) {
 	}
 	config.update("runtime.version", "Lua 5.1");
 	config.update("runtime.pathStrict", false);
-	
+	config.update("runtime.plugin", path.join(extensionPath!, 'Lua', 'Plugin', 'plugin.lua'));
 	const searchPaths: string[] | undefined = config.get("runtime.path");
 	if (searchPaths) {
 		if (searchPaths.indexOf('?/__init__.lua') === -1) {
@@ -22,7 +23,6 @@ export function activate(context: vscode.ExtensionContext) {
 		}
 		config.update("runtime.path",searchPaths);
 	}
-
 }
 
 // this method is called when your extension is deactivated
@@ -34,7 +34,7 @@ export function deactivate() {
 function setExternalLibrary(folder: string, enable: boolean) {
 	const extensionId = "lunarwtr.lotro-api"; // this id is case sensitive
 	const extensionPath = vscode.extensions.getExtension(extensionId)?.extensionPath;
-	const folderPath = path.join(extensionPath!, 'EmmyLua', folder);
+	const folderPath = path.join(extensionPath!, 'Lua', 'EmmyLua', folder);
 	const config = vscode.workspace.getConfiguration("Lua");
 	const library: string[] | undefined = config.get("workspace.library");
 	if (library && extensionPath) {
