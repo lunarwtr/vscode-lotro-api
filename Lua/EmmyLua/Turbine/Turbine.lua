@@ -622,6 +622,142 @@ function FreePeopleAttributes:GetWill() end
 ---@return number #The wound resistance of the player.
 function FreePeopleAttributes:GetWoundResistance() end
 
+----Get the acid mitigation of the player
+---@return number #the acid mitigation of the player
+function FreePeopleAttributes:GetAcidMitigation() end
+
+---Get the base critical hit avoidance of the player
+---@return number #the base critical hit avoidance of the player
+function FreePeopleAttributes:GetBaseCriticalHitAvoidance() end
+
+---Get the base critical hit chance of the player
+---@return number #the base critical hit chance of the player
+function FreePeopleAttributes:GetBaseCriticalHitChance() end
+
+---Get the block of the player
+---@return number #the block of the player
+function FreePeopleAttributes:GetBlock() end
+
+---Get the common mitigation of the player
+---@return number #the common mitigation of the player
+function FreePeopleAttributes:GetCommonMitigation() end
+
+---Get the evade of the player
+---@return number #the evade of the player
+function FreePeopleAttributes:GetEvade() end
+
+---Get the finesse of the player
+---@return number #the finesse of the player
+function FreePeopleAttributes:GetFinesse() end
+
+---Get the fire mitigation of the player
+---@return number #the fire mitigation of the player
+function FreePeopleAttributes:GetFireMitigation() end
+
+---Get the frost mitigation of the player
+---@return number #the frost mitigation of the player
+function FreePeopleAttributes:GetFrostMitigation() end
+
+---Get the in combat morale regeneration of the player
+---@return number #the in combat morale regeneration of the player
+function FreePeopleAttributes:GetInCombatMoraleRegeneration() end
+
+---Get the in combat power regeneration of the player
+---@return number #the in combat power regeneration of the player
+function FreePeopleAttributes:GetInCombatPowerRegeneration() end
+
+---Get the incoming healing of the player
+---@return number #the incoming healing of the player
+function FreePeopleAttributes:GetIncomingHealing() end
+
+---Get the lightning mitigation of the player
+---@return number #the lightning mitigation of the player
+function FreePeopleAttributes:GetLightningMitigation() end
+
+---Get the melee critical hit avoidance of the player
+---@return number #the melee critical hit avoidance of the player
+function FreePeopleAttributes:GetMeleeCriticalHitAvoidance() end
+
+---Get the melee critical hit chance of the player
+---@return number #the melee critical hit chance of the player
+function FreePeopleAttributes:GetMeleeCriticalHitChance() end
+
+---Get the melee damage of the player
+---@return number #the melee damage of the player
+function FreePeopleAttributes:GetMeleeDamage() end
+
+---Get the melee defence of the player
+---@return number #the melee defence of the player
+function FreePeopleAttributes:GetMeleeDefence() end
+
+---Get the out of combat morale regeneration of the player
+---@return number #the out of combat morale regeneration of the player
+function FreePeopleAttributes:GetOutOfCombatMoraleRegeneration() end
+
+---Get the out of combat power regeneration of the player
+---@return number #the out of combat power regeneration of the player
+function FreePeopleAttributes:GetOutOfCombatPowerRegeneration() end
+
+---Get the outgoing healing of the player
+---@return number #the outgoing healing of the player
+function FreePeopleAttributes:GetOutgoingHealing() end
+
+---Get the parry of the player
+---@return number #the parry of the player
+function FreePeopleAttributes:GetParry() end
+
+---Get the physical mitigation of the player
+---@return number #the physical mitigation of the player
+function FreePeopleAttributes:GetPhysicalMitigation() end
+
+---Get the range critical hit avoidance of the player
+---@return number #the range critical hit avoidance of the player
+function FreePeopleAttributes:GetRangeCriticalHitAvoidance() end
+
+---Get the range critical hit chance of the player
+---@return number #the range critical hit chance of the player
+function FreePeopleAttributes:GetRangeCriticalHitChance() end
+
+---Get the range damage of the player
+---@return number #the range damage of the player
+function FreePeopleAttributes:GetRangeDamage() end
+
+---Get the range defence of the player
+---@return number #the range defence of the player
+function FreePeopleAttributes:GetRangeDefence() end
+
+---Get the shadow mitigation of the player
+---@return number #the shadow mitigation of the player
+function FreePeopleAttributes:GetShadowMitigation() end
+
+---Get the tactical critical hit avoidance of the player
+---@return number #the tactical critical hit avoidance of the player
+function FreePeopleAttributes:GetTacticalCriticalHitAvoidance() end
+
+---Get the tactical critical hit chance of the player
+---@return number #the tactical critical hit chance of the player
+function FreePeopleAttributes:GetTacticalCriticalHitChance() end
+
+---Get the tactical damage of the player
+---@return number #the tactical damage of the player
+function FreePeopleAttributes:GetTacticalDamage() end
+
+---Get the tactical defence of the player
+---@return number #the tactical defence of the player
+function FreePeopleAttributes:GetTacticalDefence() end
+
+---Get the tactical mitigation of the player
+---@return number #the tactical mitigation of the player
+function FreePeopleAttributes:GetTacticalMitigation() end
+
+---@return boolean 
+function FreePeopleAttributes:CanBlock() end
+
+---@return boolean 
+function FreePeopleAttributes:CanEvade() end
+
+---@return boolean 
+function FreePeopleAttributes:CanParry() end
 
 ---@class GuardianAttributes : ClassAttributes
 GuardianAttributes = {}
@@ -1161,6 +1297,14 @@ function CombatMount:GetTemporaryMorale() end
 ---@return number #The temporary power of the mount.
 function CombatMount:GetTemporaryPower() end
 
+---Gets the current evasion of the mount.
+---@return number #The current evation of the mount.
+function CombatMount:GetEvasion() end
+
+---Gets the current turn rate of the mount.
+---@return number #The current turn rate of the mount.
+function CombatMount:GetTurnRate() end
+
 ---Event fired when the mount's base max morale changes.
 ---@param sender table The event sender.
 ---@param args table The event arguments
@@ -1524,6 +1668,50 @@ function Item:GetItemInfo() end
 ---@see ItemWearState
 ---@return number #the `ItemWearState` of the item
 function Item:GetWearState() end
+
+---Gets the image ID for the background of the item.
+---@return number #
+function Item:GetBackgroundImageID() end
+
+---Gets the category of the item.
+---@return number #The category of the item.
+function Item:GetCategory() end
+
+---Gets the durability of the item.
+---@return number #A value from `ItemDurability` representing the durability of the item.
+function Item:GetDurability() end
+
+---Gets the image ID for the icon of the item.
+---@return number #
+function Item:GetIconImageID() end
+
+---Gets the maximum number of instances that can be stacked together.
+---@return number #The maximum number of instances that can be stacked together.
+function Item:GetMaxStackSize() end
+
+---Gets the quality of the item.
+---@return number #A value from `ItemQuality` representing the quality of the item.
+function Item:GetQuality() end
+
+---Gets the image ID for the quality of the item.
+---@return number #
+function Item:GetQualityImageID() end
+
+---Gets the quantity displayed.
+---@return number #The quantity displayed.
+function Item:GetQuantity() end
+
+---Gets the image ID for the shadow of the item.
+---@return number #
+function Item:GetShadowImageID() end
+
+---Gets the image ID for the underlay of the item.
+---@return number #
+function Item:GetUnderlayImageID() end
+
+---Gets a flag indicating if the item is considered magical.
+---@return boolean #A flag indicating if the item is considered magical.
+function Item:IsMagic() end
 
 ---Describes the category of an item.
 ---@class ItemCategory
@@ -2015,9 +2203,9 @@ ItemWearState = {
 	-- A pristine wear state. (100%)
 	Pristine = 2,
 	-- A broken wear state. (0%)
-	Broken = 3, 
+	Broken = 3,
 	-- A worn wear state.  (21% - 99%)
-	Worn = 4, 
+	Worn = 4,
 }
 
 
@@ -2798,6 +2986,18 @@ Plugin.Load = function (sender, args) end
 ---@param args table The event arguments
 Plugin.Unload = function (sender, args) end
 
+---Event fired before a plugin is unloaded.
+---@param sender table The event sender.
+---@param args table The event arguments
+---@return Control #the control representing the plugin's options
+Plugin.GetOptionsPanel = function(sender, args) end
+
+---@type Plugin #the currently loaded plugin
+---@diagnostic disable-next-line:lowercase-global
+plugin = {}
+
+---@type table<string,Plugin>
+Plugins = {}
 
 ---Provides the ability to save and load plugin data.
 ---@class PluginData
@@ -2841,6 +3041,9 @@ PluginManager.RefreshAvailablePlugins = function () end
 ---@param scriptState string The name of the script state to be unloaded.
 PluginManager.UnloadScriptState = function (scriptState) end
 
+---Displays the options for the given plugin
+---@param plugin Plugin #The plugin to display options for
+PluginManager.ShowOptions = function(plugin) end
 
 ---Provides programmer extensibility to the chat window.
 ---@class Shell
@@ -3418,6 +3621,11 @@ function Control:SetBackground(backgroundImage) end
 ---* **StretchMode 4** - *similar to StretchMode 1 except the control will not receive mouse events even if mouse visibility is set true. This is likely an accidental glitch.*
 ---@param mode number
 function Control:SetStretchMode(mode) end
+
+---Retrieve the display size scaling value for a control's background image
+--- see `Control:SetStretchMode(mode)` for details on each value
+---@return number # the stretch mode value 
+function Control:GetStretchMode() end
 
 ---Sets the blend mode applied to the background image.
 ---@param value number The new background blend mode.
@@ -4695,6 +4903,29 @@ Turbine.UI.Lotro.EntityControl = function () end
 ---@return EntityControl
 function EntityControl:Constructor() end
 
+---Get the entity registered with control
+---@return Entity
+function EntityControl:GetEntity() end
+
+---Gets a flag indicating if the context menu is enabled.
+---@return boolean #True if the context menu is enabled.
+function EntityControl:IsContextMenuEnabled() end
+
+---Gets a flag indicating if the selection is enabled.
+---@return boolean #True if the selection is enabled.
+function EntityControl:IsSelectionEnabled() end
+
+---Sets a flag indicating if the context menu is enabled.
+---@param value boolean True if the context menu is to be enabled, false to disable.
+function EntityControl:SetContextMenuEnabled(value) end
+
+---Set the entity registered with control
+---@param entity Entity #The entity to register
+function EntityControl:SetEntity(entity) end
+
+---Sets a flag indicating that selection is enabled.
+---@param value boolean True if selection is to be enabled, false to disable.
+function EntityControl:SetSelectionEnabled(value) end
 
 ---A EquipmentSlot button for for equipping items.
 ---@class EquipmentSlot : BaseItemControl
@@ -5188,6 +5419,9 @@ function MenuItem:SetText(value) end
 ---@param args table The event arguments
 MenuItem.Click = function (sender, args) end
 
+---Gets the menu items collection.
+---@return MenuItemList #Returns the menu items collection.
+function MenuItem:GetItems() end
 
 ---Defines a list of menu items.
 ---@class MenuItemList : Object
@@ -5599,6 +5833,11 @@ function TreeView:SetSortMethod(value) end
 ---@param args table The event arguments
 TreeView.SelectedNodeChanged = function (sender, args) end
 
+---Gets the node at the specified position.
+---@param x number 
+---@param y number 
+---@return TreeNode #The node at the specified location in the tree view otherwise if no node is there this will return nil.
+function TreeView:GetItemAt(x, y) end
 
 ---Specifies how to perform vertical layouts.
 ---@class VerticalLayout
@@ -5709,3 +5948,18 @@ Window.Closing = function (sender, args) end
 ---@param sender table The event sender.
 ---@param args table The event arguments
 Window.Deactivated = function (sender, args) end
+
+---(NOT A REAL CLASS) For describing data types and field names of table.
+---@class WindowRotationTable : table<string, number>
+---@field x number # rotate toward you
+---@field y number # rotate left to right
+---@field z number # rotate on the plane (an angle)
+WindowRotationTable = {}
+
+---Gets the rotation of a window
+---@return WindowRotationTable
+function Window:GetRotation() end
+
+---Sets the rotation of a window
+---@param rotation WindowRotationTable
+function Window:SetRotation(rotation) end

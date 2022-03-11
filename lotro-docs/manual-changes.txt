@@ -1,5 +1,5 @@
---- Turbine.lua.orig	2022-03-07 20:16:38.650368700 -0700
-+++ Turbine.lua	2022-03-07 21:07:12.850368700 -0700
+--- Turbine.lua.prev	2022-03-10 16:16:02.232629000 -0700
++++ Turbine.lua	2022-03-10 19:02:04.222629000 -0700
 @@ -119,9 +119,9 @@
  Engine = {}
  
@@ -25,7 +25,150 @@
  function FreePeopleAttributes:GetMoneyComponents() end
  
  ---Gets the poison resistance of the player.
-@@ -777,11 +779,12 @@
+@@ -620,6 +622,142 @@
+ ---@return number #The wound resistance of the player.
+ function FreePeopleAttributes:GetWoundResistance() end
+ 
++----Get the acid mitigation of the player
++---@return number #the acid mitigation of the player
++function FreePeopleAttributes:GetAcidMitigation() end
++
++---Get the base critical hit avoidance of the player
++---@return number #the base critical hit avoidance of the player
++function FreePeopleAttributes:GetBaseCriticalHitAvoidance() end
++
++---Get the base critical hit chance of the player
++---@return number #the base critical hit chance of the player
++function FreePeopleAttributes:GetBaseCriticalHitChance() end
++
++---Get the block of the player
++---@return number #the block of the player
++function FreePeopleAttributes:GetBlock() end
++
++---Get the common mitigation of the player
++---@return number #the common mitigation of the player
++function FreePeopleAttributes:GetCommonMitigation() end
++
++---Get the evade of the player
++---@return number #the evade of the player
++function FreePeopleAttributes:GetEvade() end
++
++---Get the finesse of the player
++---@return number #the finesse of the player
++function FreePeopleAttributes:GetFinesse() end
++
++---Get the fire mitigation of the player
++---@return number #the fire mitigation of the player
++function FreePeopleAttributes:GetFireMitigation() end
++
++---Get the frost mitigation of the player
++---@return number #the frost mitigation of the player
++function FreePeopleAttributes:GetFrostMitigation() end
++
++---Get the in combat morale regeneration of the player
++---@return number #the in combat morale regeneration of the player
++function FreePeopleAttributes:GetInCombatMoraleRegeneration() end
++
++---Get the in combat power regeneration of the player
++---@return number #the in combat power regeneration of the player
++function FreePeopleAttributes:GetInCombatPowerRegeneration() end
++
++---Get the incoming healing of the player
++---@return number #the incoming healing of the player
++function FreePeopleAttributes:GetIncomingHealing() end
++
++---Get the lightning mitigation of the player
++---@return number #the lightning mitigation of the player
++function FreePeopleAttributes:GetLightningMitigation() end
++
++---Get the melee critical hit avoidance of the player
++---@return number #the melee critical hit avoidance of the player
++function FreePeopleAttributes:GetMeleeCriticalHitAvoidance() end
++
++---Get the melee critical hit chance of the player
++---@return number #the melee critical hit chance of the player
++function FreePeopleAttributes:GetMeleeCriticalHitChance() end
++
++---Get the melee damage of the player
++---@return number #the melee damage of the player
++function FreePeopleAttributes:GetMeleeDamage() end
++
++---Get the melee defence of the player
++---@return number #the melee defence of the player
++function FreePeopleAttributes:GetMeleeDefence() end
++
++---Get the out of combat morale regeneration of the player
++---@return number #the out of combat morale regeneration of the player
++function FreePeopleAttributes:GetOutOfCombatMoraleRegeneration() end
++
++---Get the out of combat power regeneration of the player
++---@return number #the out of combat power regeneration of the player
++function FreePeopleAttributes:GetOutOfCombatPowerRegeneration() end
++
++---Get the outgoing healing of the player
++---@return number #the outgoing healing of the player
++function FreePeopleAttributes:GetOutgoingHealing() end
++
++---Get the parry of the player
++---@return number #the parry of the player
++function FreePeopleAttributes:GetParry() end
++
++---Get the physical mitigation of the player
++---@return number #the physical mitigation of the player
++function FreePeopleAttributes:GetPhysicalMitigation() end
++
++---Get the range critical hit avoidance of the player
++---@return number #the range critical hit avoidance of the player
++function FreePeopleAttributes:GetRangeCriticalHitAvoidance() end
++
++---Get the range critical hit chance of the player
++---@return number #the range critical hit chance of the player
++function FreePeopleAttributes:GetRangeCriticalHitChance() end
++
++---Get the range damage of the player
++---@return number #the range damage of the player
++function FreePeopleAttributes:GetRangeDamage() end
++
++---Get the range defence of the player
++---@return number #the range defence of the player
++function FreePeopleAttributes:GetRangeDefence() end
++
++---Get the shadow mitigation of the player
++---@return number #the shadow mitigation of the player
++function FreePeopleAttributes:GetShadowMitigation() end
++
++---Get the tactical critical hit avoidance of the player
++---@return number #the tactical critical hit avoidance of the player
++function FreePeopleAttributes:GetTacticalCriticalHitAvoidance() end
++
++---Get the tactical critical hit chance of the player
++---@return number #the tactical critical hit chance of the player
++function FreePeopleAttributes:GetTacticalCriticalHitChance() end
++
++---Get the tactical damage of the player
++---@return number #the tactical damage of the player
++function FreePeopleAttributes:GetTacticalDamage() end
++
++---Get the tactical defence of the player
++---@return number #the tactical defence of the player
++function FreePeopleAttributes:GetTacticalDefence() end
++
++---Get the tactical mitigation of the player
++---@return number #the tactical mitigation of the player
++function FreePeopleAttributes:GetTacticalMitigation() end
++
++---@return boolean 
++function FreePeopleAttributes:CanBlock() end
++
++---@return boolean 
++function FreePeopleAttributes:CanEvade() end
++
++---@return boolean 
++function FreePeopleAttributes:CanParry() end
+ 
+ ---@class GuardianAttributes : ClassAttributes
+ GuardianAttributes = {}
+@@ -777,11 +915,12 @@
  ---@return number #. The money of the player in copper.
  function MonsterPlayerAttributes:GetMoney() end
  
@@ -41,7 +184,7 @@
  ---@class RangerAttributes : ClassAttributes
  RangerAttributes = {}
  
-@@ -944,7 +947,7 @@
+@@ -944,7 +1083,7 @@
  function Bank:GetChestCount() end
  
  ---Gets the name of a chest.
@@ -50,7 +193,7 @@
  ---@return string #The name of the specified chest.
  function Bank:GetChestName(chestType) end
  
-@@ -954,7 +957,7 @@
+@@ -954,7 +1093,7 @@
  
  ---Gets and item from the player's bank.
  ---@param index number The index of the item to get.
@@ -59,7 +202,7 @@
  function Bank:GetItem(index) end
  
  ---Gets a flag indicating if the bank is currently available.
-@@ -963,7 +966,7 @@
+@@ -963,7 +1102,7 @@
  
  ---Handles the dropping of items into a bank.
  ---@param shortcut Shortcut The shortcut information that was generated as part of a drag and drop event that should contain an item to perform an action on.
@@ -68,7 +211,22 @@
  ---@param split boolean Flag indicating if the item split dialog should be displayed for the operation.
  function Bank:PerformShortcutDrop(shortcut, targetChest, split) end
  
-@@ -1517,6 +1520,10 @@
+@@ -1158,6 +1297,14 @@
+ ---@return number #The temporary power of the mount.
+ function CombatMount:GetTemporaryPower() end
+ 
++---Gets the current evasion of the mount.
++---@return number #The current evation of the mount.
++function CombatMount:GetEvasion() end
++
++---Gets the current turn rate of the mount.
++---@return number #The current turn rate of the mount.
++function CombatMount:GetTurnRate() end
++
+ ---Event fired when the mount's base max morale changes.
+ ---@param sender table The event sender.
+ ---@param args table The event arguments
+@@ -1517,6 +1664,54 @@
  ---@return ItemInfo #Information about the item.
  function Item:GetItemInfo() end
  
@@ -76,10 +234,54 @@
 +---@see ItemWearState
 +---@return number #the `ItemWearState` of the item
 +function Item:GetWearState() end
++
++---Gets the image ID for the background of the item.
++---@return number #
++function Item:GetBackgroundImageID() end
++
++---Gets the category of the item.
++---@return number #The category of the item.
++function Item:GetCategory() end
++
++---Gets the durability of the item.
++---@return number #A value from `ItemDurability` representing the durability of the item.
++function Item:GetDurability() end
++
++---Gets the image ID for the icon of the item.
++---@return number #
++function Item:GetIconImageID() end
++
++---Gets the maximum number of instances that can be stacked together.
++---@return number #The maximum number of instances that can be stacked together.
++function Item:GetMaxStackSize() end
++
++---Gets the quality of the item.
++---@return number #A value from `ItemQuality` representing the quality of the item.
++function Item:GetQuality() end
++
++---Gets the image ID for the quality of the item.
++---@return number #
++function Item:GetQualityImageID() end
++
++---Gets the quantity displayed.
++---@return number #The quantity displayed.
++function Item:GetQuantity() end
++
++---Gets the image ID for the shadow of the item.
++---@return number #
++function Item:GetShadowImageID() end
++
++---Gets the image ID for the underlay of the item.
++---@return number #
++function Item:GetUnderlayImageID() end
++
++---Gets a flag indicating if the item is considered magical.
++---@return boolean #A flag indicating if the item is considered magical.
++function Item:IsMagic() end
  
  ---Describes the category of an item.
  ---@class ItemCategory
-@@ -2003,13 +2010,13 @@
+@@ -2003,13 +2198,13 @@
  ItemWearState = {
  	-- An unknown wear state.
  	Undefined = 0,
@@ -97,7 +299,7 @@
  	Worn = 4,
  }
  
-@@ -2019,7 +2026,7 @@
+@@ -2019,7 +2214,7 @@
  LocalPlayer = {}
  
  ---Gets the general attributes of a player.
@@ -106,7 +308,7 @@
  function LocalPlayer:GetAttributes() end
  
  ---Gets the player's backpack.
-@@ -2184,7 +2191,7 @@
+@@ -2184,7 +2379,7 @@
  function PartyMember:GetParty() end
  
  ---Gets the raid the player is a member of.
@@ -115,7 +317,7 @@
  function PartyMember:GetRaid() end
  
  ---Gets the ready state of a player based on the result of a ready check.
-@@ -2570,7 +2577,7 @@
+@@ -2570,7 +2765,7 @@
  function SkillInfo:GetDescription() end
  
  ---Gets the image ID for the icon of the item.
@@ -124,7 +326,7 @@
  function SkillInfo:GetIconImageID() end
  
  ---Gets the name of the item.
-@@ -2685,7 +2692,7 @@
+@@ -2685,7 +2880,7 @@
  function WalletItem:GetDescription() end
  
  ---Gets the image used to identity the wallet item.
@@ -133,7 +335,7 @@
  function WalletItem:GetImage() end
  
  ---Gets the maximum quantity of this wallet item that a player can have.
-@@ -2701,7 +2708,7 @@
+@@ -2701,7 +2896,7 @@
  function WalletItem:GetQuantity() end
  
  ---Gets the small image used to identity the wallet item.
@@ -142,7 +344,35 @@
  function WalletItem:GetSmallImage() end
  
  ---Gets a flag indicating if the item is shared across all characters of an account.
-@@ -3016,13 +3023,13 @@
+@@ -2791,6 +2986,17 @@
+ ---@param args table The event arguments
+ Plugin.Unload = function (sender, args) end
+ 
++---Event fired before a plugin is unloaded.
++---@param sender table The event sender.
++---@param args table The event arguments
++---@return Control #the control representing the plugin's options
++Plugin.GetOptionsPanel = function(sender, args) end
++
++---@type Plugin #the currently loaded plugin
++plugin = {}
++
++---@type table<string,Plugin>
++Plugins = {}
+ 
+ ---Provides the ability to save and load plugin data.
+ ---@class PluginData
+@@ -2834,6 +3040,9 @@
+ ---@param scriptState string The name of the script state to be unloaded.
+ PluginManager.UnloadScriptState = function (scriptState) end
+ 
++---Displays the options for the given plugin
++---@param plugin Plugin #The plugin to display options for
++PluginManager.ShowOptions = function(plugin) end
+ 
+ ---Provides programmer extensibility to the chat window.
+ ---@class Shell
+@@ -3016,13 +3225,13 @@
  
  ---Represents a 4 channel color with red, green, blue, and alpha.
  ---@class Color : Object
@@ -158,7 +388,7 @@
  ---@field Beige Color `Turbine.UI.Color(1,0.96100002527237,0.96100002527237,0.8629999756813)`
  ---@field Bisque Color `Turbine.UI.Color(1,1,0.89399999380112,0.76899999380112)`
  ---@field Black Color `Turbine.UI.Color(1,0,0,0)`
-@@ -3065,7 +3072,7 @@
+@@ -3065,7 +3274,7 @@
  ---@field FloralWhite Color `Turbine.UI.Color(1,1,0.98000001907349,0.94099998474121)`
  ---@field ForestGreen Color `Turbine.UI.Color(1,0.1330000013113,0.5450000166893,0.1330000013113)`
  ---@field Fuchsia Color `Turbine.UI.Color(1,1,0,1)`
@@ -167,7 +397,7 @@
  ---@field Gainsboro Color `Turbine.UI.Color(1,0.8629999756813,0.8629999756813,0.8629999756813)`
  ---@field GhostWhite Color `Turbine.UI.Color(1,0.97299998998642,0.97299998998642,1)`
  ---@field Gold Color `Turbine.UI.Color(1,1,0.84299999475479,0)`
-@@ -3134,7 +3141,7 @@
+@@ -3134,7 +3343,7 @@
  ---@field Plum Color `Turbine.UI.Color(1,0.86699998378754,0.62699997425079,0.86699998378754)`
  ---@field PowderBlue Color `Turbine.UI.Color(1,0.68999999761581,0.87800002098083,0.90200001001358)`
  ---@field Purple Color `Turbine.UI.Color(1,0.50199997425079,0,0.50199997425079)`
@@ -176,7 +406,7 @@
  ---@field Red Color `Turbine.UI.Color(1,1,0,0)`
  ---@field RosyBrown Color `Turbine.UI.Color(1,0.73699998855591,0.56099998950958,0.56099998950958)`
  ---@field RoyalBlue Color `Turbine.UI.Color(1,0.25499999523163,0.41200000047684,0.88200002908707)`
-@@ -3402,6 +3409,16 @@
+@@ -3402,6 +3611,21 @@
  ---@param backgroundImage any The path or id of the image to set the background of the control to.
  function Control:SetBackground(backgroundImage) end
  
@@ -190,10 +420,15 @@
 +---@param mode number
 +function Control:SetStretchMode(mode) end
 +
++---Retrieve the display size scaling value for a control's background image
++--- see `Control:SetStretchMode(mode)` for details on each value
++---@return number # the stretch mode value 
++function Control:GetStretchMode() end
++
  ---Sets the blend mode applied to the background image.
  ---@param value number The new background blend mode.
  function Control:SetBlendMode(value) end
-@@ -3695,8 +3712,8 @@
+@@ -3695,8 +3919,8 @@
  ---`Graphic(dataId)` : Constructs a graphic from a game asset by its ID.
  ---`Graphic(filename)` : Constructs a graphic from a file.
  ---@overload fun():Graphic
@@ -204,7 +439,7 @@
  ---@param filename string 
  ---@return Graphic
  Turbine.UI.Graphic = function (filename) end
-@@ -3706,8 +3723,8 @@
+@@ -3706,8 +3930,8 @@
  ---`Graphic(dataId)` : Constructs a graphic from a game asset by its ID.
  ---`Graphic(filename)` : Constructs a graphic from a file.
  ---@overload fun():Graphic
@@ -215,3 +450,74 @@
  ---@param filename string 
  ---@return Graphic
  function Graphic:Constructor(filename) end
+@@ -4678,6 +4902,29 @@
+ ---@return EntityControl
+ function EntityControl:Constructor() end
+ 
++---Get the entity registered with control
++---@return Entity
++function EntityControl:GetEntity() end
++
++---Gets a flag indicating if the context menu is enabled.
++---@return boolean #True if the context menu is enabled.
++function EntityControl:IsContextMenuEnabled() end
++
++---Gets a flag indicating if the selection is enabled.
++---@return boolean #True if the selection is enabled.
++function EntityControl:IsSelectionEnabled() end
++
++---Sets a flag indicating if the context menu is enabled.
++---@param value boolean True if the context menu is to be enabled, false to disable.
++function EntityControl:SetContextMenuEnabled(value) end
++
++---Set the entity registered with control
++---@param entity Entity #The entity to register
++function EntityControl:SetEntity(entity) end
++
++---Sets a flag indicating that selection is enabled.
++---@param value boolean True if selection is to be enabled, false to disable.
++function EntityControl:SetSelectionEnabled(value) end
+ 
+ ---A EquipmentSlot button for for equipping items.
+ ---@class EquipmentSlot : BaseItemControl
+@@ -5171,6 +5418,9 @@
+ ---@param args table The event arguments
+ MenuItem.Click = function (sender, args) end
+ 
++---Gets the menu items collection.
++---@return MenuItemList #Returns the menu items collection.
++function MenuItem:GetItems() end
+ 
+ ---Defines a list of menu items.
+ ---@class MenuItemList : Object
+@@ -5582,6 +5832,11 @@
+ ---@param args table The event arguments
+ TreeView.SelectedNodeChanged = function (sender, args) end
+ 
++---Gets the node at the specified position.
++---@param x number 
++---@param y number 
++---@return TreeNode #The node at the specified location in the tree view otherwise if no node is there this will return nil.
++function TreeView:GetItemAt(x, y) end
+ 
+ ---Specifies how to perform vertical layouts.
+ ---@class VerticalLayout
+@@ -5692,3 +5947,18 @@
+ ---@param sender table The event sender.
+ ---@param args table The event arguments
+ Window.Deactivated = function (sender, args) end
++
++---(NOT A REAL CLASS) For describing data types and field names of table.
++---@class WindowRotationTable : table<string, number>
++---@field x number # rotate toward you
++---@field y number # rotate left to right
++---@field z number # rotate on the plane (an angle)
++WindowRotationTable = {}
++
++---Gets the rotation of a window
++---@return WindowRotationTable
++function Window:GetRotation() end
++
++---Sets the rotation of a window
++---@param rotation WindowRotationTable
++function Window:SetRotation(rotation) end

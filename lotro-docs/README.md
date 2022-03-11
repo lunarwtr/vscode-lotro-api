@@ -33,8 +33,8 @@ perl ripdocs.pl
 ```
 * Manual change lines as described in [manual-changes.txt](manual-changes.txt)
 ```bash
-cd EmmyLua/Turbine
-patch -p0 < ../../lotro-docs/manual-changes.txt
+cd Lua/EmmyLua/Turbine
+patch -p0 < ../../../lotro-docs/manual-changes.txt
 ```
 ## Perl Modules
 

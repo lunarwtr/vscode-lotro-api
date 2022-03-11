@@ -1,14 +1,18 @@
 local util   = require 'utility'
 local client = require 'client'
 
+local split = function(s, sep)
+    local fields = {}
+    local sep = sep or " "
+    local pattern = string.format("([^%s]+)", sep)
+    ---@diagnostic disable-next-line: discard-returns
+    string.gsub(s, pattern, function(c) fields[#fields + 1] = c end)
+    return fields
+end
+
 function OnSetText(uri, text)
     local diffs = {}
-    for start, realName, finish in text:gmatch [=[import[ ]*["']()(.-)()["']]=] do
-        diffs[#diffs+1] = {
-            start  = start,
-            finish = finish - 1,
-            text   = realName,
-        }
+    for before, start, realName, finish, after in text:gmatch [=[()import[ ]*["']()(.-)()["'];?()]=] do
         local prev = nil;
         local def = "";
         for p in string.gmatch(realName, "([^.]+)") do
@@ -23,10 +27,24 @@ function OnSetText(uri, text)
         def = def .. "local name, value = debug.getlocal(1, __vsclotroloop)\n"
         def = def .. "if not name then\nbreak\nend\n"..prev.."[name] = value\n__vsclotroloop = __vsclotroloop + 1\nend\n"
         def = def .. "---@diagnostic enable\n"
-        --print(util.dump(client.info))
+        --print((string.sub(text, before, after) .. def):gsub("\n", "|\n"))
+        --print("-------------------------")
         diffs[#diffs+1] = {
-            start  = finish + 1,
-            finish = finish + 2,
+            start  = after + 1,
+            finish = after,
+            text   = def,
+        }
+    end
+    --- NewClassName = class(Turbine.UI.Window)
+    for start, spacing, newclass, parent in text:gmatch("()(%s*)([%.%w]*)%s*=%s*class%(([^%)]+)%)") do
+        local ncp = split(newclass, ".");
+        local name = ncp[#ncp]
+        local pp = split(parent, ".");
+        local pname = pp[#pp]
+        local def = spacing.."---@class "..name.." : "..pname.."\n"
+        diffs[#diffs+1] = {
+            start  = start,
+            finish = start-1,
             text   = def,
         }
     end

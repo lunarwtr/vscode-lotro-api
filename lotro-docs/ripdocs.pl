@@ -38,7 +38,7 @@ $docmap{Turbine}{Gameplay}{Equipment}{field} = $docmap{Turbine}{Gameplay}{Equipm
 $docmap{Turbine}{Gameplay}{Equipment}{__details}{langtype} = 'enumeration';
 delete $docmap{Turbine}{Gameplay}{EquipmentSlot};
 
-open OUT, ">:utf8", "../EmmyLua/Turbine/Turbine.lua" or die "Cannot open Turbine.lua: $!";
+open OUT, ">:utf8", "../Lua/EmmyLua/Turbine/Turbine.lua" or die "Cannot open Turbine.lua: $!";
 emmylua($docmap{'Turbine'});
 close OUT;
 # my $json = JSON->new;
@@ -155,9 +155,11 @@ sub emmylua {
 	}
 
 	# Methods
+	my %methods = ('Constructor' => 1, 'IsA' => 1);
 	foreach my $methodtype ("method", "event") {
 		if (defined $node->{$methodtype}) {
 			foreach my $ref (sort { $a->{name} cmp $b->{name} } @{ $node->{$methodtype} }) {
+				$methods{$ref->{name}} = 1;
 				print OUT "\n";
 				if ($ref->{description}) {
 					my $desc = commentnewline($ref->{description});
@@ -187,6 +189,14 @@ sub emmylua {
 					print OUT "$name.$ref->{name} = function ($paramstr) end\n";
 				} else {
 					print OUT "function $name:$ref->{name}($paramstr) end\n";
+				}
+			}
+		}
+		my $cls = loadturbinevalues($d->{longname});
+		if (defined $cls) {
+			while (my($k,$r) = each %{$cls}) {
+				if ($r->{type} eq 'function' && !$methods{$k}) {
+					print "New Method: $d->{longname}:$k\n";
 				}
 			}
 		}

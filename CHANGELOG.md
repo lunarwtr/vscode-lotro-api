@@ -4,6 +4,20 @@ All notable changes to the "vscode-lotro-api" extension will be documented in th
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
-## [Unreleased]
+## [1.0.2] - 2022-03-10
+### Added
+- Improvement: Fix in namespace import erroring in some instances
+- Improvement: Added additional 30 functions found in dump but not HTML documentation
+- Improvement: Added global variables for currently loaded plugin(s)
+- Fix: Added detection of "extending" a Turbine component.  Correctly identifies typing now.
 
-- Initial release
+## [1.0.1] - 2022-03-09
+### Added
+- Improvement: added most of Turbine.Gameplay.Attributes classes
+- Improvement: Undocumented Stretch mode added
+- Improvement: Missing GetWearState method added to Item class
+- Fix: GetMoney* functions so they return multi value returns
+- Fix: import should correctly create package namespaces
+
+## [1.0.0] - 2022-03-06
+### Initial release
