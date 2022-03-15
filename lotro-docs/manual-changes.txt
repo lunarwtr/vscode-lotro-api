@@ -1,5 +1,5 @@
---- Turbine.lua.prev	2022-03-10 16:16:02.232629000 -0700
-+++ Turbine.lua	2022-03-10 19:02:04.222629000 -0700
+--- Turbine.lua	2022-03-14 19:58:08.311843200 -0600
++++ Turbine.lua.bak	2022-03-14 19:57:57.041843200 -0600
 @@ -119,9 +119,9 @@
  Engine = {}
  
@@ -198,7 +198,7 @@
  ---Gets and item from the player's bank.
  ---@param index number The index of the item to get.
 ----@return (Unrecognized type) #Either nil if there is no item there or the index is invalid, or the Item that is in the given index.
-+---@return Item #Either nil if there is no item there or the index is invalid, or the Item that is in the given index.
++---@return BankItem #Either nil if there is no item there or the index is invalid, or the Item that is in the given index.
  function Bank:GetItem(index) end
  
  ---Gets a flag indicating if the bank is currently available.
@@ -225,7 +225,7 @@
 +
  ---Event fired when the mount's base max morale changes.
  ---@param sender table The event sender.
- ---@param args table The event arguments
+ ---@param args EventCombatMountBaseMaxMoraleChangedArgsTable The event arguments
 @@ -1517,6 +1664,54 @@
  ---@return ItemInfo #Information about the item.
  function Item:GetItemInfo() end
@@ -304,10 +304,19 @@
  
  ---Gets the general attributes of a player.
 ----@return Attributes #
-+---@return Attributes | BeorningAttributes | BlackArrowAttributes | BurglarAttributes | CaptainAttributes | ChampionAttributes | ChickenAttributes | ClassAttributes | DefilerAttributes | DwarfAttributes | ElfAttributes | FreePeopleAttributes | GuardianAttributes | HighElfAttributes | HobbitAttributes | HunterAttributes | LoreMasterAttributes | ManAttributes | MinstrelAttributes | MonsterPlayerAttributes | RangerAttributes | ReaverAttributes | RuneKeeperAttributes | StalkerAttributes | StoutAxeAttributes | TrollAttributes | WarLeaderAttributes | WardenAttributes | WeaverAttributes
++---@return Attributes | FreePeopleAttributes
  function LocalPlayer:GetAttributes() end
  
  ---Gets the player's backpack.
+@@ -2027,7 +2222,7 @@
+ function LocalPlayer:GetBackpack() end
+ 
+ ---Gets attribute information specific to a class.
+----@return Attributes #Attributes specified to the class.
++---@return ClassAttributes #Attributes specified to the class.
+ function LocalPlayer:GetClassAttributes() end
+ 
+ ---Gets the player's equipment.
 @@ -2184,7 +2379,7 @@
  function PartyMember:GetParty() end
  
@@ -326,7 +335,51 @@
  function SkillInfo:GetIconImageID() end
  
  ---Gets the name of the item.
-@@ -2685,7 +2880,7 @@
+@@ -2595,6 +2790,15 @@
+ ---@return Skill #The skill at the specified index.
+ function SkillList:GetItem(index) end
+ 
++---Event fired when a skill is added to the player.
++---@param sender table The event sender.
++---@param args EventSkillListSkillAddedArgsTable The event arguments
++SkillList.SkillAdded = function (sender, args) end
++
++---Event fired when a skill is removed from the player.
++---@param sender table The event sender.
++---@param args EventSkillListSkillRemovedArgsTable The event arguments
++SkillList.SkillRemoved = function (sender, args) end
+ 
+ ---A type of skill.
+ ---@class SkillType
+@@ -2676,6 +2880,27 @@
+ Wallet.ItemRemoved = function (sender, args) end
+ 
+ 
++---An item that is contained in a user's bank.
++---@class BankItem : Item
++BankItem = {}
++
++---Gets the quantity of the bank item that the player has.
++---@return number #The quantity of the bank item that the player has.
++function BankItem:GetQuantity() end
++
++---Gets the wear state of the bank item.
++---@see ItemWearState
++---@return number #the `ItemWearState` of the bank item
++function BankItem:GetWearState() end
++
++---Gets the name of player item is bound to.
++---@return string #The name of player item is bound to
++function BankItem:GetBoundOwner() end
++
++---Gets the index of the bank chest item is contained in
++---@return number #the index of the bank chest
++function BankItem:GetChest() end
++
+ ---An item that is contained in a user's wallet.
+ ---@class WalletItem : Object
+ WalletItem = {}
+@@ -2685,7 +2910,7 @@
  function WalletItem:GetDescription() end
  
  ---Gets the image used to identity the wallet item.
@@ -335,7 +388,7 @@
  function WalletItem:GetImage() end
  
  ---Gets the maximum quantity of this wallet item that a player can have.
-@@ -2701,7 +2896,7 @@
+@@ -2701,7 +2926,7 @@
  function WalletItem:GetQuantity() end
  
  ---Gets the small image used to identity the wallet item.
@@ -344,8 +397,8 @@
  function WalletItem:GetSmallImage() end
  
  ---Gets a flag indicating if the item is shared across all characters of an account.
-@@ -2791,6 +2986,17 @@
- ---@param args table The event arguments
+@@ -2791,6 +3016,18 @@
+ ---@param args EventPluginUnloadArgsTable The event arguments
  Plugin.Unload = function (sender, args) end
  
 +---Event fired before a plugin is unloaded.
@@ -355,6 +408,7 @@
 +Plugin.GetOptionsPanel = function(sender, args) end
 +
 +---@type Plugin #the currently loaded plugin
++---@diagnostic disable-next-line:lowercase-global
 +plugin = {}
 +
 +---@type table<string,Plugin>
@@ -362,7 +416,7 @@
  
  ---Provides the ability to save and load plugin data.
  ---@class PluginData
-@@ -2834,6 +3040,9 @@
+@@ -2834,6 +3071,9 @@
  ---@param scriptState string The name of the script state to be unloaded.
  PluginManager.UnloadScriptState = function (scriptState) end
  
@@ -372,7 +426,7 @@
  
  ---Provides programmer extensibility to the chat window.
  ---@class Shell
-@@ -3016,13 +3225,13 @@
+@@ -3016,13 +3256,13 @@
  
  ---Represents a 4 channel color with red, green, blue, and alpha.
  ---@class Color : Object
@@ -388,7 +442,7 @@
  ---@field Beige Color `Turbine.UI.Color(1,0.96100002527237,0.96100002527237,0.8629999756813)`
  ---@field Bisque Color `Turbine.UI.Color(1,1,0.89399999380112,0.76899999380112)`
  ---@field Black Color `Turbine.UI.Color(1,0,0,0)`
-@@ -3065,7 +3274,7 @@
+@@ -3065,7 +3305,7 @@
  ---@field FloralWhite Color `Turbine.UI.Color(1,1,0.98000001907349,0.94099998474121)`
  ---@field ForestGreen Color `Turbine.UI.Color(1,0.1330000013113,0.5450000166893,0.1330000013113)`
  ---@field Fuchsia Color `Turbine.UI.Color(1,1,0,1)`
@@ -397,7 +451,7 @@
  ---@field Gainsboro Color `Turbine.UI.Color(1,0.8629999756813,0.8629999756813,0.8629999756813)`
  ---@field GhostWhite Color `Turbine.UI.Color(1,0.97299998998642,0.97299998998642,1)`
  ---@field Gold Color `Turbine.UI.Color(1,1,0.84299999475479,0)`
-@@ -3134,7 +3343,7 @@
+@@ -3134,7 +3374,7 @@
  ---@field Plum Color `Turbine.UI.Color(1,0.86699998378754,0.62699997425079,0.86699998378754)`
  ---@field PowderBlue Color `Turbine.UI.Color(1,0.68999999761581,0.87800002098083,0.90200001001358)`
  ---@field Purple Color `Turbine.UI.Color(1,0.50199997425079,0,0.50199997425079)`
@@ -406,7 +460,7 @@
  ---@field Red Color `Turbine.UI.Color(1,1,0,0)`
  ---@field RosyBrown Color `Turbine.UI.Color(1,0.73699998855591,0.56099998950958,0.56099998950958)`
  ---@field RoyalBlue Color `Turbine.UI.Color(1,0.25499999523163,0.41200000047684,0.88200002908707)`
-@@ -3402,6 +3611,21 @@
+@@ -3402,6 +3642,21 @@
  ---@param backgroundImage any The path or id of the image to set the background of the control to.
  function Control:SetBackground(backgroundImage) end
  
@@ -428,29 +482,39 @@
  ---Sets the blend mode applied to the background image.
  ---@param value number The new background blend mode.
  function Control:SetBlendMode(value) end
-@@ -3695,8 +3919,8 @@
+@@ -3550,6 +3805,7 @@
+ Control.MouseUp = function (sender, args) end
+ 
+ ---Event fired when a mouse wheel moves.
++--- This is **buggy** in that you have to either be a Button or a child component of a button for this event to trigger
+ ---@param sender table The event sender.
+ ---@param args EventControlMouseWheelArgsTable The event arguments
+ Control.MouseWheel = function (sender, args) end
+@@ -3695,8 +3951,9 @@
  ---`Graphic(dataId)` : Constructs a graphic from a game asset by its ID.
  ---`Graphic(filename)` : Constructs a graphic from a file.
  ---@overload fun():Graphic
 ----@overload fun(dataId:(Unrecognized type)):Graphic
 ----@param dataId (Unrecognized type) 
 +---@overload fun(dataId:number):Graphic
++---@diagnostic disable-next-line: undefined-doc-param
 +---@param dataId number Game asset ID
  ---@param filename string 
  ---@return Graphic
  Turbine.UI.Graphic = function (filename) end
-@@ -3706,8 +3930,8 @@
+@@ -3706,8 +3963,9 @@
  ---`Graphic(dataId)` : Constructs a graphic from a game asset by its ID.
  ---`Graphic(filename)` : Constructs a graphic from a file.
  ---@overload fun():Graphic
 ----@overload fun(dataId:(Unrecognized type)):Graphic
 ----@param dataId (Unrecognized type) 
 +---@overload fun(dataId:number):Graphic
++---@diagnostic disable-next-line: undefined-doc-param
 +---@param dataId number
  ---@param filename string 
  ---@return Graphic
  function Graphic:Constructor(filename) end
-@@ -4678,6 +4902,29 @@
+@@ -4678,6 +4936,29 @@
  ---@return EntityControl
  function EntityControl:Constructor() end
  
@@ -480,8 +544,24 @@
  
  ---A EquipmentSlot button for for equipping items.
  ---@class EquipmentSlot : BaseItemControl
-@@ -5171,6 +5418,9 @@
- ---@param args table The event arguments
+@@ -5015,6 +5296,7 @@
+ ---`Shortcut(type, data)` : Initializes a new shortcut.
+ ---@overload fun():Shortcut
+ ---@overload fun(item:Item):Shortcut
++---@diagnostic disable-next-line: undefined-doc-param
+ ---@param item Item The item to create the shortcut from.
+ ---@param type ShortcutType The type of shortcut that will be created.
+ ---@param data string the data string associated with this shortcut.
+@@ -5027,6 +5309,7 @@
+ ---`Shortcut(type, data)` : Initializes a new shortcut.
+ ---@overload fun():Shortcut
+ ---@overload fun(item:Item):Shortcut
++---@diagnostic disable-next-line: undefined-doc-param
+ ---@param item Item The item to create the shortcut from.
+ ---@param type ShortcutType The type of shortcut that will be created.
+ ---@param data string the data string associated with this shortcut.
+@@ -5171,6 +5454,9 @@
+ ---@param args EventMenuItemClickArgsTable The event arguments
  MenuItem.Click = function (sender, args) end
  
 +---Gets the menu items collection.
@@ -490,8 +570,8 @@
  
  ---Defines a list of menu items.
  ---@class MenuItemList : Object
-@@ -5582,6 +5832,11 @@
- ---@param args table The event arguments
+@@ -5582,6 +5868,11 @@
+ ---@param args EventTreeViewSelectedNodeChangedArgsTable The event arguments
  TreeView.SelectedNodeChanged = function (sender, args) end
  
 +---Gets the node at the specified position.
@@ -502,9 +582,9 @@
  
  ---Specifies how to perform vertical layouts.
  ---@class VerticalLayout
-@@ -5692,3 +5947,18 @@
+@@ -5692,3 +5983,422 @@
  ---@param sender table The event sender.
- ---@param args table The event arguments
+ ---@param args EventWindowDeactivatedArgsTable The event arguments
  Window.Deactivated = function (sender, args) end
 +
 +---(NOT A REAL CLASS) For describing data types and field names of table.
@@ -521,3 +601,407 @@
 +---Sets the rotation of a window
 +---@param rotation WindowRotationTable
 +function Window:SetRotation(rotation) end
++
++---@alias Event1ArgsTable table
++
++---@alias EventActiveSkillResetTimeChangedArgsTable table
++
++---@alias EventActorBaseMaxMoraleChangedArgsTable table
++
++---@alias EventActorBaseMaxPowerChangedArgsTable table
++
++---@alias EventActorLevelChangedArgsTable table
++
++---@alias EventActorMaxMoraleChangedArgsTable table
++
++---@alias EventActorMaxPowerChangedArgsTable table
++
++---@alias EventActorMaxTemporaryMoraleChangedArgsTable table
++
++---@alias EventActorMaxTemporaryPowerChangedArgsTable table
++
++---@alias EventActorMoraleChangedArgsTable table
++
++---@alias EventActorPowerChangedArgsTable table
++
++---@alias EventActorTargetChangedArgsTable table
++
++---@alias EventActorTemporaryMoraleChangedArgsTable table
++
++---@alias EventActorTemporaryPowerChangedArgsTable table
++
++---(NOT A REAL CLASS) For describing data types and field names of the args table.
++---@class EventBackpackItemAddedArgsTable : table
++---@field Index number #
++---@field Item Item #
++
++---(NOT A REAL CLASS) For describing data types and field names of the args table.
++---@class EventBackpackItemMovedArgsTable : table
++---@field Item Item #
++---@field NewIndex number #
++---@field OldIndex number #
++
++---(NOT A REAL CLASS) For describing data types and field names of the args table.
++---@class EventBackpackItemRemovedArgsTable : table
++---@field Index number #
++
++---@alias EventBackpackSizeChangedArgsTable table
++
++---@alias EventBankCapacityChangedArgsTable table
++
++---@alias EventBankChestNameChangedArgsTable table
++
++---@alias EventBankCountChangedArgsTable table
++
++---@alias EventBankIsAvailableChangedArgsTable table
++
++---@alias EventBankItemAddedArgsTable table
++
++---@alias EventBankItemMovedArgsTable table
++
++---@alias EventBankItemRemovedArgsTable table
++
++---@alias EventBankItemsRefreshedArgsTable table
++
++---@alias EventBasicMountMaxMoraleChangedArgsTable table
++
++---@alias EventBasicMountMoraleChangedArgsTable table
++
++---@alias EventBeorningAttributesFormChangedArgsTable table
++
++---@alias EventBeorningAttributesWrathChangedArgsTable table
++
++---@alias EventBurglarAttributesIsCriticalTier1ChangedArgsTable table
++
++---@alias EventBurglarAttributesIsCriticalTier2ChangedArgsTable table
++
++---@alias EventBurglarAttributesStanceChangedArgsTable table
++
++---@alias EventButtonClickArgsTable table
++
++---@alias EventButtonEnabledChangedArgsTable table
++
++---@alias EventCaptainAttributesIsInEnemyDefeatResponseChangedArgsTable table
++
++---@alias EventCaptainAttributesIsInFellowDefeatResponseChangedArgsTable table
++
++---@alias EventCaptainAttributesIsReadiedTier1ChangedArgsTable table
++
++---@alias EventCaptainAttributesIsReadiedTier2ChangedArgsTable table
++
++---@alias EventChampionAttributesFervorChangedArgsTable table
++
++---@alias EventChampionAttributesStanceChangedArgsTable table
++
++---(NOT A REAL CLASS) For describing data types and field names of the args table.
++---@class EventChatReceivedArgsTable : table
++---@field ChatType number #
++---@field Message string #
++---@field Sender string #
++
++---@alias EventCheckBoxCheckedChangedArgsTable table
++
++---@alias EventCheckBoxEnabledChangedArgsTable table
++
++---@alias EventCombatMountBaseMaxMoraleChangedArgsTable table
++
++---@alias EventCombatMountBaseMaxPowerChangedArgsTable table
++
++---@alias EventCombatMountFuryChangedArgsTable table
++
++---@alias EventCombatMountMaxMoraleChangedArgsTable table
++
++---@alias EventCombatMountMaxPowerChangedArgsTable table
++
++---@alias EventCombatMountMaxTemporaryMoraleChangedArgsTable table
++
++---@alias EventCombatMountMaxTemporaryPowerChangedArgsTable table
++
++---@alias EventCombatMountMoraleChangedArgsTable table
++
++---@alias EventCombatMountPowerChangedArgsTable table
++
++---@alias EventCombatMountTemporaryMoraleChangedArgsTable table
++
++---@alias EventCombatMountTemporaryPowerChangedArgsTable table
++
++---(NOT A REAL CLASS) For describing data types and field names of the args table.
++---@class EventControlDragDropArgsTable : table
++---@field DragDropInfo DragDropInfo #
++---@field X number #
++---@field Y number #
++
++---@alias EventControlDragEnterArgsTable table
++
++---@alias EventControlDragLeaveArgsTable table
++
++---@alias EventControlDragStartArgsTable table
++
++---@alias EventControlEnabledChangedArgsTable table
++
++---@alias EventControlFocusGainedArgsTable table
++
++---@alias EventControlFocusLostArgsTable table
++
++---(NOT A REAL CLASS) For describing data types and field names of the args table.
++---@class EventControlKeyDownArgsTable : table
++---@field Action number #
++---@field Alt number #
++---@field Control number #
++---@field Shift number #
++
++---(NOT A REAL CLASS) For describing data types and field names of the args table.
++---@class EventControlKeyUpArgsTable : table
++---@field Action number #
++---@field Alt number #
++---@field Control number #
++---@field Shift number #
++
++---(NOT A REAL CLASS) For describing data types and field names of the args table.
++---@class EventControlMouseClickArgsTable : table
++---@field Button number #
++---@field X number #
++---@field Y number #
++
++---(NOT A REAL CLASS) For describing data types and field names of the args table.
++---@class EventControlMouseDoubleClickArgsTable : table
++---@field Button number #
++---@field X number #
++---@field Y number #
++
++---(NOT A REAL CLASS) For describing data types and field names of the args table.
++---@class EventControlMouseDownArgsTable : table
++---@field Button number #
++---@field X number #
++---@field Y number #
++
++---@alias EventControlMouseEnterArgsTable table
++
++---(NOT A REAL CLASS) For describing data types and field names of the args table.
++---@class EventControlMouseHoverArgsTable : table
++---@field X number #
++---@field Y number #
++
++---@alias EventControlMouseLeaveArgsTable table
++
++---(NOT A REAL CLASS) For describing data types and field names of the args table.
++---@class EventControlMouseMoveArgsTable : table
++---@field X number #
++---@field Y number #
++
++---(NOT A REAL CLASS) For describing data types and field names of the args table.
++---@class EventControlMouseUpArgsTable : table
++---@field Button number #
++---@field X number #
++---@field Y number #
++
++---(NOT A REAL CLASS) For describing data types and field names of the args table.
++---@class EventControlMouseWheelArgsTable : table
++---@field Direction number #
++---@field X number #
++---@field Y number #
++
++---@alias EventControlPositionChangedArgsTable table
++
++---@alias EventControlSizeChangedArgsTable table
++
++---@alias EventControlUpdateArgsTable table
++
++---@alias EventControlVisibleChangedArgsTable table
++
++---@alias EventEffectCategoryChangedArgsTable table
++
++---@alias EventEffectDescriptionChangedArgsTable table
++
++---@alias EventEffectDurationChangedArgsTable table
++
++---@alias EventEffectIconChangedArgsTable table
++
++---@alias EventEffectIsCurableChangedArgsTable table
++
++---@alias EventEffectIsDebuffChangedArgsTable table
++
++---@alias EventEffectIsDispellableChangedArgsTable table
++
++---@alias EventEffectNameChangedArgsTable table
++
++---@alias EventEffectStartTimeChangedArgsTable table
++
++---(NOT A REAL CLASS) For describing data types and field names of the args table.
++---@class EventEffectListEffectAddedArgsTable : table
++---@field Index number #
++
++---(NOT A REAL CLASS) For describing data types and field names of the args table.
++---@class EventEffectListEffectRemovedArgsTable : table
++---@field Index number #
++
++---@alias EventEffectListEffectsClearedArgsTable table
++
++---@alias EventEntityNameChangedArgsTable table
++
++---(NOT A REAL CLASS) For describing data types and field names of the args table.
++---@class EventEquipmentItemEquippedArgsTable : table
++---@field Index number #
++---@field Item Item #
++
++---(NOT A REAL CLASS) For describing data types and field names of the args table.
++---@class EventEquipmentItemUnequippedArgsTable : table
++---@field Index number #
++---@field Item Item #
++
++---@alias EventEquipmentSlotDragDropArgsTable table
++
++---@alias EventGuardianAttributesIsBlockTier1AvailableChangedArgsTable table
++
++---@alias EventGuardianAttributesIsBlockTier2AvailableChangedArgsTable table
++
++---@alias EventGuardianAttributesIsBlockTier3AvailableChangedArgsTable table
++
++---@alias EventGuardianAttributesIsParryTier1AvailableChangedArgsTable table
++
++---@alias EventGuardianAttributesIsParryTier2AvailableChangedArgsTable table
++
++---@alias EventGuardianAttributesIsParryTier3AvailableChangedArgsTable table
++
++---@alias EventGuardianAttributesStanceChangedArgsTable table
++
++---@alias EventHunterAttributesFocusChangedArgsTable table
++
++---@alias EventHunterAttributesStanceChangedArgsTable table
++
++---@alias EventItemInfoControlEnabledChangedArgsTable table
++
++---(NOT A REAL CLASS) For describing data types and field names of the args table.
++---@class EventListBoxItemAddedArgsTable : table
++---@field Item Item #
++
++---(NOT A REAL CLASS) For describing data types and field names of the args table.
++---@class EventListBoxItemRemovedArgsTable : table
++---@field Item Item #
++
++---@alias EventListBoxSelectedIndexChangedArgsTable table
++
++---@alias EventLocalPlayerInCombatChangedArgsTable table
++
++---@alias EventLocalPlayerMountChangedArgsTable table
++
++---@alias EventLotroScrollBarOrientationChangedArgsTable table
++
++---@alias EventMenuItemClickArgsTable table
++
++---@alias EventMinstrelAttributesIsSerenadeTier1ChangedArgsTable table
++
++---@alias EventMinstrelAttributesIsSerenadeTier2ChangedArgsTable table
++
++---@alias EventMinstrelAttributesIsSerenadeTier3ChangedArgsTable table
++
++---@alias EventMinstrelAttributesStanceChangedArgsTable table
++
++---(NOT A REAL CLASS) For describing data types and field names of the args table.
++---@class EventPartyAssistTargetAddedArgsTable : table
++---@field Player Player #
++
++---@alias EventPartyAssistTargetRemovedArgsTable table
++
++---@alias EventPartyLeaderChangedArgsTable table
++
++---@alias EventPartyMemberAddedArgsTable table
++
++---@alias EventPartyMemberRemovedArgsTable table
++
++---@alias EventPlayerIsLinkDeadChangedArgsTable table
++
++---@alias EventPlayerIsVoiceActiveChangedArgsTable table
++
++---@alias EventPlayerIsVoiceEnabledChangedArgsTable table
++
++---@alias EventPlayerPartyChangedArgsTable table
++
++---@alias EventPlayerPetChangedArgsTable table
++
++---@alias EventPlayerRaidChangedArgsTable table
++
++---@alias EventPlayerReadyStateChangedArgsTable table
++
++---@alias EventPluginLoadArgsTable table
++
++---@alias EventPluginUnloadArgsTable table
++
++---@alias EventProfessionInfoMasteryExperienceChangedArgsTable table
++
++---@alias EventProfessionInfoMasteryExperienceTargetChangedArgsTable table
++
++---@alias EventProfessionInfoMasteryLevelChangedArgsTable table
++
++---@alias EventProfessionInfoMasteryTitleChangedArgsTable table
++
++---@alias EventProfessionInfoProficiencyExperienceChangedArgsTable table
++
++---@alias EventProfessionInfoProficiencyExperienceTargetChangedArgsTable table
++
++---@alias EventProfessionInfoProficiencyLevelChangedArgsTable table
++
++---@alias EventProfessionInfoProficiencyTitleChangedArgsTable table
++
++---@alias EventProfessionInfoRecipeAddedArgsTable table
++
++---@alias EventProfessionInfoRecipeRemovedArgsTable table
++
++---(NOT A REAL CLASS) For describing data types and field names of the args table.
++---@class EventQuickslotDragDropArgsTable : table
++---@field DragDropInfo DragDropInfo #
++---@field X number #
++---@field Y number #
++
++---@alias EventQuickslotShortcutChangedArgsTable table
++
++---@alias EventRuneKeeperAttributesAttunementChangedArgsTable table
++
++---@alias EventRuneKeeperAttributesIsChargedChangedArgsTable table
++
++---@alias EventScrollBarOrientationChangedArgsTable table
++
++---@alias EventScrollBarValueChangedArgsTable table
++
++---(NOT A REAL CLASS) For describing data types and field names of the args table.
++---@class EventSkillListSkillAddedArgsTable : table
++---@field Index number #
++---@field Skill Skill #
++
++---(NOT A REAL CLASS) For describing data types and field names of the args table.
++---@class EventSkillListSkillRemovedArgsTable : table
++---@field Index number #
++
++---@alias EventTextBoxEnabledChangedArgsTable table
++
++---@alias EventTextBoxTextChangedArgsTable table
++
++---@alias EventTreeNodeSelectedChangedArgsTable table
++
++---@alias EventTreeViewSelectedNodeChangedArgsTable table
++
++---@alias EventTrollAttributesRampageChangedArgsTable table
++
++---@alias EventWalletItemAddedArgsTable table
++
++---@alias EventWalletItemRemovedArgsTable table
++
++---@alias EventWalletItemMaxQuantityChangedArgsTable table
++
++---@alias EventWalletItemQuantityChangedArgsTable table
++
++---@alias EventWardenAttributesGambitChangedArgsTable table
++
++---@alias EventWardenAttributesMaxGambitCountChangedArgsTable table
++
++---@alias EventWardenAttributesStanceChangedArgsTable table
++
++---@alias EventWindowActivatedArgsTable table
++
++---@alias EventWindowClosedArgsTable table
++
++---(NOT A REAL CLASS) For describing data types and field names of the args table.
++---@class EventWindowClosingArgsTable : table
++---@field Cancel number #
++
++---@alias EventWindowDeactivatedArgsTable table

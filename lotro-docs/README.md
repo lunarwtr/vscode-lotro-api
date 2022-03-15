@@ -22,6 +22,14 @@ fh:close()
 $ lua TurbineDump.lua > TurbineDump.json
 ```
 
+## Generate Event Dump
+
+* Install TurbineDumper plugin in lotro plugin folder
+* Load it and collect events data.
+* Unload plugin and it will save to disk (Documents/The Lord of the Ring Online/PluginData/Account/TurbineDumper.plugindata)
+* Convert it to json (similar to TurbineDump above)
+
+
 ## Generate EmmyLua
  
 * Download Latest [SSG HTML Documentation](https://www.lotrointerface.com/downloads/fileinfo.php?id=1054) from lotrointerface.com.  The newest was for Update 25

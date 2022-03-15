@@ -1,0 +1,354 @@
+{
+    "Control.PositionChanged": {
+        "Event": "Control.PositionChanged",
+        "Args": {}
+    },
+    "TreeView.SelectedNodeChanged": {
+        "Event": "TreeView.SelectedNodeChanged",
+        "Args": {}
+    },
+    "CheckBox.CheckedChanged": {
+        "Event": "CheckBox.CheckedChanged",
+        "Args": {}
+    },
+    "CheckBox.EnabledChanged": {
+        "Event": "CheckBox.EnabledChanged",
+        "Args": {}
+    },
+    "Window.Closed": {
+        "Event": "Window.Closed",
+        "Args": {}
+    },
+    "Party.AssistTargetAdded": {
+        "Event": "Party.AssistTargetAdded",
+        "Args": {
+            "Player": {}
+        }
+    },
+    "Control.MouseEnter": {
+        "Event": "Control.MouseEnter",
+        "Args": {}
+    },
+    "Control.MouseLeave": {
+        "Event": "Control.MouseLeave",
+        "Args": {}
+    },
+    "Player.PetChanged": {
+        "Event": "Player.PetChanged",
+        "Args": {}
+    },
+    "Window.Deactivated": {
+        "Event": "Window.Deactivated",
+        "Args": {}
+    },
+    "Equipment.ItemUnequipped": {
+        "Event": "Equipment.ItemUnequipped",
+        "Args": {
+            "Item": {},
+            "Index": 19
+        }
+    },
+    "TextBox.TextChanged": {
+        "Event": "TextBox.TextChanged",
+        "Args": {}
+    },
+    "TreeNode.SelectedChanged": {
+        "Event": "TreeNode.SelectedChanged",
+        "Args": {}
+    },
+    "ListBox.ItemRemoved": {
+        "Event": "ListBox.ItemRemoved",
+        "Args": {
+            "Item": {}
+        }
+    },
+    "Actor.MoraleChanged": {
+        "Event": "Actor.MoraleChanged",
+        "Args": {}
+    },
+    "Control.VisibleChanged": {
+        "Event": "Control.VisibleChanged",
+        "Args": {}
+    },
+    "Bank.ItemsRefreshed": {
+        "Event": "Bank.ItemsRefreshed",
+        "Args": {}
+    },
+    "Control.DragDrop": {
+        "Event": "Control.DragDrop",
+        "Args": {
+            "Y": 254,
+            "X": 505,
+            "DragDropInfo": {}
+        }
+    },
+    "Quickslot.ShortcutChanged": {
+        "Event": "Quickslot.ShortcutChanged",
+        "Args": {}
+    },
+    "Actor.BaseMaxMoraleChanged": {
+        "Event": "Actor.BaseMaxMoraleChanged",
+        "Args": {}
+    },
+    "Control.FocusLost": {
+        "Event": "Control.FocusLost",
+        "Args": {}
+    },
+    "Control.KeyUp": {
+        "Event": "Control.KeyUp",
+        "Args": {
+            "Alt": false,
+            "Shift": false,
+            "Action": 19,
+            "Control": false
+        }
+    },
+    "Window.Closing": {
+        "Event": "Window.Closing",
+        "Args": {
+            "Cancel": false
+        }
+    },
+    "Player.IsVoiceEnabledChanged": {
+        "Event": "Player.IsVoiceEnabledChanged",
+        "Args": {}
+    },
+    "Control.MouseUp": {
+        "Event": "Control.MouseUp",
+        "Args": {
+            "Button": 1,
+            "X": 254,
+            "Y": 14
+        }
+    },
+    "Control.MouseHover": {
+        "Event": "Control.MouseHover",
+        "Args": {
+            "Y": 292,
+            "X": 292
+        }
+    },
+    "Bank.CountChanged": {
+        "Event": "Bank.CountChanged",
+        "Args": {}
+    },
+    "Button.Click": {
+        "Event": "Button.Click",
+        "Args": {}
+    },
+    "Plugin.Unload": {
+        "Event": "Plugin.Unload",
+        "Args": {}
+    },
+    "Control.DragLeave": {
+        "Event": "Control.DragLeave",
+        "Args": {}
+    },
+    "Chat.Received": {
+        "Event": "Chat.Received",
+        "Args": {
+            "Message": "Added Events for Wallet Item: Mark",
+            "Sender": "Zigus",
+            "ChatType": 4
+        }
+    },
+    "Control.FocusGained": {
+        "Event": "Control.FocusGained",
+        "Args": {}
+    },
+    "Backpack.ItemRemoved": {
+        "Event": "Backpack.ItemRemoved",
+        "Args": {
+            "Index": 13
+        }
+    },
+    "EffectList.EffectAdded": {
+        "Event": "EffectList.EffectAdded",
+        "Args": {
+            "Index": 4
+        }
+    },
+    "Party.AssistTargetRemoved": {
+        "Event": "Party.AssistTargetRemoved",
+        "Args": {}
+    },
+    "Backpack.ItemAdded": {
+        "Event": "Backpack.ItemAdded",
+        "Args": {
+            "Item": {},
+            "Index": 11
+        }
+    },
+    "ListBox.ItemAdded": {
+        "Event": "ListBox.ItemAdded",
+        "Args": {
+            "Item": {}
+        }
+    },
+    "SkillList.SkillRemoved": {
+        "Event": "SkillList.SkillRemoved",
+        "Args": {
+            "Index": 8
+        }
+    },
+    "LocalPlayer.MountChanged": {
+        "Event": "LocalPlayer.MountChanged",
+        "Args": {}
+    },
+    "SkillList.SkillAdded": {
+        "Event": "SkillList.SkillAdded",
+        "Args": {
+            "Index": 9,
+            "Skill": {}
+        }
+    },
+    "Control.DragEnter": {
+        "Event": "Control.DragEnter",
+        "Args": {}
+    },
+    "Equipment.ItemEquipped": {
+        "Event": "Equipment.ItemEquipped",
+        "Args": {
+            "Item": {},
+            "Index": 19
+        }
+    },
+    "Player.PartyChanged": {
+        "Event": "Player.PartyChanged",
+        "Args": {}
+    },
+    "LocalPlayer.InCombatChanged": {
+        "Event": "LocalPlayer.InCombatChanged",
+        "Args": {}
+    },
+    "LotroScrollBar.OrientationChanged": {
+        "Event": "LotroScrollBar.OrientationChanged",
+        "Args": {}
+    },
+    "EffectList.EffectRemoved": {
+        "Event": "EffectList.EffectRemoved",
+        "Args": {
+            "Index": 1
+        }
+    },
+    "Actor.PowerChanged": {
+        "Event": "Actor.PowerChanged",
+        "Args": {}
+    },
+    "Control.MouseMove": {
+        "Event": "Control.MouseMove",
+        "Args": {
+            "Y": 392,
+            "X": 492
+        }
+    },
+    "Window.Activated": {
+        "Event": "Window.Activated",
+        "Args": {}
+    },
+    "Control.MouseDoubleClick": {
+        "Event": "Control.MouseDoubleClick",
+        "Args": {
+            "Button": 1,
+            "X": 345,
+            "Y": 78
+        }
+    },
+    "Control.SizeChanged": {
+        "Event": "Control.SizeChanged",
+        "Args": {}
+    },
+    "ScrollBar.ValueChanged": {
+        "Event": "ScrollBar.ValueChanged",
+        "Args": {}
+    },
+    "ListBox.SelectedIndexChanged": {
+        "Event": "ListBox.SelectedIndexChanged",
+        "Args": {}
+    },
+    "Control.MouseDown": {
+        "Event": "Control.MouseDown",
+        "Args": {
+            "Button": 1,
+            "X": 254,
+            "Y": 14
+        }
+    },
+    "MenuItem.Click": {
+        "Event": "MenuItem.Click",
+        "Args": {}
+    },
+    "Quickslot.DragDrop": {
+        "Event": "Quickslot.DragDrop",
+        "Args": {
+            "Y": 11,
+            "X": 9,
+            "DragDropInfo": {}
+        }
+    },
+    "Control.MouseWheel": {
+        "Event": "Control.MouseWheel",
+        "Args": {
+            "Y": 8,
+            "X": 23,
+            "Direction": 1
+        }
+    },
+    "Control.DragStart": {
+        "Event": "Control.DragStart",
+        "Args": {}
+    },
+    "Control.MouseClick": {
+        "Event": "Control.MouseClick",
+        "Args": {
+            "Button": 2,
+            "X": 346,
+            "Y": 130
+        }
+    },
+    "Control.KeyDown": {
+        "Event": "Control.KeyDown",
+        "Args": {
+            "Alt": false,
+            "Shift": false,
+            "Action": 268435928,
+            "Control": false
+        }
+    },
+    "Entity.NameChanged": {
+        "Event": "Entity.NameChanged",
+        "Args": {}
+    },
+    "Backpack.ItemMoved": {
+        "Event": "Backpack.ItemMoved",
+        "Args": {
+            "OldIndex": 11,
+            "Item": {},
+            "NewIndex": 56
+        }
+    },
+    "Plugin.Load": {
+        "Event": "Plugin.Load",
+        "Args": {}
+    },
+    "Control.Update": {
+        "Event": "Control.Update",
+        "Args": {}
+    },
+    "Bank.IsAvailableChanged": {
+        "Event": "Bank.IsAvailableChanged",
+        "Args": {}
+    },
+    "Actor.TargetChanged": {
+        "Event": "Actor.TargetChanged",
+        "Args": {}
+    },
+    "Party.LeaderChanged": {
+        "Event": "Party.LeaderChanged",
+        "Args": {}
+    },
+    "Actor.MaxMoraleChanged": {
+        "Event": "Actor.MaxMoraleChanged",
+        "Args": {}
+    }
+}

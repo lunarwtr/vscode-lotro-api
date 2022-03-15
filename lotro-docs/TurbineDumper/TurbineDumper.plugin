@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<Plugin>
+	<Information>
+		<Name>TurbineDumper</Name>
+		<Author>Lunarwater</Author>
+		<Version>1.0</Version>
+		<Description>TurbineDumper</Description>
+	</Information>
+	<Package>TurbineDumper.Example</Package>
+	<Configuration Apartment="TurbineDumper" />
+</Plugin>

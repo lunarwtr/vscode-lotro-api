@@ -24,7 +24,7 @@ Chat = {}
 
 ---This event is fired whenever a chat message is received.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventChatReceivedArgsTable The event arguments
 Chat.Received = function (sender, args) end
 
 
@@ -228,7 +228,7 @@ function ActiveSkill:IsUsable() end
 
 ---Event fired when the reset time of a skill changes.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventActiveSkillResetTimeChangedArgsTable The event arguments
 ActiveSkill.ResetTimeChanged = function (sender, args) end
 
 
@@ -290,62 +290,62 @@ function Actor:GetTemporaryPower() end
 
 ---Event fired when the actor's base max morale changes.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventActorBaseMaxMoraleChangedArgsTable The event arguments
 Actor.BaseMaxMoraleChanged = function (sender, args) end
 
 ---Event fired when he actor's base max power changes.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventActorBaseMaxPowerChangedArgsTable The event arguments
 Actor.BaseMaxPowerChanged = function (sender, args) end
 
 ---Event fired when the actor's level changes.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventActorLevelChangedArgsTable The event arguments
 Actor.LevelChanged = function (sender, args) end
 
 ---Event fired when the actor's max morale changes.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventActorMaxMoraleChangedArgsTable The event arguments
 Actor.MaxMoraleChanged = function (sender, args) end
 
 ---Event fired when he actor's max power changes.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventActorMaxPowerChangedArgsTable The event arguments
 Actor.MaxPowerChanged = function (sender, args) end
 
 ---Event fired when the actor's max temporary morale changes.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventActorMaxTemporaryMoraleChangedArgsTable The event arguments
 Actor.MaxTemporaryMoraleChanged = function (sender, args) end
 
 ---Event fired when he actor's max temporary power changes.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventActorMaxTemporaryPowerChangedArgsTable The event arguments
 Actor.MaxTemporaryPowerChanged = function (sender, args) end
 
 ---Event fired when the actor's morale changes.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventActorMoraleChangedArgsTable The event arguments
 Actor.MoraleChanged = function (sender, args) end
 
 ---Event fired when he actor's power changes.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventActorPowerChangedArgsTable The event arguments
 Actor.PowerChanged = function (sender, args) end
 
 ---Event fired when the actor's target changes.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventActorTargetChangedArgsTable The event arguments
 Actor.TargetChanged = function (sender, args) end
 
 ---Event fired when the actor's temporary morale changes.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventActorTemporaryMoraleChangedArgsTable The event arguments
 Actor.TemporaryMoraleChanged = function (sender, args) end
 
 ---Event fired when he actor's temporary power changes.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventActorTemporaryPowerChangedArgsTable The event arguments
 Actor.TemporaryPowerChanged = function (sender, args) end
 
 
@@ -406,12 +406,12 @@ function BeorningAttributes:IsInBearForm() end
 
 ---Event fired when the form state of the Beorning changes.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventBeorningAttributesFormChangedArgsTable The event arguments
 BeorningAttributes.FormChanged = function (sender, args) end
 
 ---Event fired when the wrath level of a Beorning has changed.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventBeorningAttributesWrathChangedArgsTable The event arguments
 BeorningAttributes.WrathChanged = function (sender, args) end
 
 
@@ -436,17 +436,17 @@ function BurglarAttributes:IsCriticalTier2Available() end
 
 ---Event fired when the critical tier 1 availability has changed.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventBurglarAttributesIsCriticalTier1ChangedArgsTable The event arguments
 BurglarAttributes.IsCriticalTier1Changed = function (sender, args) end
 
 ---Event fired when the critical tier 2 availability has changed.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventBurglarAttributesIsCriticalTier2ChangedArgsTable The event arguments
 BurglarAttributes.IsCriticalTier2Changed = function (sender, args) end
 
 ---Event fired when the stance changes.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventBurglarAttributesStanceChangedArgsTable The event arguments
 BurglarAttributes.StanceChanged = function (sender, args) end
 
 
@@ -471,22 +471,22 @@ function CaptainAttributes:IsReadiedTier2Available() end
 
 ---Event fired when the enemy defeat response changes.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventCaptainAttributesIsInEnemyDefeatResponseChangedArgsTable The event arguments
 CaptainAttributes.IsInEnemyDefeatResponseChanged = function (sender, args) end
 
 ---Event fired when the fellow defeat response changes.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventCaptainAttributesIsInFellowDefeatResponseChangedArgsTable The event arguments
 CaptainAttributes.IsInFellowDefeatResponseChanged = function (sender, args) end
 
 ---Event fired when the readied tier 1 availability has changed.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventCaptainAttributesIsReadiedTier1ChangedArgsTable The event arguments
 CaptainAttributes.IsReadiedTier1Changed = function (sender, args) end
 
 ---Event fired when the readied tier 2 availability has changed.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventCaptainAttributesIsReadiedTier2ChangedArgsTable The event arguments
 CaptainAttributes.IsReadiedTier2Changed = function (sender, args) end
 
 
@@ -503,12 +503,12 @@ function ChampionAttributes:GetStance() end
 
 ---Event fired when the fervor of a champion has changed.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventChampionAttributesFervorChangedArgsTable The event arguments
 ChampionAttributes.FervorChanged = function (sender, args) end
 
 ---Event fired when the stance changes.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventChampionAttributesStanceChangedArgsTable The event arguments
 ChampionAttributes.StanceChanged = function (sender, args) end
 
 
@@ -792,37 +792,37 @@ function GuardianAttributes:IsParryTier3Available() end
 
 ---Event fired when the block tier 1 availability has changed.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventGuardianAttributesIsBlockTier1AvailableChangedArgsTable The event arguments
 GuardianAttributes.IsBlockTier1AvailableChanged = function (sender, args) end
 
 ---Event fired when the block tier 2 availability has changed.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventGuardianAttributesIsBlockTier2AvailableChangedArgsTable The event arguments
 GuardianAttributes.IsBlockTier2AvailableChanged = function (sender, args) end
 
 ---Event fired when the block tier 2 availability has changed.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventGuardianAttributesIsBlockTier3AvailableChangedArgsTable The event arguments
 GuardianAttributes.IsBlockTier3AvailableChanged = function (sender, args) end
 
 ---Event fired when the parry tier 1 availability has changed.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventGuardianAttributesIsParryTier1AvailableChangedArgsTable The event arguments
 GuardianAttributes.IsParryTier1AvailableChanged = function (sender, args) end
 
 ---Event fired when the parry tier 2 availability has changed.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventGuardianAttributesIsParryTier2AvailableChangedArgsTable The event arguments
 GuardianAttributes.IsParryTier2AvailableChanged = function (sender, args) end
 
 ---Event fired when the parry tier 2 availability has changed.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventGuardianAttributesIsParryTier3AvailableChangedArgsTable The event arguments
 GuardianAttributes.IsParryTier3AvailableChanged = function (sender, args) end
 
 ---Event fired when the stance changes.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventGuardianAttributesStanceChangedArgsTable The event arguments
 GuardianAttributes.StanceChanged = function (sender, args) end
 
 
@@ -847,12 +847,12 @@ function HunterAttributes:GetStance() end
 
 ---Event fired when the focus of a hunter has changed.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventHunterAttributesFocusChangedArgsTable The event arguments
 HunterAttributes.FocusChanged = function (sender, args) end
 
 ---Event fired when the stance changes.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventHunterAttributesStanceChangedArgsTable The event arguments
 HunterAttributes.StanceChanged = function (sender, args) end
 
 
@@ -885,22 +885,22 @@ function MinstrelAttributes:IsSerenadeTier3Available() end
 
 ---Event fired when the serenade tier 1 availability has changed.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventMinstrelAttributesIsSerenadeTier1ChangedArgsTable The event arguments
 MinstrelAttributes.IsSerenadeTier1Changed = function (sender, args) end
 
 ---Event fired when the serenade tier 2 availability has changed.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventMinstrelAttributesIsSerenadeTier2ChangedArgsTable The event arguments
 MinstrelAttributes.IsSerenadeTier2Changed = function (sender, args) end
 
 ---Event fired when the serenade tier 2 availability has changed.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventMinstrelAttributesIsSerenadeTier3ChangedArgsTable The event arguments
 MinstrelAttributes.IsSerenadeTier3Changed = function (sender, args) end
 
 ---Event fired when the stance changes.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventMinstrelAttributesStanceChangedArgsTable The event arguments
 MinstrelAttributes.StanceChanged = function (sender, args) end
 
 
@@ -942,12 +942,12 @@ function RuneKeeperAttributes:IsCharged() end
 
 ---Event fired when the attunement of a Rune-Keeper has changed.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventRuneKeeperAttributesAttunementChangedArgsTable The event arguments
 RuneKeeperAttributes.AttunementChanged = function (sender, args) end
 
 ---Event fired when the charge state of the Rune-Keeper changes.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventRuneKeeperAttributesIsChargedChangedArgsTable The event arguments
 RuneKeeperAttributes.IsChargedChanged = function (sender, args) end
 
 
@@ -968,7 +968,7 @@ function TrollAttributes:GetRampage() end
 
 ---Event fired when the rampage of a Troll has changed.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventTrollAttributesRampageChangedArgsTable The event arguments
 TrollAttributes.RampageChanged = function (sender, args) end
 
 
@@ -1006,17 +1006,17 @@ function WardenAttributes:GetUntrainedGambits() end
 
 ---Event fired when the gambit has changed.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventWardenAttributesGambitChangedArgsTable The event arguments
 WardenAttributes.GambitChanged = function (sender, args) end
 
 ---Event fired when the number of gambit slots has changed.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventWardenAttributesMaxGambitCountChangedArgsTable The event arguments
 WardenAttributes.MaxGambitCountChanged = function (sender, args) end
 
 ---Event fired when the stance changes.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventWardenAttributesStanceChangedArgsTable The event arguments
 WardenAttributes.StanceChanged = function (sender, args) end
 
 
@@ -1051,22 +1051,22 @@ function Backpack:PerformShortcutDrop(shortcut, destinationIndex, split) end
 
 ---Event fired when an item is added to the backpack.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventBackpackItemAddedArgsTable The event arguments
 Backpack.ItemAdded = function (sender, args) end
 
 ---Event fired when an item is moved in the backpack.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventBackpackItemMovedArgsTable The event arguments
 Backpack.ItemMoved = function (sender, args) end
 
 ---Event fired when an item is removed from the backpack.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventBackpackItemRemovedArgsTable The event arguments
 Backpack.ItemRemoved = function (sender, args) end
 
 ---Event fired when the size of the backpack has changed.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventBackpackSizeChangedArgsTable The event arguments
 Backpack.SizeChanged = function (sender, args) end
 
 
@@ -1093,7 +1093,7 @@ function Bank:GetCount() end
 
 ---Gets and item from the player's bank.
 ---@param index number The index of the item to get.
----@return Item #Either nil if there is no item there or the index is invalid, or the Item that is in the given index.
+---@return BankItem #Either nil if there is no item there or the index is invalid, or the Item that is in the given index.
 function Bank:GetItem(index) end
 
 ---Gets a flag indicating if the bank is currently available.
@@ -1108,42 +1108,42 @@ function Bank:PerformShortcutDrop(shortcut, targetChest, split) end
 
 ---Event fired when the capacity of the bank has changed.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventBankCapacityChangedArgsTable The event arguments
 Bank.CapacityChanged = function (sender, args) end
 
 ---Event fired when the name of a chest has changed.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventBankChestNameChangedArgsTable The event arguments
 Bank.ChestNameChanged = function (sender, args) end
 
 ---Event fired when the count of items in the bank changes.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventBankCountChangedArgsTable The event arguments
 Bank.CountChanged = function (sender, args) end
 
 ---Event fired when the availability of the bank changes.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventBankIsAvailableChangedArgsTable The event arguments
 Bank.IsAvailableChanged = function (sender, args) end
 
 ---Event fired when an item is added to a bank.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventBankItemAddedArgsTable The event arguments
 Bank.ItemAdded = function (sender, args) end
 
 ---Event fired when an item is moved from one chest to another.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventBankItemMovedArgsTable The event arguments
 Bank.ItemMoved = function (sender, args) end
 
 ---Event fired when an item is removed from a bank.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventBankItemRemovedArgsTable The event arguments
 Bank.ItemRemoved = function (sender, args) end
 
 ---Event fired when the contents of the bank has been refreshed.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventBankItemsRefreshedArgsTable The event arguments
 Bank.ItemsRefreshed = function (sender, args) end
 
 
@@ -1161,12 +1161,12 @@ function BasicMount:GetMorale() end
 
 ---Event fired when the mount's max morale changes.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventBasicMountMaxMoraleChangedArgsTable The event arguments
 BasicMount.MaxMoraleChanged = function (sender, args) end
 
 ---Event fired when the mount's morale changes.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventBasicMountMoraleChangedArgsTable The event arguments
 BasicMount.MoraleChanged = function (sender, args) end
 
 
@@ -1307,57 +1307,57 @@ function CombatMount:GetTurnRate() end
 
 ---Event fired when the mount's base max morale changes.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventCombatMountBaseMaxMoraleChangedArgsTable The event arguments
 CombatMount.BaseMaxMoraleChanged = function (sender, args) end
 
 ---Event fired when he mount's base max power changes.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventCombatMountBaseMaxPowerChangedArgsTable The event arguments
 CombatMount.BaseMaxPowerChanged = function (sender, args) end
 
 ---Event fired when he mount's max temporary power changes.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventCombatMountFuryChangedArgsTable The event arguments
 CombatMount.FuryChanged = function (sender, args) end
 
 ---Event fired when the mount's max morale changes.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventCombatMountMaxMoraleChangedArgsTable The event arguments
 CombatMount.MaxMoraleChanged = function (sender, args) end
 
 ---Event fired when he mount's max power changes.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventCombatMountMaxPowerChangedArgsTable The event arguments
 CombatMount.MaxPowerChanged = function (sender, args) end
 
 ---Event fired when the mount's max temporary morale changes.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventCombatMountMaxTemporaryMoraleChangedArgsTable The event arguments
 CombatMount.MaxTemporaryMoraleChanged = function (sender, args) end
 
 ---Event fired when he mount's max temporary power changes.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventCombatMountMaxTemporaryPowerChangedArgsTable The event arguments
 CombatMount.MaxTemporaryPowerChanged = function (sender, args) end
 
 ---Event fired when the mount's morale changes.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventCombatMountMoraleChangedArgsTable The event arguments
 CombatMount.MoraleChanged = function (sender, args) end
 
 ---Event fired when he mount's power changes.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventCombatMountPowerChangedArgsTable The event arguments
 CombatMount.PowerChanged = function (sender, args) end
 
 ---Event fired when the mount's temporary morale changes.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventCombatMountTemporaryMoraleChangedArgsTable The event arguments
 CombatMount.TemporaryMoraleChanged = function (sender, args) end
 
 ---Event fired when he mount's temporary power changes.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventCombatMountTemporaryPowerChangedArgsTable The event arguments
 CombatMount.TemporaryPowerChanged = function (sender, args) end
 
 
@@ -1433,47 +1433,47 @@ function Effect:IsDispellable() end
 
 ---Event fired when the category changes.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventEffectCategoryChangedArgsTable The event arguments
 Effect.CategoryChanged = function (sender, args) end
 
 ---Event fired when the description changes.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventEffectDescriptionChangedArgsTable The event arguments
 Effect.DescriptionChanged = function (sender, args) end
 
 ---Event fired when the duration changes.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventEffectDurationChangedArgsTable The event arguments
 Effect.DurationChanged = function (sender, args) end
 
 ---Event fired when the icon changes.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventEffectIconChangedArgsTable The event arguments
 Effect.IconChanged = function (sender, args) end
 
 ---Event fired when the curable state changes.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventEffectIsCurableChangedArgsTable The event arguments
 Effect.IsCurableChanged = function (sender, args) end
 
 ---Event fired when the debuff state changes.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventEffectIsDebuffChangedArgsTable The event arguments
 Effect.IsDebuffChanged = function (sender, args) end
 
 ---Event fired when the dispellable state changes.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventEffectIsDispellableChangedArgsTable The event arguments
 Effect.IsDispellableChanged = function (sender, args) end
 
 ---Event fired when the name changes.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventEffectNameChangedArgsTable The event arguments
 Effect.NameChanged = function (sender, args) end
 
 ---Event fired when the start time changes.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventEffectStartTimeChangedArgsTable The event arguments
 Effect.StartTimeChanged = function (sender, args) end
 
 
@@ -1530,17 +1530,17 @@ function EffectList:IndexOf(value) end
 
 ---Event fired when an effect is added.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventEffectListEffectAddedArgsTable The event arguments
 EffectList.EffectAdded = function (sender, args) end
 
 ---Event fired when an effect is removed.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventEffectListEffectRemovedArgsTable The event arguments
 EffectList.EffectRemoved = function (sender, args) end
 
 ---Event fired when all the effects are cleared.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventEffectListEffectsClearedArgsTable The event arguments
 EffectList.EffectsCleared = function (sender, args) end
 
 
@@ -1558,7 +1558,7 @@ function Entity:IsLocalPlayer() end
 
 ---Event fired when the actor's name changes.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventEntityNameChangedArgsTable The event arguments
 Entity.NameChanged = function (sender, args) end
 
 
@@ -1628,12 +1628,12 @@ function Equipment:GetSize() end
 
 ---Event fired when an item is equipped.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventEquipmentItemEquippedArgsTable The event arguments
 Equipment.ItemEquipped = function (sender, args) end
 
 ---Event fired when an item is unequipped.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventEquipmentItemUnequippedArgsTable The event arguments
 Equipment.ItemUnequipped = function (sender, args) end
 
 
@@ -2214,7 +2214,7 @@ ItemWearState = {
 LocalPlayer = {}
 
 ---Gets the general attributes of a player.
----@return Attributes | BeorningAttributes | BlackArrowAttributes | BurglarAttributes | CaptainAttributes | ChampionAttributes | ChickenAttributes | ClassAttributes | DefilerAttributes | DwarfAttributes | ElfAttributes | FreePeopleAttributes | GuardianAttributes | HighElfAttributes | HobbitAttributes | HunterAttributes | LoreMasterAttributes | ManAttributes | MinstrelAttributes | MonsterPlayerAttributes | RangerAttributes | ReaverAttributes | RuneKeeperAttributes | StalkerAttributes | StoutAxeAttributes | TrollAttributes | WarLeaderAttributes | WardenAttributes | WeaverAttributes
+---@return Attributes | FreePeopleAttributes
 function LocalPlayer:GetAttributes() end
 
 ---Gets the player's backpack.
@@ -2222,7 +2222,7 @@ function LocalPlayer:GetAttributes() end
 function LocalPlayer:GetBackpack() end
 
 ---Gets attribute information specific to a class.
----@return Attributes #Attributes specified to the class.
+---@return ClassAttributes #Attributes specified to the class.
 function LocalPlayer:GetClassAttributes() end
 
 ---Gets the player's equipment.
@@ -2279,12 +2279,12 @@ function LocalPlayer:IsVoiceEnabled() end
 
 ---Event fired when the player's in combat state changes.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventLocalPlayerInCombatChangedArgsTable The event arguments
 LocalPlayer.InCombatChanged = function (sender, args) end
 
 ---Event fired when the player's mount has changed.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventLocalPlayerMountChangedArgsTable The event arguments
 LocalPlayer.MountChanged = function (sender, args) end
 
 
@@ -2335,27 +2335,27 @@ function Party:IsMember(player) end
 
 ---Event fired when an assist target has been added.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventPartyAssistTargetAddedArgsTable The event arguments
 Party.AssistTargetAdded = function (sender, args) end
 
 ---Event fired when an assist target has been removed.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventPartyAssistTargetRemovedArgsTable The event arguments
 Party.AssistTargetRemoved = function (sender, args) end
 
 ---Event fired when the leader of the fellowship has changed.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventPartyLeaderChangedArgsTable The event arguments
 Party.LeaderChanged = function (sender, args) end
 
 ---Event fired when a member has joined the party.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventPartyMemberAddedArgsTable The event arguments
 Party.MemberAdded = function (sender, args) end
 
 ---Event fired when a member has been removed from the party.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventPartyMemberRemovedArgsTable The event arguments
 Party.MemberRemoved = function (sender, args) end
 
 
@@ -2442,37 +2442,37 @@ function Player:IsVoiceEnabled() end
 
 ---Event fired when the link dead state of the player has changed.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventPlayerIsLinkDeadChangedArgsTable The event arguments
 Player.IsLinkDeadChanged = function (sender, args) end
 
 ---Event fired when the state of the player transmitting voice data has changed.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventPlayerIsVoiceActiveChangedArgsTable The event arguments
 Player.IsVoiceActiveChanged = function (sender, args) end
 
 ---Event fired when the voice enabled state of the player has changed.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventPlayerIsVoiceEnabledChangedArgsTable The event arguments
 Player.IsVoiceEnabledChanged = function (sender, args) end
 
 ---Event fired when the party of the player has changed.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventPlayerPartyChangedArgsTable The event arguments
 Player.PartyChanged = function (sender, args) end
 
 ---Event fired when the pet of the player has changed.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventPlayerPetChangedArgsTable The event arguments
 Player.PetChanged = function (sender, args) end
 
 ---Event fired when the raid of the player has changed.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventPlayerRaidChangedArgsTable The event arguments
 Player.RaidChanged = function (sender, args) end
 
 ---Event fired when the ready state of the player has changed.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventPlayerReadyStateChangedArgsTable The event arguments
 Player.ReadyStateChanged = function (sender, args) end
 
 
@@ -2555,52 +2555,52 @@ function ProfessionInfo:GetRecipeCount() end
 
 ---Event fired when the current mastery experience earned for the profession has changed.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventProfessionInfoMasteryExperienceChangedArgsTable The event arguments
 ProfessionInfo.MasteryExperienceChanged = function (sender, args) end
 
 ---Event fired when the target mastery experience for the profession has changed.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventProfessionInfoMasteryExperienceTargetChangedArgsTable The event arguments
 ProfessionInfo.MasteryExperienceTargetChanged = function (sender, args) end
 
 ---Event fired when the current mastery level of the profession has changed.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventProfessionInfoMasteryLevelChangedArgsTable The event arguments
 ProfessionInfo.MasteryLevelChanged = function (sender, args) end
 
 ---Event fired when the current mastery title of the profession has changed.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventProfessionInfoMasteryTitleChangedArgsTable The event arguments
 ProfessionInfo.MasteryTitleChanged = function (sender, args) end
 
 ---Event fired when the current proficiency experience earned for the profession has changed.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventProfessionInfoProficiencyExperienceChangedArgsTable The event arguments
 ProfessionInfo.ProficiencyExperienceChanged = function (sender, args) end
 
 ---Event fired when the target proficiency experience for the profession has changed.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventProfessionInfoProficiencyExperienceTargetChangedArgsTable The event arguments
 ProfessionInfo.ProficiencyExperienceTargetChanged = function (sender, args) end
 
 ---Event fired when the current proficiency level of the profession has changed.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventProfessionInfoProficiencyLevelChangedArgsTable The event arguments
 ProfessionInfo.ProficiencyLevelChanged = function (sender, args) end
 
 ---Event fired when the current proficiency title of the profession has changed.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventProfessionInfoProficiencyTitleChangedArgsTable The event arguments
 ProfessionInfo.ProficiencyTitleChanged = function (sender, args) end
 
 ---Event fired when a recipe has been added.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventProfessionInfoRecipeAddedArgsTable The event arguments
 ProfessionInfo.RecipeAdded = function (sender, args) end
 
 ---Event fired when a recipe has been removed.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventProfessionInfoRecipeRemovedArgsTable The event arguments
 ProfessionInfo.RecipeRemoved = function (sender, args) end
 
 
@@ -2790,6 +2790,15 @@ function SkillList:GetCount() end
 ---@return Skill #The skill at the specified index.
 function SkillList:GetItem(index) end
 
+---Event fired when a skill is added to the player.
+---@param sender table The event sender.
+---@param args EventSkillListSkillAddedArgsTable The event arguments
+SkillList.SkillAdded = function (sender, args) end
+
+---Event fired when a skill is removed from the player.
+---@param sender table The event sender.
+---@param args EventSkillListSkillRemovedArgsTable The event arguments
+SkillList.SkillRemoved = function (sender, args) end
 
 ---A type of skill.
 ---@class SkillType
@@ -2862,14 +2871,35 @@ function Wallet:GetSize() end
 
 ---Event fired when an item is added to the wallet.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventWalletItemAddedArgsTable The event arguments
 Wallet.ItemAdded = function (sender, args) end
 
 ---Event fired when an item is removed from the wallet.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventWalletItemRemovedArgsTable The event arguments
 Wallet.ItemRemoved = function (sender, args) end
 
+
+---An item that is contained in a user's bank.
+---@class BankItem : Item
+BankItem = {}
+
+---Gets the quantity of the bank item that the player has.
+---@return number #The quantity of the bank item that the player has.
+function BankItem:GetQuantity() end
+
+---Gets the wear state of the bank item.
+---@see ItemWearState
+---@return number #the `ItemWearState` of the bank item
+function BankItem:GetWearState() end
+
+---Gets the name of player item is bound to.
+---@return string #The name of player item is bound to
+function BankItem:GetBoundOwner() end
+
+---Gets the index of the bank chest item is contained in
+---@return number #the index of the bank chest
+function BankItem:GetChest() end
 
 ---An item that is contained in a user's wallet.
 ---@class WalletItem : Object
@@ -2905,12 +2935,12 @@ function WalletItem:IsAccountItem() end
 
 ---Event fired when the max quantity of the wallet item changes.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventWalletItemMaxQuantityChangedArgsTable The event arguments
 WalletItem.MaxQuantityChanged = function (sender, args) end
 
 ---Event fired when the quantity of the wallet item changes.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventWalletItemQuantityChangedArgsTable The event arguments
 WalletItem.QuantityChanged = function (sender, args) end
 
 
@@ -2978,12 +3008,12 @@ function Plugin:GetVersion() end
 
 ---Event fired when a plugin's main package has finished loading.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventPluginLoadArgsTable The event arguments
 Plugin.Load = function (sender, args) end
 
 ---Event fired before a plugin is unloaded.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventPluginUnloadArgsTable The event arguments
 Plugin.Unload = function (sender, args) end
 
 ---Event fired before a plugin is unloaded.
@@ -3174,12 +3204,12 @@ function Button:Constructor() end
 
 ---Event fired when the user clicks on the button.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventButtonClickArgsTable The event arguments
 Button.Click = function (sender, args) end
 
 ---Event fired when the enabled state of the control changes.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventButtonEnabledChangedArgsTable The event arguments
 Button.EnabledChanged = function (sender, args) end
 
 
@@ -3215,12 +3245,12 @@ function CheckBox:SetChecked(value) end
 
 ---Event fired when the checked state changes.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventCheckBoxCheckedChangedArgsTable The event arguments
 CheckBox.CheckedChanged = function (sender, args) end
 
 ---Event fired when the enabled state of the control changes.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventCheckBoxEnabledChangedArgsTable The event arguments
 CheckBox.EnabledChanged = function (sender, args) end
 
 
@@ -3691,112 +3721,113 @@ function Control:SetZOrder(value) end
 
 ---Event fired when a drag drop operation is completed.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventControlDragDropArgsTable The event arguments
 Control.DragDrop = function (sender, args) end
 
 ---Event fired when a drag drop operation enters the control.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventControlDragEnterArgsTable The event arguments
 Control.DragEnter = function (sender, args) end
 
 ---Event fired when a drag drop operation leaves the control.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventControlDragLeaveArgsTable The event arguments
 Control.DragLeave = function (sender, args) end
 
 ---Event fired when a drag drop operation starts the control.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventControlDragStartArgsTable The event arguments
 Control.DragStart = function (sender, args) end
 
 ---Event fired when the enabled state of the control changes.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventControlEnabledChangedArgsTable The event arguments
 Control.EnabledChanged = function (sender, args) end
 
 ---Event fired when the control gains focus.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventControlFocusGainedArgsTable The event arguments
 Control.FocusGained = function (sender, args) end
 
 ---Event fired when the control loses focus.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventControlFocusLostArgsTable The event arguments
 Control.FocusLost = function (sender, args) end
 
 ---Event fired when a key is pressed down.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventControlKeyDownArgsTable The event arguments
 Control.KeyDown = function (sender, args) end
 
 ---Event fired when a key is released.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventControlKeyUpArgsTable The event arguments
 Control.KeyUp = function (sender, args) end
 
 ---Event fired when a mouse button is clicked.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventControlMouseClickArgsTable The event arguments
 Control.MouseClick = function (sender, args) end
 
 ---Event fired when a mouse button is double clicked.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventControlMouseDoubleClickArgsTable The event arguments
 Control.MouseDoubleClick = function (sender, args) end
 
 ---Event fired when a mouse button is pressed.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventControlMouseDownArgsTable The event arguments
 Control.MouseDown = function (sender, args) end
 
 ---Event fired when the mouse enters the control.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventControlMouseEnterArgsTable The event arguments
 Control.MouseEnter = function (sender, args) end
 
 ---Event fired when the mouse is hovering over the control.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventControlMouseHoverArgsTable The event arguments
 Control.MouseHover = function (sender, args) end
 
 ---Event fired when the mouse leaves the cotnrol.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventControlMouseLeaveArgsTable The event arguments
 Control.MouseLeave = function (sender, args) end
 
 ---Event fired when the mouse moves.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventControlMouseMoveArgsTable The event arguments
 Control.MouseMove = function (sender, args) end
 
 ---Event fired when a mouse button is released.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventControlMouseUpArgsTable The event arguments
 Control.MouseUp = function (sender, args) end
 
 ---Event fired when a mouse wheel moves.
+--- This is **buggy** in that you have to either be a Button or a child component of a button for this event to trigger
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventControlMouseWheelArgsTable The event arguments
 Control.MouseWheel = function (sender, args) end
 
 ---Event fired when the position of the control changes.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventControlPositionChangedArgsTable The event arguments
 Control.PositionChanged = function (sender, args) end
 
 ---Event fired when the size of the control changes.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventControlSizeChangedArgsTable The event arguments
 Control.SizeChanged = function (sender, args) end
 
 ---Event fired every frame when WantsUpdates is enabled.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventControlUpdateArgsTable The event arguments
 Control.Update = function (sender, args) end
 
 ---Event fired when the visible state of the control changes.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventControlVisibleChangedArgsTable The event arguments
 Control.VisibleChanged = function (sender, args) end
 
 
@@ -3921,6 +3952,7 @@ Graphic = {}
 ---`Graphic(filename)` : Constructs a graphic from a file.
 ---@overload fun():Graphic
 ---@overload fun(dataId:number):Graphic
+---@diagnostic disable-next-line: undefined-doc-param
 ---@param dataId number Game asset ID
 ---@param filename string 
 ---@return Graphic
@@ -3932,6 +3964,7 @@ Turbine.UI.Graphic = function (filename) end
 ---`Graphic(filename)` : Constructs a graphic from a file.
 ---@overload fun():Graphic
 ---@overload fun(dataId:number):Graphic
+---@diagnostic disable-next-line: undefined-doc-param
 ---@param dataId number
 ---@param filename string 
 ---@return Graphic
@@ -4236,17 +4269,17 @@ function ListBox:Sort(sortMethod) end
 
 ---Event fired when an item is added.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventListBoxItemAddedArgsTable The event arguments
 ListBox.ItemAdded = function (sender, args) end
 
 ---Event fired when an item is removed.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventListBoxItemRemovedArgsTable The event arguments
 ListBox.ItemRemoved = function (sender, args) end
 
 ---Event fired when the selected index has changed.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventListBoxSelectedIndexChangedArgsTable The event arguments
 ListBox.SelectedIndexChanged = function (sender, args) end
 
 
@@ -4951,7 +4984,7 @@ function EquipmentSlot:SetEquipmentSlot(value) end
 
 ---Event fired when a drag drop operation is completed.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventEquipmentSlotDragDropArgsTable The event arguments
 EquipmentSlot.DragDrop = function (sender, args) end
 
 
@@ -5144,7 +5177,7 @@ function ItemInfoControl:SetQuantity(value) end
 
 ---Event fired when the enabled state of the control changes.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventItemInfoControlEnabledChangedArgsTable The event arguments
 ItemInfoControl.EnabledChanged = function (sender, args) end
 
 
@@ -5224,12 +5257,12 @@ function Quickslot:SetUseOnRightClick(value) end
 
 ---Event fired when a drag drop operation is completed.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventQuickslotDragDropArgsTable The event arguments
 Quickslot.DragDrop = function (sender, args) end
 
 ---Event fired when the shortcut changes.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventQuickslotShortcutChangedArgsTable The event arguments
 Quickslot.ShortcutChanged = function (sender, args) end
 
 
@@ -5249,7 +5282,7 @@ function LotroScrollBar:Constructor() end
 
 ---Event fired when the orientation has changed.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventLotroScrollBarOrientationChangedArgsTable The event arguments
 LotroScrollBar.OrientationChanged = function (sender, args) end
 
 
@@ -5263,6 +5296,7 @@ Shortcut = {}
 ---`Shortcut(type, data)` : Initializes a new shortcut.
 ---@overload fun():Shortcut
 ---@overload fun(item:Item):Shortcut
+---@diagnostic disable-next-line: undefined-doc-param
 ---@param item Item The item to create the shortcut from.
 ---@param type ShortcutType The type of shortcut that will be created.
 ---@param data string the data string associated with this shortcut.
@@ -5275,6 +5309,7 @@ Turbine.UI.Lotro.Shortcut = function (type, data) end
 ---`Shortcut(type, data)` : Initializes a new shortcut.
 ---@overload fun():Shortcut
 ---@overload fun(item:Item):Shortcut
+---@diagnostic disable-next-line: undefined-doc-param
 ---@param item Item The item to create the shortcut from.
 ---@param type ShortcutType The type of shortcut that will be created.
 ---@param data string the data string associated with this shortcut.
@@ -5416,7 +5451,7 @@ function MenuItem:SetText(value) end
 
 ---Event fired when a user clicks on the menu item.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventMenuItemClickArgsTable The event arguments
 MenuItem.Click = function (sender, args) end
 
 ---Gets the menu items collection.
@@ -5592,12 +5627,12 @@ function ScrollBar:SetValue(value) end
 
 ---Event fired when the orientation has changed.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventScrollBarOrientationChangedArgsTable The event arguments
 ScrollBar.OrientationChanged = function (sender, args) end
 
 ---Event fired when the value has changed.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventScrollBarValueChangedArgsTable The event arguments
 ScrollBar.ValueChanged = function (sender, args) end
 
 
@@ -5656,12 +5691,12 @@ function TextBox:SetReadOnly(value) end
 
 ---Event fired when the enabled state of the control changes.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventTextBoxEnabledChangedArgsTable The event arguments
 TextBox.EnabledChanged = function (sender, args) end
 
 ---Event fired when the text is changed.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventTextBoxTextChangedArgsTable The event arguments
 TextBox.TextChanged = function (sender, args) end
 
 
@@ -5716,7 +5751,7 @@ function TreeNode:SetExpanded(value) end
 
 ---Event fired when the selected state of the node has changed.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventTreeNodeSelectedChangedArgsTable The event arguments
 TreeNode.SelectedChanged = function (sender, args) end
 
 
@@ -5830,7 +5865,7 @@ function TreeView:SetSortMethod(value) end
 
 ---Event fired when the selected node has changed.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventTreeViewSelectedNodeChangedArgsTable The event arguments
 TreeView.SelectedNodeChanged = function (sender, args) end
 
 ---Gets the node at the specified position.
@@ -5931,22 +5966,22 @@ function Window:SetText(value) end
 
 ---Event fired when a window is activated.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventWindowActivatedArgsTable The event arguments
 Window.Activated = function (sender, args) end
 
 ---Event fired when a window is closed.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventWindowClosedArgsTable The event arguments
 Window.Closed = function (sender, args) end
 
 ---Event fired when a window is closing.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventWindowClosingArgsTable The event arguments
 Window.Closing = function (sender, args) end
 
 ---Event fired when a window is deactivated.
 ---@param sender table The event sender.
----@param args table The event arguments
+---@param args EventWindowDeactivatedArgsTable The event arguments
 Window.Deactivated = function (sender, args) end
 
 ---(NOT A REAL CLASS) For describing data types and field names of table.
@@ -5963,3 +5998,407 @@ function Window:GetRotation() end
 ---Sets the rotation of a window
 ---@param rotation WindowRotationTable
 function Window:SetRotation(rotation) end
+
+---@alias Event1ArgsTable table
+
+---@alias EventActiveSkillResetTimeChangedArgsTable table
+
+---@alias EventActorBaseMaxMoraleChangedArgsTable table
+
+---@alias EventActorBaseMaxPowerChangedArgsTable table
+
+---@alias EventActorLevelChangedArgsTable table
+
+---@alias EventActorMaxMoraleChangedArgsTable table
+
+---@alias EventActorMaxPowerChangedArgsTable table
+
+---@alias EventActorMaxTemporaryMoraleChangedArgsTable table
+
+---@alias EventActorMaxTemporaryPowerChangedArgsTable table
+
+---@alias EventActorMoraleChangedArgsTable table
+
+---@alias EventActorPowerChangedArgsTable table
+
+---@alias EventActorTargetChangedArgsTable table
+
+---@alias EventActorTemporaryMoraleChangedArgsTable table
+
+---@alias EventActorTemporaryPowerChangedArgsTable table
+
+---(NOT A REAL CLASS) For describing data types and field names of the args table.
+---@class EventBackpackItemAddedArgsTable : table
+---@field Index number #
+---@field Item Item #
+
+---(NOT A REAL CLASS) For describing data types and field names of the args table.
+---@class EventBackpackItemMovedArgsTable : table
+---@field Item Item #
+---@field NewIndex number #
+---@field OldIndex number #
+
+---(NOT A REAL CLASS) For describing data types and field names of the args table.
+---@class EventBackpackItemRemovedArgsTable : table
+---@field Index number #
+
+---@alias EventBackpackSizeChangedArgsTable table
+
+---@alias EventBankCapacityChangedArgsTable table
+
+---@alias EventBankChestNameChangedArgsTable table
+
+---@alias EventBankCountChangedArgsTable table
+
+---@alias EventBankIsAvailableChangedArgsTable table
+
+---@alias EventBankItemAddedArgsTable table
+
+---@alias EventBankItemMovedArgsTable table
+
+---@alias EventBankItemRemovedArgsTable table
+
+---@alias EventBankItemsRefreshedArgsTable table
+
+---@alias EventBasicMountMaxMoraleChangedArgsTable table
+
+---@alias EventBasicMountMoraleChangedArgsTable table
+
+---@alias EventBeorningAttributesFormChangedArgsTable table
+
+---@alias EventBeorningAttributesWrathChangedArgsTable table
+
+---@alias EventBurglarAttributesIsCriticalTier1ChangedArgsTable table
+
+---@alias EventBurglarAttributesIsCriticalTier2ChangedArgsTable table
+
+---@alias EventBurglarAttributesStanceChangedArgsTable table
+
+---@alias EventButtonClickArgsTable table
+
+---@alias EventButtonEnabledChangedArgsTable table
+
+---@alias EventCaptainAttributesIsInEnemyDefeatResponseChangedArgsTable table
+
+---@alias EventCaptainAttributesIsInFellowDefeatResponseChangedArgsTable table
+
+---@alias EventCaptainAttributesIsReadiedTier1ChangedArgsTable table
+
+---@alias EventCaptainAttributesIsReadiedTier2ChangedArgsTable table
+
+---@alias EventChampionAttributesFervorChangedArgsTable table
+
+---@alias EventChampionAttributesStanceChangedArgsTable table
+
+---(NOT A REAL CLASS) For describing data types and field names of the args table.
+---@class EventChatReceivedArgsTable : table
+---@field ChatType number #
+---@field Message string #
+---@field Sender string #
+
+---@alias EventCheckBoxCheckedChangedArgsTable table
+
+---@alias EventCheckBoxEnabledChangedArgsTable table
+
+---@alias EventCombatMountBaseMaxMoraleChangedArgsTable table
+
+---@alias EventCombatMountBaseMaxPowerChangedArgsTable table
+
+---@alias EventCombatMountFuryChangedArgsTable table
+
+---@alias EventCombatMountMaxMoraleChangedArgsTable table
+
+---@alias EventCombatMountMaxPowerChangedArgsTable table
+
+---@alias EventCombatMountMaxTemporaryMoraleChangedArgsTable table
+
+---@alias EventCombatMountMaxTemporaryPowerChangedArgsTable table
+
+---@alias EventCombatMountMoraleChangedArgsTable table
+
+---@alias EventCombatMountPowerChangedArgsTable table
+
+---@alias EventCombatMountTemporaryMoraleChangedArgsTable table
+
+---@alias EventCombatMountTemporaryPowerChangedArgsTable table
+
+---(NOT A REAL CLASS) For describing data types and field names of the args table.
+---@class EventControlDragDropArgsTable : table
+---@field DragDropInfo DragDropInfo #
+---@field X number #
+---@field Y number #
+
+---@alias EventControlDragEnterArgsTable table
+
+---@alias EventControlDragLeaveArgsTable table
+
+---@alias EventControlDragStartArgsTable table
+
+---@alias EventControlEnabledChangedArgsTable table
+
+---@alias EventControlFocusGainedArgsTable table
+
+---@alias EventControlFocusLostArgsTable table
+
+---(NOT A REAL CLASS) For describing data types and field names of the args table.
+---@class EventControlKeyDownArgsTable : table
+---@field Action number #
+---@field Alt number #
+---@field Control number #
+---@field Shift number #
+
+---(NOT A REAL CLASS) For describing data types and field names of the args table.
+---@class EventControlKeyUpArgsTable : table
+---@field Action number #
+---@field Alt number #
+---@field Control number #
+---@field Shift number #
+
+---(NOT A REAL CLASS) For describing data types and field names of the args table.
+---@class EventControlMouseClickArgsTable : table
+---@field Button number #
+---@field X number #
+---@field Y number #
+
+---(NOT A REAL CLASS) For describing data types and field names of the args table.
+---@class EventControlMouseDoubleClickArgsTable : table
+---@field Button number #
+---@field X number #
+---@field Y number #
+
+---(NOT A REAL CLASS) For describing data types and field names of the args table.
+---@class EventControlMouseDownArgsTable : table
+---@field Button number #
+---@field X number #
+---@field Y number #
+
+---@alias EventControlMouseEnterArgsTable table
+
+---(NOT A REAL CLASS) For describing data types and field names of the args table.
+---@class EventControlMouseHoverArgsTable : table
+---@field X number #
+---@field Y number #
+
+---@alias EventControlMouseLeaveArgsTable table
+
+---(NOT A REAL CLASS) For describing data types and field names of the args table.
+---@class EventControlMouseMoveArgsTable : table
+---@field X number #
+---@field Y number #
+
+---(NOT A REAL CLASS) For describing data types and field names of the args table.
+---@class EventControlMouseUpArgsTable : table
+---@field Button number #
+---@field X number #
+---@field Y number #
+
+---(NOT A REAL CLASS) For describing data types and field names of the args table.
+---@class EventControlMouseWheelArgsTable : table
+---@field Direction number #
+---@field X number #
+---@field Y number #
+
+---@alias EventControlPositionChangedArgsTable table
+
+---@alias EventControlSizeChangedArgsTable table
+
+---@alias EventControlUpdateArgsTable table
+
+---@alias EventControlVisibleChangedArgsTable table
+
+---@alias EventEffectCategoryChangedArgsTable table
+
+---@alias EventEffectDescriptionChangedArgsTable table
+
+---@alias EventEffectDurationChangedArgsTable table
+
+---@alias EventEffectIconChangedArgsTable table
+
+---@alias EventEffectIsCurableChangedArgsTable table
+
+---@alias EventEffectIsDebuffChangedArgsTable table
+
+---@alias EventEffectIsDispellableChangedArgsTable table
+
+---@alias EventEffectNameChangedArgsTable table
+
+---@alias EventEffectStartTimeChangedArgsTable table
+
+---(NOT A REAL CLASS) For describing data types and field names of the args table.
+---@class EventEffectListEffectAddedArgsTable : table
+---@field Index number #
+
+---(NOT A REAL CLASS) For describing data types and field names of the args table.
+---@class EventEffectListEffectRemovedArgsTable : table
+---@field Index number #
+
+---@alias EventEffectListEffectsClearedArgsTable table
+
+---@alias EventEntityNameChangedArgsTable table
+
+---(NOT A REAL CLASS) For describing data types and field names of the args table.
+---@class EventEquipmentItemEquippedArgsTable : table
+---@field Index number #
+---@field Item Item #
+
+---(NOT A REAL CLASS) For describing data types and field names of the args table.
+---@class EventEquipmentItemUnequippedArgsTable : table
+---@field Index number #
+---@field Item Item #
+
+---@alias EventEquipmentSlotDragDropArgsTable table
+
+---@alias EventGuardianAttributesIsBlockTier1AvailableChangedArgsTable table
+
+---@alias EventGuardianAttributesIsBlockTier2AvailableChangedArgsTable table
+
+---@alias EventGuardianAttributesIsBlockTier3AvailableChangedArgsTable table
+
+---@alias EventGuardianAttributesIsParryTier1AvailableChangedArgsTable table
+
+---@alias EventGuardianAttributesIsParryTier2AvailableChangedArgsTable table
+
+---@alias EventGuardianAttributesIsParryTier3AvailableChangedArgsTable table
+
+---@alias EventGuardianAttributesStanceChangedArgsTable table
+
+---@alias EventHunterAttributesFocusChangedArgsTable table
+
+---@alias EventHunterAttributesStanceChangedArgsTable table
+
+---@alias EventItemInfoControlEnabledChangedArgsTable table
+
+---(NOT A REAL CLASS) For describing data types and field names of the args table.
+---@class EventListBoxItemAddedArgsTable : table
+---@field Item Item #
+
+---(NOT A REAL CLASS) For describing data types and field names of the args table.
+---@class EventListBoxItemRemovedArgsTable : table
+---@field Item Item #
+
+---@alias EventListBoxSelectedIndexChangedArgsTable table
+
+---@alias EventLocalPlayerInCombatChangedArgsTable table
+
+---@alias EventLocalPlayerMountChangedArgsTable table
+
+---@alias EventLotroScrollBarOrientationChangedArgsTable table
+
+---@alias EventMenuItemClickArgsTable table
+
+---@alias EventMinstrelAttributesIsSerenadeTier1ChangedArgsTable table
+
+---@alias EventMinstrelAttributesIsSerenadeTier2ChangedArgsTable table
+
+---@alias EventMinstrelAttributesIsSerenadeTier3ChangedArgsTable table
+
+---@alias EventMinstrelAttributesStanceChangedArgsTable table
+
+---(NOT A REAL CLASS) For describing data types and field names of the args table.
+---@class EventPartyAssistTargetAddedArgsTable : table
+---@field Player Player #
+
+---@alias EventPartyAssistTargetRemovedArgsTable table
+
+---@alias EventPartyLeaderChangedArgsTable table
+
+---@alias EventPartyMemberAddedArgsTable table
+
+---@alias EventPartyMemberRemovedArgsTable table
+
+---@alias EventPlayerIsLinkDeadChangedArgsTable table
+
+---@alias EventPlayerIsVoiceActiveChangedArgsTable table
+
+---@alias EventPlayerIsVoiceEnabledChangedArgsTable table
+
+---@alias EventPlayerPartyChangedArgsTable table
+
+---@alias EventPlayerPetChangedArgsTable table
+
+---@alias EventPlayerRaidChangedArgsTable table
+
+---@alias EventPlayerReadyStateChangedArgsTable table
+
+---@alias EventPluginLoadArgsTable table
+
+---@alias EventPluginUnloadArgsTable table
+
+---@alias EventProfessionInfoMasteryExperienceChangedArgsTable table
+
+---@alias EventProfessionInfoMasteryExperienceTargetChangedArgsTable table
+
+---@alias EventProfessionInfoMasteryLevelChangedArgsTable table
+
+---@alias EventProfessionInfoMasteryTitleChangedArgsTable table
+
+---@alias EventProfessionInfoProficiencyExperienceChangedArgsTable table
+
+---@alias EventProfessionInfoProficiencyExperienceTargetChangedArgsTable table
+
+---@alias EventProfessionInfoProficiencyLevelChangedArgsTable table
+
+---@alias EventProfessionInfoProficiencyTitleChangedArgsTable table
+
+---@alias EventProfessionInfoRecipeAddedArgsTable table
+
+---@alias EventProfessionInfoRecipeRemovedArgsTable table
+
+---(NOT A REAL CLASS) For describing data types and field names of the args table.
+---@class EventQuickslotDragDropArgsTable : table
+---@field DragDropInfo DragDropInfo #
+---@field X number #
+---@field Y number #
+
+---@alias EventQuickslotShortcutChangedArgsTable table
+
+---@alias EventRuneKeeperAttributesAttunementChangedArgsTable table
+
+---@alias EventRuneKeeperAttributesIsChargedChangedArgsTable table
+
+---@alias EventScrollBarOrientationChangedArgsTable table
+
+---@alias EventScrollBarValueChangedArgsTable table
+
+---(NOT A REAL CLASS) For describing data types and field names of the args table.
+---@class EventSkillListSkillAddedArgsTable : table
+---@field Index number #
+---@field Skill Skill #
+
+---(NOT A REAL CLASS) For describing data types and field names of the args table.
+---@class EventSkillListSkillRemovedArgsTable : table
+---@field Index number #
+
+---@alias EventTextBoxEnabledChangedArgsTable table
+
+---@alias EventTextBoxTextChangedArgsTable table
+
+---@alias EventTreeNodeSelectedChangedArgsTable table
+
+---@alias EventTreeViewSelectedNodeChangedArgsTable table
+
+---@alias EventTrollAttributesRampageChangedArgsTable table
+
+---@alias EventWalletItemAddedArgsTable table
+
+---@alias EventWalletItemRemovedArgsTable table
+
+---@alias EventWalletItemMaxQuantityChangedArgsTable table
+
+---@alias EventWalletItemQuantityChangedArgsTable table
+
+---@alias EventWardenAttributesGambitChangedArgsTable table
+
+---@alias EventWardenAttributesMaxGambitCountChangedArgsTable table
+
+---@alias EventWardenAttributesStanceChangedArgsTable table
+
+---@alias EventWindowActivatedArgsTable table
+
+---@alias EventWindowClosedArgsTable table
+
+---(NOT A REAL CLASS) For describing data types and field names of the args table.
+---@class EventWindowClosingArgsTable : table
+---@field Cancel number #
+
+---@alias EventWindowDeactivatedArgsTable table

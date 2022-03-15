@@ -171,6 +171,11 @@ sub emmylua {
 					foreach my $param (@{$s->{params}}) {
 						my $type = determineclassname($param->{type});
 						my $desc = commentnewline($param->{description});
+						if ($methodtype eq 'event' && $param->{name} eq 'args') {
+							my $tablename = "Event${name}$ref->{name}ArgsTable";
+							$tablename =~ s/\.//g;
+							$type = $tablename;
+						}
 						print OUT "---\@param $param->{name} $type $desc\n";
 						push(@params, $param->{name});
 					}
@@ -196,7 +201,7 @@ sub emmylua {
 		if (defined $cls) {
 			while (my($k,$r) = each %{$cls}) {
 				if ($r->{type} eq 'function' && !$methods{$k}) {
-					print "New Method: $d->{longname}:$k\n";
+					#print "New Method: $d->{longname}:$k\n";
 				}
 			}
 		}

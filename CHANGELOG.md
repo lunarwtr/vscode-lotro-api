@@ -4,6 +4,14 @@ All notable changes to the "vscode-lotro-api" extension will be documented in th
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## [1.0.3] - 2022-03-14
+### Added
+- Improvement: better support for opening plugin root folder as workspace
+- Improvement: added documentation for event arguements
+- Improvement: added undocumented BankItem class & functions
+- Improvement: added undocument SkillList events SkillAdded & SkillRemoved
+- Fix: Correct Turbine class name collisions during class detection
+
 ## [1.0.2] - 2022-03-10
 ### Added
 - Improvement: Fix in namespace import erroring in some instances

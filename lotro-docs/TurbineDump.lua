@@ -2781,7 +2781,7 @@ Dump = {
 
 }
 
-json = require 'lunajson'
+local json = require 'lunajson'
 local fh = io.open("TurbineDump.json", "w")
 fh:write(json.encode(Dump))
 fh:close()
