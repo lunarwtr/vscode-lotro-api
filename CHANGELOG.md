@@ -4,6 +4,12 @@ All notable changes to the "vscode-lotro-api" extension will be documented in th
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## [1.0.4] - 2022-03-15
+### Added
+- Improvement: Constructors on extended Turbine classes are now recognized
+- Improvement: .plugin files are now supported
+- Improvement: .plugincompendium files are now supported
+
 ## [1.0.3] - 2022-03-14
 ### Added
 - Improvement: better support for opening plugin root folder as workspace

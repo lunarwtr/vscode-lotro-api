@@ -2,7 +2,7 @@
 	"name": "lotro-api",
 	"displayName": "LotRO API",
 	"description": "Lord of the Rings Online API",
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"publisher": "lunarwtr",
 	"repository": {
 		"type": "git",
@@ -17,7 +17,9 @@
 	],
 	"icon": "img/vscode-lotro-api.png",
 	"activationEvents": [
-		"onLanguage:lua"
+		"onLanguage:plugin",
+		"workspaceContains:**/*.plugin",
+		"workspaceContains:**/*.plugincompendium"
 	],
 	"main": "./dist/extension.js",
 	"contributes": {},
@@ -49,6 +51,7 @@
 		"@vscode/test-electron": "^2.1.2"
 	},
 	"extensionDependencies": [
-		"sumneko.lua"
+		"sumneko.lua",
+		"redhat.vscode-xml"
 	]
 }

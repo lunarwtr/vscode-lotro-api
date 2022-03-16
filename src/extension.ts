@@ -1,6 +1,11 @@
 import * as vscode from 'vscode';
 import * as path from 'path';
 
+interface XMLSchemaAssocation {
+	pattern: string,
+	systemId: string
+};
+
 // this method is called when your extension is activated
 export function activate(context: vscode.ExtensionContext) {
 	console.log("activate lunarwtr.lotro-api", context.extension.id);
@@ -22,6 +27,16 @@ export function activate(context: vscode.ExtensionContext) {
 			searchPaths.push('?/__init__.lua');
 		}
 		config.update("runtime.path",searchPaths);
+	}
+
+
+	const xmlConfig = vscode.workspace.getConfiguration("xml");
+	let schemasAssoc: XMLSchemaAssocation[] | undefined = xmlConfig.get("fileAssociations");
+	if (schemasAssoc) {
+		schemasAssoc = schemasAssoc.filter(a => !/\.plugin(compendium)?$/.test(a.pattern));
+		schemasAssoc.push({ pattern: '**/*.plugin', systemId: path.join(extensionPath!, 'xsds', 'lotroplugin.xsd')});
+		schemasAssoc.push({ pattern: '**/*.plugincompendium', systemId: path.join(extensionPath!, 'xsds', 'plugincompendium.xsd')});
+		xmlConfig.update("fileAssociations", schemasAssoc);
 	}
 }
 

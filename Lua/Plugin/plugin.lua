@@ -87,7 +87,7 @@ function OnSetText(uri, text)
         if altpname ~= nil then
             pname = altpname
         end
-        local def = ('---@class %s : %s\n'):format(name, pname)
+        local def = ('---@class %s : %s\n---@type fun():%s\n'):format(name, pname, name)
         diffs[#diffs+1] = {
             start  = start,
             finish = start-1,
