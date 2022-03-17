@@ -60,7 +60,7 @@
                     <xs:complexType>
                         <xs:attribute name="Apartment" type="xs:string" use="required">
                             <xs:annotation>
-                                <xs:documentation xml:lang="en"> , 
+                                <xs:documentation xml:lang="en">
                                     Allows a plugin to be unloaded without affecting other plugins or to prevent other plugins from 
                                     interfering with global values and event handlers. If your plugin does not need to be 
                                     unloaded and if it uses safe event handlers (discussed later) then you probably do not 

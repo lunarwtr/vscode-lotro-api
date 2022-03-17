@@ -7,11 +7,20 @@
 ![installs](https://vsmarketplacebadge.apphb.com/installs-short/lunarwtr.lotro-api.svg)
 ![downloads](https://vsmarketplacebadge.apphb.com/downloads-short/lunarwtr.lotro-api.svg)
 
-Adds IntelliSense features for Lord of the Rings Online API to VS Code. This extension uses [Sumneko's](https://marketplace.visualstudio.com/items?itemName=sumneko.lua) Lua [Language Server](https://microsoft.github.io/language-server-protocol/) with [EmmyLua](https://github.com/sumneko/lua-language-server/wiki/EmmyLua-Annotations) annotations.
+Adds IntelliSense features for Lord of the Rings Online API to VS Code. This extension uses [Sumneko's](https://marketplace.visualstudio.com/items?itemName=sumneko.lua) Lua [Language Server](https://microsoft.github.io/language-server-protocol/) with [EmmyLua](https://github.com/sumneko/lua-language-server/wiki/EmmyLua-Annotations) annotations.  
+
+### Features
+
+* IntelliSense for Lord of the Rings Online LUA API (v32.0.4)
+* IntelliSense for LotRO `.plugin` and `.plugincompendium` file xml
+* Code snippets to make coding Plugins easier
+* Undocumented objects, methods and events.
 
 ### Acknowledgements
 * [Sumneko](https://github.com/Sumneko)
 * [Ketho](https://github.com/Ketho)
+* [Septh](https://github.com/Septh)
 * [EmmyLua](https://github.com/EmmyLua)
 * [LotroInterface](https://www.lotrointerface.com/)
 * [Standing Stone Games](https://www.standingstonegames.com/)
+* [Garan & his great guide to plugins](https://forums.lotro.com/forums/showthread.php?428196-Writing-LoTRO-Lua-Plugins-for-Noobs)

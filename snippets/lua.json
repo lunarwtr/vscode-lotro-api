@@ -1,0 +1,114 @@
+{
+	"extend lua class w/ constructor": {
+		"prefix": "class",
+		"body": [
+			"${1:$TM_FILENAME_BASE} = class(${2:Turbine.UI.Lotro.Window});",
+			"function ${1}:Constructor()",
+			"\t${2}.Constructor( self );",
+			"\t${0}",
+			"end"
+		],
+		"description": "Basic LotRO class w/ constructor"
+	},
+	
+	"multiline comment": {
+		"prefix": "-[",
+		"body": [
+			"--[[",
+			"${TM_SELECTED_TEXT:comment...}",
+			"$0",
+			"]]",
+			""
+		],
+		"description": "Create a multiline comment"
+	},
+
+	"nested multiline comment": {
+		"prefix": "=[",
+		"body": [
+			"--[=[",
+			"${TM_SELECTED_TEXT:comment...}",
+			"$0",
+			"]=]",
+			""
+		],
+		"description": "Create a nested multiline comment"
+	},
+
+	"function definition": {
+		"prefix": "func",
+		"body": [
+			"function ${1:FunctionName}(${2:args})",
+			"\t$0",
+			"end",
+			""
+		],
+		"description": "Create a function"
+	},
+
+	"function definition (local)": {
+		"prefix": "func",
+		"body": [
+			"local function ${1:FunctionName}(${2:args})",
+			"\t$0",
+			"end",
+			""
+		],
+		"description": "Create a local function"
+	},
+
+	"while loop": {
+		"prefix": "while",
+		"body": [
+			"while ${1:condition} do",
+			"\t$0",
+			"end",
+			""
+		],
+		"description": "Create a while loop"
+	},
+
+	"repeat loop": {
+		"prefix": "repeat",
+		"body": [
+			"repeat",
+			"\t$0",
+			"until ${1:condition}",
+			""
+		],
+		"description": "Create a repeat loop"
+	},
+
+	"for loop": {
+		"prefix": "for",
+		"body": [
+			"for ${1:i} = ${2:start}, ${3:end} do",
+			"\t$0",
+			"end",
+			""
+		],
+		"description": "Create a for loop"
+	},
+
+	"for i,v in ipairs()": {
+		"prefix": "for",
+		"body": [
+			"for ${1:i},${2:v} in ipairs(${3:tableName}) do",
+			"\t$0",
+			"end",
+			""
+		],
+		"description": "Create a for loop using ipairs"
+	},
+
+	"for k,v in pairs()": {
+		"prefix": "for",
+		"body": [
+			"for ${1:k},${2:v} in pairs(${3:tableName}) do",
+			"\t$0",
+			"end",
+			""
+		],
+		"description": "Create a for loop using pairs"
+	}
+}

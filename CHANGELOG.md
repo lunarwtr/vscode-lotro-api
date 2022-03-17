@@ -4,6 +4,12 @@ All notable changes to the "vscode-lotro-api" extension will be documented in th
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## [1.0.5] - 2022-03-16
+### Added
+- Fix: file association now fixed for new .plugin & .plugincompendium files
+- Improvement: Adding snippets for .plugin & .plugincompendium files
+- Improvement: Added snippets for lua files
+
 ## [1.0.4] - 2022-03-15
 ### Added
 - Improvement: Constructors on extended Turbine classes are now recognized

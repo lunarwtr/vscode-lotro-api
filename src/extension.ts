@@ -38,6 +38,13 @@ export function activate(context: vscode.ExtensionContext) {
 		schemasAssoc.push({ pattern: '**/*.plugincompendium', systemId: path.join(extensionPath!, 'xsds', 'plugincompendium.xsd')});
 		xmlConfig.update("fileAssociations", schemasAssoc);
 	}
+	const filesConfig = vscode.workspace.getConfiguration("files");
+	let associations: {[id: string] : string} | undefined = filesConfig.get("associations");
+	if (associations) {
+		associations["*.plugin"] = "xml";
+		associations["*.plugincompendium"] = "xml";
+		filesConfig.update("associations", associations);
+	}
 }
 
 // this method is called when your extension is deactivated

@@ -78,16 +78,21 @@ function OnSetText(uri, text)
     end
     definednamespace = {}
     --- NewClassName = class(Turbine.UI.Window)
-    for start, newclass, parent in text:gmatch("()([%.%w]*)%s*=%s*class%(%s*([^%)%s]+)%s*%)") do
+    for start, newclass, parent in text:gmatch("()([%.%w]*)%s*=%s*class%(%s*([^%)%s]*)%s*%)") do
         local ncp = split(newclass, ".");
         local name = ncp[#ncp]
-        local pp = split(parent, ".");
-        local pname = pp[#pp]
-        local altpname = longnametoclass[parent]
-        if altpname ~= nil then
-            pname = altpname
+        local def = '';
+        if parent then
+            local pp = split(parent, ".");
+            local pname = pp[#pp]
+            local altpname = longnametoclass[parent]
+            if altpname ~= nil then
+                pname = altpname
+            end
+            def = ('---@class %s : %s\n---@type fun():%s\n'):format(name, pname, name)
+        else
+            def = ('---@class %s\n---@type fun():%s\n'):format(name, name)
         end
-        local def = ('---@class %s : %s\n---@type fun():%s\n'):format(name, pname, name)
         diffs[#diffs+1] = {
             start  = start,
             finish = start-1,

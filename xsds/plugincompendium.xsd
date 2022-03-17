@@ -77,7 +77,7 @@
   <xs:element name="Dependencies">
     <xs:complexType>
       <xs:sequence>
-        <xs:element maxOccurs="unbounded" ref="dependency"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="dependency"/>
       </xs:sequence>
     </xs:complexType>
   </xs:element>

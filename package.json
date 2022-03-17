@@ -2,7 +2,7 @@
 	"name": "lotro-api",
 	"displayName": "LotRO API",
 	"description": "Lord of the Rings Online API",
-	"version": "1.0.4",
+	"version": "1.0.5",
 	"publisher": "lunarwtr",
 	"repository": {
 		"type": "git",
@@ -22,7 +22,17 @@
 		"workspaceContains:**/*.plugincompendium"
 	],
 	"main": "./dist/extension.js",
-	"contributes": {},
+	"contributes": {
+		"snippets": [
+			{
+				"language": "xml",
+				"path": "./snippets/xml.json"
+			},{
+				"language": "lua",
+				"path": "./snippets/lua.json"
+			}
+		]
+	},
 	"scripts": {
 		"vscode:prepublish": "npm run package",
 		"compile": "webpack",
