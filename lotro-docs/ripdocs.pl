@@ -21,6 +21,7 @@ my %longnametoclass = (
 );
 
 my $DOC_BASE_PATH = 'U25';
+my $URL_BASE = "https://lunarwtr.github.io/lotro-api-docs/$DOC_BASE_PATH";
 my $turbineDump = decode_json(loadfile('TurbineDump.json', 'utf8'));
 
 my %pagecache = ();
@@ -51,6 +52,9 @@ sub emmylua {
 	my($node) = @_;
 
 	my $d = $node->{'__details'};
+	if ($d->{link}) {
+		print OUT "---[Documentation]($URL_BASE/$d->{link})\n"
+	}
 	if ($d->{description}) {
 		my $desc = commentnewline($d->{description});
 		print OUT "---$desc\n";

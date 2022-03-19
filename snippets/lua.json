@@ -2,13 +2,59 @@
 	"extend lua class w/ constructor": {
 		"prefix": "class",
 		"body": [
-			"${1:$TM_FILENAME_BASE} = class(${2:Turbine.UI.Lotro.Window});",
+			"${1:$TM_FILENAME_BASE} = class(${2|Turbine.UI.Lotro.Window,Turbine.UI.Window,Turbine.UI.Control|});",
 			"function ${1}:Constructor()",
 			"\t${2}.Constructor( self );",
 			"\t${0}",
 			"end"
 		],
 		"description": "Basic LotRO class w/ constructor"
+	},
+
+	"menu": {
+		"prefix": "menu",
+		"body": [
+			"local ${1:menu} = Turbine.UI.ContextMenu();",
+			"-- Populate the menu with some items.",
+			"local ${2:menuItems} = ${1}:GetItems();",
+			"${2}:Add( Turbine.UI.MenuItem( \"Red\" ) );",
+			"-- repeat ...",
+			"for i = 1, ${2}:GetCount() do",
+			"\tlocal ${3:item} = ${2}:Get( i );",
+			"\t${3}.Click = function(sender, args)",
+			"\t\tTurbine.Shell.WriteLine(\"You have selected \" .. sender:GetText());",
+			"\tend",
+			"end"
+		],
+		"description": "Common Control method additions"
+	},
+
+	"control additions": {
+		"prefix": "control-additions",
+		"body": [
+			"${1:${TM_SELECTED_TEXT:control...}}:SetParent(self);",
+			"${1}:SetSize(100, 20);",
+			"${1}:SetPosition(0, 0);",
+			"${1}:SetBackground(\"\");",
+			"${1}:SetBackColor(Turbine.UI.Color${2|.White,.Black,(.05\\,.05\\,.05),(.09\\,.09\\,.09),.|})",
+			"$0"
+		],
+		"description": "Common Control method additions"
+	},
+
+	"button definition": {
+		"prefix": "button",
+		"body": [
+			"local ${1:button} = ${2|Turbine.UI.Lotro.Button,Turbine.UI.Button,Turbine.UI.Lotro.GoldButton|}();",
+			"${1}:SetParent(self);",
+			"${1}:SetPosition(0, 0);",
+			"${1}:SetWidth(100);",
+			"${1}:SetText(\"${3}\");",
+			"${1}.Click = function(sender, args)",
+			"\t${0}",
+			"end"
+		],
+		"description": "Basic LotRO Button Definition"
 	},
 	
 	"multiline comment": {
