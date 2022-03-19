@@ -20,8 +20,8 @@ my %longnametoclass = (
 	"Turbine.UI.Lotro.Window" => "LotroWindow"
 );
 
-my $DOC_BASE_PATH = 'U25';
-my $URL_BASE = "https://lunarwtr.github.io/lotro-api-docs/$DOC_BASE_PATH";
+my $DOC_BASE_PATH = 'lotro-api-docs/U25';
+my $URL_BASE = "https://lunarwtr.github.io/$DOC_BASE_PATH";
 my $turbineDump = decode_json(loadfile('TurbineDump.json', 'utf8'));
 
 my %pagecache = ();

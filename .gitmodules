@@ -1,0 +1,3 @@
+[submodule "lotro-docs/lotro-api-docs"]
+	path = lotro-docs/lotro-api-docs
+	url = git@github.com:lunarwtr/lotro-api-docs.git
