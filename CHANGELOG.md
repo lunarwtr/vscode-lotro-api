@@ -4,6 +4,13 @@ All notable changes to the "vscode-lotro-api" extension will be documented in th
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## [1.0.6] - 2022-03-19
+### Added
+- Improvement: Added more snippets for lua files
+- Improvement: Hyperlinks to hosted lua documentation
+- Improvement: Usage GIFs of features
+- Improvement: Centralized settings to workspace
+
 ## [1.0.5] - 2022-03-16
 ### Added
 - Fix: file association now fixed for new .plugin & .plugincompendium files
