@@ -1,6 +1,6 @@
---- Turbine.lua.orig	2022-03-19 11:43:39.535853700 -0600
-+++ Turbine.lua	2022-03-19 11:49:27.365853700 -0600
-@@ -124,9 +124,9 @@
+--- Turbine.lua.orig	2022-03-27 17:44:16.491926300 -0600
++++ Turbine.lua	2022-03-27 17:43:57.511926300 -0600
+@@ -124,12 +124,12 @@
  Engine = {}
  
  ---Gets the current callstack.
@@ -11,7 +11,11 @@
 +Engine.GetCallStack = function (...) end
  
  ---Gets the current date.
- ---@return Object #Returns a table containing information about the current date. The following fields are available: Year, Month, Day, Hour, Minute, Second, DayOfWeek, DayOfYear, and IsDST.
+----@return Object #Returns a table containing information about the current date. The following fields are available: Year, Month, Day, Hour, Minute, Second, DayOfWeek, DayOfYear, and IsDST.
++---@return EngineGetDateTable #Returns a table containing information about the current date. The following fields are available: Year, Month, Day, Hour, Minute, Second, DayOfWeek, DayOfYear, and IsDST.
+ Engine.GetDate = function () end
+ 
+ ---Gets the current relative game time.
 @@ -611,8 +611,10 @@
  ---@return number #. The money of the player in copper.
  function FreePeopleAttributes:GetMoney() end
@@ -397,7 +401,18 @@
  function WalletItem:GetSmallImage() end
  
  ---Gets a flag indicating if the item is shared across all characters of an account.
-@@ -2876,6 +3101,18 @@
+@@ -2854,10 +3079,6 @@
+ ---@return string #The author of the plugin.
+ function Plugin:GetAuthor() end
+ 
+----Gets the plugin configuration information.
+----@return Object #The plugin's configuration.
+-function Plugin:GetConfiguration() end
+-
+ ---Gets the name of the plugin.
+ ---@return string #The name of the plugin.
+ function Plugin:GetName() end
+@@ -2876,6 +3097,18 @@
  ---@param args EventPluginUnloadArgsTable The event arguments
  Plugin.Unload = function (sender, args) end
  
@@ -416,7 +431,21 @@
  
  ---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_PluginData$Members.html)
  ---Provides the ability to save and load plugin data.
-@@ -2921,6 +3158,9 @@
+@@ -2903,11 +3136,11 @@
+ PluginManager = {}
+ 
+ ---Gets the plugins that are currently available.
+----@return Object #Returns a table containing the plugins that are currently available.
++---@return PluginManagerGetAvailablePluginsTable[] #Returns a table containing the plugins that are currently available.
+ PluginManager.GetAvailablePlugins = function () end
+ 
+ ---Gets the plugins that are currently loaded.
+----@return Object #Returns a table containing the currently loaded plugins
++---@return PluginManagerGetLoadedPluginsTable[] #Returns a table containing the currently loaded plugins
+ PluginManager.GetLoadedPlugins = function () end
+ 
+ ---Loads the plugin that is requested.
+@@ -2921,6 +3154,9 @@
  ---@param scriptState string The name of the script state to be unloaded.
  PluginManager.UnloadScriptState = function (scriptState) end
  
@@ -426,40 +455,46 @@
  
  ---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Shell$Members.html)
  ---Provides programmer extensibility to the chat window.
-@@ -3110,13 +3350,13 @@
+@@ -3108,15 +3344,21 @@
+ 
+ 
  ---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_UI_Color$Members.html)
++---
++---[View Color Table](https://lunarwtr.github.io/lotro-api-docs/colors/images/)
++---[![](https://lunarwtr.github.io/lotro-api-docs/colors/images/rainbow.png)](https://lunarwtr.github.io/lotro-api-docs/colors/images/)
++---
  ---Represents a 4 channel color with red, green, blue, and alpha.
  ---@class Color : Object
-----@field A  `The alpha component.`
+----@field A  The alpha component.
 +---@field A number The alpha component.
- ---@field AliceBlue Color `Turbine.UI.Color(1,0.94099998474121,0.97299998998642,1)`
- ---@field AntiqueWhite Color `Turbine.UI.Color(1,0.98000001907349,0.92199999094009,0.84299999475479)`
- ---@field Aqua Color `Turbine.UI.Color(1,0,1,1)`
- ---@field Aquamarine Color `Turbine.UI.Color(1,0.49799999594688,1,0.8309999704361)`
- ---@field Azure Color `Turbine.UI.Color(1,0.94099998474121,1,1)`
-----@field B  `The blue component.`
-+---@field B number The blue component.
- ---@field Beige Color `Turbine.UI.Color(1,0.96100002527237,0.96100002527237,0.8629999756813)`
- ---@field Bisque Color `Turbine.UI.Color(1,1,0.89399999380112,0.76899999380112)`
- ---@field Black Color `Turbine.UI.Color(1,0,0,0)`
-@@ -3159,7 +3399,7 @@
- ---@field FloralWhite Color `Turbine.UI.Color(1,1,0.98000001907349,0.94099998474121)`
- ---@field ForestGreen Color `Turbine.UI.Color(1,0.1330000013113,0.5450000166893,0.1330000013113)`
- ---@field Fuchsia Color `Turbine.UI.Color(1,1,0,1)`
-----@field G  `The green component.`
-+---@field G number The green component.
- ---@field Gainsboro Color `Turbine.UI.Color(1,0.8629999756813,0.8629999756813,0.8629999756813)`
- ---@field GhostWhite Color `Turbine.UI.Color(1,0.97299998998642,0.97299998998642,1)`
- ---@field Gold Color `Turbine.UI.Color(1,1,0.84299999475479,0)`
-@@ -3228,7 +3468,7 @@
- ---@field Plum Color `Turbine.UI.Color(1,0.86699998378754,0.62699997425079,0.86699998378754)`
- ---@field PowderBlue Color `Turbine.UI.Color(1,0.68999999761581,0.87800002098083,0.90200001001358)`
- ---@field Purple Color `Turbine.UI.Color(1,0.50199997425079,0,0.50199997425079)`
-----@field R  `The red component.`
 +---@field R number The red component.
- ---@field Red Color `Turbine.UI.Color(1,1,0,0)`
- ---@field RosyBrown Color `Turbine.UI.Color(1,0.73699998855591,0.56099998950958,0.56099998950958)`
- ---@field RoyalBlue Color `Turbine.UI.Color(1,0.25499999523163,0.41200000047684,0.88200002908707)`
++---@field B number The blue component.
++---@field G number The green component.
+ ---@field AliceBlue Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/AliceBlue.png) `Turbine.UI.Color(1,0.94099998474121,0.97299998998642,1)`
+ ---@field AntiqueWhite Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/AntiqueWhite.png) `Turbine.UI.Color(1,0.98000001907349,0.92199999094009,0.84299999475479)`
+ ---@field Aqua Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Aqua.png) `Turbine.UI.Color(1,0,1,1)`
+ ---@field Aquamarine Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Aquamarine.png) `Turbine.UI.Color(1,0.49799999594688,1,0.8309999704361)`
+ ---@field Azure Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Azure.png) `Turbine.UI.Color(1,0.94099998474121,1,1)`
+----@field B  The blue component.
+ ---@field Beige Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Beige.png) `Turbine.UI.Color(1,0.96100002527237,0.96100002527237,0.8629999756813)`
+ ---@field Bisque Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Bisque.png) `Turbine.UI.Color(1,1,0.89399999380112,0.76899999380112)`
+ ---@field Black Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Black.png) `Turbine.UI.Color(1,0,0,0)`
+@@ -3159,7 +3401,6 @@
+ ---@field FloralWhite Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/FloralWhite.png) `Turbine.UI.Color(1,1,0.98000001907349,0.94099998474121)`
+ ---@field ForestGreen Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/ForestGreen.png) `Turbine.UI.Color(1,0.1330000013113,0.5450000166893,0.1330000013113)`
+ ---@field Fuchsia Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Fuchsia.png) `Turbine.UI.Color(1,1,0,1)`
+----@field G  The green component.
+ ---@field Gainsboro Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Gainsboro.png) `Turbine.UI.Color(1,0.8629999756813,0.8629999756813,0.8629999756813)`
+ ---@field GhostWhite Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/GhostWhite.png) `Turbine.UI.Color(1,0.97299998998642,0.97299998998642,1)`
+ ---@field Gold Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Gold.png) `Turbine.UI.Color(1,1,0.84299999475479,0)`
+@@ -3228,7 +3469,6 @@
+ ---@field Plum Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Plum.png) `Turbine.UI.Color(1,0.86699998378754,0.62699997425079,0.86699998378754)`
+ ---@field PowderBlue Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/PowderBlue.png) `Turbine.UI.Color(1,0.68999999761581,0.87800002098083,0.90200001001358)`
+ ---@field Purple Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Purple.png) `Turbine.UI.Color(1,0.50199997425079,0,0.50199997425079)`
+----@field R  The red component.
+ ---@field Red Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Red.png) `Turbine.UI.Color(1,1,0,0)`
+ ---@field RosyBrown Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/RosyBrown.png) `Turbine.UI.Color(1,0.73699998855591,0.56099998950958,0.56099998950958)`
+ ---@field RoyalBlue Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/RoyalBlue.png) `Turbine.UI.Color(1,0.25499999523163,0.41200000047684,0.88200002908707)`
 @@ -3499,6 +3739,21 @@
  ---@param backgroundImage any The path or id of the image to set the background of the control to.
  function Control:SetBackground(backgroundImage) end
@@ -514,7 +549,29 @@
  ---@param filename string 
  ---@return Graphic
  function Graphic:Constructor(filename) end
-@@ -4775,6 +5033,29 @@
+@@ -4110,9 +4368,19 @@
+ ---@param value number The number of pixels to indent wrapped rows or columns.
+ function ListBox:SetWrapIndentAmount(value) end
+ 
++---@alias ListSortFunc fun(itema:Label,itemb:Label):boolean
++
+ ---Sorts the elements in the list box.
+----@param sortMethod Object The function used to sort the elements in the list box.
+-function ListBox:Sort(sortMethod) end
++---```
++-----example sort callback
++---function (itema, itemb)
++---	local texta = itema:GetText();
++---	local textb = itemb:GetText();
++---	return texta < textb
++---end
++---```
++---@param sortCallback ListSortFunc The function used to sort the elements in the list box.
++function ListBox:Sort(sortCallback) end
+ 
+ ---Event fired when an item is added.
+ ---@param sender table The event sender.
+@@ -4775,6 +5043,29 @@
  ---@param value Effect The effect the control is displaying.
  function EffectDisplay:SetEffect(value) end
  
@@ -544,7 +601,7 @@
  
  ---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_UI_Lotro_EntityControl$Members.html)
  ---A control for providing standard entity selection and context sensitive menu support.
-@@ -5139,6 +5420,7 @@
+@@ -5139,6 +5430,7 @@
  ---`Shortcut(type, data)` : Initializes a new shortcut.
  ---@overload fun():Shortcut
  ---@overload fun(item:Item):Shortcut
@@ -552,7 +609,7 @@
  ---@param item Item The item to create the shortcut from.
  ---@param type ShortcutType The type of shortcut that will be created.
  ---@param data string the data string associated with this shortcut.
-@@ -5151,6 +5433,7 @@
+@@ -5151,6 +5443,7 @@
  ---`Shortcut(type, data)` : Initializes a new shortcut.
  ---@overload fun():Shortcut
  ---@overload fun(item:Item):Shortcut
@@ -560,7 +617,7 @@
  ---@param item Item The item to create the shortcut from.
  ---@param type ShortcutType The type of shortcut that will be created.
  ---@param data string the data string associated with this shortcut.
-@@ -5299,6 +5582,9 @@
+@@ -5299,6 +5592,9 @@
  ---@param args EventMenuItemClickArgsTable The event arguments
  MenuItem.Click = function (sender, args) end
  
@@ -570,7 +627,96 @@
  
  ---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_UI_MenuItemList$Members.html)
  ---Defines a list of menu items.
-@@ -5719,6 +6005,11 @@
+@@ -5498,19 +5794,19 @@
+ function ScrollableControl:Constructor() end
+ 
+ ---Gets the horizontal scroll bar.
+----@return Object #The horizontal scroll bar.
++---@return ScrollBar #The horizontal scroll bar.
+ function ScrollableControl:GetHorizontalScrollBar() end
+ 
+ ---Gets the vertical scroll bar.
+----@return Object #The vertical scroll bar.
++---@return ScrollBar #The vertical scroll bar.
+ function ScrollableControl:GetVerticalScrollBar() end
+ 
+ ---Sets the horizontal scroll bar.
+----@param value Object The horizontal scroll bar to use.
++---@param value ScrollBar The horizontal scroll bar to use.
+ function ScrollableControl:SetHorizontalScrollBar(value) end
+ 
+ ---Sets the vertical scroll bar.
+----@param value Object The vertical scroll bar to use.
++---@param value ScrollBar The vertical scroll bar to use.
+ function ScrollableControl:SetVerticalScrollBar(value) end
+ 
+ 
+@@ -5675,8 +5971,10 @@
+ ---Expands all nodes in the tree view.
+ function TreeView:ExpandAll() end
+ 
++---@alias TreeFilterFunc fun(node:TreeNode):boolean
++
+ ---Gets a filter used to filter tree items.
+----@return Object #The filter used to filter tree items.
++---@return TreeFilterFunc #The filter used to filter tree items.
+ function TreeView:GetFilter() end
+ 
+ ---Gets the width of the indentation insert prefer nodes at each level in the tree.
+@@ -5691,16 +5989,24 @@
+ ---@return TreeNode #The currently selected node.
+ function TreeView:GetSelectedNode() end
+ 
++---@alias TreeSortFunc fun(nodea:TreeNode,nodeb:TreeNode):number
++
+ ---Gets a function that is used to sort tree elements.
+----@return Object #The function to sort tree elements.
++---@return TreeSortFunc #The function to sort tree elements.
+ function TreeView:GetSortMethod() end
+ 
+ ---Causes the tree view to refilter and resort.
+ function TreeView:Refresh() end
+ 
+ ---Sets a filter used to filter tree items.
+----@param value Object The filter used to filter tree items.
+-function TreeView:SetFilter(value) end
++---```
++---function(node)
++---   -- return false to keep node; otherwise true to filter
++---   return false 
++---end 
++---```
++---@param filterCallback TreeFilterFunc The filter used to filter tree items.
++function TreeView:SetFilter(filterCallback) end
+ 
+ ---Sets the width of the indentation insert prefer nodes at each level in the tree.
+ ---@param value number The width in pixels to indent nested levels of tree nodes.
+@@ -5711,14 +6017,34 @@
+ function TreeView:SetSelectedNode(value) end
+ 
+ ---Sets a function that is used to sort tree elements. This function needs to enforce consistent ordering or there is a potential for a client crash.
+----@param value Object The function to sort tree elements.
+-function TreeView:SetSortMethod(value) end
++---The callback function takes two nodes to compare.  Return -1 if first node should come first, 0 if they are equal, or 1 if the second node comes first  
++---```
++-----example callback
++---function (nodea, nodeb)
++---	local texta = nodea:GetControls():Get(1):GetText();
++---	local textb = nodeb:GetControls():Get(1):GetText();
++---	 if texta == textb then
++---		return 0
++---	elseif texta < textb then
++---		return -1
++---	else
++---		return 1
++---	end
++---end)
++---```
++---@param sortCallback TreeSortFunc The function to sort tree elements. 
++function TreeView:SetSortMethod(sortCallback) end
+ 
+ ---Event fired when the selected node has changed.
+ ---@param sender table The event sender.
  ---@param args EventTreeViewSelectedNodeChangedArgsTable The event arguments
  TreeView.SelectedNodeChanged = function (sender, args) end
  
@@ -582,7 +728,7 @@
  
  ---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_UI_VerticalLayout.html)
  ---Specifies how to perform vertical layouts.
-@@ -5831,3 +6122,422 @@
+@@ -5831,3 +6157,447 @@
  ---@param sender table The event sender.
  ---@param args EventWindowDeactivatedArgsTable The event arguments
  Window.Deactivated = function (sender, args) end
@@ -1005,3 +1151,29 @@
 +---@field Cancel number #
 +
 +---@alias EventWindowDeactivatedArgsTable table
++
++---(NOT A REAL CLASS) For describing data types and field names of the GetDate table.
++---@class EngineGetDateTable : table
++---@field Year number
++---@field Month number
++---@field Day number
++---@field Hour number
++---@field Minute number
++---@field Second number
++---@field DayOfWeek number
++---@field DayOfYear number
++---@field IsDST boolean
++
++---(NOT A REAL CLASS) For describing data types and field names of the GetLoadedPlugins table.
++---@class PluginManagerGetLoadedPluginsTable : table
++---@field Version string
++---@field Package string
++---@field Author string
++---@field Name string
++---@field ScriptState string
++
++---(NOT A REAL CLASS) For describing data types and field names of the GetAvailablePlugins table.
++---@class PluginManagerGetAvailablePluginsTable : PluginManagerGetLoadedPluginsTable
++---@field Image string
++---@field Description string
+\ No newline at end of file

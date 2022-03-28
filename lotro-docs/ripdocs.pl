@@ -91,7 +91,7 @@ sub emmylua {
 		} else {
 			foreach my $ref (sort { $a->{name} cmp $b->{name} } @fields) {
 				my $type = determineclassname($ref->{type});
-				print OUT "---\@field $ref->{name} $type `$ref->{description}`\n";
+				print OUT "---\@field $ref->{name} $type $ref->{description}\n";
 			}
 			print OUT "$name = {}\n";
 		}
@@ -441,7 +441,7 @@ sub rippage {
 							name => "${color}",
 							# Color(a, r, g, b);
 							type => "Turbine.UI.Color",
-							description => "Turbine.UI.Color($cr->{A}{value},$cr->{R}{value},$cr->{G}{value},$cr->{B}{value})"
+							description => "\!\[\](https://lunarwtr.github.io/lotro-api-docs/colors/images/${color}.png) `Turbine.UI.Color($cr->{A}{value},$cr->{R}{value},$cr->{G}{value},$cr->{B}{value})`"
 						);
 						push(@rows, \%color);
 					}

@@ -124,12 +124,12 @@ DataScope = {
 Engine = {}
 
 ---Gets the current callstack.
----@vararg any
+---@param arguments (Unrecognized type) 
 ---@return string #The current callstack.
-Engine.GetCallStack = function (...) end
+Engine.GetCallStack = function (arguments) end
 
 ---Gets the current date.
----@return EngineGetDateTable #Returns a table containing information about the current date. The following fields are available: Year, Month, Day, Hour, Minute, Second, DayOfWeek, DayOfYear, and IsDST.
+---@return Object #Returns a table containing information about the current date. The following fields are available: Year, Month, Day, Hour, Minute, Second, DayOfWeek, DayOfYear, and IsDST.
 Engine.GetDate = function () end
 
 ---Gets the current relative game time.
@@ -611,10 +611,8 @@ function FreePeopleAttributes:GetMight() end
 ---@return number #. The money of the player in copper.
 function FreePeopleAttributes:GetMoney() end
 
----Gets the money of the player in copper, silver, gold.
----@return number #copper
----@return number #silver
----@return number #gold
+---Gets the money of the player in gold, silver, and copper.
+---@return (Unrecognized type) #. The money of the player returned as three values that are the gold, silver, and copper.
 function FreePeopleAttributes:GetMoneyComponents() end
 
 ---Gets the poison resistance of the player.
@@ -642,142 +640,6 @@ function FreePeopleAttributes:GetWill() end
 ---@return number #The wound resistance of the player.
 function FreePeopleAttributes:GetWoundResistance() end
 
-----Get the acid mitigation of the player
----@return number #the acid mitigation of the player
-function FreePeopleAttributes:GetAcidMitigation() end
-
----Get the base critical hit avoidance of the player
----@return number #the base critical hit avoidance of the player
-function FreePeopleAttributes:GetBaseCriticalHitAvoidance() end
-
----Get the base critical hit chance of the player
----@return number #the base critical hit chance of the player
-function FreePeopleAttributes:GetBaseCriticalHitChance() end
-
----Get the block of the player
----@return number #the block of the player
-function FreePeopleAttributes:GetBlock() end
-
----Get the common mitigation of the player
----@return number #the common mitigation of the player
-function FreePeopleAttributes:GetCommonMitigation() end
-
----Get the evade of the player
----@return number #the evade of the player
-function FreePeopleAttributes:GetEvade() end
-
----Get the finesse of the player
----@return number #the finesse of the player
-function FreePeopleAttributes:GetFinesse() end
-
----Get the fire mitigation of the player
----@return number #the fire mitigation of the player
-function FreePeopleAttributes:GetFireMitigation() end
-
----Get the frost mitigation of the player
----@return number #the frost mitigation of the player
-function FreePeopleAttributes:GetFrostMitigation() end
-
----Get the in combat morale regeneration of the player
----@return number #the in combat morale regeneration of the player
-function FreePeopleAttributes:GetInCombatMoraleRegeneration() end
-
----Get the in combat power regeneration of the player
----@return number #the in combat power regeneration of the player
-function FreePeopleAttributes:GetInCombatPowerRegeneration() end
-
----Get the incoming healing of the player
----@return number #the incoming healing of the player
-function FreePeopleAttributes:GetIncomingHealing() end
-
----Get the lightning mitigation of the player
----@return number #the lightning mitigation of the player
-function FreePeopleAttributes:GetLightningMitigation() end
-
----Get the melee critical hit avoidance of the player
----@return number #the melee critical hit avoidance of the player
-function FreePeopleAttributes:GetMeleeCriticalHitAvoidance() end
-
----Get the melee critical hit chance of the player
----@return number #the melee critical hit chance of the player
-function FreePeopleAttributes:GetMeleeCriticalHitChance() end
-
----Get the melee damage of the player
----@return number #the melee damage of the player
-function FreePeopleAttributes:GetMeleeDamage() end
-
----Get the melee defence of the player
----@return number #the melee defence of the player
-function FreePeopleAttributes:GetMeleeDefence() end
-
----Get the out of combat morale regeneration of the player
----@return number #the out of combat morale regeneration of the player
-function FreePeopleAttributes:GetOutOfCombatMoraleRegeneration() end
-
----Get the out of combat power regeneration of the player
----@return number #the out of combat power regeneration of the player
-function FreePeopleAttributes:GetOutOfCombatPowerRegeneration() end
-
----Get the outgoing healing of the player
----@return number #the outgoing healing of the player
-function FreePeopleAttributes:GetOutgoingHealing() end
-
----Get the parry of the player
----@return number #the parry of the player
-function FreePeopleAttributes:GetParry() end
-
----Get the physical mitigation of the player
----@return number #the physical mitigation of the player
-function FreePeopleAttributes:GetPhysicalMitigation() end
-
----Get the range critical hit avoidance of the player
----@return number #the range critical hit avoidance of the player
-function FreePeopleAttributes:GetRangeCriticalHitAvoidance() end
-
----Get the range critical hit chance of the player
----@return number #the range critical hit chance of the player
-function FreePeopleAttributes:GetRangeCriticalHitChance() end
-
----Get the range damage of the player
----@return number #the range damage of the player
-function FreePeopleAttributes:GetRangeDamage() end
-
----Get the range defence of the player
----@return number #the range defence of the player
-function FreePeopleAttributes:GetRangeDefence() end
-
----Get the shadow mitigation of the player
----@return number #the shadow mitigation of the player
-function FreePeopleAttributes:GetShadowMitigation() end
-
----Get the tactical critical hit avoidance of the player
----@return number #the tactical critical hit avoidance of the player
-function FreePeopleAttributes:GetTacticalCriticalHitAvoidance() end
-
----Get the tactical critical hit chance of the player
----@return number #the tactical critical hit chance of the player
-function FreePeopleAttributes:GetTacticalCriticalHitChance() end
-
----Get the tactical damage of the player
----@return number #the tactical damage of the player
-function FreePeopleAttributes:GetTacticalDamage() end
-
----Get the tactical defence of the player
----@return number #the tactical defence of the player
-function FreePeopleAttributes:GetTacticalDefence() end
-
----Get the tactical mitigation of the player
----@return number #the tactical mitigation of the player
-function FreePeopleAttributes:GetTacticalMitigation() end
-
----@return boolean 
-function FreePeopleAttributes:CanBlock() end
-
----@return boolean 
-function FreePeopleAttributes:CanEvade() end
-
----@return boolean 
-function FreePeopleAttributes:CanParry() end
 
 ---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_Attributes_GuardianAttributes$Members.html)
 ---@class GuardianAttributes : ClassAttributes
@@ -943,11 +805,10 @@ function MonsterPlayerAttributes:GetDestinyPoints() end
 ---@return number #. The money of the player in copper.
 function MonsterPlayerAttributes:GetMoney() end
 
----Gets the money of the player in copper, silver, gold.
----@return number #copper
----@return number #silver
----@return number #gold
+---Gets the money of the player in gold, silver, and copper.
+---@return (Unrecognized type) #. The money of the player returned as three values that are the gold, silver, and copper.
 function MonsterPlayerAttributes:GetMoneyComponents() end
+
 
 ---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_Attributes_RangerAttributes$Members.html)
 ---@class RangerAttributes : ClassAttributes
@@ -1122,7 +983,7 @@ function Bank:GetCapacity() end
 function Bank:GetChestCount() end
 
 ---Gets the name of a chest.
----@param chestType string
+---@param chestType (Unrecognized type) 
 ---@return string #The name of the specified chest.
 function Bank:GetChestName(chestType) end
 
@@ -1132,7 +993,7 @@ function Bank:GetCount() end
 
 ---Gets and item from the player's bank.
 ---@param index number The index of the item to get.
----@return BankItem #Either nil if there is no item there or the index is invalid, or the Item that is in the given index.
+---@return (Unrecognized type) #Either nil if there is no item there or the index is invalid, or the Item that is in the given index.
 function Bank:GetItem(index) end
 
 ---Gets a flag indicating if the bank is currently available.
@@ -1141,7 +1002,7 @@ function Bank:IsAvailable() end
 
 ---Handles the dropping of items into a bank.
 ---@param shortcut Shortcut The shortcut information that was generated as part of a drag and drop event that should contain an item to perform an action on.
----@param targetChest any The target chest the drop should occur into.
+---@param targetChest (Unrecognized type) The target chest the drop should occur into.
 ---@param split boolean Flag indicating if the item split dialog should be displayed for the operation.
 function Bank:PerformShortcutDrop(shortcut, targetChest, split) end
 
@@ -1339,14 +1200,6 @@ function CombatMount:GetTemporaryMorale() end
 ---Gets the temporary power of the mount.
 ---@return number #The temporary power of the mount.
 function CombatMount:GetTemporaryPower() end
-
----Gets the current evasion of the mount.
----@return number #The current evation of the mount.
-function CombatMount:GetEvasion() end
-
----Gets the current turn rate of the mount.
----@return number #The current turn rate of the mount.
-function CombatMount:GetTurnRate() end
 
 ---Event fired when the mount's base max morale changes.
 ---@param sender table The event sender.
@@ -1707,54 +1560,6 @@ function GambitSkillInfo:GetGambit(index) end
 ---@return number #The number of gambits required to use the gambit skill.
 function GambitSkillInfo:GetGambitCount() end
 
----Gets the wear state of the item.
----@see ItemWearState
----@return number #the `ItemWearState` of the item
-function Item:GetWearState() end
-
----Gets the image ID for the background of the item.
----@return number #
-function Item:GetBackgroundImageID() end
-
----Gets the category of the item.
----@return number #The category of the item.
-function Item:GetCategory() end
-
----Gets the durability of the item.
----@return number #A value from `ItemDurability` representing the durability of the item.
-function Item:GetDurability() end
-
----Gets the image ID for the icon of the item.
----@return number #
-function Item:GetIconImageID() end
-
----Gets the maximum number of instances that can be stacked together.
----@return number #The maximum number of instances that can be stacked together.
-function Item:GetMaxStackSize() end
-
----Gets the quality of the item.
----@return number #A value from `ItemQuality` representing the quality of the item.
-function Item:GetQuality() end
-
----Gets the image ID for the quality of the item.
----@return number #
-function Item:GetQualityImageID() end
-
----Gets the quantity displayed.
----@return number #The quantity displayed.
-function Item:GetQuantity() end
-
----Gets the image ID for the shadow of the item.
----@return number #
-function Item:GetShadowImageID() end
-
----Gets the image ID for the underlay of the item.
----@return number #
-function Item:GetUnderlayImageID() end
-
----Gets a flag indicating if the item is considered magical.
----@return boolean #A flag indicating if the item is considered magical.
-function Item:IsMagic() end
 
 ---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_Item$Members.html)
 ---An item that a user can have.
@@ -2256,13 +2061,13 @@ ItemQuality = {
 ItemWearState = {
 	-- An unknown wear state.
 	Undefined = 0,
-	-- A damaged wear state. (1% - 20%)
+	-- A damaged wear state.
 	Damaged = 1,
-	-- A pristine wear state. (100%)
+	-- A pristine wear state.
 	Pristine = 2,
-	-- A broken wear state. (0%)
+	-- A broken wear state.
 	Broken = 3,
-	-- A worn wear state.  (21% - 99%)
+	-- A worn wear state.
 	Worn = 4,
 }
 
@@ -2273,7 +2078,7 @@ ItemWearState = {
 LocalPlayer = {}
 
 ---Gets the general attributes of a player.
----@return Attributes | FreePeopleAttributes
+---@return Attributes #
 function LocalPlayer:GetAttributes() end
 
 ---Gets the player's backpack.
@@ -2281,7 +2086,7 @@ function LocalPlayer:GetAttributes() end
 function LocalPlayer:GetBackpack() end
 
 ---Gets attribute information specific to a class.
----@return ClassAttributes #Attributes specified to the class.
+---@return Attributes #Attributes specified to the class.
 function LocalPlayer:GetClassAttributes() end
 
 ---Gets the player's equipment.
@@ -2441,7 +2246,7 @@ function PartyMember:GetName() end
 function PartyMember:GetParty() end
 
 ---Gets the raid the player is a member of.
----@return Party #Returns the raid the player is a member of. If the player is not currently in a raid this will return nil.
+---@return (Unrecognized type) #Returns the raid the player is a member of. If the player is not currently in a raid this will return nil.
 function PartyMember:GetRaid() end
 
 ---Gets the ready state of a player based on the result of a ready check.
@@ -2839,7 +2644,7 @@ SkillInfo = {}
 function SkillInfo:GetDescription() end
 
 ---Gets the image ID for the icon of the item.
----@return number #The ID for the skill icon.
+---@return (Unrecognized type) #The ID for the skill icon.
 function SkillInfo:GetIconImageID() end
 
 ---Gets the name of the item.
@@ -2865,15 +2670,6 @@ function SkillList:GetCount() end
 ---@return Skill #The skill at the specified index.
 function SkillList:GetItem(index) end
 
----Event fired when a skill is added to the player.
----@param sender table The event sender.
----@param args EventSkillListSkillAddedArgsTable The event arguments
-SkillList.SkillAdded = function (sender, args) end
-
----Event fired when a skill is removed from the player.
----@param sender table The event sender.
----@param args EventSkillListSkillRemovedArgsTable The event arguments
-SkillList.SkillRemoved = function (sender, args) end
 
 ---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_SkillType.html)
 ---A type of skill.
@@ -2960,27 +2756,6 @@ Wallet.ItemAdded = function (sender, args) end
 Wallet.ItemRemoved = function (sender, args) end
 
 
----An item that is contained in a user's bank.
----@class BankItem : Item
-BankItem = {}
-
----Gets the quantity of the bank item that the player has.
----@return number #The quantity of the bank item that the player has.
-function BankItem:GetQuantity() end
-
----Gets the wear state of the bank item.
----@see ItemWearState
----@return number #the `ItemWearState` of the bank item
-function BankItem:GetWearState() end
-
----Gets the name of player item is bound to.
----@return string #The name of player item is bound to
-function BankItem:GetBoundOwner() end
-
----Gets the index of the bank chest item is contained in
----@return number #the index of the bank chest
-function BankItem:GetChest() end
-
 ---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_WalletItem$Members.html)
 ---An item that is contained in a user's wallet.
 ---@class WalletItem : Object
@@ -2991,7 +2766,7 @@ WalletItem = {}
 function WalletItem:GetDescription() end
 
 ---Gets the image used to identity the wallet item.
----@return any #The image used to identity the wallet item.
+---@return (Unrecognized type) #The image used to identity the wallet item.
 function WalletItem:GetImage() end
 
 ---Gets the maximum quantity of this wallet item that a player can have.
@@ -3007,7 +2782,7 @@ function WalletItem:GetName() end
 function WalletItem:GetQuantity() end
 
 ---Gets the small image used to identity the wallet item.
----@return any #The small image used to identity the wallet item.
+---@return (Unrecognized type) #The small image used to identity the wallet item.
 function WalletItem:GetSmallImage() end
 
 ---Gets a flag indicating if the item is shared across all characters of an account.
@@ -3079,6 +2854,10 @@ Plugin = {}
 ---@return string #The author of the plugin.
 function Plugin:GetAuthor() end
 
+---Gets the plugin configuration information.
+---@return Object #The plugin's configuration.
+function Plugin:GetConfiguration() end
+
 ---Gets the name of the plugin.
 ---@return string #The name of the plugin.
 function Plugin:GetName() end
@@ -3097,18 +2876,6 @@ Plugin.Load = function (sender, args) end
 ---@param args EventPluginUnloadArgsTable The event arguments
 Plugin.Unload = function (sender, args) end
 
----Event fired before a plugin is unloaded.
----@param sender table The event sender.
----@param args table The event arguments
----@return Control #the control representing the plugin's options
-Plugin.GetOptionsPanel = function(sender, args) end
-
----@type Plugin #the currently loaded plugin
----@diagnostic disable-next-line:lowercase-global
-plugin = {}
-
----@type table<string,Plugin>
-Plugins = {}
 
 ---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_PluginData$Members.html)
 ---Provides the ability to save and load plugin data.
@@ -3136,11 +2903,11 @@ PluginData.Save = function (dataScope, key, data, saveCompleteEventHandler) end
 PluginManager = {}
 
 ---Gets the plugins that are currently available.
----@return PluginManagerGetAvailablePluginsTable[] #Returns a table containing the plugins that are currently available.
+---@return Object #Returns a table containing the plugins that are currently available.
 PluginManager.GetAvailablePlugins = function () end
 
 ---Gets the plugins that are currently loaded.
----@return PluginManagerGetLoadedPluginsTable[] #Returns a table containing the currently loaded plugins
+---@return Object #Returns a table containing the currently loaded plugins
 PluginManager.GetLoadedPlugins = function () end
 
 ---Loads the plugin that is requested.
@@ -3154,9 +2921,6 @@ PluginManager.RefreshAvailablePlugins = function () end
 ---@param scriptState string The name of the script state to be unloaded.
 PluginManager.UnloadScriptState = function (scriptState) end
 
----Displays the options for the given plugin
----@param plugin Plugin #The plugin to display options for
-PluginManager.ShowOptions = function(plugin) end
 
 ---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Shell$Members.html)
 ---Provides programmer extensibility to the chat window.
@@ -3344,21 +3108,15 @@ CheckBox.EnabledChanged = function (sender, args) end
 
 
 ---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_UI_Color$Members.html)
----
----[View Color Table](https://lunarwtr.github.io/lotro-api-docs/colors/images/)
----[![](https://lunarwtr.github.io/lotro-api-docs/colors/images/rainbow.png)](https://lunarwtr.github.io/lotro-api-docs/colors/images/)
----
 ---Represents a 4 channel color with red, green, blue, and alpha.
 ---@class Color : Object
----@field A number The alpha component.
----@field R number The red component.
----@field B number The blue component.
----@field G number The green component.
+---@field A  The alpha component.
 ---@field AliceBlue Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/AliceBlue.png) `Turbine.UI.Color(1,0.94099998474121,0.97299998998642,1)`
 ---@field AntiqueWhite Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/AntiqueWhite.png) `Turbine.UI.Color(1,0.98000001907349,0.92199999094009,0.84299999475479)`
 ---@field Aqua Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Aqua.png) `Turbine.UI.Color(1,0,1,1)`
 ---@field Aquamarine Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Aquamarine.png) `Turbine.UI.Color(1,0.49799999594688,1,0.8309999704361)`
 ---@field Azure Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Azure.png) `Turbine.UI.Color(1,0.94099998474121,1,1)`
+---@field B  The blue component.
 ---@field Beige Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Beige.png) `Turbine.UI.Color(1,0.96100002527237,0.96100002527237,0.8629999756813)`
 ---@field Bisque Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Bisque.png) `Turbine.UI.Color(1,1,0.89399999380112,0.76899999380112)`
 ---@field Black Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Black.png) `Turbine.UI.Color(1,0,0,0)`
@@ -3401,6 +3159,7 @@ CheckBox.EnabledChanged = function (sender, args) end
 ---@field FloralWhite Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/FloralWhite.png) `Turbine.UI.Color(1,1,0.98000001907349,0.94099998474121)`
 ---@field ForestGreen Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/ForestGreen.png) `Turbine.UI.Color(1,0.1330000013113,0.5450000166893,0.1330000013113)`
 ---@field Fuchsia Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Fuchsia.png) `Turbine.UI.Color(1,1,0,1)`
+---@field G  The green component.
 ---@field Gainsboro Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Gainsboro.png) `Turbine.UI.Color(1,0.8629999756813,0.8629999756813,0.8629999756813)`
 ---@field GhostWhite Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/GhostWhite.png) `Turbine.UI.Color(1,0.97299998998642,0.97299998998642,1)`
 ---@field Gold Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Gold.png) `Turbine.UI.Color(1,1,0.84299999475479,0)`
@@ -3469,6 +3228,7 @@ CheckBox.EnabledChanged = function (sender, args) end
 ---@field Plum Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Plum.png) `Turbine.UI.Color(1,0.86699998378754,0.62699997425079,0.86699998378754)`
 ---@field PowderBlue Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/PowderBlue.png) `Turbine.UI.Color(1,0.68999999761581,0.87800002098083,0.90200001001358)`
 ---@field Purple Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Purple.png) `Turbine.UI.Color(1,0.50199997425079,0,0.50199997425079)`
+---@field R  The red component.
 ---@field Red Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Red.png) `Turbine.UI.Color(1,1,0,0)`
 ---@field RosyBrown Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/RosyBrown.png) `Turbine.UI.Color(1,0.73699998855591,0.56099998950958,0.56099998950958)`
 ---@field RoyalBlue Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/RoyalBlue.png) `Turbine.UI.Color(1,0.25499999523163,0.41200000047684,0.88200002908707)`
@@ -3739,21 +3499,6 @@ function Control:SetBackColorBlendMode(value) end
 ---@param backgroundImage any The path or id of the image to set the background of the control to.
 function Control:SetBackground(backgroundImage) end
 
----Allow dynamically scaling the display size of a control's background image
----
----* **StretchMode 0** - *turns off scaling of a control (and incidentally set the alpha to 0). Any background image will be cropped or tiled. This is the only setting where the image will be properly bounded by a parent control.*
----* **StretchMode 1** - *scale an image based on the size it had when the stretch mode was assigned and its current size. When using StretchMode 1 it is important to set the control to the image's original size BEFORE assigning StretchMode 1, then set the size to the desired stretched size after assigning StretchMode 1. This stretchmode can cause an image to exceed the bounds of its parent. If this happens, the control will only respond to mouse events within the bounds of its parent even though the control is rendered outside those bounds.*
----* **StretchMode 2** - *scale a control to the size of its background image. When StretchMode 2 is initially assigned, the control will resize to fit the image size. If the control is subsequently resized, the background will be stretched to fit the control. Note that in StretchMode 2, the control will not respond to any mouse events even if mouse visibility is true.*
----* **StretchMode 3** - *similar to StretchMode 0 and will turn off scaling of a control. Any background image will be tiled or cropped but if the control exceeds the bounds of its parent, the image will not be properly cropped by the parent's bounds.*
----* **StretchMode 4** - *similar to StretchMode 1 except the control will not receive mouse events even if mouse visibility is set true. This is likely an accidental glitch.*
----@param mode number
-function Control:SetStretchMode(mode) end
-
----Retrieve the display size scaling value for a control's background image
---- see `Control:SetStretchMode(mode)` for details on each value
----@return number # the stretch mode value 
-function Control:GetStretchMode() end
-
 ---Sets the blend mode applied to the background image.
 ---@param value number The new background blend mode.
 function Control:SetBlendMode(value) end
@@ -3902,7 +3647,6 @@ Control.MouseMove = function (sender, args) end
 Control.MouseUp = function (sender, args) end
 
 ---Event fired when a mouse wheel moves.
---- This is **buggy** in that you have to either be a Button or a child component of a button for this event to trigger
 ---@param sender table The event sender.
 ---@param args EventControlMouseWheelArgsTable The event arguments
 Control.MouseWheel = function (sender, args) end
@@ -4053,9 +3797,8 @@ Graphic = {}
 ---`Graphic(dataId)` : Constructs a graphic from a game asset by its ID.
 ---`Graphic(filename)` : Constructs a graphic from a file.
 ---@overload fun():Graphic
----@overload fun(dataId:number):Graphic
----@diagnostic disable-next-line: undefined-doc-param
----@param dataId number Game asset ID
+---@overload fun(dataId:(Unrecognized type)):Graphic
+---@param dataId (Unrecognized type) 
 ---@param filename string 
 ---@return Graphic
 Turbine.UI.Graphic = function (filename) end
@@ -4065,9 +3808,8 @@ Turbine.UI.Graphic = function (filename) end
 ---`Graphic(dataId)` : Constructs a graphic from a game asset by its ID.
 ---`Graphic(filename)` : Constructs a graphic from a file.
 ---@overload fun():Graphic
----@overload fun(dataId:number):Graphic
----@diagnostic disable-next-line: undefined-doc-param
----@param dataId number
+---@overload fun(dataId:(Unrecognized type)):Graphic
+---@param dataId (Unrecognized type) 
 ---@param filename string 
 ---@return Graphic
 function Graphic:Constructor(filename) end
@@ -4368,19 +4110,9 @@ function ListBox:SetSelectedItem(item) end
 ---@param value number The number of pixels to indent wrapped rows or columns.
 function ListBox:SetWrapIndentAmount(value) end
 
----@alias ListSortFunc fun(itema:Label,itemb:Label):boolean
-
 ---Sorts the elements in the list box.
----```
------example sort callback
----function (itema, itemb)
----	local texta = itema:GetText();
----	local textb = itemb:GetText();
----	return texta < textb
----end
----```
----@param sortCallback ListSortFunc The function used to sort the elements in the list box.
-function ListBox:Sort(sortCallback) end
+---@param sortMethod Object The function used to sort the elements in the list box.
+function ListBox:Sort(sortMethod) end
 
 ---Event fired when an item is added.
 ---@param sender table The event sender.
@@ -5043,29 +4775,6 @@ function EffectDisplay:GetEffect() end
 ---@param value Effect The effect the control is displaying.
 function EffectDisplay:SetEffect(value) end
 
----Get the entity registered with control
----@return Entity
-function EntityControl:GetEntity() end
-
----Gets a flag indicating if the context menu is enabled.
----@return boolean #True if the context menu is enabled.
-function EntityControl:IsContextMenuEnabled() end
-
----Gets a flag indicating if the selection is enabled.
----@return boolean #True if the selection is enabled.
-function EntityControl:IsSelectionEnabled() end
-
----Sets a flag indicating if the context menu is enabled.
----@param value boolean True if the context menu is to be enabled, false to disable.
-function EntityControl:SetContextMenuEnabled(value) end
-
----Set the entity registered with control
----@param entity Entity #The entity to register
-function EntityControl:SetEntity(entity) end
-
----Sets a flag indicating that selection is enabled.
----@param value boolean True if selection is to be enabled, false to disable.
-function EntityControl:SetSelectionEnabled(value) end
 
 ---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_UI_Lotro_EntityControl$Members.html)
 ---A control for providing standard entity selection and context sensitive menu support.
@@ -5430,7 +5139,6 @@ Shortcut = {}
 ---`Shortcut(type, data)` : Initializes a new shortcut.
 ---@overload fun():Shortcut
 ---@overload fun(item:Item):Shortcut
----@diagnostic disable-next-line: undefined-doc-param
 ---@param item Item The item to create the shortcut from.
 ---@param type ShortcutType The type of shortcut that will be created.
 ---@param data string the data string associated with this shortcut.
@@ -5443,7 +5151,6 @@ Turbine.UI.Lotro.Shortcut = function (type, data) end
 ---`Shortcut(type, data)` : Initializes a new shortcut.
 ---@overload fun():Shortcut
 ---@overload fun(item:Item):Shortcut
----@diagnostic disable-next-line: undefined-doc-param
 ---@param item Item The item to create the shortcut from.
 ---@param type ShortcutType The type of shortcut that will be created.
 ---@param data string the data string associated with this shortcut.
@@ -5592,9 +5299,6 @@ function MenuItem:SetText(value) end
 ---@param args EventMenuItemClickArgsTable The event arguments
 MenuItem.Click = function (sender, args) end
 
----Gets the menu items collection.
----@return MenuItemList #Returns the menu items collection.
-function MenuItem:GetItems() end
 
 ---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_UI_MenuItemList$Members.html)
 ---Defines a list of menu items.
@@ -5794,19 +5498,19 @@ Turbine.UI.ScrollableControl = function () end
 function ScrollableControl:Constructor() end
 
 ---Gets the horizontal scroll bar.
----@return ScrollBar #The horizontal scroll bar.
+---@return Object #The horizontal scroll bar.
 function ScrollableControl:GetHorizontalScrollBar() end
 
 ---Gets the vertical scroll bar.
----@return ScrollBar #The vertical scroll bar.
+---@return Object #The vertical scroll bar.
 function ScrollableControl:GetVerticalScrollBar() end
 
 ---Sets the horizontal scroll bar.
----@param value ScrollBar The horizontal scroll bar to use.
+---@param value Object The horizontal scroll bar to use.
 function ScrollableControl:SetHorizontalScrollBar(value) end
 
 ---Sets the vertical scroll bar.
----@param value ScrollBar The vertical scroll bar to use.
+---@param value Object The vertical scroll bar to use.
 function ScrollableControl:SetVerticalScrollBar(value) end
 
 
@@ -5971,10 +5675,8 @@ function TreeView:CollapseAll() end
 ---Expands all nodes in the tree view.
 function TreeView:ExpandAll() end
 
----@alias TreeFilterFunc fun(node:TreeNode):boolean
-
 ---Gets a filter used to filter tree items.
----@return TreeFilterFunc #The filter used to filter tree items.
+---@return Object #The filter used to filter tree items.
 function TreeView:GetFilter() end
 
 ---Gets the width of the indentation insert prefer nodes at each level in the tree.
@@ -5989,24 +5691,16 @@ function TreeView:GetNodes() end
 ---@return TreeNode #The currently selected node.
 function TreeView:GetSelectedNode() end
 
----@alias TreeSortFunc fun(nodea:TreeNode,nodeb:TreeNode):number
-
 ---Gets a function that is used to sort tree elements.
----@return TreeSortFunc #The function to sort tree elements.
+---@return Object #The function to sort tree elements.
 function TreeView:GetSortMethod() end
 
 ---Causes the tree view to refilter and resort.
 function TreeView:Refresh() end
 
 ---Sets a filter used to filter tree items.
----```
----function(node)
----   -- return false to keep node; otherwise true to filter
----   return false 
----end 
----```
----@param filterCallback TreeFilterFunc The filter used to filter tree items.
-function TreeView:SetFilter(filterCallback) end
+---@param value Object The filter used to filter tree items.
+function TreeView:SetFilter(value) end
 
 ---Sets the width of the indentation insert prefer nodes at each level in the tree.
 ---@param value number The width in pixels to indent nested levels of tree nodes.
@@ -6017,34 +5711,14 @@ function TreeView:SetIndentationWidth(value) end
 function TreeView:SetSelectedNode(value) end
 
 ---Sets a function that is used to sort tree elements. This function needs to enforce consistent ordering or there is a potential for a client crash.
----The callback function takes two nodes to compare.  Return -1 if first node should come first, 0 if they are equal, or 1 if the second node comes first  
----```
------example callback
----function (nodea, nodeb)
----	local texta = nodea:GetControls():Get(1):GetText();
----	local textb = nodeb:GetControls():Get(1):GetText();
----	 if texta == textb then
----		return 0
----	elseif texta < textb then
----		return -1
----	else
----		return 1
----	end
----end)
----```
----@param sortCallback TreeSortFunc The function to sort tree elements. 
-function TreeView:SetSortMethod(sortCallback) end
+---@param value Object The function to sort tree elements.
+function TreeView:SetSortMethod(value) end
 
 ---Event fired when the selected node has changed.
 ---@param sender table The event sender.
 ---@param args EventTreeViewSelectedNodeChangedArgsTable The event arguments
 TreeView.SelectedNodeChanged = function (sender, args) end
 
----Gets the node at the specified position.
----@param x number 
----@param y number 
----@return TreeNode #The node at the specified location in the tree view otherwise if no node is there this will return nil.
-function TreeView:GetItemAt(x, y) end
 
 ---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_UI_VerticalLayout.html)
 ---Specifies how to perform vertical layouts.
@@ -6157,447 +5831,3 @@ Window.Closing = function (sender, args) end
 ---@param sender table The event sender.
 ---@param args EventWindowDeactivatedArgsTable The event arguments
 Window.Deactivated = function (sender, args) end
-
----(NOT A REAL CLASS) For describing data types and field names of table.
----@class WindowRotationTable : table<string, number>
----@field x number # rotate toward you
----@field y number # rotate left to right
----@field z number # rotate on the plane (an angle)
-WindowRotationTable = {}
-
----Gets the rotation of a window
----@return WindowRotationTable
-function Window:GetRotation() end
-
----Sets the rotation of a window
----@param rotation WindowRotationTable
-function Window:SetRotation(rotation) end
-
----@alias Event1ArgsTable table
-
----@alias EventActiveSkillResetTimeChangedArgsTable table
-
----@alias EventActorBaseMaxMoraleChangedArgsTable table
-
----@alias EventActorBaseMaxPowerChangedArgsTable table
-
----@alias EventActorLevelChangedArgsTable table
-
----@alias EventActorMaxMoraleChangedArgsTable table
-
----@alias EventActorMaxPowerChangedArgsTable table
-
----@alias EventActorMaxTemporaryMoraleChangedArgsTable table
-
----@alias EventActorMaxTemporaryPowerChangedArgsTable table
-
----@alias EventActorMoraleChangedArgsTable table
-
----@alias EventActorPowerChangedArgsTable table
-
----@alias EventActorTargetChangedArgsTable table
-
----@alias EventActorTemporaryMoraleChangedArgsTable table
-
----@alias EventActorTemporaryPowerChangedArgsTable table
-
----(NOT A REAL CLASS) For describing data types and field names of the args table.
----@class EventBackpackItemAddedArgsTable : table
----@field Index number #
----@field Item Item #
-
----(NOT A REAL CLASS) For describing data types and field names of the args table.
----@class EventBackpackItemMovedArgsTable : table
----@field Item Item #
----@field NewIndex number #
----@field OldIndex number #
-
----(NOT A REAL CLASS) For describing data types and field names of the args table.
----@class EventBackpackItemRemovedArgsTable : table
----@field Index number #
-
----@alias EventBackpackSizeChangedArgsTable table
-
----@alias EventBankCapacityChangedArgsTable table
-
----@alias EventBankChestNameChangedArgsTable table
-
----@alias EventBankCountChangedArgsTable table
-
----@alias EventBankIsAvailableChangedArgsTable table
-
----@alias EventBankItemAddedArgsTable table
-
----@alias EventBankItemMovedArgsTable table
-
----@alias EventBankItemRemovedArgsTable table
-
----@alias EventBankItemsRefreshedArgsTable table
-
----@alias EventBasicMountMaxMoraleChangedArgsTable table
-
----@alias EventBasicMountMoraleChangedArgsTable table
-
----@alias EventBeorningAttributesFormChangedArgsTable table
-
----@alias EventBeorningAttributesWrathChangedArgsTable table
-
----@alias EventBurglarAttributesIsCriticalTier1ChangedArgsTable table
-
----@alias EventBurglarAttributesIsCriticalTier2ChangedArgsTable table
-
----@alias EventBurglarAttributesStanceChangedArgsTable table
-
----@alias EventButtonClickArgsTable table
-
----@alias EventButtonEnabledChangedArgsTable table
-
----@alias EventCaptainAttributesIsInEnemyDefeatResponseChangedArgsTable table
-
----@alias EventCaptainAttributesIsInFellowDefeatResponseChangedArgsTable table
-
----@alias EventCaptainAttributesIsReadiedTier1ChangedArgsTable table
-
----@alias EventCaptainAttributesIsReadiedTier2ChangedArgsTable table
-
----@alias EventChampionAttributesFervorChangedArgsTable table
-
----@alias EventChampionAttributesStanceChangedArgsTable table
-
----(NOT A REAL CLASS) For describing data types and field names of the args table.
----@class EventChatReceivedArgsTable : table
----@field ChatType number #
----@field Message string #
----@field Sender string #
-
----@alias EventCheckBoxCheckedChangedArgsTable table
-
----@alias EventCheckBoxEnabledChangedArgsTable table
-
----@alias EventCombatMountBaseMaxMoraleChangedArgsTable table
-
----@alias EventCombatMountBaseMaxPowerChangedArgsTable table
-
----@alias EventCombatMountFuryChangedArgsTable table
-
----@alias EventCombatMountMaxMoraleChangedArgsTable table
-
----@alias EventCombatMountMaxPowerChangedArgsTable table
-
----@alias EventCombatMountMaxTemporaryMoraleChangedArgsTable table
-
----@alias EventCombatMountMaxTemporaryPowerChangedArgsTable table
-
----@alias EventCombatMountMoraleChangedArgsTable table
-
----@alias EventCombatMountPowerChangedArgsTable table
-
----@alias EventCombatMountTemporaryMoraleChangedArgsTable table
-
----@alias EventCombatMountTemporaryPowerChangedArgsTable table
-
----(NOT A REAL CLASS) For describing data types and field names of the args table.
----@class EventControlDragDropArgsTable : table
----@field DragDropInfo DragDropInfo #
----@field X number #
----@field Y number #
-
----@alias EventControlDragEnterArgsTable table
-
----@alias EventControlDragLeaveArgsTable table
-
----@alias EventControlDragStartArgsTable table
-
----@alias EventControlEnabledChangedArgsTable table
-
----@alias EventControlFocusGainedArgsTable table
-
----@alias EventControlFocusLostArgsTable table
-
----(NOT A REAL CLASS) For describing data types and field names of the args table.
----@class EventControlKeyDownArgsTable : table
----@field Action number #
----@field Alt number #
----@field Control number #
----@field Shift number #
-
----(NOT A REAL CLASS) For describing data types and field names of the args table.
----@class EventControlKeyUpArgsTable : table
----@field Action number #
----@field Alt number #
----@field Control number #
----@field Shift number #
-
----(NOT A REAL CLASS) For describing data types and field names of the args table.
----@class EventControlMouseClickArgsTable : table
----@field Button number #
----@field X number #
----@field Y number #
-
----(NOT A REAL CLASS) For describing data types and field names of the args table.
----@class EventControlMouseDoubleClickArgsTable : table
----@field Button number #
----@field X number #
----@field Y number #
-
----(NOT A REAL CLASS) For describing data types and field names of the args table.
----@class EventControlMouseDownArgsTable : table
----@field Button number #
----@field X number #
----@field Y number #
-
----@alias EventControlMouseEnterArgsTable table
-
----(NOT A REAL CLASS) For describing data types and field names of the args table.
----@class EventControlMouseHoverArgsTable : table
----@field X number #
----@field Y number #
-
----@alias EventControlMouseLeaveArgsTable table
-
----(NOT A REAL CLASS) For describing data types and field names of the args table.
----@class EventControlMouseMoveArgsTable : table
----@field X number #
----@field Y number #
-
----(NOT A REAL CLASS) For describing data types and field names of the args table.
----@class EventControlMouseUpArgsTable : table
----@field Button number #
----@field X number #
----@field Y number #
-
----(NOT A REAL CLASS) For describing data types and field names of the args table.
----@class EventControlMouseWheelArgsTable : table
----@field Direction number #
----@field X number #
----@field Y number #
-
----@alias EventControlPositionChangedArgsTable table
-
----@alias EventControlSizeChangedArgsTable table
-
----@alias EventControlUpdateArgsTable table
-
----@alias EventControlVisibleChangedArgsTable table
-
----@alias EventEffectCategoryChangedArgsTable table
-
----@alias EventEffectDescriptionChangedArgsTable table
-
----@alias EventEffectDurationChangedArgsTable table
-
----@alias EventEffectIconChangedArgsTable table
-
----@alias EventEffectIsCurableChangedArgsTable table
-
----@alias EventEffectIsDebuffChangedArgsTable table
-
----@alias EventEffectIsDispellableChangedArgsTable table
-
----@alias EventEffectNameChangedArgsTable table
-
----@alias EventEffectStartTimeChangedArgsTable table
-
----(NOT A REAL CLASS) For describing data types and field names of the args table.
----@class EventEffectListEffectAddedArgsTable : table
----@field Index number #
-
----(NOT A REAL CLASS) For describing data types and field names of the args table.
----@class EventEffectListEffectRemovedArgsTable : table
----@field Index number #
-
----@alias EventEffectListEffectsClearedArgsTable table
-
----@alias EventEntityNameChangedArgsTable table
-
----(NOT A REAL CLASS) For describing data types and field names of the args table.
----@class EventEquipmentItemEquippedArgsTable : table
----@field Index number #
----@field Item Item #
-
----(NOT A REAL CLASS) For describing data types and field names of the args table.
----@class EventEquipmentItemUnequippedArgsTable : table
----@field Index number #
----@field Item Item #
-
----@alias EventEquipmentSlotDragDropArgsTable table
-
----@alias EventGuardianAttributesIsBlockTier1AvailableChangedArgsTable table
-
----@alias EventGuardianAttributesIsBlockTier2AvailableChangedArgsTable table
-
----@alias EventGuardianAttributesIsBlockTier3AvailableChangedArgsTable table
-
----@alias EventGuardianAttributesIsParryTier1AvailableChangedArgsTable table
-
----@alias EventGuardianAttributesIsParryTier2AvailableChangedArgsTable table
-
----@alias EventGuardianAttributesIsParryTier3AvailableChangedArgsTable table
-
----@alias EventGuardianAttributesStanceChangedArgsTable table
-
----@alias EventHunterAttributesFocusChangedArgsTable table
-
----@alias EventHunterAttributesStanceChangedArgsTable table
-
----@alias EventItemInfoControlEnabledChangedArgsTable table
-
----(NOT A REAL CLASS) For describing data types and field names of the args table.
----@class EventListBoxItemAddedArgsTable : table
----@field Item Item #
-
----(NOT A REAL CLASS) For describing data types and field names of the args table.
----@class EventListBoxItemRemovedArgsTable : table
----@field Item Item #
-
----@alias EventListBoxSelectedIndexChangedArgsTable table
-
----@alias EventLocalPlayerInCombatChangedArgsTable table
-
----@alias EventLocalPlayerMountChangedArgsTable table
-
----@alias EventLotroScrollBarOrientationChangedArgsTable table
-
----@alias EventMenuItemClickArgsTable table
-
----@alias EventMinstrelAttributesIsSerenadeTier1ChangedArgsTable table
-
----@alias EventMinstrelAttributesIsSerenadeTier2ChangedArgsTable table
-
----@alias EventMinstrelAttributesIsSerenadeTier3ChangedArgsTable table
-
----@alias EventMinstrelAttributesStanceChangedArgsTable table
-
----(NOT A REAL CLASS) For describing data types and field names of the args table.
----@class EventPartyAssistTargetAddedArgsTable : table
----@field Player Player #
-
----@alias EventPartyAssistTargetRemovedArgsTable table
-
----@alias EventPartyLeaderChangedArgsTable table
-
----@alias EventPartyMemberAddedArgsTable table
-
----@alias EventPartyMemberRemovedArgsTable table
-
----@alias EventPlayerIsLinkDeadChangedArgsTable table
-
----@alias EventPlayerIsVoiceActiveChangedArgsTable table
-
----@alias EventPlayerIsVoiceEnabledChangedArgsTable table
-
----@alias EventPlayerPartyChangedArgsTable table
-
----@alias EventPlayerPetChangedArgsTable table
-
----@alias EventPlayerRaidChangedArgsTable table
-
----@alias EventPlayerReadyStateChangedArgsTable table
-
----@alias EventPluginLoadArgsTable table
-
----@alias EventPluginUnloadArgsTable table
-
----@alias EventProfessionInfoMasteryExperienceChangedArgsTable table
-
----@alias EventProfessionInfoMasteryExperienceTargetChangedArgsTable table
-
----@alias EventProfessionInfoMasteryLevelChangedArgsTable table
-
----@alias EventProfessionInfoMasteryTitleChangedArgsTable table
-
----@alias EventProfessionInfoProficiencyExperienceChangedArgsTable table
-
----@alias EventProfessionInfoProficiencyExperienceTargetChangedArgsTable table
-
----@alias EventProfessionInfoProficiencyLevelChangedArgsTable table
-
----@alias EventProfessionInfoProficiencyTitleChangedArgsTable table
-
----@alias EventProfessionInfoRecipeAddedArgsTable table
-
----@alias EventProfessionInfoRecipeRemovedArgsTable table
-
----(NOT A REAL CLASS) For describing data types and field names of the args table.
----@class EventQuickslotDragDropArgsTable : table
----@field DragDropInfo DragDropInfo #
----@field X number #
----@field Y number #
-
----@alias EventQuickslotShortcutChangedArgsTable table
-
----@alias EventRuneKeeperAttributesAttunementChangedArgsTable table
-
----@alias EventRuneKeeperAttributesIsChargedChangedArgsTable table
-
----@alias EventScrollBarOrientationChangedArgsTable table
-
----@alias EventScrollBarValueChangedArgsTable table
-
----(NOT A REAL CLASS) For describing data types and field names of the args table.
----@class EventSkillListSkillAddedArgsTable : table
----@field Index number #
----@field Skill Skill #
-
----(NOT A REAL CLASS) For describing data types and field names of the args table.
----@class EventSkillListSkillRemovedArgsTable : table
----@field Index number #
-
----@alias EventTextBoxEnabledChangedArgsTable table
-
----@alias EventTextBoxTextChangedArgsTable table
-
----@alias EventTreeNodeSelectedChangedArgsTable table
-
----@alias EventTreeViewSelectedNodeChangedArgsTable table
-
----@alias EventTrollAttributesRampageChangedArgsTable table
-
----@alias EventWalletItemAddedArgsTable table
-
----@alias EventWalletItemRemovedArgsTable table
-
----@alias EventWalletItemMaxQuantityChangedArgsTable table
-
----@alias EventWalletItemQuantityChangedArgsTable table
-
----@alias EventWardenAttributesGambitChangedArgsTable table
-
----@alias EventWardenAttributesMaxGambitCountChangedArgsTable table
-
----@alias EventWardenAttributesStanceChangedArgsTable table
-
----@alias EventWindowActivatedArgsTable table
-
----@alias EventWindowClosedArgsTable table
-
----(NOT A REAL CLASS) For describing data types and field names of the args table.
----@class EventWindowClosingArgsTable : table
----@field Cancel number #
-
----@alias EventWindowDeactivatedArgsTable table
-
----(NOT A REAL CLASS) For describing data types and field names of the GetDate table.
----@class EngineGetDateTable : table
----@field Year number
----@field Month number
----@field Day number
----@field Hour number
----@field Minute number
----@field Second number
----@field DayOfWeek number
----@field DayOfYear number
----@field IsDST boolean
-
----(NOT A REAL CLASS) For describing data types and field names of the GetLoadedPlugins table.
----@class PluginManagerGetLoadedPluginsTable : table
----@field Version string
----@field Package string
----@field Author string
----@field Name string
----@field ScriptState string
-
----(NOT A REAL CLASS) For describing data types and field names of the GetAvailablePlugins table.
----@class PluginManagerGetAvailablePluginsTable : PluginManagerGetLoadedPluginsTable
----@field Image string
----@field Description string

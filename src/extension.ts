@@ -44,9 +44,10 @@ export function activate(context: vscode.ExtensionContext) {
 		const xmlConfig = vscode.workspace.getConfiguration("xml");
 		let schemasAssoc: XMLSchemaAssocation[] | undefined = xmlConfig.get("fileAssociations");
 		if (schemasAssoc) {
-			schemasAssoc = schemasAssoc.filter(a => !/\.plugin(compendium)?$/.test(a.pattern));
+			schemasAssoc = schemasAssoc.filter(a => !/(SkinDefinition.xml|\.plugin(compendium)?)$/.test(a.pattern));
 			schemasAssoc.push({ pattern: '**/*.plugin', systemId: path.join(extensionPath!, 'xsds', 'lotroplugin.xsd')});
 			schemasAssoc.push({ pattern: '**/*.plugincompendium', systemId: path.join(extensionPath!, 'xsds', 'plugincompendium.xsd')});
+			schemasAssoc.push({ pattern: '**/SkinDefinition.xml', systemId: path.join(extensionPath!, 'xsds', 'lotro-skin.xsd')});
 			xmlConfig.update("fileAssociations", schemasAssoc);
 		}
 	}

@@ -1,0 +1,62 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<!-- <xs:include schemaLocation="lotro-skin-artassets.xsd" /> -->
+<xs:include schemaLocation="lotro-skin-panelfiles.xsd" />
+<xs:element name="opt">
+    <xs:complexType>
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
+        <xs:element name="SkinName">
+          <xs:complexType>
+            <xs:simpleContent>
+              <xs:extension base="xs:string">
+                <xs:attribute type="xs:string" name="Name"/>
+              </xs:extension>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Mapping" maxOccurs="unbounded" minOccurs="0">
+          <xs:complexType>
+            <xs:simpleContent>
+              <xs:extension base="xs:string">
+                <xs:attribute type="xs:string" name="ArtAssetID" use="optional"/>
+                <xs:attribute type="MappingURI" name="FileName" use="optional"/>
+              </xs:extension>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="PanelFile">
+          <xs:complexType mixed="true">
+            <xs:sequence>
+              <xs:element ref="Element" minOccurs="0" />
+            </xs:sequence>
+            <xs:attribute type="PanelFileID" name="ID" />
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="oneOfEachArtAssetID">
+      <xs:selector xpath="Mapping"/>
+      <xs:field xpath="@ArtAssetID"/>
+    </xs:unique>
+    <xs:unique name="oneOfEachPanelFileID">
+      <xs:selector xpath="PanelFile"/>
+      <xs:field xpath="@ID"/>
+    </xs:unique>
+  </xs:element>
+  <xs:element name="Element">
+    <xs:complexType mixed="true">
+        <xs:sequence>
+            <xs:element ref="Element" maxOccurs="unbounded" minOccurs="0"/>
+        </xs:sequence>
+        <xs:attribute type="xs:string" name="ID" use="optional"/>
+        <xs:attribute type="xs:int" name="X" use="optional"/>
+        <xs:attribute type="xs:int" name="Y" use="optional"/>
+        <xs:attribute type="xs:int" name="Width" use="optional"/>
+        <xs:attribute type="xs:int" name="Height" use="optional"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:simpleType name="MappingURI">
+<xs:restriction base="xs:anyURI">
+<xs:pattern value=".*\.(jpg|JPG|tga|TGA|Jpg|Jpg)"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:schema>

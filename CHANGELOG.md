@@ -4,6 +4,13 @@ All notable changes to the "vscode-lotro-api" extension will be documented in th
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## [1.0.7] - 2022-03-27
+### Added
+- Improvement: Added support for UI Skinning files
+- Improvement: Turbine.UI.Color documentation references small images of colors.
+- Improvement: Documented several "table" types in lotro api.
+- Improvement: Documented callback functions for sorting and filtering in UI components
+
 ## [1.0.6] - 2022-03-19
 ### Added
 - Improvement: Added more snippets for lua files
