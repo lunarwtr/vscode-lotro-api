@@ -15,6 +15,8 @@ Adds IntelliSense features for Lord of the Rings Online API to VS Code. This ext
 ![](https://github.com/lunarwtr/vscode-lotro-api/raw/main/img/api.gif)
 * IntelliSense for LotRO `.plugin` and `.plugincompendium` file xml
 ![](https://github.com/lunarwtr/vscode-lotro-api/raw/main/img/plugin.gif)
+* IntelliSense for LotRO skinning file (`SkinDefinition.xml`) xml
+![](https://github.com/lunarwtr/vscode-lotro-api/raw/main/img/skinning.gif)
 * Code snippets to make coding Plugins easier
 * Undocumented objects, methods and events.
 

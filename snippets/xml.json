@@ -1,6 +1,6 @@
 {
 	"LotRO Plugin": {
-		"prefix": "plugin-snippet",
+		"prefix": "<Plugin",
 		"body": [
 			"<?xml version=\"1.0\"?>",
 			"<Plugin>",
@@ -16,7 +16,7 @@
 		"description": "Basic LotRO Plugin file definition"
 	},
     "LotRO Plugin Compendium": {
-		"prefix": "plugincompendium-snippet",
+		"prefix": "<Plugin",
 		"body": [
 			"<?xml version=\"1.0\" encoding=\"utf-8\"?>",
 			"<PluginConfig xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">",
@@ -33,5 +33,21 @@
 			"</PluginConfig>"
 		],
 		"description": "Basic LotRO Plugin Compendium file definition"
-	}
+	},
+
+	"LotRO Skin Mapping": {
+		"prefix": "<Mapping",
+		"body": [
+			"<Mapping ArtAssetID=\"${1}\" FileName=\"${1}${0}.tga\"></Mapping>"
+		],
+		"description": "LotRO Skin Mapping"
+	},
+
+	"LotRO Skin Name": {
+		"prefix": "<SkinName",
+		"body": [
+			"<SkinName Name=\"${1:$WORKSPACE_NAME}\"></SkinName>${0}"
+		],
+		"description": "LotRO Skin Name"
+	},
 }

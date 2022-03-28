@@ -6,8 +6,10 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## [1.0.7] - 2022-03-27
 ### Added
-- Improvement: Added support for UI Skinning files
+- Improvement: Added support for UI Skinning files (xml schema + snippets)
+    ![](https://github.com/lunarwtr/vscode-lotro-api/raw/main/img/skinning.gif)
 - Improvement: Turbine.UI.Color documentation references small images of colors.
+    ![](https://github.com/lunarwtr/vscode-lotro-api/raw/main/img/color.gif)
 - Improvement: Documented several "table" types in lotro api.
 - Improvement: Documented callback functions for sorting and filtering in UI components
 
