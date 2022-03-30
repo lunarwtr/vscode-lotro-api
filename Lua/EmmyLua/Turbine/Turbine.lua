@@ -376,20 +376,25 @@ Alignment = {
 ---@field BeorningAttributes BeorningAttributes 
 ---@field BlackArrowAttributes BlackArrowAttributes 
 ---@field BurglarAttributes BurglarAttributes 
+---@field BurglarStance BurglarStance 
 ---@field CaptainAttributes CaptainAttributes 
 ---@field ChampionAttributes ChampionAttributes 
+---@field ChampionStance ChampionStance 
 ---@field ChickenAttributes ChickenAttributes 
 ---@field DefilerAttributes DefilerAttributes 
 ---@field DwarfAttributes DwarfAttributes 
 ---@field ElfAttributes ElfAttributes 
 ---@field FreePeopleAttributes FreePeopleAttributes 
 ---@field GuardianAttributes GuardianAttributes 
+---@field GuardianStance GuardianStance 
 ---@field HighElfAttributes HighElfAttributes 
 ---@field HobbitAttributes HobbitAttributes 
 ---@field HunterAttributes HunterAttributes 
+---@field HunterStance HunterStance 
 ---@field LoreMasterAttributes LoreMasterAttributes 
 ---@field ManAttributes ManAttributes 
 ---@field MinstrelAttributes MinstrelAttributes 
+---@field MinstrelStance MinstrelStance 
 ---@field MonsterPlayerAttributes MonsterPlayerAttributes 
 ---@field RangerAttributes RangerAttributes 
 ---@field ReaverAttributes ReaverAttributes 
@@ -399,6 +404,7 @@ Alignment = {
 ---@field TrollAttributes TrollAttributes 
 ---@field WarLeaderAttributes WarLeaderAttributes 
 ---@field WardenAttributes WardenAttributes 
+---@field WardenStance WardenStance 
 ---@field WeaverAttributes WeaverAttributes 
 Attributes = {}
 
@@ -463,6 +469,14 @@ BurglarAttributes.IsCriticalTier2Changed = function (sender, args) end
 BurglarAttributes.StanceChanged = function (sender, args) end
 
 
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_Attributes_BurglarStance.html)
+---@class BurglarStance
+BurglarStance = {
+	-- No stance.
+	None = 0,
+}
+
+
 ---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_Attributes_CaptainAttributes$Members.html)
 ---@class CaptainAttributes : ClassAttributes
 CaptainAttributes = {}
@@ -525,6 +539,14 @@ ChampionAttributes.FervorChanged = function (sender, args) end
 ---@param sender table The event sender.
 ---@param args EventChampionAttributesStanceChangedArgsTable The event arguments
 ChampionAttributes.StanceChanged = function (sender, args) end
+
+
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_Attributes_ChampionStance.html)
+---@class ChampionStance
+ChampionStance = {
+	-- No stance.
+	None = 0,
+}
 
 
 ---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_Attributes_ChickenAttributes$Members.html)
@@ -847,6 +869,14 @@ GuardianAttributes.IsParryTier3AvailableChanged = function (sender, args) end
 GuardianAttributes.StanceChanged = function (sender, args) end
 
 
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_Attributes_GuardianStance.html)
+---@class GuardianStance
+GuardianStance = {
+	-- No stance.
+	None = 0,
+}
+
+
 ---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_Attributes_HighElfAttributes$Members.html)
 ---@class HighElfAttributes : Attributes
 HighElfAttributes = {}
@@ -879,6 +909,19 @@ HunterAttributes.FocusChanged = function (sender, args) end
 ---@param args EventHunterAttributesStanceChangedArgsTable The event arguments
 HunterAttributes.StanceChanged = function (sender, args) end
 
+
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_Attributes_HunterStance.html)
+---@class HunterStance
+HunterStance = {
+	-- No stance.
+	None = 0,
+	-- Precision stance.
+	Precision = 1,
+	-- Strength stance.
+	Strength = 2,
+	-- Endurance stance.
+	Endurance = 3,
+}
 
 ---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_Attributes_LoreMasterAttributes$Members.html)
 ---@class LoreMasterAttributes : ClassAttributes
@@ -929,6 +972,18 @@ MinstrelAttributes.IsSerenadeTier3Changed = function (sender, args) end
 ---@param sender table The event sender.
 ---@param args EventMinstrelAttributesStanceChangedArgsTable The event arguments
 MinstrelAttributes.StanceChanged = function (sender, args) end
+
+
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_Attributes_MinstrelStance.html)
+---@class MinstrelStance
+MinstrelStance = {
+	-- No stance.
+	None = 0,
+	-- WarSpeech stance.
+	WarSpeech = 1,
+	-- Harmony stance.
+	Harmony = 2,
+}
 
 
 ---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_Attributes_MonsterPlayerAttributes$Members.html)
@@ -1054,6 +1109,18 @@ WardenAttributes.MaxGambitCountChanged = function (sender, args) end
 ---@param sender table The event sender.
 ---@param args EventWardenAttributesStanceChangedArgsTable The event arguments
 WardenAttributes.StanceChanged = function (sender, args) end
+
+
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_Attributes_WardenStance.html)
+---@class WardenStance
+WardenStance = {
+	-- No stance.
+	None = 0,
+	-- Determination stance.
+	Determination = 2,
+	-- Assailment stance.
+	Assailment = 3,
+}
 
 
 ---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_Attributes_WeaverAttributes$Members.html)
@@ -3069,6 +3136,10 @@ Turbine.Object = function () end
 ---@return Object
 function Object:Constructor() end
 
+---Is an instance of the given class
+---@param target any #class to compare against
+---@return boolean
+function Object:IsA(target) end
 
 ---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Plugin$Members.html)
 ---Provides information about a specific plugin that has been loaded.
@@ -6601,3 +6672,42 @@ function Window:SetRotation(rotation) end
 ---@class PluginManagerGetAvailablePluginsTable : PluginManagerGetLoadedPluginsTable
 ---@field Image string
 ---@field Description string
+
+---Executes the given f over all elements of table. For each element, f is called with the index and respective value as arguments. If f returns a non-nil value, then the loop is broken, and this value is returned as the final value of foreach.
+---See the next function for extra information about table traversals.
+---@param list table #the table to iterate
+---@param f fun(key:string, val:any) #the function called for each key / value pair
+---@deprecated
+function table.foreach(list, f) end
+
+---Executes the given f over the numerical indices of table. For each index, f is called with the index and respective value as arguments. Indices are visited in sequential order, from 1 to n, where n is the size of the table. If f returns a non-nil value, then the loop is broken and this value is returned as the result of foreachi.
+---@param list table #the table to iterate
+---@param f fun(index:number, val:any) #the function called on each index / value
+---@deprecated
+function table.foreachi(list, f) end
+
+---Returns the size of a table, when seen as a list. If the table has an n field with a numeric value, this value is the size of the table. Otherwise, if there was a previous call to table.setn over this table, the respective value is returned. Otherwise, the size is one less the first integer index with a nil value.
+---@param list table #the table to retrieve the size of
+---@return number #the size of the table
+---@deprecated use `#` length operator
+function table.getn(list) end
+
+---Returns an iterator function that, each time it is called, returns the next captures from pattern pat over string s.
+---If pat specifies no captures, then the whole match is produced in each call.
+---@param str string the string to find pattern in
+---@param pattern string the pattern to apply
+---@return fun():string, ...
+function string.gfind(str,pattern) end
+
+---Updates the size of a table. If the table has a field "n" with a numerical value, that value is changed to the given n. Otherwise, it updates an internal state so that subsequent calls to table.getn(table) return n.
+---@param list table #the table to set the size of
+---@param n number #the size to set table
+---@deprecated
+function table.setn(list,n) end
+
+---Returns the remainder of the division of `x` by `y` that rounds the quotient towards zero.
+---@param x number
+---@param y number
+---@return number
+---@deprecated use math.fmod
+function math.mod(x,y) end

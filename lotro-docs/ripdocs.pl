@@ -340,6 +340,21 @@ sub rippage {
 			push(@rows, \%rec);
 		}
 		$page{sections}{'classes'} = \@rows;
+		# enums
+		my @enumrows = ();
+		foreach my $newfile (('Turbine_Gameplay_Attributes_BurglarStance.html', 'Turbine_Gameplay_Attributes_ChampionStance.html', 'Turbine_Gameplay_Attributes_GuardianStance.html', 'Turbine_Gameplay_Attributes_HunterStance.html', 'Turbine_Gameplay_Attributes_MinstrelStance.html', 'Turbine_Gameplay_Attributes_WardenStance.html')) {
+			#$newfile =~ s/^.*\///;
+			my $longname = file2id($newfile);
+			my $name = $longname;
+			$name =~ s/^.*\.//;
+			my %rec = ( longname => $longname, name => $name, link => $newfile, langtype => 'enumeration' );
+			my $newpage = rippage($rec{link}, 'enumerations', $page{longname});
+			while (my($key, $ref) = each %{$newpage}) {
+				$rec{$key} = $ref;
+			}
+			push(@enumrows, \%rec);
+		}
+		$page{sections}{'enumerations'} = \@enumrows;
 	}
 	for my $dd ($dom->find('div[class*="Section"]')->each) {
         my $section = lc($dd->attr->{id});

@@ -1,5 +1,5 @@
---- Turbine.lua.orig	2022-03-27 17:44:16.491926300 -0600
-+++ Turbine.lua	2022-03-27 17:43:57.511926300 -0600
+--- Turbine.lua.orig	2022-03-30 16:53:37.750110400 -0600
++++ Turbine.lua	2022-03-29 19:59:39.842254000 -0600
 @@ -124,12 +124,12 @@
  Engine = {}
  
@@ -16,7 +16,7 @@
  Engine.GetDate = function () end
  
  ---Gets the current relative game time.
-@@ -611,8 +611,10 @@
+@@ -633,8 +633,10 @@
  ---@return number #. The money of the player in copper.
  function FreePeopleAttributes:GetMoney() end
  
@@ -29,7 +29,7 @@
  function FreePeopleAttributes:GetMoneyComponents() end
  
  ---Gets the poison resistance of the player.
-@@ -640,6 +642,142 @@
+@@ -662,6 +664,142 @@
  ---@return number #The wound resistance of the player.
  function FreePeopleAttributes:GetWoundResistance() end
  
@@ -172,7 +172,15 @@
  
  ---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_Attributes_GuardianAttributes$Members.html)
  ---@class GuardianAttributes : ClassAttributes
-@@ -805,11 +943,12 @@
+@@ -785,7 +923,6 @@
+ 	Endurance = 3,
+ }
+ 
+-
+ ---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_Attributes_LoreMasterAttributes$Members.html)
+ ---@class LoreMasterAttributes : ClassAttributes
+ LoreMasterAttributes = {}
+@@ -861,11 +998,12 @@
  ---@return number #. The money of the player in copper.
  function MonsterPlayerAttributes:GetMoney() end
  
@@ -188,7 +196,7 @@
  ---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_Attributes_RangerAttributes$Members.html)
  ---@class RangerAttributes : ClassAttributes
  RangerAttributes = {}
-@@ -983,7 +1122,7 @@
+@@ -1051,7 +1189,7 @@
  function Bank:GetChestCount() end
  
  ---Gets the name of a chest.
@@ -197,7 +205,7 @@
  ---@return string #The name of the specified chest.
  function Bank:GetChestName(chestType) end
  
-@@ -993,7 +1132,7 @@
+@@ -1061,7 +1199,7 @@
  
  ---Gets and item from the player's bank.
  ---@param index number The index of the item to get.
@@ -206,7 +214,7 @@
  function Bank:GetItem(index) end
  
  ---Gets a flag indicating if the bank is currently available.
-@@ -1002,7 +1141,7 @@
+@@ -1070,7 +1208,7 @@
  
  ---Handles the dropping of items into a bank.
  ---@param shortcut Shortcut The shortcut information that was generated as part of a drag and drop event that should contain an item to perform an action on.
@@ -215,7 +223,7 @@
  ---@param split boolean Flag indicating if the item split dialog should be displayed for the operation.
  function Bank:PerformShortcutDrop(shortcut, targetChest, split) end
  
-@@ -1201,6 +1340,14 @@
+@@ -1269,6 +1407,14 @@
  ---@return number #The temporary power of the mount.
  function CombatMount:GetTemporaryPower() end
  
@@ -230,7 +238,7 @@
  ---Event fired when the mount's base max morale changes.
  ---@param sender table The event sender.
  ---@param args EventCombatMountBaseMaxMoraleChangedArgsTable The event arguments
-@@ -1560,6 +1707,54 @@
+@@ -1628,6 +1774,54 @@
  ---@return number #The number of gambits required to use the gambit skill.
  function GambitSkillInfo:GetGambitCount() end
  
@@ -285,7 +293,7 @@
  
  ---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_Item$Members.html)
  ---An item that a user can have.
-@@ -2061,13 +2256,13 @@
+@@ -2129,13 +2323,13 @@
  ItemWearState = {
  	-- An unknown wear state.
  	Undefined = 0,
@@ -303,7 +311,7 @@
  	Worn = 4,
  }
  
-@@ -2078,7 +2273,7 @@
+@@ -2146,7 +2340,7 @@
  LocalPlayer = {}
  
  ---Gets the general attributes of a player.
@@ -312,7 +320,7 @@
  function LocalPlayer:GetAttributes() end
  
  ---Gets the player's backpack.
-@@ -2086,7 +2281,7 @@
+@@ -2154,7 +2348,7 @@
  function LocalPlayer:GetBackpack() end
  
  ---Gets attribute information specific to a class.
@@ -321,7 +329,7 @@
  function LocalPlayer:GetClassAttributes() end
  
  ---Gets the player's equipment.
-@@ -2246,7 +2441,7 @@
+@@ -2314,7 +2508,7 @@
  function PartyMember:GetParty() end
  
  ---Gets the raid the player is a member of.
@@ -330,7 +338,7 @@
  function PartyMember:GetRaid() end
  
  ---Gets the ready state of a player based on the result of a ready check.
-@@ -2644,7 +2839,7 @@
+@@ -2712,7 +2906,7 @@
  function SkillInfo:GetDescription() end
  
  ---Gets the image ID for the icon of the item.
@@ -339,7 +347,7 @@
  function SkillInfo:GetIconImageID() end
  
  ---Gets the name of the item.
-@@ -2670,6 +2865,15 @@
+@@ -2738,6 +2932,15 @@
  ---@return Skill #The skill at the specified index.
  function SkillList:GetItem(index) end
  
@@ -355,7 +363,7 @@
  
  ---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_SkillType.html)
  ---A type of skill.
-@@ -2756,6 +2960,27 @@
+@@ -2824,6 +3027,27 @@
  Wallet.ItemRemoved = function (sender, args) end
  
  
@@ -383,7 +391,7 @@
  ---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_WalletItem$Members.html)
  ---An item that is contained in a user's wallet.
  ---@class WalletItem : Object
-@@ -2766,7 +2991,7 @@
+@@ -2834,7 +3058,7 @@
  function WalletItem:GetDescription() end
  
  ---Gets the image used to identity the wallet item.
@@ -392,7 +400,7 @@
  function WalletItem:GetImage() end
  
  ---Gets the maximum quantity of this wallet item that a player can have.
-@@ -2782,7 +3007,7 @@
+@@ -2850,7 +3074,7 @@
  function WalletItem:GetQuantity() end
  
  ---Gets the small image used to identity the wallet item.
@@ -401,7 +409,18 @@
  function WalletItem:GetSmallImage() end
  
  ---Gets a flag indicating if the item is shared across all characters of an account.
-@@ -2854,10 +3079,6 @@
+@@ -2912,6 +3136,10 @@
+ ---@return Object
+ function Object:Constructor() end
+ 
++---Is an instance of the given class
++---@param target any #class to compare against
++---@return boolean
++function Object:IsA(target) end
+ 
+ ---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Plugin$Members.html)
+ ---Provides information about a specific plugin that has been loaded.
+@@ -2922,10 +3150,6 @@
  ---@return string #The author of the plugin.
  function Plugin:GetAuthor() end
  
@@ -412,7 +431,7 @@
  ---Gets the name of the plugin.
  ---@return string #The name of the plugin.
  function Plugin:GetName() end
-@@ -2876,6 +3097,18 @@
+@@ -2944,6 +3168,18 @@
  ---@param args EventPluginUnloadArgsTable The event arguments
  Plugin.Unload = function (sender, args) end
  
@@ -431,7 +450,7 @@
  
  ---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_PluginData$Members.html)
  ---Provides the ability to save and load plugin data.
-@@ -2903,11 +3136,11 @@
+@@ -2971,11 +3207,11 @@
  PluginManager = {}
  
  ---Gets the plugins that are currently available.
@@ -445,7 +464,7 @@
  PluginManager.GetLoadedPlugins = function () end
  
  ---Loads the plugin that is requested.
-@@ -2921,6 +3154,9 @@
+@@ -2989,6 +3225,9 @@
  ---@param scriptState string The name of the script state to be unloaded.
  PluginManager.UnloadScriptState = function (scriptState) end
  
@@ -455,7 +474,7 @@
  
  ---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Shell$Members.html)
  ---Provides programmer extensibility to the chat window.
-@@ -3108,15 +3344,21 @@
+@@ -3176,15 +3415,21 @@
  
  
  ---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_UI_Color$Members.html)
@@ -479,7 +498,7 @@
  ---@field Beige Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Beige.png) `Turbine.UI.Color(1,0.96100002527237,0.96100002527237,0.8629999756813)`
  ---@field Bisque Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Bisque.png) `Turbine.UI.Color(1,1,0.89399999380112,0.76899999380112)`
  ---@field Black Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Black.png) `Turbine.UI.Color(1,0,0,0)`
-@@ -3159,7 +3401,6 @@
+@@ -3227,7 +3472,6 @@
  ---@field FloralWhite Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/FloralWhite.png) `Turbine.UI.Color(1,1,0.98000001907349,0.94099998474121)`
  ---@field ForestGreen Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/ForestGreen.png) `Turbine.UI.Color(1,0.1330000013113,0.5450000166893,0.1330000013113)`
  ---@field Fuchsia Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Fuchsia.png) `Turbine.UI.Color(1,1,0,1)`
@@ -487,7 +506,7 @@
  ---@field Gainsboro Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Gainsboro.png) `Turbine.UI.Color(1,0.8629999756813,0.8629999756813,0.8629999756813)`
  ---@field GhostWhite Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/GhostWhite.png) `Turbine.UI.Color(1,0.97299998998642,0.97299998998642,1)`
  ---@field Gold Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Gold.png) `Turbine.UI.Color(1,1,0.84299999475479,0)`
-@@ -3228,7 +3469,6 @@
+@@ -3296,7 +3540,6 @@
  ---@field Plum Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Plum.png) `Turbine.UI.Color(1,0.86699998378754,0.62699997425079,0.86699998378754)`
  ---@field PowderBlue Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/PowderBlue.png) `Turbine.UI.Color(1,0.68999999761581,0.87800002098083,0.90200001001358)`
  ---@field Purple Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Purple.png) `Turbine.UI.Color(1,0.50199997425079,0,0.50199997425079)`
@@ -495,7 +514,7 @@
  ---@field Red Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Red.png) `Turbine.UI.Color(1,1,0,0)`
  ---@field RosyBrown Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/RosyBrown.png) `Turbine.UI.Color(1,0.73699998855591,0.56099998950958,0.56099998950958)`
  ---@field RoyalBlue Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/RoyalBlue.png) `Turbine.UI.Color(1,0.25499999523163,0.41200000047684,0.88200002908707)`
-@@ -3499,6 +3739,21 @@
+@@ -3567,6 +3810,21 @@
  ---@param backgroundImage any The path or id of the image to set the background of the control to.
  function Control:SetBackground(backgroundImage) end
  
@@ -517,7 +536,7 @@
  ---Sets the blend mode applied to the background image.
  ---@param value number The new background blend mode.
  function Control:SetBlendMode(value) end
-@@ -3647,6 +3902,7 @@
+@@ -3715,6 +3973,7 @@
  Control.MouseUp = function (sender, args) end
  
  ---Event fired when a mouse wheel moves.
@@ -525,7 +544,7 @@
  ---@param sender table The event sender.
  ---@param args EventControlMouseWheelArgsTable The event arguments
  Control.MouseWheel = function (sender, args) end
-@@ -3797,8 +4053,9 @@
+@@ -3865,8 +4124,9 @@
  ---`Graphic(dataId)` : Constructs a graphic from a game asset by its ID.
  ---`Graphic(filename)` : Constructs a graphic from a file.
  ---@overload fun():Graphic
@@ -537,7 +556,7 @@
  ---@param filename string 
  ---@return Graphic
  Turbine.UI.Graphic = function (filename) end
-@@ -3808,8 +4065,9 @@
+@@ -3876,8 +4136,9 @@
  ---`Graphic(dataId)` : Constructs a graphic from a game asset by its ID.
  ---`Graphic(filename)` : Constructs a graphic from a file.
  ---@overload fun():Graphic
@@ -549,7 +568,7 @@
  ---@param filename string 
  ---@return Graphic
  function Graphic:Constructor(filename) end
-@@ -4110,9 +4368,19 @@
+@@ -4178,9 +4439,19 @@
  ---@param value number The number of pixels to indent wrapped rows or columns.
  function ListBox:SetWrapIndentAmount(value) end
  
@@ -571,7 +590,7 @@
  
  ---Event fired when an item is added.
  ---@param sender table The event sender.
-@@ -4775,6 +5043,29 @@
+@@ -4843,6 +5114,29 @@
  ---@param value Effect The effect the control is displaying.
  function EffectDisplay:SetEffect(value) end
  
@@ -601,7 +620,7 @@
  
  ---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_UI_Lotro_EntityControl$Members.html)
  ---A control for providing standard entity selection and context sensitive menu support.
-@@ -5139,6 +5430,7 @@
+@@ -5207,6 +5501,7 @@
  ---`Shortcut(type, data)` : Initializes a new shortcut.
  ---@overload fun():Shortcut
  ---@overload fun(item:Item):Shortcut
@@ -609,7 +628,7 @@
  ---@param item Item The item to create the shortcut from.
  ---@param type ShortcutType The type of shortcut that will be created.
  ---@param data string the data string associated with this shortcut.
-@@ -5151,6 +5443,7 @@
+@@ -5219,6 +5514,7 @@
  ---`Shortcut(type, data)` : Initializes a new shortcut.
  ---@overload fun():Shortcut
  ---@overload fun(item:Item):Shortcut
@@ -617,7 +636,7 @@
  ---@param item Item The item to create the shortcut from.
  ---@param type ShortcutType The type of shortcut that will be created.
  ---@param data string the data string associated with this shortcut.
-@@ -5299,6 +5592,9 @@
+@@ -5367,6 +5663,9 @@
  ---@param args EventMenuItemClickArgsTable The event arguments
  MenuItem.Click = function (sender, args) end
  
@@ -627,7 +646,7 @@
  
  ---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_UI_MenuItemList$Members.html)
  ---Defines a list of menu items.
-@@ -5498,19 +5794,19 @@
+@@ -5566,19 +5865,19 @@
  function ScrollableControl:Constructor() end
  
  ---Gets the horizontal scroll bar.
@@ -651,7 +670,7 @@
  function ScrollableControl:SetVerticalScrollBar(value) end
  
  
-@@ -5675,8 +5971,10 @@
+@@ -5743,8 +6042,10 @@
  ---Expands all nodes in the tree view.
  function TreeView:ExpandAll() end
  
@@ -663,7 +682,7 @@
  function TreeView:GetFilter() end
  
  ---Gets the width of the indentation insert prefer nodes at each level in the tree.
-@@ -5691,16 +5989,24 @@
+@@ -5759,16 +6060,24 @@
  ---@return TreeNode #The currently selected node.
  function TreeView:GetSelectedNode() end
  
@@ -691,7 +710,7 @@
  
  ---Sets the width of the indentation insert prefer nodes at each level in the tree.
  ---@param value number The width in pixels to indent nested levels of tree nodes.
-@@ -5711,14 +6017,34 @@
+@@ -5779,14 +6088,34 @@
  function TreeView:SetSelectedNode(value) end
  
  ---Sets a function that is used to sort tree elements. This function needs to enforce consistent ordering or there is a potential for a client crash.
@@ -728,7 +747,7 @@
  
  ---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_UI_VerticalLayout.html)
  ---Specifies how to perform vertical layouts.
-@@ -5831,3 +6157,447 @@
+@@ -5899,3 +6228,486 @@
  ---@param sender table The event sender.
  ---@param args EventWindowDeactivatedArgsTable The event arguments
  Window.Deactivated = function (sender, args) end
@@ -1176,4 +1195,42 @@
 +---@class PluginManagerGetAvailablePluginsTable : PluginManagerGetLoadedPluginsTable
 +---@field Image string
 +---@field Description string
-\ No newline at end of file
++
++---Executes the given f over all elements of table. For each element, f is called with the index and respective value as arguments. If f returns a non-nil value, then the loop is broken, and this value is returned as the final value of foreach.
++---See the next function for extra information about table traversals.
++---@param list table #the table to iterate
++---@param f fun(key:string, val:any) #the function called for each key / value pair
++---@deprecated
++function table.foreach(list, f) end
++
++---Executes the given f over the numerical indices of table. For each index, f is called with the index and respective value as arguments. Indices are visited in sequential order, from 1 to n, where n is the size of the table. If f returns a non-nil value, then the loop is broken and this value is returned as the result of foreachi.
++---@param list table #the table to iterate
++---@param f fun(index:number, val:any) #the function called on each index / value
++---@deprecated
++function table.foreachi(list, f) end
++
++---Returns the size of a table, when seen as a list. If the table has an n field with a numeric value, this value is the size of the table. Otherwise, if there was a previous call to table.setn over this table, the respective value is returned. Otherwise, the size is one less the first integer index with a nil value.
++---@param list table #the table to retrieve the size of
++---@return number #the size of the table
++---@deprecated use `#` length operator
++function table.getn(list) end
++
++---Returns an iterator function that, each time it is called, returns the next captures from pattern pat over string s.
++---If pat specifies no captures, then the whole match is produced in each call.
++---@param str string the string to find pattern in
++---@param pattern string the pattern to apply
++---@return fun():string, ...
++function string.gfind(str,pattern) end
++
++---Updates the size of a table. If the table has a field "n" with a numerical value, that value is changed to the given n. Otherwise, it updates an internal state so that subsequent calls to table.getn(table) return n.
++---@param list table #the table to set the size of
++---@param n number #the size to set table
++---@deprecated
++function table.setn(list,n) end
++
++---Returns the remainder of the division of `x` by `y` that rounds the quotient towards zero.
++---@param x number
++---@param y number
++---@return number
++---@deprecated use math.fmod
++function math.mod(x,y) end
