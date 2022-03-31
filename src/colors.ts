@@ -855,3 +855,15 @@ export const Colors: {[id: string] : IColor} = {
         "R": 1
     }
 };
+
+export function roundRgb(rgb: number) {
+    return Math.round(rgb * 100) / 100;
+}
+export function colorToKey(color: IColor): string {
+    return `${roundRgb(color.A)}:${roundRgb(color.R)}:${roundRgb(color.G)}:${roundRgb(color.B)}`;
+}
+export const ColorLookup = Object.entries(Colors).reduce((p : { [key: string] : string }, c) => { 
+    const key = colorToKey(c[1]);
+    p[key] = c[0]; 
+    return p;
+}, {});

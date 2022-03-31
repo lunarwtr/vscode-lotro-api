@@ -1,6 +1,7 @@
 import * as vscode from 'vscode';
 import * as path from 'path';
 import { Colors } from './colors';
+import LuaColorShow from './LuaColorShow';
 
 interface XMLSchemaAssocation {
 	pattern: string,
@@ -61,90 +62,12 @@ export function activate(context: vscode.ExtensionContext) {
 		filesConfig.update("associations", associations);
 	}
 
-	console.log('decorator sample is activated');
-
-	let timeout: NodeJS.Timer | undefined = undefined;
-
-	// create a decorator type that we use to decorate small numbers
-	const colorDecorationType = vscode.window.createTextEditorDecorationType({});
-	
-	let activeEditor = vscode.window.activeTextEditor;
-	function updateDecorations() {
-		if (!activeEditor) {
-			return;
-		}
-		if (activeEditor.document.languageId !== 'lua') {
-			return;
-		}
-		const regEx = /Turbine.UI.Color(\.(\w+)|\((\s*\d*(\.\d+)?\s*(,\s*\d*(\.\d+)?\s*){2,3})\))/g;
-		const text = activeEditor.document.getText();
-		const colors: vscode.DecorationOptions[] = [];
-		let match;
-		while ((match = regEx.exec(text))) {
-			let style = '';
-			if (match[1].startsWith('.')) {
-				const c = Colors[match[2]];
-				style = `rgba(${Math.ceil(255*c.R)},${Math.ceil(255*c.G)},${Math.ceil(255*c.B)},${c.A})`;
-			} else {
-				const c = match[3].trim().split(/\s*,\s*/).map(n => parseFloat(n));
-				if (c.length === 3) {
-					c.unshift(1);
-				}
-				if (c.filter(n => n > 1).length > 0) {
-					// invalid color value
-					continue;
-				}
-				style = `rgba(${Math.ceil(255*c[1])},${Math.ceil(255*c[2])},${Math.ceil(255*c[3])},${c[0]})`;
-			}
-
-			const startPos = activeEditor.document.positionAt(match.index);
-			const endPos = activeEditor.document.positionAt(match.index + match[0].length);
-			const decoration: vscode.DecorationOptions = {
-				range: new vscode.Range(startPos, endPos),
-				renderOptions: {
-					after: {
-						color: style,
-						contentText: '⬤',
-						margin: '0 0 0 2px'
-					}
-				}
-			};
-			colors.push(decoration);
-		}
-		activeEditor.setDecorations(colorDecorationType, colors);
-		
-	}
-
-	function triggerUpdateDecorations(throttle: boolean = false) {
-		if (timeout) {
-			clearTimeout(timeout);
-			timeout = undefined;
-		}
-		if (throttle) {
-			timeout = setTimeout(updateDecorations, 500);
-		} else {
-			updateDecorations();
-		}
-	}
-
-	if (activeEditor) {
-		triggerUpdateDecorations();
-	}
-	vscode.window.onDidChangeTextEditorSelection((e) => {
-		console.log(e);
-	});
-	vscode.window.onDidChangeActiveTextEditor(editor => {
-		activeEditor = editor;
-		if (editor) {
-			triggerUpdateDecorations();
-		}
-	}, null, context.subscriptions);
-
-	vscode.workspace.onDidChangeTextDocument(event => {
-		if (activeEditor && event.document === activeEditor.document) {
-			triggerUpdateDecorations(true);
-		}
-	}, null, context.subscriptions);
+	// Register our color provider for Turbine Colors
+	let luaColorShowDisposable = vscode.languages.registerColorProvider(
+		{ pattern: "**/*.lua" },
+		new LuaColorShow()
+	);
+	context.subscriptions.push(luaColorShowDisposable);
 
 }
 
