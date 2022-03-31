@@ -1,19 +1,20 @@
 # Change Log
 
+All notable changes to the "vscode-lotro-api" extension will be documented in this file.
+
+Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
+
 ## [1.0.8] - 2022-03-30
 ### Added
 - Improvement: Adding support for deprecated lua function from 5.1
 - Improvement: Adding Attributes stance enum classes
 - Improvement: Adding undocumented IsA function to base Turbine.Object class
 - Improvement: In editor color display and color picker for Turbine.UI.Color classes
-  ![](https://github.com/lunarwtr/vscode-lotro-api/raw/main/img/color2.gif)
 
 ## [1.0.7] - 2022-03-27
 ### Added
 - Improvement: Added support for UI Skinning files (xml schema + snippets)
-    ![](https://github.com/lunarwtr/vscode-lotro-api/raw/main/img/skinning.gif)
 - Improvement: Turbine.UI.Color documentation references small images of colors.
-    ![](https://github.com/lunarwtr/vscode-lotro-api/raw/main/img/color.gif)
 - Improvement: Documented several "table" types in lotro api.
 - Improvement: Documented callback functions for sorting and filtering in UI components
 
