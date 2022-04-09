@@ -1,7 +1,7 @@
 {
 	"name": "lotro-api",
 	"displayName": "LotRO API",
-	"description": "Lord of the Rings Online API",
+	"description": "Lord of the Rings Online API - Adds IntelliSense features for LotRO API.",
 	"version": "1.0.8",
 	"publisher": "lunarwtr",
 	"repository": {
@@ -11,9 +11,18 @@
 	"engines": {
 		"vscode": "^1.65.0"
 	},
+	"license": "MIT",
 	"categories": [
 		"Linters",
-		"Programming Languages"
+		"Programming Languages",
+		"Snippets"
+	],
+	"keywords": [
+		"plugin",
+		"compendium",
+		"Lord of the Rings Online",
+		"DDO",
+		"Dungeons and Dragons Online"
 	],
 	"icon": "img/vscode-lotro-api.png",
 	"activationEvents": [
@@ -28,7 +37,8 @@
 			{
 				"language": "xml",
 				"path": "./snippets/xml.json"
-			},{
+			},
+			{
 				"language": "lua",
 				"path": "./snippets/lua.json"
 			}
