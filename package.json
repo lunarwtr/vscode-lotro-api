@@ -17,10 +17,7 @@
 	],
 	"icon": "img/vscode-lotro-api.png",
 	"activationEvents": [
-		"onLanguage:plugin",
-		"workspaceContains:**/SkinDefinition.xml",
-		"workspaceContains:**/*.plugin",
-		"workspaceContains:**/*.plugincompendium"
+		"onLanguage:xml"
 	],
 	"main": "./dist/extension.js",
 	"contributes": {
@@ -34,6 +31,15 @@
 			}
 		]
 	},
+	"languages": [
+		{
+			"language": "xml",
+			"extensions": [
+				".plugin",
+				".plugincompendium"
+			]
+		}
+	],
 	"scripts": {
 		"vscode:prepublish": "npm run package",
 		"compile": "webpack",

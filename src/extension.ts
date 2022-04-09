@@ -54,13 +54,6 @@ export function activate(context: vscode.ExtensionContext) {
 			xmlConfig.update("fileAssociations", schemasAssoc);
 		}
 	}
-	const filesConfig = vscode.workspace.getConfiguration("files");
-	let associations: {[id: string] : string} | undefined = filesConfig.get("associations");
-	if (associations) {
-		associations["*.plugin"] = "xml";
-		associations["*.plugincompendium"] = "xml";
-		filesConfig.update("associations", associations);
-	}
 
 	// Register our color provider for Turbine Colors
 	let luaColorShowDisposable = vscode.languages.registerColorProvider(
