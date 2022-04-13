@@ -29,17 +29,20 @@
 				"language": "lua",
 				"path": "./snippets/lua.json"
 			}
+		],
+		"languages": [
+			{
+				"id": "xml",
+				"extensions": [
+					".plugin",
+					".plugincompendium"
+				],
+				"filenames": [
+					"SkinDefinition.xml"
+				]
+			}
 		]
 	},
-	"languages": [
-		{
-			"language": "xml",
-			"extensions": [
-				".plugin",
-				".plugincompendium"
-			]
-		}
-	],
 	"scripts": {
 		"vscode:prepublish": "npm run package",
 		"compile": "webpack",
