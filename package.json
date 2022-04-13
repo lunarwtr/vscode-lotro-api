@@ -17,7 +17,8 @@
 	],
 	"icon": "img/vscode-lotro-api.png",
 	"activationEvents": [
-		"onLanguage:xml"
+		"onLanguage:xml",
+		"onLanguage:lua"
 	],
 	"main": "./dist/extension.js",
 	"contributes": {
