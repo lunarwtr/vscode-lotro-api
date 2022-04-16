@@ -26,10 +26,8 @@
 	],
 	"icon": "img/vscode-lotro-api.png",
 	"activationEvents": [
-		"onLanguage:plugin",
-		"workspaceContains:**/SkinDefinition.xml",
-		"workspaceContains:**/*.plugin",
-		"workspaceContains:**/*.plugincompendium"
+		"onLanguage:xml",
+		"onLanguage:lua"
 	],
 	"main": "./dist/extension.js",
 	"contributes": {
@@ -41,6 +39,18 @@
 			{
 				"language": "lua",
 				"path": "./snippets/lua.json"
+			}
+		],
+		"languages": [
+			{
+				"id": "xml",
+				"extensions": [
+					".plugin",
+					".plugincompendium"
+				],
+				"filenames": [
+					"SkinDefinition.xml"
+				]
 			}
 		]
 	},
