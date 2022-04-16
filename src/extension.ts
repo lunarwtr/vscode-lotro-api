@@ -3,11 +3,6 @@ import * as path from 'path';
 import { Colors } from './colors';
 import LuaColorShow from './LuaColorShow';
 
-interface XMLSchemaAssocation {
-	pattern: string,
-	systemId: string
-};
-
 // this method is called when your extension is activated
 export function activate(context: vscode.ExtensionContext) {
 	console.log("activate lunarwtr.lotro-api", context.extension.id);
@@ -42,17 +37,25 @@ export function activate(context: vscode.ExtensionContext) {
 			filteredLib.push(path.join(extensionPath!, 'Lua', 'EmmyLua', 'Turbine'));
 			config.update("workspace.library", filteredLib);
 		}
-		// define plugin association and schema locations
-		const xmlConfig = vscode.workspace.getConfiguration("xml");
-		let schemasAssoc: XMLSchemaAssocation[] | undefined = xmlConfig.get("fileAssociations");
-		if (schemasAssoc) {
-			schemasAssoc = schemasAssoc.filter(a => !/(SkinDefinition.xml|\.plugin(compendium)?)$/.test(a.pattern));
-			// Uri.file(context.asAbsolutePath(path.join('xsds', 'lotroplugin.xsd')))
-			schemasAssoc.push({ pattern: '**/*.plugin', systemId: path.join(extensionPath!, 'xsds', 'lotroplugin.xsd')});
-			schemasAssoc.push({ pattern: '**/*.plugincompendium', systemId: path.join(extensionPath!, 'xsds', 'plugincompendium.xsd')});
-			schemasAssoc.push({ pattern: '**/SkinDefinition.xml', systemId: path.join(extensionPath!, 'xsds', 'lotro-skin.xsd')});
-			xmlConfig.update("fileAssociations", schemasAssoc);
-		}
+
+		// Register schemas for supported lotro-api xml-based files
+		vscode.extensions.getExtension("redhat.vscode-xml")?.activate().then(exports => {
+			exports.addXMLFileAssociations([
+				{
+					systemId: path.join(extensionPath!, 'xsds', 'lotroplugin.xsd'),
+					pattern: '**/*.plugin'
+				},
+				{
+					systemId: path.join(extensionPath!, 'xsds', 'plugincompendium.xsd'),
+					pattern: '**/*.plugincompendium'
+				},
+				{
+					systemId: path.join(extensionPath!, 'xsds', 'lotro-skin.xsd'),
+					pattern: '**/SkinDefinition.xml'
+				}
+			]);
+		});
+
 	}
 
 	// Register our color provider for Turbine Colors
