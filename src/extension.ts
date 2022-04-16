@@ -8,6 +8,14 @@ interface XMLSchemaAssocation {
 	systemId: string
 };
 
+const schemas: XMLSchemaAssocation[] = [
+	{ pattern: '**/*.plugin', systemId: 'lotroplugin.xsd' },
+	{ pattern: '**/*.plugincompendium', systemId: 'plugincompendium.xsd' },
+	{ pattern: '**/*.musiccompendium', systemId: 'musiccompendium.xsd' },
+	{ pattern: '**/*.skincompendium', systemId: 'skincompendium.xsd' },
+	{ pattern: '**/SkinDefinition.xml', systemId: 'lotro-skin.xsd' },
+];
+
 // this method is called when your extension is activated
 export function activate(context: vscode.ExtensionContext) {
 	console.log("activate lunarwtr.lotro-api", context.extension.id);
@@ -46,11 +54,8 @@ export function activate(context: vscode.ExtensionContext) {
 		const xmlConfig = vscode.workspace.getConfiguration("xml");
 		let schemasAssoc: XMLSchemaAssocation[] | undefined = xmlConfig.get("fileAssociations");
 		if (schemasAssoc) {
-			schemasAssoc = schemasAssoc.filter(a => !/(SkinDefinition.xml|\.plugin(compendium)?)$/.test(a.pattern));
-			// Uri.file(context.asAbsolutePath(path.join('xsds', 'lotroplugin.xsd')))
-			schemasAssoc.push({ pattern: '**/*.plugin', systemId: path.join(extensionPath!, 'xsds', 'lotroplugin.xsd')});
-			schemasAssoc.push({ pattern: '**/*.plugincompendium', systemId: path.join(extensionPath!, 'xsds', 'plugincompendium.xsd')});
-			schemasAssoc.push({ pattern: '**/SkinDefinition.xml', systemId: path.join(extensionPath!, 'xsds', 'lotro-skin.xsd')});
+			schemasAssoc = schemas.map(s => ({ ...s, systemId: path.join(extensionPath!, 'xsds', s.systemId) }))
+				.concat(schemasAssoc.filter(a => !/(\.((plugin|music|skin)compendium|plugin)|SkinDefinition\.xml)$/.test(a.pattern)));
 			xmlConfig.update("fileAssociations", schemasAssoc);
 		}
 	}

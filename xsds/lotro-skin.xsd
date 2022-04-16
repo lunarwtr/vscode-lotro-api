@@ -55,8 +55,8 @@
     </xs:complexType>
   </xs:element>
   <xs:simpleType name="MappingURI">
-<xs:restriction base="xs:anyURI">
-<xs:pattern value=".*\.(jpg|JPG|tga|TGA|Jpg|Jpg)"/>
-</xs:restriction>
-</xs:simpleType>
+    <xs:restriction base="xs:anyURI">
+      <xs:pattern value=".*\.(jpg|JPG|tga|TGA|Jpg|Jpg)"/>
+    </xs:restriction>
+  </xs:simpleType>
 </xs:schema>

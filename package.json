@@ -46,7 +46,9 @@
 				"id": "xml",
 				"extensions": [
 					".plugin",
-					".plugincompendium"
+					".plugincompendium",
+					".musiccompendium",
+					".skincompendium"
 				],
 				"filenames": [
 					"SkinDefinition.xml"

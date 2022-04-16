@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
   <xs:include schemaLocation="compendium-basetypes.xsd" />
-  <xs:element name="PluginConfig">
+  <xs:element name="MusicConfig">
     <xs:complexType>
       <xs:sequence>
         <xs:element ref="Id" />
@@ -10,7 +10,7 @@
         <xs:element ref="Author" />
         <xs:element ref="InfoUrl" />
         <xs:element ref="DownloadUrl" />
-        <xs:element ref="Descriptors" />
+        <xs:element ref="Descriptors" minOccurs="0" />
         <xs:element ref="Dependencies" />
         <xs:element ref="StartupScript" minOccurs="0" />
       </xs:sequence>
