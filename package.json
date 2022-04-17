@@ -2,7 +2,7 @@
 	"name": "lotro-api",
 	"displayName": "LotRO API",
 	"description": "Lord of the Rings Online API - Adds IntelliSense features for LotRO API.",
-	"version": "1.0.8",
+	"version": "1.0.9",
 	"publisher": "lunarwtr",
 	"repository": {
 		"type": "git",
@@ -84,6 +84,7 @@
 		"@vscode/test-electron": "^2.1.2"
 	},
 	"extensionDependencies": [
+		"lunarwtr.tga-image-preview",
 		"sumneko.lua",
 		"redhat.vscode-xml"
 	]

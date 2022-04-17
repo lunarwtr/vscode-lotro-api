@@ -1,5 +1,11 @@
 # Change Log
 
+## [1.0.9] - 2022-03-30
+### Added
+- Improvement: Adding support for  `.skincompendium`, `.musiccompendium`  xml files 
+- Improvement: Adding options `<StartupScript>` tag to compendium xsds
+- Improvement: Adding TGA image file support dependency
+
 ## [1.0.8] - 2022-03-30
 ### Added
 - Improvement: Adding support for deprecated lua function from 5.1

@@ -1,5 +1,5 @@
---- Turbine.lua.orig	2022-03-30 16:53:37.750110400 -0600
-+++ Turbine.lua	2022-03-29 19:59:39.842254000 -0600
+--- Turbine.lua.orig	2022-04-17 14:39:24.307987200 -0600
++++ Turbine.lua	2022-04-17 15:28:07.507987200 -0600
 @@ -124,12 +124,12 @@
  Engine = {}
  
@@ -484,36 +484,36 @@
 +---
  ---Represents a 4 channel color with red, green, blue, and alpha.
  ---@class Color : Object
-----@field A  The alpha component.
-+---@field A number The alpha component.
-+---@field R number The red component.
-+---@field B number The blue component.
-+---@field G number The green component.
- ---@field AliceBlue Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/AliceBlue.png) `Turbine.UI.Color(1,0.94099998474121,0.97299998998642,1)`
- ---@field AntiqueWhite Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/AntiqueWhite.png) `Turbine.UI.Color(1,0.98000001907349,0.92199999094009,0.84299999475479)`
- ---@field Aqua Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Aqua.png) `Turbine.UI.Color(1,0,1,1)`
- ---@field Aquamarine Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Aquamarine.png) `Turbine.UI.Color(1,0.49799999594688,1,0.8309999704361)`
- ---@field Azure Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Azure.png) `Turbine.UI.Color(1,0.94099998474121,1,1)`
-----@field B  The blue component.
- ---@field Beige Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Beige.png) `Turbine.UI.Color(1,0.96100002527237,0.96100002527237,0.8629999756813)`
- ---@field Bisque Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Bisque.png) `Turbine.UI.Color(1,1,0.89399999380112,0.76899999380112)`
- ---@field Black Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Black.png) `Turbine.UI.Color(1,0,0,0)`
+----@field public A  The alpha component.
++---@field public A number The alpha component.
++---@field public R number The red component.
++---@field public B number The blue component.
++---@field public G number The green component.
+ ---@field public AliceBlue Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/AliceBlue.png) `Turbine.UI.Color(1,0.94099998474121,0.97299998998642,1)`
+ ---@field public AntiqueWhite Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/AntiqueWhite.png) `Turbine.UI.Color(1,0.98000001907349,0.92199999094009,0.84299999475479)`
+ ---@field public Aqua Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Aqua.png) `Turbine.UI.Color(1,0,1,1)`
+ ---@field public Aquamarine Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Aquamarine.png) `Turbine.UI.Color(1,0.49799999594688,1,0.8309999704361)`
+ ---@field public Azure Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Azure.png) `Turbine.UI.Color(1,0.94099998474121,1,1)`
+----@field public B  The blue component.
+ ---@field public Beige Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Beige.png) `Turbine.UI.Color(1,0.96100002527237,0.96100002527237,0.8629999756813)`
+ ---@field public Bisque Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Bisque.png) `Turbine.UI.Color(1,1,0.89399999380112,0.76899999380112)`
+ ---@field public Black Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Black.png) `Turbine.UI.Color(1,0,0,0)`
 @@ -3227,7 +3472,6 @@
- ---@field FloralWhite Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/FloralWhite.png) `Turbine.UI.Color(1,1,0.98000001907349,0.94099998474121)`
- ---@field ForestGreen Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/ForestGreen.png) `Turbine.UI.Color(1,0.1330000013113,0.5450000166893,0.1330000013113)`
- ---@field Fuchsia Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Fuchsia.png) `Turbine.UI.Color(1,1,0,1)`
-----@field G  The green component.
- ---@field Gainsboro Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Gainsboro.png) `Turbine.UI.Color(1,0.8629999756813,0.8629999756813,0.8629999756813)`
- ---@field GhostWhite Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/GhostWhite.png) `Turbine.UI.Color(1,0.97299998998642,0.97299998998642,1)`
- ---@field Gold Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Gold.png) `Turbine.UI.Color(1,1,0.84299999475479,0)`
+ ---@field public FloralWhite Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/FloralWhite.png) `Turbine.UI.Color(1,1,0.98000001907349,0.94099998474121)`
+ ---@field public ForestGreen Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/ForestGreen.png) `Turbine.UI.Color(1,0.1330000013113,0.5450000166893,0.1330000013113)`
+ ---@field public Fuchsia Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Fuchsia.png) `Turbine.UI.Color(1,1,0,1)`
+----@field public G  The green component.
+ ---@field public Gainsboro Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Gainsboro.png) `Turbine.UI.Color(1,0.8629999756813,0.8629999756813,0.8629999756813)`
+ ---@field public GhostWhite Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/GhostWhite.png) `Turbine.UI.Color(1,0.97299998998642,0.97299998998642,1)`
+ ---@field public Gold Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Gold.png) `Turbine.UI.Color(1,1,0.84299999475479,0)`
 @@ -3296,7 +3540,6 @@
- ---@field Plum Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Plum.png) `Turbine.UI.Color(1,0.86699998378754,0.62699997425079,0.86699998378754)`
- ---@field PowderBlue Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/PowderBlue.png) `Turbine.UI.Color(1,0.68999999761581,0.87800002098083,0.90200001001358)`
- ---@field Purple Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Purple.png) `Turbine.UI.Color(1,0.50199997425079,0,0.50199997425079)`
-----@field R  The red component.
- ---@field Red Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Red.png) `Turbine.UI.Color(1,1,0,0)`
- ---@field RosyBrown Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/RosyBrown.png) `Turbine.UI.Color(1,0.73699998855591,0.56099998950958,0.56099998950958)`
- ---@field RoyalBlue Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/RoyalBlue.png) `Turbine.UI.Color(1,0.25499999523163,0.41200000047684,0.88200002908707)`
+ ---@field public Plum Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Plum.png) `Turbine.UI.Color(1,0.86699998378754,0.62699997425079,0.86699998378754)`
+ ---@field public PowderBlue Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/PowderBlue.png) `Turbine.UI.Color(1,0.68999999761581,0.87800002098083,0.90200001001358)`
+ ---@field public Purple Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Purple.png) `Turbine.UI.Color(1,0.50199997425079,0,0.50199997425079)`
+----@field public R  The red component.
+ ---@field public Red Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Red.png) `Turbine.UI.Color(1,1,0,0)`
+ ---@field public RosyBrown Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/RosyBrown.png) `Turbine.UI.Color(1,0.73699998855591,0.56099998950958,0.56099998950958)`
+ ---@field public RoyalBlue Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/RoyalBlue.png) `Turbine.UI.Color(1,0.25499999523163,0.41200000047684,0.88200002908707)`
 @@ -3567,6 +3810,21 @@
  ---@param backgroundImage any The path or id of the image to set the background of the control to.
  function Control:SetBackground(backgroundImage) end
@@ -747,7 +747,7 @@
  
  ---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_UI_VerticalLayout.html)
  ---Specifies how to perform vertical layouts.
-@@ -5899,3 +6228,486 @@
+@@ -5899,3 +6228,469 @@
  ---@param sender table The event sender.
  ---@param args EventWindowDeactivatedArgsTable The event arguments
  Window.Deactivated = function (sender, args) end
@@ -1196,25 +1196,6 @@
 +---@field Image string
 +---@field Description string
 +
-+---Executes the given f over all elements of table. For each element, f is called with the index and respective value as arguments. If f returns a non-nil value, then the loop is broken, and this value is returned as the final value of foreach.
-+---See the next function for extra information about table traversals.
-+---@param list table #the table to iterate
-+---@param f fun(key:string, val:any) #the function called for each key / value pair
-+---@deprecated
-+function table.foreach(list, f) end
-+
-+---Executes the given f over the numerical indices of table. For each index, f is called with the index and respective value as arguments. Indices are visited in sequential order, from 1 to n, where n is the size of the table. If f returns a non-nil value, then the loop is broken and this value is returned as the result of foreachi.
-+---@param list table #the table to iterate
-+---@param f fun(index:number, val:any) #the function called on each index / value
-+---@deprecated
-+function table.foreachi(list, f) end
-+
-+---Returns the size of a table, when seen as a list. If the table has an n field with a numeric value, this value is the size of the table. Otherwise, if there was a previous call to table.setn over this table, the respective value is returned. Otherwise, the size is one less the first integer index with a nil value.
-+---@param list table #the table to retrieve the size of
-+---@return number #the size of the table
-+---@deprecated use `#` length operator
-+function table.getn(list) end
-+
 +---Returns an iterator function that, each time it is called, returns the next captures from pattern pat over string s.
 +---If pat specifies no captures, then the whole match is produced in each call.
 +---@param str string the string to find pattern in
@@ -1229,8 +1210,10 @@
 +function table.setn(list,n) end
 +
 +---Returns the remainder of the division of `x` by `y` that rounds the quotient towards zero.
++---
++---Use `math.fmod` instead.
 +---@param x number
 +---@param y number
 +---@return number
-+---@deprecated use math.fmod
++---@deprecated
 +function math.mod(x,y) end

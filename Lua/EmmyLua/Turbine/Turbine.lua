@@ -1,20 +1,20 @@
 ---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine.html)
 ---The core Turbine API package.
 ---@class Turbine
----@field Chat Chat This class provides events for when messages are received through the game. This includes player chat, tells, in game messages, and announcements.
----@field ChatType ChatType Defines the type of chat data.
----@field DataScope DataScope Defines the scope of plugin data.
----@field Engine Engine Provides engine level information to user plugins.
----@field Gameplay Gameplay Provides classes for accessing game related information.
----@field Language Language Defines the client languages.
----@field LotroPluginManager LotroPluginManager Provides access to plugin management methods.
----@field Object Object | function The base object class for API classes.
----@field Plugin Plugin Provides information about a specific plugin that has been loaded.
----@field PluginData PluginData Provides the ability to save and load plugin data.
----@field PluginManager PluginManager Provides access to plugin management methods.
----@field Shell Shell Provides programmer extensibility to the chat window.
----@field ShellCommand ShellCommand | function A command that can be register for use in the chat window.
----@field UI UI The core UI package that allows users to create low level controls.
+---@field public Chat Chat This class provides events for when messages are received through the game. This includes player chat, tells, in game messages, and announcements.
+---@field public ChatType ChatType Defines the type of chat data.
+---@field public DataScope DataScope Defines the scope of plugin data.
+---@field public Engine Engine Provides engine level information to user plugins.
+---@field public Gameplay Gameplay Provides classes for accessing game related information.
+---@field public Language Language Defines the client languages.
+---@field public LotroPluginManager LotroPluginManager Provides access to plugin management methods.
+---@field public Object Object | function The base object class for API classes.
+---@field public Plugin Plugin Provides information about a specific plugin that has been loaded.
+---@field public PluginData PluginData Provides the ability to save and load plugin data.
+---@field public PluginManager PluginManager Provides access to plugin management methods.
+---@field public Shell Shell Provides programmer extensibility to the chat window.
+---@field public ShellCommand ShellCommand | function A command that can be register for use in the chat window.
+---@field public UI UI The core UI package that allows users to create low level controls.
 Turbine = {}
 
 
@@ -161,54 +161,54 @@ Engine.ScriptLog = function (message) end
 ---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay.html)
 ---Provides classes for accessing game related information.
 ---@class Gameplay
----@field ActiveSkill ActiveSkill Information about an active player's skill.
----@field Actor Actor Base class for any entity that interacts in the world.
----@field Alignment Alignment The alignment of a player.
----@field Attributes Attributes Provides classes for accessing game related information.
----@field Backpack Backpack Provides access to a player's backpack.
----@field Bank Bank A container of items that are only accessible at designated bank locations.
----@field BasicMount BasicMount A basic mount.
----@field Class Class The Class of a player.
----@field ClassAttributes ClassAttributes Base class for class information.
----@field CombatMount CombatMount A mount that can be used in combat.
----@field CraftTier CraftTier A crafting tier.
----@field Effect Effect Represents an effect that can be applied to an entity.
----@field EffectCategory EffectCategory Describes the category of an effect.
----@field EffectList EffectList A utility class used by Actors to hold the list of effects.
----@field Entity Entity Base class for any entity in the game.
----@field EntityReference EntityReference 
----@field Equipment Equipment Provides access to a player's equipment.
----@field GambitSkill GambitSkill Information about a gambit skill.
----@field GambitSkillInfo GambitSkillInfo Information about a gambit skill.
----@field Item Item An item that a user can have.
----@field ItemCategory ItemCategory Describes the category of an item.
----@field ItemDurability ItemDurability Describes the durability of an item.
----@field ItemInfo ItemInfo Container for various item information.
----@field ItemQuality ItemQuality Describes the quality of an item.
----@field ItemWearState ItemWearState Describes the current wear state of an item.
----@field LocalPlayer LocalPlayer A class that represents the local player.
----@field Mount Mount Class representing an in game mount.
----@field Party Party This class provides access to party information. This is either your fellowship or your tribe depending on your alliance.
----@field PartyMember PartyMember 
----@field Pet Pet A pet is an actor that a player owns and controls.
----@field Player Player A class that represents a player in the game.
----@field Profession Profession A profession a free people player can have.
----@field ProfessionInfo ProfessionInfo Information about a profession.
----@field PropertyHandler PropertyHandler 
----@field Race Race The Race of a player.
----@field ReadyState ReadyState The ready state of a player.
----@field Recipe Recipe Information about a recipe.
----@field RecipeIngredient RecipeIngredient Information about a recipe ingredient.
----@field SharedStorage SharedStorage A bank that represents the player's shared storage. This storage is available to all characters on the same account.
----@field Skill Skill Information about a skill.
----@field SkillInfo SkillInfo Information about a skill.
----@field SkillList SkillList A list of skills.
----@field SkillType SkillType A type of skill.
----@field UntrainedSkill UntrainedSkill Information about a skill the player has not trained yet.
----@field Vault Vault A bank that represents the player's vault storage. This storage is only available to the current logged in character.
----@field Vocation Vocation The vocation of a free people player.
----@field Wallet Wallet Provides access to a player's wallet.
----@field WalletItem WalletItem An item that is contained in a user's wallet.
+---@field public ActiveSkill ActiveSkill Information about an active player's skill.
+---@field public Actor Actor Base class for any entity that interacts in the world.
+---@field public Alignment Alignment The alignment of a player.
+---@field public Attributes Attributes Provides classes for accessing game related information.
+---@field public Backpack Backpack Provides access to a player's backpack.
+---@field public Bank Bank A container of items that are only accessible at designated bank locations.
+---@field public BasicMount BasicMount A basic mount.
+---@field public Class Class The Class of a player.
+---@field public ClassAttributes ClassAttributes Base class for class information.
+---@field public CombatMount CombatMount A mount that can be used in combat.
+---@field public CraftTier CraftTier A crafting tier.
+---@field public Effect Effect Represents an effect that can be applied to an entity.
+---@field public EffectCategory EffectCategory Describes the category of an effect.
+---@field public EffectList EffectList A utility class used by Actors to hold the list of effects.
+---@field public Entity Entity Base class for any entity in the game.
+---@field public EntityReference EntityReference 
+---@field public Equipment Equipment Provides access to a player's equipment.
+---@field public GambitSkill GambitSkill Information about a gambit skill.
+---@field public GambitSkillInfo GambitSkillInfo Information about a gambit skill.
+---@field public Item Item An item that a user can have.
+---@field public ItemCategory ItemCategory Describes the category of an item.
+---@field public ItemDurability ItemDurability Describes the durability of an item.
+---@field public ItemInfo ItemInfo Container for various item information.
+---@field public ItemQuality ItemQuality Describes the quality of an item.
+---@field public ItemWearState ItemWearState Describes the current wear state of an item.
+---@field public LocalPlayer LocalPlayer A class that represents the local player.
+---@field public Mount Mount Class representing an in game mount.
+---@field public Party Party This class provides access to party information. This is either your fellowship or your tribe depending on your alliance.
+---@field public PartyMember PartyMember 
+---@field public Pet Pet A pet is an actor that a player owns and controls.
+---@field public Player Player A class that represents a player in the game.
+---@field public Profession Profession A profession a free people player can have.
+---@field public ProfessionInfo ProfessionInfo Information about a profession.
+---@field public PropertyHandler PropertyHandler 
+---@field public Race Race The Race of a player.
+---@field public ReadyState ReadyState The ready state of a player.
+---@field public Recipe Recipe Information about a recipe.
+---@field public RecipeIngredient RecipeIngredient Information about a recipe ingredient.
+---@field public SharedStorage SharedStorage A bank that represents the player's shared storage. This storage is available to all characters on the same account.
+---@field public Skill Skill Information about a skill.
+---@field public SkillInfo SkillInfo Information about a skill.
+---@field public SkillList SkillList A list of skills.
+---@field public SkillType SkillType A type of skill.
+---@field public UntrainedSkill UntrainedSkill Information about a skill the player has not trained yet.
+---@field public Vault Vault A bank that represents the player's vault storage. This storage is only available to the current logged in character.
+---@field public Vocation Vocation The vocation of a free people player.
+---@field public Wallet Wallet Provides access to a player's wallet.
+---@field public WalletItem WalletItem An item that is contained in a user's wallet.
 Gameplay = {}
 
 
@@ -373,39 +373,39 @@ Alignment = {
 ---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_Attributes.html)
 ---Provides classes for accessing game related information.
 ---@class Attributes : PropertyHandler
----@field BeorningAttributes BeorningAttributes 
----@field BlackArrowAttributes BlackArrowAttributes 
----@field BurglarAttributes BurglarAttributes 
----@field BurglarStance BurglarStance 
----@field CaptainAttributes CaptainAttributes 
----@field ChampionAttributes ChampionAttributes 
----@field ChampionStance ChampionStance 
----@field ChickenAttributes ChickenAttributes 
----@field DefilerAttributes DefilerAttributes 
----@field DwarfAttributes DwarfAttributes 
----@field ElfAttributes ElfAttributes 
----@field FreePeopleAttributes FreePeopleAttributes 
----@field GuardianAttributes GuardianAttributes 
----@field GuardianStance GuardianStance 
----@field HighElfAttributes HighElfAttributes 
----@field HobbitAttributes HobbitAttributes 
----@field HunterAttributes HunterAttributes 
----@field HunterStance HunterStance 
----@field LoreMasterAttributes LoreMasterAttributes 
----@field ManAttributes ManAttributes 
----@field MinstrelAttributes MinstrelAttributes 
----@field MinstrelStance MinstrelStance 
----@field MonsterPlayerAttributes MonsterPlayerAttributes 
----@field RangerAttributes RangerAttributes 
----@field ReaverAttributes ReaverAttributes 
----@field RuneKeeperAttributes RuneKeeperAttributes 
----@field StalkerAttributes StalkerAttributes 
----@field StoutAxeAttributes StoutAxeAttributes 
----@field TrollAttributes TrollAttributes 
----@field WarLeaderAttributes WarLeaderAttributes 
----@field WardenAttributes WardenAttributes 
----@field WardenStance WardenStance 
----@field WeaverAttributes WeaverAttributes 
+---@field public BeorningAttributes BeorningAttributes 
+---@field public BlackArrowAttributes BlackArrowAttributes 
+---@field public BurglarAttributes BurglarAttributes 
+---@field public BurglarStance BurglarStance 
+---@field public CaptainAttributes CaptainAttributes 
+---@field public ChampionAttributes ChampionAttributes 
+---@field public ChampionStance ChampionStance 
+---@field public ChickenAttributes ChickenAttributes 
+---@field public DefilerAttributes DefilerAttributes 
+---@field public DwarfAttributes DwarfAttributes 
+---@field public ElfAttributes ElfAttributes 
+---@field public FreePeopleAttributes FreePeopleAttributes 
+---@field public GuardianAttributes GuardianAttributes 
+---@field public GuardianStance GuardianStance 
+---@field public HighElfAttributes HighElfAttributes 
+---@field public HobbitAttributes HobbitAttributes 
+---@field public HunterAttributes HunterAttributes 
+---@field public HunterStance HunterStance 
+---@field public LoreMasterAttributes LoreMasterAttributes 
+---@field public ManAttributes ManAttributes 
+---@field public MinstrelAttributes MinstrelAttributes 
+---@field public MinstrelStance MinstrelStance 
+---@field public MonsterPlayerAttributes MonsterPlayerAttributes 
+---@field public RangerAttributes RangerAttributes 
+---@field public ReaverAttributes ReaverAttributes 
+---@field public RuneKeeperAttributes RuneKeeperAttributes 
+---@field public StalkerAttributes StalkerAttributes 
+---@field public StoutAxeAttributes StoutAxeAttributes 
+---@field public TrollAttributes TrollAttributes 
+---@field public WarLeaderAttributes WarLeaderAttributes 
+---@field public WardenAttributes WardenAttributes 
+---@field public WardenStance WardenStance 
+---@field public WeaverAttributes WeaverAttributes 
 Attributes = {}
 
 
@@ -3290,34 +3290,34 @@ function ShellCommand:GetShortHelp() end
 ---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_UI.html)
 ---The core UI package that allows users to create low level controls.
 ---@class UI
----@field BlendMode BlendMode Specifies a blending method.
----@field Button Button | function A simple button control.
----@field CheckBox CheckBox | function A control used to indicate a boolean state.
----@field Color Color | function Represents a 4 channel color with red, green, blue, and alpha.
----@field ContentAlignment ContentAlignment Specifies the alignment of content within a region.
----@field ContextMenu ContextMenu | function Defines a menu that can be displayed to the user.
----@field Control Control | function The base control class for all available user interface elements.
----@field ControlList ControlList | function Defines a list of controls.
----@field Display Display Provides display information.
----@field DragDropInfo DragDropInfo Container for information about drag drop events.
----@field FontStyle FontStyle Specifies styles that can be applied to fonts.
----@field Graphic Graphic | function Represents a graphic resources that is loaded from the DAT files or from disk.
----@field HorizontalLayout HorizontalLayout Specifies how to perform horizontal layouts.
----@field Label Label | function A simple label for displaying text.
----@field ListBox ListBox | function A simple list box for laying out child controls in a list.
----@field Lotro Lotro The Lord of the Rings UI package.
----@field MenuItem MenuItem | function Defines a menu item.
----@field MenuItemList MenuItemList | function Defines a list of menu items.
----@field MouseButton MouseButton Defines one of the mouse buttons.
----@field Orientation Orientation Specifies orientation of objects.
----@field ScrollBar ScrollBar | function A control for scrolling contents.
----@field ScrollableControl ScrollableControl | function Defines a control that can be scrolled.
----@field TextBox TextBox | function A control for inputting text.
----@field TreeNode TreeNode | function The base for any element that will be part of a tree view control.
----@field TreeNodeList TreeNodeList | function Defines a list of controls.
----@field TreeView TreeView | function A control to display data in a tree.
----@field VerticalLayout VerticalLayout Specifies how to perform vertical layouts.
----@field Window Window | function A top level window control.
+---@field public BlendMode BlendMode Specifies a blending method.
+---@field public Button Button | function A simple button control.
+---@field public CheckBox CheckBox | function A control used to indicate a boolean state.
+---@field public Color Color | function Represents a 4 channel color with red, green, blue, and alpha.
+---@field public ContentAlignment ContentAlignment Specifies the alignment of content within a region.
+---@field public ContextMenu ContextMenu | function Defines a menu that can be displayed to the user.
+---@field public Control Control | function The base control class for all available user interface elements.
+---@field public ControlList ControlList | function Defines a list of controls.
+---@field public Display Display Provides display information.
+---@field public DragDropInfo DragDropInfo Container for information about drag drop events.
+---@field public FontStyle FontStyle Specifies styles that can be applied to fonts.
+---@field public Graphic Graphic | function Represents a graphic resources that is loaded from the DAT files or from disk.
+---@field public HorizontalLayout HorizontalLayout Specifies how to perform horizontal layouts.
+---@field public Label Label | function A simple label for displaying text.
+---@field public ListBox ListBox | function A simple list box for laying out child controls in a list.
+---@field public Lotro Lotro The Lord of the Rings UI package.
+---@field public MenuItem MenuItem | function Defines a menu item.
+---@field public MenuItemList MenuItemList | function Defines a list of menu items.
+---@field public MouseButton MouseButton Defines one of the mouse buttons.
+---@field public Orientation Orientation Specifies orientation of objects.
+---@field public ScrollBar ScrollBar | function A control for scrolling contents.
+---@field public ScrollableControl ScrollableControl | function Defines a control that can be scrolled.
+---@field public TextBox TextBox | function A control for inputting text.
+---@field public TreeNode TreeNode | function The base for any element that will be part of a tree view control.
+---@field public TreeNodeList TreeNodeList | function Defines a list of controls.
+---@field public TreeView TreeView | function A control to display data in a tree.
+---@field public VerticalLayout VerticalLayout Specifies how to perform vertical layouts.
+---@field public Window Window | function A top level window control.
 UI = {}
 
 
@@ -3421,153 +3421,153 @@ CheckBox.EnabledChanged = function (sender, args) end
 ---
 ---Represents a 4 channel color with red, green, blue, and alpha.
 ---@class Color : Object
----@field A number The alpha component.
----@field R number The red component.
----@field B number The blue component.
----@field G number The green component.
----@field AliceBlue Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/AliceBlue.png) `Turbine.UI.Color(1,0.94099998474121,0.97299998998642,1)`
----@field AntiqueWhite Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/AntiqueWhite.png) `Turbine.UI.Color(1,0.98000001907349,0.92199999094009,0.84299999475479)`
----@field Aqua Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Aqua.png) `Turbine.UI.Color(1,0,1,1)`
----@field Aquamarine Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Aquamarine.png) `Turbine.UI.Color(1,0.49799999594688,1,0.8309999704361)`
----@field Azure Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Azure.png) `Turbine.UI.Color(1,0.94099998474121,1,1)`
----@field Beige Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Beige.png) `Turbine.UI.Color(1,0.96100002527237,0.96100002527237,0.8629999756813)`
----@field Bisque Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Bisque.png) `Turbine.UI.Color(1,1,0.89399999380112,0.76899999380112)`
----@field Black Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Black.png) `Turbine.UI.Color(1,0,0,0)`
----@field BlanchedAlmond Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/BlanchedAlmond.png) `Turbine.UI.Color(1,1,0.92199999094009,0.80400002002716)`
----@field Blue Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Blue.png) `Turbine.UI.Color(1,0,0,1)`
----@field BlueViolet Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/BlueViolet.png) `Turbine.UI.Color(1,0.54100000858307,0.16899999976158,0.88599997758865)`
----@field Brown Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Brown.png) `Turbine.UI.Color(1,0.64700001478195,0.16500000655651,0.16500000655651)`
----@field BurlyWood Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/BurlyWood.png) `Turbine.UI.Color(1,0.87099999189377,0.72200000286102,0.52899998426437)`
----@field CadetBlue Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/CadetBlue.png) `Turbine.UI.Color(1,0.37299999594688,0.62000000476837,0.62699997425079)`
----@field Chartreuse Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Chartreuse.png) `Turbine.UI.Color(1,0.49799999594688,1,0)`
----@field Chocolate Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Chocolate.png) `Turbine.UI.Color(1,0.82400000095367,0.41200000047684,0.11800000071526)`
----@field Constructor Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Constructor.png) `Turbine.UI.Color(,,,)`
----@field Coral Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Coral.png) `Turbine.UI.Color(1,1,0.49799999594688,0.31400001049042)`
----@field CornflowerBlue Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/CornflowerBlue.png) `Turbine.UI.Color(1,0.391999989748,0.58399999141693,0.92900002002716)`
----@field Cornsilk Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Cornsilk.png) `Turbine.UI.Color(1,1,0.97299998998642,0.8629999756813)`
----@field Crimson Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Crimson.png) `Turbine.UI.Color(1,0.8629999756813,0.078000001609325,0.23499999940395)`
----@field Cyan Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Cyan.png) `Turbine.UI.Color(1,0,1,1)`
----@field DarkBlue Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/DarkBlue.png) `Turbine.UI.Color(1,0,0,0.5450000166893)`
----@field DarkCyan Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/DarkCyan.png) `Turbine.UI.Color(1,0,0.5450000166893,0.5450000166893)`
----@field DarkGoldenrod Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/DarkGoldenrod.png) `Turbine.UI.Color(1,0.72200000286102,0.52499997615814,0.043000001460314)`
----@field DarkGray Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/DarkGray.png) `Turbine.UI.Color(1,0.66299998760223,0.66299998760223,0.66299998760223)`
----@field DarkGreen Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/DarkGreen.png) `Turbine.UI.Color(1,0,0.391999989748,0)`
----@field DarkKhaki Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/DarkKhaki.png) `Turbine.UI.Color(1,0.74099999666214,0.71799999475479,0.41999998688698)`
----@field DarkMagenta Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/DarkMagenta.png) `Turbine.UI.Color(1,0.5450000166893,0,0.5450000166893)`
----@field DarkOliveGreen Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/DarkOliveGreen.png) `Turbine.UI.Color(1,0.33300000429153,0.41999998688698,0.18400000035763)`
----@field DarkOrange Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/DarkOrange.png) `Turbine.UI.Color(1,1,0.54900002479553,0)`
----@field DarkOrchid Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/DarkOrchid.png) `Turbine.UI.Color(1,0.60000002384186,0.195999994874,0.80000001192093)`
----@field DarkRed Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/DarkRed.png) `Turbine.UI.Color(1,0.5450000166893,0,0)`
----@field DarkSalmon Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/DarkSalmon.png) `Turbine.UI.Color(1,0.91399997472763,0.58799999952316,0.47799998521805)`
----@field DarkSeaGreen Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/DarkSeaGreen.png) `Turbine.UI.Color(1,0.56099998950958,0.73699998855591,0.5450000166893)`
----@field DarkSlateBlue Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/DarkSlateBlue.png) `Turbine.UI.Color(1,0.28200000524521,0.23899999260902,0.5450000166893)`
----@field DarkSlateGray Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/DarkSlateGray.png) `Turbine.UI.Color(1,0.18400000035763,0.31000000238419,0.31000000238419)`
----@field DarkTurquoise Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/DarkTurquoise.png) `Turbine.UI.Color(1,0,0.80800002813339,0.81999999284744)`
----@field DarkViolet Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/DarkViolet.png) `Turbine.UI.Color(1,0.5799999833107,0,0.82700002193451)`
----@field DeepPink Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/DeepPink.png) `Turbine.UI.Color(1,1,0.078000001609325,0.57599997520447)`
----@field DeepSkyBlue Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/DeepSkyBlue.png) `Turbine.UI.Color(1,0,0.7490000128746,1)`
----@field DimGray Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/DimGray.png) `Turbine.UI.Color(1,0.41200000047684,0.41200000047684,0.41200000047684)`
----@field DodgerBlue Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/DodgerBlue.png) `Turbine.UI.Color(1,0.11800000071526,0.56499999761581,1)`
----@field Firebrick Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Firebrick.png) `Turbine.UI.Color(1,0.69800001382828,0.1330000013113,0.1330000013113)`
----@field FloralWhite Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/FloralWhite.png) `Turbine.UI.Color(1,1,0.98000001907349,0.94099998474121)`
----@field ForestGreen Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/ForestGreen.png) `Turbine.UI.Color(1,0.1330000013113,0.5450000166893,0.1330000013113)`
----@field Fuchsia Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Fuchsia.png) `Turbine.UI.Color(1,1,0,1)`
----@field Gainsboro Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Gainsboro.png) `Turbine.UI.Color(1,0.8629999756813,0.8629999756813,0.8629999756813)`
----@field GhostWhite Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/GhostWhite.png) `Turbine.UI.Color(1,0.97299998998642,0.97299998998642,1)`
----@field Gold Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Gold.png) `Turbine.UI.Color(1,1,0.84299999475479,0)`
----@field Goldenrod Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Goldenrod.png) `Turbine.UI.Color(1,0.85500001907349,0.64700001478195,0.125)`
----@field Gray Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Gray.png) `Turbine.UI.Color(1,0.50199997425079,0.50199997425079,0.50199997425079)`
----@field Green Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Green.png) `Turbine.UI.Color(1,0,0.50199997425079,0)`
----@field GreenYellow Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/GreenYellow.png) `Turbine.UI.Color(1,0.67799997329712,1,0.18400000035763)`
----@field Honeydew Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Honeydew.png) `Turbine.UI.Color(1,0.94099998474121,1,0.94099998474121)`
----@field HotPink Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/HotPink.png) `Turbine.UI.Color(1,1,0.41200000047684,0.7059999704361)`
----@field IndianRed Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/IndianRed.png) `Turbine.UI.Color(1,0.80400002002716,0.36100000143051,0.36100000143051)`
----@field Indigo Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Indigo.png) `Turbine.UI.Color(1,0.29399999976158,0,0.50999999046326)`
----@field IsA Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/IsA.png) `Turbine.UI.Color(,,,)`
----@field Ivory Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Ivory.png) `Turbine.UI.Color(1,1,1,0.94099998474121)`
----@field Khaki Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Khaki.png) `Turbine.UI.Color(1,0.94099998474121,0.90200001001358,0.54900002479553)`
----@field Lavender Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Lavender.png) `Turbine.UI.Color(1,0.90200001001358,0.90200001001358,0.98000001907349)`
----@field LavenderBlush Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/LavenderBlush.png) `Turbine.UI.Color(1,1,0.94099998474121,0.96100002527237)`
----@field LawnGreen Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/LawnGreen.png) `Turbine.UI.Color(1,0.48600000143051,0.9879999756813,0)`
----@field LemonChiffon Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/LemonChiffon.png) `Turbine.UI.Color(1,1,0.98000001907349,0.80400002002716)`
----@field LightBlue Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/LightBlue.png) `Turbine.UI.Color(1,0.67799997329712,0.84700000286102,0.90200001001358)`
----@field LightCoral Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/LightCoral.png) `Turbine.UI.Color(1,0.94099998474121,0.50199997425079,0.50199997425079)`
----@field LightCyan Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/LightCyan.png) `Turbine.UI.Color(1,0.87800002098083,1,1)`
----@field LightGoldenrodYellow Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/LightGoldenrodYellow.png) `Turbine.UI.Color(1,0.98000001907349,0.98000001907349,0.82400000095367)`
----@field LightGray Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/LightGray.png) `Turbine.UI.Color(1,0.82700002193451,0.82700002193451,0.82700002193451)`
----@field LightGreen Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/LightGreen.png) `Turbine.UI.Color(1,0.56499999761581,0.93300002813339,0.56499999761581)`
----@field LightPink Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/LightPink.png) `Turbine.UI.Color(1,1,0.71399998664856,0.75700002908707)`
----@field LightSalmon Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/LightSalmon.png) `Turbine.UI.Color(1,1,0.62699997425079,0.47799998521805)`
----@field LightSeaGreen Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/LightSeaGreen.png) `Turbine.UI.Color(1,0.125,0.69800001382828,0.66699999570847)`
----@field LightSkyBlue Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/LightSkyBlue.png) `Turbine.UI.Color(1,0.52899998426437,0.80800002813339,0.98000001907349)`
----@field LightSlateGray Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/LightSlateGray.png) `Turbine.UI.Color(1,0.46700000762939,0.53299999237061,0.60000002384186)`
----@field LightSteelBlue Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/LightSteelBlue.png) `Turbine.UI.Color(1,0.68999999761581,0.76899999380112,0.87099999189377)`
----@field LightYellow Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/LightYellow.png) `Turbine.UI.Color(1,1,1,0.87800002098083)`
----@field Lime Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Lime.png) `Turbine.UI.Color(1,0,1,0)`
----@field LimeGreen Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/LimeGreen.png) `Turbine.UI.Color(1,0.195999994874,0.80400002002716,0.195999994874)`
----@field Linen Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Linen.png) `Turbine.UI.Color(1,0.98000001907349,0.94099998474121,0.90200001001358)`
----@field Magenta Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Magenta.png) `Turbine.UI.Color(1,1,0,1)`
----@field Maroon Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Maroon.png) `Turbine.UI.Color(1,0.50199997425079,0,0)`
----@field MediumAquamarine Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/MediumAquamarine.png) `Turbine.UI.Color(1,0.40000000596046,0.80400002002716,0.66699999570847)`
----@field MediumBlue Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/MediumBlue.png) `Turbine.UI.Color(1,0,0,0.80400002002716)`
----@field MediumOrchid Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/MediumOrchid.png) `Turbine.UI.Color(1,0.72899997234344,0.33300000429153,0.82700002193451)`
----@field MediumPurple Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/MediumPurple.png) `Turbine.UI.Color(1,0.57599997520447,0.43900001049042,0.85900002717972)`
----@field MediumSeaGreen Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/MediumSeaGreen.png) `Turbine.UI.Color(1,0.23499999940395,0.70200002193451,0.44299998879433)`
----@field MediumSlateBlue Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/MediumSlateBlue.png) `Turbine.UI.Color(1,0.48199999332428,0.40799999237061,0.93300002813339)`
----@field MediumSpringGreen Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/MediumSpringGreen.png) `Turbine.UI.Color(1,0,0.98000001907349,0.60399997234344)`
----@field MediumTurquoise Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/MediumTurquoise.png) `Turbine.UI.Color(1,0.28200000524521,0.81999999284744,0.80000001192093)`
----@field MediumVioletRed Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/MediumVioletRed.png) `Turbine.UI.Color(1,0.77999997138977,0.082000002264977,0.52200001478195)`
----@field MidnightBlue Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/MidnightBlue.png) `Turbine.UI.Color(1,0.097999997437,0.097999997437,0.43900001049042)`
----@field MintCream Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/MintCream.png) `Turbine.UI.Color(1,0.96100002527237,1,0.98000001907349)`
----@field MistyRose Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/MistyRose.png) `Turbine.UI.Color(1,1,0.89399999380112,0.88200002908707)`
----@field Moccasin Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Moccasin.png) `Turbine.UI.Color(1,1,0.89399999380112,0.70999997854233)`
----@field NavajoWhite Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/NavajoWhite.png) `Turbine.UI.Color(1,1,0.87099999189377,0.67799997329712)`
----@field Navy Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Navy.png) `Turbine.UI.Color(1,0,0,0.50199997425079)`
----@field OldLace Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/OldLace.png) `Turbine.UI.Color(1,0.99199998378754,0.96100002527237,0.90200001001358)`
----@field Olive Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Olive.png) `Turbine.UI.Color(1,0.50199997425079,0.50199997425079,0)`
----@field OliveDrab Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/OliveDrab.png) `Turbine.UI.Color(1,0.41999998688698,0.55699998140335,0.13699999451637)`
----@field Orange Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Orange.png) `Turbine.UI.Color(1,1,0.64700001478195,0)`
----@field OrangeRed Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/OrangeRed.png) `Turbine.UI.Color(1,1,0.27099999785423,0)`
----@field Orchid Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Orchid.png) `Turbine.UI.Color(1,0.85500001907349,0.43900001049042,0.83899998664856)`
----@field PaleGoldenrod Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/PaleGoldenrod.png) `Turbine.UI.Color(1,0.93300002813339,0.91000002622604,0.66699999570847)`
----@field PaleGreen Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/PaleGreen.png) `Turbine.UI.Color(1,0.59600001573563,0.98400002717972,0.59600001573563)`
----@field PaleTurquoise Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/PaleTurquoise.png) `Turbine.UI.Color(1,0.68599998950958,0.93300002813339,0.93300002813339)`
----@field PaleVioletRed Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/PaleVioletRed.png) `Turbine.UI.Color(1,0.85900002717972,0.43900001049042,0.57599997520447)`
----@field PapayaWhip Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/PapayaWhip.png) `Turbine.UI.Color(1,1,0.93699997663498,0.83499997854233)`
----@field PeachPuff Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/PeachPuff.png) `Turbine.UI.Color(1,1,0.85500001907349,0.72500002384186)`
----@field Peru Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Peru.png) `Turbine.UI.Color(1,0.80400002002716,0.52200001478195,0.24699999392033)`
----@field Pink Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Pink.png) `Turbine.UI.Color(1,1,0.75300002098083,0.7960000038147)`
----@field Plum Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Plum.png) `Turbine.UI.Color(1,0.86699998378754,0.62699997425079,0.86699998378754)`
----@field PowderBlue Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/PowderBlue.png) `Turbine.UI.Color(1,0.68999999761581,0.87800002098083,0.90200001001358)`
----@field Purple Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Purple.png) `Turbine.UI.Color(1,0.50199997425079,0,0.50199997425079)`
----@field Red Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Red.png) `Turbine.UI.Color(1,1,0,0)`
----@field RosyBrown Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/RosyBrown.png) `Turbine.UI.Color(1,0.73699998855591,0.56099998950958,0.56099998950958)`
----@field RoyalBlue Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/RoyalBlue.png) `Turbine.UI.Color(1,0.25499999523163,0.41200000047684,0.88200002908707)`
----@field SaddleBrown Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/SaddleBrown.png) `Turbine.UI.Color(1,0.5450000166893,0.27099999785423,0.075000002980232)`
----@field Salmon Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Salmon.png) `Turbine.UI.Color(1,0.98000001907349,0.50199997425079,0.44699999690056)`
----@field SandyBrown Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/SandyBrown.png) `Turbine.UI.Color(1,0.95700001716614,0.64300000667572,0.3759999871254)`
----@field SeaGreen Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/SeaGreen.png) `Turbine.UI.Color(1,0.18000000715256,0.5450000166893,0.34099999070168)`
----@field SeaShell Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/SeaShell.png) `Turbine.UI.Color(1,1,0.96100002527237,0.93300002813339)`
----@field Sienna Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Sienna.png) `Turbine.UI.Color(1,0.62699997425079,0.32199999690056,0.17599999904633)`
----@field Silver Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Silver.png) `Turbine.UI.Color(1,0.75300002098083,0.75300002098083,0.75300002098083)`
----@field SkyBlue Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/SkyBlue.png) `Turbine.UI.Color(1,0.52899998426437,0.80800002813339,0.92199999094009)`
----@field SlateBlue Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/SlateBlue.png) `Turbine.UI.Color(1,0.41600000858307,0.35299998521805,0.80400002002716)`
----@field SlateGray Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/SlateGray.png) `Turbine.UI.Color(1,0.43900001049042,0.50199997425079,0.56499999761581)`
----@field Snow Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Snow.png) `Turbine.UI.Color(1,1,0.98000001907349,0.98000001907349)`
----@field SpringGreen Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/SpringGreen.png) `Turbine.UI.Color(1,0,1,0.49799999594688)`
----@field SteelBlue Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/SteelBlue.png) `Turbine.UI.Color(1,0.27500000596046,0.50999999046326,0.7059999704361)`
----@field Tan Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Tan.png) `Turbine.UI.Color(1,0.82400000095367,0.7059999704361,0.54900002479553)`
----@field Teal Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Teal.png) `Turbine.UI.Color(1,0,0.50199997425079,0.50199997425079)`
----@field Thistle Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Thistle.png) `Turbine.UI.Color(1,0.84700000286102,0.7490000128746,0.84700000286102)`
----@field Tomato Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Tomato.png) `Turbine.UI.Color(1,1,0.38800001144409,0.27799999713898)`
----@field Transparent Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Transparent.png) `Turbine.UI.Color(0,1,1,1)`
----@field Turquoise Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Turquoise.png) `Turbine.UI.Color(1,0.2509999871254,0.87800002098083,0.81599998474121)`
----@field Violet Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Violet.png) `Turbine.UI.Color(1,0.93300002813339,0.50999999046326,0.93300002813339)`
----@field Wheat Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Wheat.png) `Turbine.UI.Color(1,0.96100002527237,0.87099999189377,0.70200002193451)`
----@field White Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/White.png) `Turbine.UI.Color(1,1,1,1)`
----@field WhiteSmoke Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/WhiteSmoke.png) `Turbine.UI.Color(1,0.96100002527237,0.96100002527237,0.96100002527237)`
----@field Yellow Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Yellow.png) `Turbine.UI.Color(1,1,1,0)`
----@field YellowGreen Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/YellowGreen.png) `Turbine.UI.Color(1,0.60399997234344,0.80400002002716,0.195999994874)`
+---@field public A number The alpha component.
+---@field public R number The red component.
+---@field public B number The blue component.
+---@field public G number The green component.
+---@field public AliceBlue Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/AliceBlue.png) `Turbine.UI.Color(1,0.94099998474121,0.97299998998642,1)`
+---@field public AntiqueWhite Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/AntiqueWhite.png) `Turbine.UI.Color(1,0.98000001907349,0.92199999094009,0.84299999475479)`
+---@field public Aqua Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Aqua.png) `Turbine.UI.Color(1,0,1,1)`
+---@field public Aquamarine Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Aquamarine.png) `Turbine.UI.Color(1,0.49799999594688,1,0.8309999704361)`
+---@field public Azure Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Azure.png) `Turbine.UI.Color(1,0.94099998474121,1,1)`
+---@field public Beige Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Beige.png) `Turbine.UI.Color(1,0.96100002527237,0.96100002527237,0.8629999756813)`
+---@field public Bisque Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Bisque.png) `Turbine.UI.Color(1,1,0.89399999380112,0.76899999380112)`
+---@field public Black Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Black.png) `Turbine.UI.Color(1,0,0,0)`
+---@field public BlanchedAlmond Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/BlanchedAlmond.png) `Turbine.UI.Color(1,1,0.92199999094009,0.80400002002716)`
+---@field public Blue Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Blue.png) `Turbine.UI.Color(1,0,0,1)`
+---@field public BlueViolet Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/BlueViolet.png) `Turbine.UI.Color(1,0.54100000858307,0.16899999976158,0.88599997758865)`
+---@field public Brown Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Brown.png) `Turbine.UI.Color(1,0.64700001478195,0.16500000655651,0.16500000655651)`
+---@field public BurlyWood Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/BurlyWood.png) `Turbine.UI.Color(1,0.87099999189377,0.72200000286102,0.52899998426437)`
+---@field public CadetBlue Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/CadetBlue.png) `Turbine.UI.Color(1,0.37299999594688,0.62000000476837,0.62699997425079)`
+---@field public Chartreuse Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Chartreuse.png) `Turbine.UI.Color(1,0.49799999594688,1,0)`
+---@field public Chocolate Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Chocolate.png) `Turbine.UI.Color(1,0.82400000095367,0.41200000047684,0.11800000071526)`
+---@field public Constructor Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Constructor.png) `Turbine.UI.Color(,,,)`
+---@field public Coral Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Coral.png) `Turbine.UI.Color(1,1,0.49799999594688,0.31400001049042)`
+---@field public CornflowerBlue Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/CornflowerBlue.png) `Turbine.UI.Color(1,0.391999989748,0.58399999141693,0.92900002002716)`
+---@field public Cornsilk Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Cornsilk.png) `Turbine.UI.Color(1,1,0.97299998998642,0.8629999756813)`
+---@field public Crimson Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Crimson.png) `Turbine.UI.Color(1,0.8629999756813,0.078000001609325,0.23499999940395)`
+---@field public Cyan Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Cyan.png) `Turbine.UI.Color(1,0,1,1)`
+---@field public DarkBlue Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/DarkBlue.png) `Turbine.UI.Color(1,0,0,0.5450000166893)`
+---@field public DarkCyan Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/DarkCyan.png) `Turbine.UI.Color(1,0,0.5450000166893,0.5450000166893)`
+---@field public DarkGoldenrod Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/DarkGoldenrod.png) `Turbine.UI.Color(1,0.72200000286102,0.52499997615814,0.043000001460314)`
+---@field public DarkGray Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/DarkGray.png) `Turbine.UI.Color(1,0.66299998760223,0.66299998760223,0.66299998760223)`
+---@field public DarkGreen Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/DarkGreen.png) `Turbine.UI.Color(1,0,0.391999989748,0)`
+---@field public DarkKhaki Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/DarkKhaki.png) `Turbine.UI.Color(1,0.74099999666214,0.71799999475479,0.41999998688698)`
+---@field public DarkMagenta Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/DarkMagenta.png) `Turbine.UI.Color(1,0.5450000166893,0,0.5450000166893)`
+---@field public DarkOliveGreen Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/DarkOliveGreen.png) `Turbine.UI.Color(1,0.33300000429153,0.41999998688698,0.18400000035763)`
+---@field public DarkOrange Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/DarkOrange.png) `Turbine.UI.Color(1,1,0.54900002479553,0)`
+---@field public DarkOrchid Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/DarkOrchid.png) `Turbine.UI.Color(1,0.60000002384186,0.195999994874,0.80000001192093)`
+---@field public DarkRed Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/DarkRed.png) `Turbine.UI.Color(1,0.5450000166893,0,0)`
+---@field public DarkSalmon Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/DarkSalmon.png) `Turbine.UI.Color(1,0.91399997472763,0.58799999952316,0.47799998521805)`
+---@field public DarkSeaGreen Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/DarkSeaGreen.png) `Turbine.UI.Color(1,0.56099998950958,0.73699998855591,0.5450000166893)`
+---@field public DarkSlateBlue Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/DarkSlateBlue.png) `Turbine.UI.Color(1,0.28200000524521,0.23899999260902,0.5450000166893)`
+---@field public DarkSlateGray Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/DarkSlateGray.png) `Turbine.UI.Color(1,0.18400000035763,0.31000000238419,0.31000000238419)`
+---@field public DarkTurquoise Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/DarkTurquoise.png) `Turbine.UI.Color(1,0,0.80800002813339,0.81999999284744)`
+---@field public DarkViolet Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/DarkViolet.png) `Turbine.UI.Color(1,0.5799999833107,0,0.82700002193451)`
+---@field public DeepPink Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/DeepPink.png) `Turbine.UI.Color(1,1,0.078000001609325,0.57599997520447)`
+---@field public DeepSkyBlue Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/DeepSkyBlue.png) `Turbine.UI.Color(1,0,0.7490000128746,1)`
+---@field public DimGray Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/DimGray.png) `Turbine.UI.Color(1,0.41200000047684,0.41200000047684,0.41200000047684)`
+---@field public DodgerBlue Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/DodgerBlue.png) `Turbine.UI.Color(1,0.11800000071526,0.56499999761581,1)`
+---@field public Firebrick Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Firebrick.png) `Turbine.UI.Color(1,0.69800001382828,0.1330000013113,0.1330000013113)`
+---@field public FloralWhite Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/FloralWhite.png) `Turbine.UI.Color(1,1,0.98000001907349,0.94099998474121)`
+---@field public ForestGreen Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/ForestGreen.png) `Turbine.UI.Color(1,0.1330000013113,0.5450000166893,0.1330000013113)`
+---@field public Fuchsia Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Fuchsia.png) `Turbine.UI.Color(1,1,0,1)`
+---@field public Gainsboro Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Gainsboro.png) `Turbine.UI.Color(1,0.8629999756813,0.8629999756813,0.8629999756813)`
+---@field public GhostWhite Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/GhostWhite.png) `Turbine.UI.Color(1,0.97299998998642,0.97299998998642,1)`
+---@field public Gold Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Gold.png) `Turbine.UI.Color(1,1,0.84299999475479,0)`
+---@field public Goldenrod Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Goldenrod.png) `Turbine.UI.Color(1,0.85500001907349,0.64700001478195,0.125)`
+---@field public Gray Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Gray.png) `Turbine.UI.Color(1,0.50199997425079,0.50199997425079,0.50199997425079)`
+---@field public Green Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Green.png) `Turbine.UI.Color(1,0,0.50199997425079,0)`
+---@field public GreenYellow Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/GreenYellow.png) `Turbine.UI.Color(1,0.67799997329712,1,0.18400000035763)`
+---@field public Honeydew Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Honeydew.png) `Turbine.UI.Color(1,0.94099998474121,1,0.94099998474121)`
+---@field public HotPink Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/HotPink.png) `Turbine.UI.Color(1,1,0.41200000047684,0.7059999704361)`
+---@field public IndianRed Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/IndianRed.png) `Turbine.UI.Color(1,0.80400002002716,0.36100000143051,0.36100000143051)`
+---@field public Indigo Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Indigo.png) `Turbine.UI.Color(1,0.29399999976158,0,0.50999999046326)`
+---@field public IsA Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/IsA.png) `Turbine.UI.Color(,,,)`
+---@field public Ivory Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Ivory.png) `Turbine.UI.Color(1,1,1,0.94099998474121)`
+---@field public Khaki Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Khaki.png) `Turbine.UI.Color(1,0.94099998474121,0.90200001001358,0.54900002479553)`
+---@field public Lavender Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Lavender.png) `Turbine.UI.Color(1,0.90200001001358,0.90200001001358,0.98000001907349)`
+---@field public LavenderBlush Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/LavenderBlush.png) `Turbine.UI.Color(1,1,0.94099998474121,0.96100002527237)`
+---@field public LawnGreen Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/LawnGreen.png) `Turbine.UI.Color(1,0.48600000143051,0.9879999756813,0)`
+---@field public LemonChiffon Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/LemonChiffon.png) `Turbine.UI.Color(1,1,0.98000001907349,0.80400002002716)`
+---@field public LightBlue Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/LightBlue.png) `Turbine.UI.Color(1,0.67799997329712,0.84700000286102,0.90200001001358)`
+---@field public LightCoral Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/LightCoral.png) `Turbine.UI.Color(1,0.94099998474121,0.50199997425079,0.50199997425079)`
+---@field public LightCyan Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/LightCyan.png) `Turbine.UI.Color(1,0.87800002098083,1,1)`
+---@field public LightGoldenrodYellow Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/LightGoldenrodYellow.png) `Turbine.UI.Color(1,0.98000001907349,0.98000001907349,0.82400000095367)`
+---@field public LightGray Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/LightGray.png) `Turbine.UI.Color(1,0.82700002193451,0.82700002193451,0.82700002193451)`
+---@field public LightGreen Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/LightGreen.png) `Turbine.UI.Color(1,0.56499999761581,0.93300002813339,0.56499999761581)`
+---@field public LightPink Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/LightPink.png) `Turbine.UI.Color(1,1,0.71399998664856,0.75700002908707)`
+---@field public LightSalmon Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/LightSalmon.png) `Turbine.UI.Color(1,1,0.62699997425079,0.47799998521805)`
+---@field public LightSeaGreen Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/LightSeaGreen.png) `Turbine.UI.Color(1,0.125,0.69800001382828,0.66699999570847)`
+---@field public LightSkyBlue Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/LightSkyBlue.png) `Turbine.UI.Color(1,0.52899998426437,0.80800002813339,0.98000001907349)`
+---@field public LightSlateGray Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/LightSlateGray.png) `Turbine.UI.Color(1,0.46700000762939,0.53299999237061,0.60000002384186)`
+---@field public LightSteelBlue Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/LightSteelBlue.png) `Turbine.UI.Color(1,0.68999999761581,0.76899999380112,0.87099999189377)`
+---@field public LightYellow Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/LightYellow.png) `Turbine.UI.Color(1,1,1,0.87800002098083)`
+---@field public Lime Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Lime.png) `Turbine.UI.Color(1,0,1,0)`
+---@field public LimeGreen Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/LimeGreen.png) `Turbine.UI.Color(1,0.195999994874,0.80400002002716,0.195999994874)`
+---@field public Linen Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Linen.png) `Turbine.UI.Color(1,0.98000001907349,0.94099998474121,0.90200001001358)`
+---@field public Magenta Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Magenta.png) `Turbine.UI.Color(1,1,0,1)`
+---@field public Maroon Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Maroon.png) `Turbine.UI.Color(1,0.50199997425079,0,0)`
+---@field public MediumAquamarine Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/MediumAquamarine.png) `Turbine.UI.Color(1,0.40000000596046,0.80400002002716,0.66699999570847)`
+---@field public MediumBlue Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/MediumBlue.png) `Turbine.UI.Color(1,0,0,0.80400002002716)`
+---@field public MediumOrchid Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/MediumOrchid.png) `Turbine.UI.Color(1,0.72899997234344,0.33300000429153,0.82700002193451)`
+---@field public MediumPurple Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/MediumPurple.png) `Turbine.UI.Color(1,0.57599997520447,0.43900001049042,0.85900002717972)`
+---@field public MediumSeaGreen Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/MediumSeaGreen.png) `Turbine.UI.Color(1,0.23499999940395,0.70200002193451,0.44299998879433)`
+---@field public MediumSlateBlue Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/MediumSlateBlue.png) `Turbine.UI.Color(1,0.48199999332428,0.40799999237061,0.93300002813339)`
+---@field public MediumSpringGreen Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/MediumSpringGreen.png) `Turbine.UI.Color(1,0,0.98000001907349,0.60399997234344)`
+---@field public MediumTurquoise Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/MediumTurquoise.png) `Turbine.UI.Color(1,0.28200000524521,0.81999999284744,0.80000001192093)`
+---@field public MediumVioletRed Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/MediumVioletRed.png) `Turbine.UI.Color(1,0.77999997138977,0.082000002264977,0.52200001478195)`
+---@field public MidnightBlue Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/MidnightBlue.png) `Turbine.UI.Color(1,0.097999997437,0.097999997437,0.43900001049042)`
+---@field public MintCream Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/MintCream.png) `Turbine.UI.Color(1,0.96100002527237,1,0.98000001907349)`
+---@field public MistyRose Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/MistyRose.png) `Turbine.UI.Color(1,1,0.89399999380112,0.88200002908707)`
+---@field public Moccasin Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Moccasin.png) `Turbine.UI.Color(1,1,0.89399999380112,0.70999997854233)`
+---@field public NavajoWhite Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/NavajoWhite.png) `Turbine.UI.Color(1,1,0.87099999189377,0.67799997329712)`
+---@field public Navy Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Navy.png) `Turbine.UI.Color(1,0,0,0.50199997425079)`
+---@field public OldLace Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/OldLace.png) `Turbine.UI.Color(1,0.99199998378754,0.96100002527237,0.90200001001358)`
+---@field public Olive Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Olive.png) `Turbine.UI.Color(1,0.50199997425079,0.50199997425079,0)`
+---@field public OliveDrab Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/OliveDrab.png) `Turbine.UI.Color(1,0.41999998688698,0.55699998140335,0.13699999451637)`
+---@field public Orange Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Orange.png) `Turbine.UI.Color(1,1,0.64700001478195,0)`
+---@field public OrangeRed Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/OrangeRed.png) `Turbine.UI.Color(1,1,0.27099999785423,0)`
+---@field public Orchid Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Orchid.png) `Turbine.UI.Color(1,0.85500001907349,0.43900001049042,0.83899998664856)`
+---@field public PaleGoldenrod Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/PaleGoldenrod.png) `Turbine.UI.Color(1,0.93300002813339,0.91000002622604,0.66699999570847)`
+---@field public PaleGreen Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/PaleGreen.png) `Turbine.UI.Color(1,0.59600001573563,0.98400002717972,0.59600001573563)`
+---@field public PaleTurquoise Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/PaleTurquoise.png) `Turbine.UI.Color(1,0.68599998950958,0.93300002813339,0.93300002813339)`
+---@field public PaleVioletRed Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/PaleVioletRed.png) `Turbine.UI.Color(1,0.85900002717972,0.43900001049042,0.57599997520447)`
+---@field public PapayaWhip Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/PapayaWhip.png) `Turbine.UI.Color(1,1,0.93699997663498,0.83499997854233)`
+---@field public PeachPuff Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/PeachPuff.png) `Turbine.UI.Color(1,1,0.85500001907349,0.72500002384186)`
+---@field public Peru Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Peru.png) `Turbine.UI.Color(1,0.80400002002716,0.52200001478195,0.24699999392033)`
+---@field public Pink Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Pink.png) `Turbine.UI.Color(1,1,0.75300002098083,0.7960000038147)`
+---@field public Plum Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Plum.png) `Turbine.UI.Color(1,0.86699998378754,0.62699997425079,0.86699998378754)`
+---@field public PowderBlue Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/PowderBlue.png) `Turbine.UI.Color(1,0.68999999761581,0.87800002098083,0.90200001001358)`
+---@field public Purple Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Purple.png) `Turbine.UI.Color(1,0.50199997425079,0,0.50199997425079)`
+---@field public Red Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Red.png) `Turbine.UI.Color(1,1,0,0)`
+---@field public RosyBrown Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/RosyBrown.png) `Turbine.UI.Color(1,0.73699998855591,0.56099998950958,0.56099998950958)`
+---@field public RoyalBlue Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/RoyalBlue.png) `Turbine.UI.Color(1,0.25499999523163,0.41200000047684,0.88200002908707)`
+---@field public SaddleBrown Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/SaddleBrown.png) `Turbine.UI.Color(1,0.5450000166893,0.27099999785423,0.075000002980232)`
+---@field public Salmon Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Salmon.png) `Turbine.UI.Color(1,0.98000001907349,0.50199997425079,0.44699999690056)`
+---@field public SandyBrown Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/SandyBrown.png) `Turbine.UI.Color(1,0.95700001716614,0.64300000667572,0.3759999871254)`
+---@field public SeaGreen Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/SeaGreen.png) `Turbine.UI.Color(1,0.18000000715256,0.5450000166893,0.34099999070168)`
+---@field public SeaShell Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/SeaShell.png) `Turbine.UI.Color(1,1,0.96100002527237,0.93300002813339)`
+---@field public Sienna Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Sienna.png) `Turbine.UI.Color(1,0.62699997425079,0.32199999690056,0.17599999904633)`
+---@field public Silver Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Silver.png) `Turbine.UI.Color(1,0.75300002098083,0.75300002098083,0.75300002098083)`
+---@field public SkyBlue Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/SkyBlue.png) `Turbine.UI.Color(1,0.52899998426437,0.80800002813339,0.92199999094009)`
+---@field public SlateBlue Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/SlateBlue.png) `Turbine.UI.Color(1,0.41600000858307,0.35299998521805,0.80400002002716)`
+---@field public SlateGray Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/SlateGray.png) `Turbine.UI.Color(1,0.43900001049042,0.50199997425079,0.56499999761581)`
+---@field public Snow Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Snow.png) `Turbine.UI.Color(1,1,0.98000001907349,0.98000001907349)`
+---@field public SpringGreen Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/SpringGreen.png) `Turbine.UI.Color(1,0,1,0.49799999594688)`
+---@field public SteelBlue Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/SteelBlue.png) `Turbine.UI.Color(1,0.27500000596046,0.50999999046326,0.7059999704361)`
+---@field public Tan Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Tan.png) `Turbine.UI.Color(1,0.82400000095367,0.7059999704361,0.54900002479553)`
+---@field public Teal Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Teal.png) `Turbine.UI.Color(1,0,0.50199997425079,0.50199997425079)`
+---@field public Thistle Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Thistle.png) `Turbine.UI.Color(1,0.84700000286102,0.7490000128746,0.84700000286102)`
+---@field public Tomato Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Tomato.png) `Turbine.UI.Color(1,1,0.38800001144409,0.27799999713898)`
+---@field public Transparent Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Transparent.png) `Turbine.UI.Color(0,1,1,1)`
+---@field public Turquoise Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Turquoise.png) `Turbine.UI.Color(1,0.2509999871254,0.87800002098083,0.81599998474121)`
+---@field public Violet Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Violet.png) `Turbine.UI.Color(1,0.93300002813339,0.50999999046326,0.93300002813339)`
+---@field public Wheat Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Wheat.png) `Turbine.UI.Color(1,0.96100002527237,0.87099999189377,0.70200002193451)`
+---@field public White Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/White.png) `Turbine.UI.Color(1,1,1,1)`
+---@field public WhiteSmoke Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/WhiteSmoke.png) `Turbine.UI.Color(1,0.96100002527237,0.96100002527237,0.96100002527237)`
+---@field public Yellow Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Yellow.png) `Turbine.UI.Color(1,1,1,0)`
+---@field public YellowGreen Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/YellowGreen.png) `Turbine.UI.Color(1,0.60399997234344,0.80400002002716,0.195999994874)`
 Color = {}
 
 ---Initializes a new color.
@@ -4472,27 +4472,27 @@ ListBox.SelectedIndexChanged = function (sender, args) end
 ---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_UI_Lotro.html)
 ---The Lord of the Rings UI package.
 ---@class Lotro
----@field Action Action List available actions that can be interpretted.
----@field BaseItemControl BaseItemControl Base item control for Lotro interface item classes.
----@field Button LotroButton | function A standard Lord of the Rings silver button.
----@field CheckBox LotroCheckBox | function A standard Lord of the Rings check box.
----@field DragDropInfo LotroDragDropInfo Container for information about drag drop events.
----@field EffectDisplay EffectDisplay | function Provides a control for displaying an effect indicator.
----@field EntityControl EntityControl | function A control for providing standard entity selection and context sensitive menu support.
----@field EquipmentSlot EquipmentSlot | function A EquipmentSlot button for for equipping items.
----@field Font Font The list of available fonts.
----@field GoldButton GoldButton | function A standard Lord of the Rings gold button.
----@field GoldWindow GoldWindow | function A standard Lord of the Rings gold window.
----@field ItemControl ItemControl | function Provides a control for displaying an item.
----@field ItemInfoControl ItemInfoControl | function Provides a control for displaying item information.
----@field LotroUI LotroUI Provides access to the built in game UIs.
----@field LotroUIElement LotroUIElement The list of UIs that can be enabled or disabled.
----@field Quickslot Quickslot | function A quickslot button for using skills or items.
----@field ScrollBar LotroScrollBar | function A standard Lord of the Rings scroll bar.
----@field Shortcut Shortcut | function Encapsulates information about a short cut.
----@field ShortcutType ShortcutType Defines one of the shortcut types.
----@field TextBox LotroTextBox | function A standard Lord of the Rings text box.
----@field Window LotroWindow | function A standard Lord of the Rings silver window.
+---@field public Action Action List available actions that can be interpretted.
+---@field public BaseItemControl BaseItemControl Base item control for Lotro interface item classes.
+---@field public Button LotroButton | function A standard Lord of the Rings silver button.
+---@field public CheckBox LotroCheckBox | function A standard Lord of the Rings check box.
+---@field public DragDropInfo LotroDragDropInfo Container for information about drag drop events.
+---@field public EffectDisplay EffectDisplay | function Provides a control for displaying an effect indicator.
+---@field public EntityControl EntityControl | function A control for providing standard entity selection and context sensitive menu support.
+---@field public EquipmentSlot EquipmentSlot | function A EquipmentSlot button for for equipping items.
+---@field public Font Font The list of available fonts.
+---@field public GoldButton GoldButton | function A standard Lord of the Rings gold button.
+---@field public GoldWindow GoldWindow | function A standard Lord of the Rings gold window.
+---@field public ItemControl ItemControl | function Provides a control for displaying an item.
+---@field public ItemInfoControl ItemInfoControl | function Provides a control for displaying item information.
+---@field public LotroUI LotroUI Provides access to the built in game UIs.
+---@field public LotroUIElement LotroUIElement The list of UIs that can be enabled or disabled.
+---@field public Quickslot Quickslot | function A quickslot button for using skills or items.
+---@field public ScrollBar LotroScrollBar | function A standard Lord of the Rings scroll bar.
+---@field public Shortcut Shortcut | function Encapsulates information about a short cut.
+---@field public ShortcutType ShortcutType Defines one of the shortcut types.
+---@field public TextBox LotroTextBox | function A standard Lord of the Rings text box.
+---@field public Window LotroWindow | function A standard Lord of the Rings silver window.
 Lotro = {}
 
 
@@ -6673,25 +6673,6 @@ function Window:SetRotation(rotation) end
 ---@field Image string
 ---@field Description string
 
----Executes the given f over all elements of table. For each element, f is called with the index and respective value as arguments. If f returns a non-nil value, then the loop is broken, and this value is returned as the final value of foreach.
----See the next function for extra information about table traversals.
----@param list table #the table to iterate
----@param f fun(key:string, val:any) #the function called for each key / value pair
----@deprecated
-function table.foreach(list, f) end
-
----Executes the given f over the numerical indices of table. For each index, f is called with the index and respective value as arguments. Indices are visited in sequential order, from 1 to n, where n is the size of the table. If f returns a non-nil value, then the loop is broken and this value is returned as the result of foreachi.
----@param list table #the table to iterate
----@param f fun(index:number, val:any) #the function called on each index / value
----@deprecated
-function table.foreachi(list, f) end
-
----Returns the size of a table, when seen as a list. If the table has an n field with a numeric value, this value is the size of the table. Otherwise, if there was a previous call to table.setn over this table, the respective value is returned. Otherwise, the size is one less the first integer index with a nil value.
----@param list table #the table to retrieve the size of
----@return number #the size of the table
----@deprecated use `#` length operator
-function table.getn(list) end
-
 ---Returns an iterator function that, each time it is called, returns the next captures from pattern pat over string s.
 ---If pat specifies no captures, then the whole match is produced in each call.
 ---@param str string the string to find pattern in
@@ -6706,8 +6687,10 @@ function string.gfind(str,pattern) end
 function table.setn(list,n) end
 
 ---Returns the remainder of the division of `x` by `y` that rounds the quotient towards zero.
+---
+---Use `math.fmod` instead.
 ---@param x number
 ---@param y number
 ---@return number
----@deprecated use math.fmod
+---@deprecated
 function math.mod(x,y) end

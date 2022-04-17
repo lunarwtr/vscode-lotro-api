@@ -75,7 +75,7 @@ sub emmylua {
 			$type = "$type | function";
 		}
 		my $desc = commentnewline($node->{$field}{__details}{description}, 1);
-		print OUT "---\@field $field $type $desc\n";
+		print OUT "---\@field public $field $type $desc\n";
 	}
 	if (defined $node->{field}) {
 		my @fields = @{ $node->{field} };
@@ -91,7 +91,7 @@ sub emmylua {
 		} else {
 			foreach my $ref (sort { $a->{name} cmp $b->{name} } @fields) {
 				my $type = determineclassname($ref->{type});
-				print OUT "---\@field $ref->{name} $type $ref->{description}\n";
+				print OUT "---\@field public $ref->{name} $type $ref->{description}\n";
 			}
 			print OUT "$name = {}\n";
 		}
