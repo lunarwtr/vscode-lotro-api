@@ -1,6 +1,13 @@
 # Change Log
 
-## [1.0.9] - 2022-03-30
+## [1.0.10] - 2022-04-21
+### Added
+- Improvement: Adding hover display of images in SkinDefinition.xml files
+- Improvement: Adding hover display of images in .plugin files
+- Improvement: Adding hover display of images in .lua files
+![](https://github.com/lunarwtr/vscode-lotro-api/raw/main/img/imageview.gif)
+
+## [1.0.9] - 2022-04-16
 ### Added
 - Improvement: Adding support for  `.skincompendium`, `.musiccompendium`  xml files 
 - Improvement: Adding options `<StartupScript>` tag to compendium xsds

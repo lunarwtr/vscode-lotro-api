@@ -3,9 +3,17 @@
 'use strict';
 
 const path = require('path');
+// eslint-disable-next-line @typescript-eslint/naming-convention
+const { IgnorePlugin } = require('webpack');
 
 //@ts-check
+
 /** @typedef {import('webpack').Configuration} WebpackConfig **/
+
+const optionalPlugins = [];
+if (process.platform !== "darwin") { // don't ignore on OSX
+  optionalPlugins.push(new IgnorePlugin({ resourceRegExp: /^fsevents$/ }));
+}
 
 /** @type WebpackConfig */
 const extensionConfig = {
@@ -44,5 +52,8 @@ const extensionConfig = {
   infrastructureLogging: {
     level: "log", // enables logging required for problem matchers
   },
+  plugins: [
+    ...optionalPlugins
+  ]
 };
 module.exports = [ extensionConfig ];

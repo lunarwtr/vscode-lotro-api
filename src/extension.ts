@@ -1,6 +1,7 @@
-import * as vscode from 'vscode';
+import * as os from 'os';
 import * as path from 'path';
-import { Colors } from './colors';
+import * as vscode from 'vscode';
+import { ImageProvider, LotroImageHoverProvider } from './LotroImageHoverProvider';
 import LuaColorShow from './LuaColorShow';
 
 interface XMLSchemaAssocation {
@@ -66,6 +67,14 @@ export function activate(context: vscode.ExtensionContext) {
 		new LuaColorShow()
 	);
 	context.subscriptions.push(luaColorShowDisposable);
+
+	const imageProvider = new ImageProvider(vscode.workspace.workspaceFolders, path.join(os.tmpdir(), 'lotro-api'));
+	const hoverProvider = new LotroImageHoverProvider(imageProvider);
+	const hover = vscode.languages.registerHoverProvider(
+		["lua", "xml"],
+		hoverProvider
+	);
+	context.subscriptions.push(hover, imageProvider);
 
 }
 
