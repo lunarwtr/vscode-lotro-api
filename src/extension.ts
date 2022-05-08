@@ -1,8 +1,10 @@
 import * as os from 'os';
 import * as path from 'path';
 import * as vscode from 'vscode';
+import { Configuration } from './configuration';
 import { ImageProvider, LotroImageHoverProvider } from './LotroImageHoverProvider';
 import LuaColorShow from './LuaColorShow';
+import { SkinPreviewManager } from './SkinPreview';
 
 interface XMLSchemaAssocation {
 	pattern: string,
@@ -21,6 +23,24 @@ const schemas: XMLSchemaAssocation[] = [
 export function activate(context: vscode.ExtensionContext) {
 	console.log("activate lunarwtr.lotro-api", context.extension.id);
 
+	initconfigs(context);
+
+	// Register our color provider for Turbine Colors
+	let luaColorShowDisposable = vscode.languages.registerColorProvider({ pattern: "**/*.lua" }, new LuaColorShow());
+	const imageProvider = new ImageProvider(vscode.workspace.workspaceFolders, path.join(os.tmpdir(), 'lotro-api'), Configuration.skinningAssetsPath());
+	const hoverProvider = new LotroImageHoverProvider(imageProvider);
+	const hover = vscode.languages.registerHoverProvider(["lua", "xml"], hoverProvider);
+	const preview = new SkinPreviewManager(context.extensionUri, imageProvider);
+	context.subscriptions.push(hover, imageProvider, luaColorShowDisposable, preview);
+
+}
+
+// this method is called when your extension is deactivated
+export function deactivate() {
+	console.log("deactivate lunarwtr.lotro-api");
+}
+
+function initconfigs(context: vscode.ExtensionContext) {
 	const extensionPath = vscode.extensions.getExtension(context.extension.id)?.extensionPath;
 	const config = vscode.workspace.getConfiguration("Lua");
 	let globals: {[id: string] : string} | undefined = config.get("runtime.special");
@@ -60,25 +80,4 @@ export function activate(context: vscode.ExtensionContext) {
 			xmlConfig.update("fileAssociations", schemasAssoc);
 		}
 	}
-
-	// Register our color provider for Turbine Colors
-	let luaColorShowDisposable = vscode.languages.registerColorProvider(
-		{ pattern: "**/*.lua" },
-		new LuaColorShow()
-	);
-	context.subscriptions.push(luaColorShowDisposable);
-
-	const imageProvider = new ImageProvider(vscode.workspace.workspaceFolders, path.join(os.tmpdir(), 'lotro-api'));
-	const hoverProvider = new LotroImageHoverProvider(imageProvider);
-	const hover = vscode.languages.registerHoverProvider(
-		["lua", "xml"],
-		hoverProvider
-	);
-	context.subscriptions.push(hover, imageProvider);
-
-}
-
-// this method is called when your extension is deactivated
-export function deactivate() {
-	console.log("deactivate lunarwtr.lotro-api");
 }

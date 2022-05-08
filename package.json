@@ -1,99 +1,138 @@
 {
-	"name": "lotro-api",
-	"displayName": "LotRO API",
-	"description": "Lord of the Rings Online API - Adds IntelliSense features for LotRO API.",
-	"version": "1.0.10",
-	"publisher": "lunarwtr",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/lunarwtr/vscode-lotro-api.git"
-	},
-	"engines": {
-		"vscode": "^1.65.0"
-	},
-	"license": "MIT",
-	"categories": [
-		"Linters",
-		"Programming Languages",
-		"Snippets"
-	],
-	"keywords": [
-		"plugin",
-		"compendium",
-		"Lord of the Rings Online",
-		"DDO",
-		"Dungeons and Dragons Online"
-	],
-	"icon": "img/vscode-lotro-api.png",
-	"activationEvents": [
-		"onLanguage:xml",
-		"onLanguage:lua"
-	],
-	"main": "./dist/extension.js",
-	"contributes": {
-		"snippets": [
-			{
-				"language": "xml",
-				"path": "./snippets/xml.json"
-			},
-			{
-				"language": "lua",
-				"path": "./snippets/lua.json"
-			}
-		],
-		"languages": [
-			{
-				"id": "xml",
-				"extensions": [
-					".plugin",
-					".plugincompendium",
-					".musiccompendium",
-					".skincompendium"
-				],
-				"filenames": [
-					"SkinDefinition.xml"
-				]
-			}
-		]
-	},
-	"scripts": {
-		"vscode:prepublish": "npm run package",
-		"compile": "webpack",
-		"watch": "webpack --watch",
-		"package": "webpack --mode production --devtool hidden-source-map",
-		"compile-tests": "tsc -p . --outDir out",
-		"watch-tests": "tsc -p . -w --outDir out",
-		"pretest": "npm run compile-tests && npm run compile && npm run lint",
-		"lint": "eslint src --ext ts",
-		"test": "node ./out/test/runTest.js"
-	},
-	"devDependencies": {
-		"@types/glob": "^7.2.0",
-		"@types/mocha": "^9.1.0",
-		"@types/node": "14.x",
-		"@types/pngjs": "^6.0.1",
-		"@types/vscode": "^1.65.0",
-		"@typescript-eslint/eslint-plugin": "^5.12.1",
-		"@typescript-eslint/parser": "^5.12.1",
-		"@vscode/test-electron": "^2.1.2",
-		"eslint": "^8.9.0",
-		"mocha": "^9.2.1",
-		"ts-loader": "^9.2.6",
-		"typescript": "^4.5.5",
-		"webpack": "^5.69.1",
-		"webpack-cli": "^4.9.2"
-	},
-	"dependencies": {
-		"chokidar": "^3.5.3",
-		"glob": "^7.2.0",
-		"image-size": "^1.0.1",
-		"pngjs": "^6.0.0",
-		"tga": "^1.0.4",
-		"ts-debounce": "^4.0.0"
-	},
-	"extensionDependencies": [
-		"lunarwtr.tga-image-preview",
-		"sumneko.lua",
-		"redhat.vscode-xml"
-	]
+    "name": "lotro-api",
+    "displayName": "LotRO API",
+    "description": "Lord of the Rings Online API - Adds IntelliSense features for LotRO API.",
+    "version": "1.0.11",
+    "publisher": "lunarwtr",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/lunarwtr/vscode-lotro-api.git"
+    },
+    "engines": {
+        "vscode": "^1.65.0"
+    },
+    "license": "MIT",
+    "categories": [
+        "Linters",
+        "Programming Languages",
+        "Snippets"
+    ],
+    "keywords": [
+        "plugin",
+        "compendium",
+        "Lord of the Rings Online",
+        "DDO",
+        "Dungeons and Dragons Online"
+    ],
+    "icon": "img/vscode-lotro-api.png",
+    "activationEvents": [
+        "onLanguage:xml",
+        "onLanguage:lua",
+        "onCommand:skinviewer.open",
+        "onWebviewPanel:skin.preview"
+    ],
+    "main": "./dist/extension.js",
+    "contributes": {
+        "snippets": [
+            {
+                "language": "xml",
+                "path": "./snippets/xml.json"
+            },
+            {
+                "language": "lua",
+                "path": "./snippets/lua.json"
+            }
+        ],
+        "languages": [
+            {
+                "id": "xml",
+                "extensions": [
+                    ".plugin",
+                    ".plugincompendium",
+                    ".musiccompendium",
+                    ".skincompendium"
+                ],
+                "filenames": [
+                    "SkinDefinition.xml"
+                ]
+            }
+        ],
+        "commands": [
+            {
+                "command": "skinviewer.open",
+                "title": "LotRO Skin Viewer: View Skin",
+                "icon": "media/ring.png"
+            }
+        ],
+        "menus": {
+            "editor/title": [
+                {
+                    "when": "resourceFilename == SkinDefinition.xml",
+                    "command": "skinviewer.open",
+                    "group": "navigation"
+                }
+            ],
+            "explorer/context": [
+                {
+                    "command": "skinviewer.open",
+                    "group": "extension",
+                    "when": "resourceFilename == SkinDefinition.xml"
+                }
+            ]
+        },
+        "configuration": {
+            "type": "object",
+            "title": "LotRO API",
+            "properties": {
+                "lotro-api.skinningAssets": {
+                    "type": "string",
+                    "default": null,
+                    "description": "Path to Skinning Assets Folder.\n\nDownload and unzip to your machine from Lotro Interface (https://www.lotrointerface.com/downloads/info1173-UnofficialUpdate32SkinningPack.html)"
+                }
+            }
+        }
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run package",
+        "compile": "webpack",
+        "watch": "webpack --watch",
+        "package": "webpack --mode production --devtool hidden-source-map",
+        "compile-tests": "tsc -p . --outDir out",
+        "watch-tests": "tsc -p . -w --outDir out",
+        "pretest": "npm run compile-tests && npm run compile && npm run lint",
+        "lint": "eslint src --ext ts",
+        "test": "node ./out/test/runTest.js"
+    },
+    "devDependencies": {
+        "@types/glob": "^7.2.0",
+        "@types/mocha": "^9.1.0",
+        "@types/node": "14.x",
+        "@types/pngjs": "^6.0.1",
+        "@types/vscode": "^1.65.0",
+        "@types/vscode-webview": "^1.57.0",
+        "@typescript-eslint/eslint-plugin": "^5.12.1",
+        "@typescript-eslint/parser": "^5.12.1",
+        "@vscode/test-electron": "^2.1.2",
+        "eslint": "^8.9.0",
+        "mocha": "^9.2.1",
+        "ts-loader": "^9.2.6",
+        "typescript": "^4.5.5",
+        "webpack": "^5.69.1",
+        "webpack-cli": "^4.9.2"
+    },
+    "dependencies": {
+        "@xmldom/xmldom": "^0.8.2",
+        "chokidar": "^3.5.3",
+        "glob": "^7.2.0",
+        "image-size": "^1.0.1",
+        "pngjs": "^6.0.0",
+        "tga": "^1.0.4",
+        "ts-debounce": "^4.0.0",
+        "xpath": "^0.0.32"
+    },
+    "extensionDependencies": [
+        "lunarwtr.tga-image-preview",
+        "sumneko.lua",
+        "redhat.vscode-xml"
+    ]
 }

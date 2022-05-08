@@ -1,13 +1,15 @@
-import * as vscode from 'vscode';
-import * as path from 'path';
-import * as fs from 'fs';
-import * as crypto from 'crypto';
-import { PNG } from 'pngjs';
 import * as chokidar from 'chokidar';
-import * as glob from 'glob';
+import * as crypto from 'crypto';
+import * as fs from 'fs';
+import glob from 'glob';
+import sizeOf from "image-size";
+import * as path from 'path';
+import { PNG } from 'pngjs';
+import TGA from 'tga';
 import { debounce } from 'ts-debounce';
-const TGA = require('tga');
-import sizeOf from "image-size"; 
+import * as vscode from 'vscode';
+import { Configuration } from './configuration';
+import { assets as skinningAssets } from './SkinDataProvider';
 
 export interface Image {
     uri: vscode.Uri;
@@ -16,22 +18,22 @@ export interface Image {
     height?: number;
     cachedUri?: vscode.Uri;
     lastmodified: number;
+    description?: string;
 }
 
 export class ImageProvider {
 
-    private workflowPluginRoots: Map<string, Set<string>>;
-    private tempDir: string;
-    private tempFileImages: string[];
-    private imageCache: Map<string, Image>;
+    private _workflowPluginRoots: Map<string, Set<string>>;
+    private _tempFileImages: string[];
+    private _imageCache: Map<string, Image>;
+    private _disposables: vscode.Disposable[] = [];
 
-    constructor(folders: readonly vscode.WorkspaceFolder[] | undefined, tempDir: string) {
-        this.workflowPluginRoots = new Map<string, Set<string>>();
-        this.imageCache = new Map<string, Image>();
-        this.tempDir = tempDir;
-        this.tempFileImages = [];
+    constructor(folders: readonly vscode.WorkspaceFolder[] | undefined, protected _tempDir: string, protected _skinningAssetPath: string | null) {
+        this._workflowPluginRoots = new Map<string, Set<string>>();
+        this._imageCache = new Map<string, Image>();
+        this._tempFileImages = [];
 
-        fs.mkdirSync(this.tempDir, { recursive: true });
+        fs.mkdirSync(this._tempDir, { recursive: true });
 
         // Monitor all plugin files being added or removed from workspaces
         if (folders === undefined) return;
@@ -40,6 +42,9 @@ export class ImageProvider {
                 persistent: true,
                 depth: 5
             });
+            this._disposables.push({ dispose: () => { 
+                watcher.close(); 
+            } });
             const debouncedRWPR = debounce((folder: string) => this.rebuildWorkspacePluginRoots(folder), 300, {});
             watcher.on('all', (event) => {
                 if (/^(add|unlink)$/.test(event)) {
@@ -47,10 +52,20 @@ export class ImageProvider {
                 }
             });
         });
+
+        vscode.workspace.onDidChangeConfiguration((event: vscode.ConfigurationChangeEvent) => {
+            if (event.affectsConfiguration('lotro-api.skinningAssets')) {
+                this._skinningAssetPath = Configuration.skinningAssetsPath();
+            }
+        }, null, this._disposables);
     }
 
     dispose() {
-        this.tempFileImages.forEach(f => fs.unlink(f, () => { }));
+        this._tempFileImages.forEach(f => fs.unlink(f, () => { }));
+        while (this._disposables.length) {
+			const x = this._disposables.pop();
+			if (x) x.dispose();
+		}
     }
 
     // Build distinct list of parent plugin folders
@@ -58,8 +73,63 @@ export class ImageProvider {
         glob(path.join(workspaceFolder, '**/*.plugin'), {}, (err, files) => {
             const roots = new Set<string>();
             (files || []).map(f => path.dirname(f)).map(f => path.dirname(f)).forEach(f => roots.add(f));
-            this.workflowPluginRoots.set(workspaceFolder, roots);
+            this._workflowPluginRoots.set(workspaceFolder, roots);
         });
+    }
+
+    public async createPngFromTga(tga: TGA, outFile: string): Promise<PNG> {
+        var png = new PNG({
+            width: tga.header.width,
+            height: tga.header.height
+        });
+        png.data = Buffer.from(tga.pixels);
+        const out = fs.createWriteStream(outFile);
+        png.pack().pipe(out);
+
+        const end = new Promise(function (resolve, reject) {
+            out.on('finish', () => resolve(outFile));
+            out.on('error', reject);
+        });
+        await end;
+        return png;
+    }
+
+    public async findImageById(imageId: string): Promise<Image | undefined> {
+
+        let image = this._imageCache.get(imageId);
+        if (image) return image;
+
+        try {
+            if (!/^0x/.test(imageId)) {
+                imageId = `0x${imageId}`;
+            }
+
+            const asset = skinningAssets[imageId];
+            if (!asset) return;
+
+            if (!this._skinningAssetPath) return;
+            const imagePath = path.join(this._skinningAssetPath, `${asset.n}.tga`);
+            if (!fs.existsSync(imagePath)) return;
+            const tga = new TGA(fs.readFileSync(imagePath));
+            if (!tga) return;
+            const tmpFile = path.join(this._tempDir, imageId + ".png");
+            this._tempFileImages.push(tmpFile);
+            const png = await this.createPngFromTga(tga, tmpFile);
+
+            const image: Image = {
+                uri: vscode.Uri.from({ scheme: 'file', path: imagePath }),
+                cachedUri: vscode.Uri.from({ scheme: 'file', path: tmpFile }),
+                lastmodified: 0,
+                ext: ".png",
+                width: png.width,
+                height: png.height,
+                description: asset.n
+            };
+
+            this._imageCache.set(imageId, image);
+            return image;
+        } catch (ex) { console.error(ex); }
+
     }
 
     public async findImageForWorkspace(document: vscode.TextDocument, file: string): Promise<Image | undefined> {
@@ -68,7 +138,7 @@ export class ImageProvider {
         // if we have a workspace.. add it to the list of paths we try
         const workspace = vscode.workspace.getWorkspaceFolder(document.uri);
         if (workspace) {
-            this.workflowPluginRoots.get(workspace.uri.fsPath)?.forEach(p => paths.push(p));
+            this._workflowPluginRoots.get(workspace.uri.fsPath)?.forEach(p => paths.push(p));
         }
 
         // find which one has a match
@@ -76,7 +146,7 @@ export class ImageProvider {
         if (!imagePath) return;
 
         const stats = fs.statSync(imagePath);
-        let image = this.imageCache.get(imagePath);
+        let image = this._imageCache.get(imagePath);
         if (image && stats.mtimeMs === image.lastmodified) {
             return image;
         }
@@ -91,54 +161,50 @@ export class ImageProvider {
         if (ext === '.tga') {
             try {
                 const hash = crypto.createHash('sha256').update(imagePath, 'utf8').digest('hex');
-                const tmpFile = path.join(this.tempDir, hash + ".png");
+                const tmpFile = path.join(this._tempDir, hash + ".png");
+                this._tempFileImages.push(tmpFile);
 
-                this.tempFileImages.push(tmpFile);
-                const data = fs.readFileSync(imagePath);
-                var tga = new TGA(data);
-                var png = new PNG({
-                    width: tga.header.width,
-                    height: tga.header.height
-                });
-                png.data = tga.pixels;
-                const out = fs.createWriteStream(tmpFile);
-                png.pack().pipe(out);
-
-                const end = new Promise(function (resolve, reject) {
-                    out.on('finish', () => resolve(tmpFile));
-                    out.on('error', reject);
-                });
-                await end;
+                const png = await this.createPngFromTga(new TGA(fs.readFileSync(imagePath)), tmpFile);
 
                 image.cachedUri = vscode.Uri.from({ scheme: 'file', path: tmpFile });
-                image.width = tga.header.width;
-                image.height = tga.header.height;
-                this.imageCache.set(imagePath, image);
+                image.width = png.width;
+                image.height = png.height;
+                this._imageCache.set(imagePath, image);
                 return image;
             } catch (ex) { }
 
         } else {
-
             const size = sizeOf(fs.readFileSync(imagePath));
             image.width = size.width;
             image.height = size.height;
-            this.imageCache.set(imagePath, image);
+            this._imageCache.set(imagePath, image);
             return image;
         }
 
     }
 
+    public getResourceRoots(): vscode.Uri[] {
+        const roots = [
+            vscode.Uri.from({ scheme: 'file', path: this._tempDir })
+        ];
+        if (this._skinningAssetPath) {
+            roots.push(vscode.Uri.from({ scheme: 'file', path: this._skinningAssetPath }));
+        }
+        vscode.workspace.workspaceFolders?.forEach(f => roots.push(f.uri));
+        return roots;
+    }
+
 }
 
-const REGEX_LUA = /(?<=["'])(.+?\.(jpg|jpeg|tga|png))(?=["'])/i;
+const REGEX_LUA = /(?<=["'])(.+?\.(jpg|jpeg|tga|png))(?=["'])|(?<=(SetBackground|Graphic)\()(0x[0-9A-F]{8}|\d{9,})(?=\))/i;
 const REGEX_SKIN = /(?<=<Mapping.*FileName\s*=\s*["'])(.+?\.(jpg|jpeg|tga|png))(?=["'])/i;
 const REGEX_PLUGIN = /(?<=<Image>)(.+?\.(jpg|jpeg|tga|png))(?=<\/Image>)/i;
 
 export class LotroImageHoverProvider implements vscode.HoverProvider {
-    
+
     private _imageProvider: ImageProvider;
 
-	constructor(imageProvider: ImageProvider) {
+    constructor(imageProvider: ImageProvider) {
         this._imageProvider = imageProvider;
     }
 
@@ -155,11 +221,22 @@ export class LotroImageHoverProvider implements vscode.HoverProvider {
                 const range = new vscode.Range(new vscode.Position(position.line, start), new vscode.Position(position.line, end));
                 const resource = line.substring(start, end).split(/[\\/]/).join(path.sep);
 
-                const image = await this._imageProvider.findImageForWorkspace(document, resource);
+                let image;
+                if (/^0x[0-9A-F]{8}$/i.test(resource)) {
+                    image = await this._imageProvider.findImageById(resource);
+                } else if (/^\d{9,}$/i.test(resource)) {
+                    image = await this._imageProvider.findImageById(`0x${parseInt(resource, 10).toString(16)}`);
+                } else {
+                    image = await this._imageProvider.findImageForWorkspace(document, resource);
+                }
                 if (image === undefined) return;
 
                 const uri = image.cachedUri ? image.cachedUri : image.uri;
-                return new vscode.Hover([new vscode.MarkdownString(`${image.width}x${image.height}`),new vscode.MarkdownString(`![](${uri})`)], range);
+                const markdown: vscode.MarkdownString[] = [];
+                if (image.description) markdown.push(new vscode.MarkdownString(`${image.description}`));
+                markdown.push(new vscode.MarkdownString(`${image.width}x${image.height}`));
+                markdown.push(new vscode.MarkdownString(`![](${uri})`));
+                return new vscode.Hover(markdown, range);
             }
         }
         return undefined;
