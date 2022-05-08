@@ -5,6 +5,7 @@
 - Improvement: Initial work for rendering skins in a webview (work in progress)
 - Improvement: Added configuration for pointing at skinning asset folder
 - Improvement: display images that are ID based if they are derived from Skinning Assets.
+![](https://github.com/lunarwtr/vscode-lotro-api/raw/main/img/skinpreview.gif)
 
 ## [1.0.10] - 2022-04-21
 ### Added
