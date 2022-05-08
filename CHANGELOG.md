@@ -1,5 +1,11 @@
 # Change Log
 
+## [1.0.11] - 2022-05-07
+### Added
+- Improvement: Initial work for rendering skins in a webview (work in progress)
+- Improvement: Added configuration for pointing at skinning asset folder
+- Improvement: display images that are ID based if they are derived from Skinning Assets.
+
 ## [1.0.10] - 2022-04-21
 ### Added
 - Improvement: Adding hover display of images in SkinDefinition.xml files
