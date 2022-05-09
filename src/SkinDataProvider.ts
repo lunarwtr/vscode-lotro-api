@@ -33,15 +33,22 @@ export interface Bounds {
     h: number
 };
 
+export interface PanelBoundBox {
+    top: number,
+    bottom: number,
+    left: number,
+    right: number
+}
+
 export interface SkinData {
     panels: { [key: string]: SkinElement },
     assets: { [key: string]: Asset }
 }
 
-function traverseAndMapAssets(el: SkinElement, element2Asset: Map<string, Asset[]>) {
+function traverseAndMapAssets(el: SkinElement, element2Asset: Element2Asset) {
     if (el.assets && el.assets.length > 0) {
         const assets = el.assets.map(a => data.assets[a]);
-        element2Asset.set(el.id, assets);
+        element2Asset[el.id] = assets;
     }
     if (el.c) {
         for (let i = 0; i < el.c.length; i++) {
@@ -50,8 +57,35 @@ function traverseAndMapAssets(el: SkinElement, element2Asset: Map<string, Asset[
     }
 }
 
-export const element2AssetMap = new Map<string, Asset[]>();
-Object.values(data.panels).forEach(e => traverseAndMapAssets(e, element2AssetMap));
+interface Asset2ID { [key: string]: string }
+interface Element2Asset { [key: string]: Asset[] }
+
+export const e2a: Element2Asset = {};
+Object.values(data.panels).forEach(e => traverseAndMapAssets(e, e2a));
+export const a2id = Object.entries(data.assets).reduce<Asset2ID>((res, cur) => {
+    res[cur[1].n] = cur[0];
+    return res;
+}, {});
+
+export function determineBoundingBox(el: SkinElement, offsetX?: number, offsetY?: number, bb?: PanelBoundBox): PanelBoundBox {
+    if (!el) {
+        return { top: 0, bottom: 0, left: 0, right: 0 };
+    }
+    const b = el.b;
+    const x = offsetX ? offsetX + b.x : b.x;
+    const y = offsetY ? offsetY + b.y : b.y;
+    if (bb) {
+        bb.top = Math.min(y, bb.top);
+        bb.left = Math.min(x, bb.left);
+        bb.bottom = Math.max(y + b.h, bb.bottom);
+        bb.right = Math.max(x + b.w, bb.right);
+    } else {
+        bb = { top: y, bottom: y + b.h, left: x, right: x + b.w };
+    }
+    el.c?.forEach(e => determineBoundingBox(e, x, y, bb));
+    return bb;
+}
+
 
 function attr(path: string, node: Node): string {
     return (xpath.select1(path, node) as Attr)?.value || '';
@@ -111,8 +145,28 @@ export class SkinDefinitionParser {
     public get assets() { return this._assets; }
     public get panels() { return this._panels; }
 
+    public buildSkinDataJson(file: string) {
+
+        const newAssets: { [key: string]: Asset } = {};
+        function addAssetToElement(el: SkinElement) {
+            el.assets = e2a[el.id]?.map(a => {
+                const id = a2id[a.n];
+                if (id) newAssets[id] = a;
+                return id;
+            }).filter(id => !!id);
+            el.c?.forEach(el => addAssetToElement(el));
+        }
+        Object.values(this._panels).forEach(el => addAssetToElement(el));
+
+        const res: SkinData = {
+            panels: this._panels,
+            assets: newAssets
+        };
+
+        fs.writeFileSync(file, JSON.stringify(res));
+
+    }
+
 }
 
-
 export const { panels, assets } = data;
-//export const element2AssetMap = e2a;

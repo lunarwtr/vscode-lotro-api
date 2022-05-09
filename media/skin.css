@@ -1,4 +1,4 @@
-html {
+/* html {
 	box-sizing: border-box;
 	font-size: 13px;
 }
@@ -157,8 +157,7 @@ q:after {
 table {
 	border-collapse: collapse;
 	border-spacing: 0
-}
-
+} */
 
 .container {
 	padding: 5px 0 0 10px;
@@ -167,31 +166,32 @@ table {
 	user-select: none;
 }
 
-.skin-toolbar > * {
+.skin-toolbar>* {
 	display: inline-block;
 	color: #757575;
 }
 
 .skin-btn:hover {
-    opacity: 0.8;
+	opacity: 0.8;
 }
 
 .skin-zoom-container {
-    margin: 2px;
+	margin: 2px;
 }
+
 .skin-panel {
 	display: inline-block;
 	width: auto;
 	position: relative;
 	transform-origin: top left;
 }
+
 .skin-element {
 	border: 1px dotted var(--vscode-focusBorder);
 	display: block;
-	position: relative;
+	position: absolute;
 	padding: 0;
 	margin: 0;
 	background-repeat: repeat;
 	background-clip: content-box;
-	overflow: hidden;
 }

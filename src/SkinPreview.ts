@@ -1,7 +1,9 @@
 
+import path from 'path';
 import * as vscode from 'vscode';
+import { Configuration } from './configuration';
 import { ImageProvider } from './LotroImageHoverProvider';
-import { element2AssetMap, panels, SkinDefinitionParser, SkinElement } from './SkinDataProvider';
+import { determineBoundingBox, e2a, panels, SkinDefinitionParser, SkinElement } from './SkinDataProvider';
 
 export class SkinPreviewManager implements vscode.WebviewPanelSerializer<SkinState> {
 
@@ -175,6 +177,14 @@ export class SkinPreviewPanel {
 		this._document = await vscode.workspace.openTextDocument(this._resource);
 		this._parser.parseFromString(this._document.getText());
 
+		let panel = this._parser.panels[panelID];
+		if (!panel) {
+			panel = panels[panelID];
+		}
+
+		const bb = determineBoundingBox(panel);
+
+		//this._parser.buildSkinDataJson(path.join(path.dirname(this._resource.fsPath), 'SkinData.json'));
 		// Local path to main script run in the webview
 		const scriptPathOnDisk = vscode.Uri.joinPath(this._extensionUri, 'media', 'main.js');
 
@@ -205,7 +215,9 @@ export class SkinPreviewPanel {
 					</div>
 					${this._renderSkinPanelDropdown(panelID)}
 				</div>
-				<div id="skin-panel-container" class="skin-panel" data-state="${encodeHTMLEntities(JSON.stringify(this._state || {}))}">${await this._renderSkinPanel(panelID)}</div>
+				<div id="skin-panel-container" class="skin-panel" style="width: ${bb.right - bb.left}px; height: ${bb.bottom - bb.top}px;" data-state="${encodeHTMLEntities(JSON.stringify(this._state || {}))}">
+					${await this._renderSkinPanel(panelID, panel)}
+				</div>
 				<script src="${scriptUri}"></script>
 			</body>
 			</html>`;
@@ -213,13 +225,9 @@ export class SkinPreviewPanel {
 	private _renderSkinPanelDropdown(selected: string) {
 		return `<select id="skin-panel-ddl">${Object.keys(panels).sort().map(id => `<option${selected === id ? ' selected' : ''}>${id}</option>`)}</select>`;
 	}
-	private async _renderSkinPanel(panelName: string) {
-		let panel = this._parser.panels[panelName];
+	private async _renderSkinPanel(panelID: string, panel?: SkinElement) {
 		if (!panel) {
-			panel = panels[panelName];
-		}
-		if (!panel) {
-			return `<h2>Panel ${panelName} Not Found</h2>`;
+			return `<h2>Panel ${panelID} Not Found</h2>`;
 		}
 		return await this._renderSkinElement(panel, 0);
 	}
@@ -229,7 +237,7 @@ export class SkinPreviewPanel {
 
 		let img;
 		try {
-			const assets = element2AssetMap.get(el.id);
+			const assets = e2a[el.id];
 			if (assets && assets.length > 0) {
 				const a = assets[0];
 				if (this._parser.assets[a.n]) {
@@ -253,6 +261,9 @@ export class SkinPreviewPanel {
 		];
 		if (img) {
 			styles.push(`background-image: url('${this._panel.webview.asWebviewUri(img.cachedUri ? img.cachedUri : img.uri)}');`);
+		}
+		if (/Highlight/.test(el.id)) {
+			styles.push(`display: none;`);
 		}
 		return `<div id="${el.id}" tooltip="${el.id}" class="skin-element" style="${styles.join(' ')}">${el.c ? (await Promise.all(el.c.map(async c => await this._renderSkinElement(c, level + 1)))).join('') : ''}</div>`;
 	}

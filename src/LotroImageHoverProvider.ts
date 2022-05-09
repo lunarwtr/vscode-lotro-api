@@ -61,7 +61,7 @@ export class ImageProvider {
     }
 
     dispose() {
-        this._tempFileImages.forEach(f => fs.unlink(f, () => { }));
+        this._tempFileImages.forEach(f => fs.unlinkSync(f));
         while (this._disposables.length) {
 			const x = this._disposables.pop();
 			if (x) x.dispose();
