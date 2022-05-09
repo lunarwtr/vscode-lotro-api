@@ -1,0 +1,1656 @@
+<PanelFile ID="ID_UISkin_Theater">
+	<Element ID="BackgroundField" X="0" Y="132" Width="1024" Height="561"> </Element>
+	<Element ID="StoryField" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Internal" X="0" Y="0" Width="1024" Height="768">
+			<Element ID="Theater_ImageField" X="0" Y="125" Width="1024" Height="512"> </Element>
+			<Element ID="Theater_MovieImageField" X="0" Y="125" Width="1024" Height="512"> </Element>
+			<Element ID="Theater_TextField" X="13" Y="636" Width="1000" Height="30"> </Element>
+			<Element ID="Theatre_ImageFrame" X="0" Y="0" Width="1024" Height="768"> </Element>
+		</Element>
+		<Element ID="Theater_Anim" X="468" Y="661" Width="111" Height="107"> </Element>
+		<Element ID="Theater_Matte" X="0" Y="0" Width="1024" Height="768"> </Element>
+		<Element ID="HintDisplay" X="27" Y="637" Width="984" Height="27"> </Element>
+	</Element>
+	<Element ID="Theater_LoadingProgress" X="411" Y="735" Width="247" Height="49">
+		<Element ID="LoadingProgressUIElement_Meter" X="25" Y="18" Width="199" Height="14"> </Element>
+		<Element ID="LoadingProgressUIElement_Label" X="22" Y="14" Width="205" Height="18"> </Element>
+		<Element ID="LoadingProgressUIElement_Overlay" X="0" Y="0" Width="248" Height="57"> </Element>
+	</Element>
+</PanelFile>
+<PanelFile ID="ID_UISkin_Map">
+	<Element ID="morgul_vale_button" X="0" Y="0" Width="63" Height="63"> </Element>
+	<Element ID="RegionMap_Gondor_Central" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Toggle_Gondor_West" X="68" Y="96" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_area_gondor_central_pelargir" X="794" Y="508" Width="63" Height="63"> </Element>
+		<Element ID="toggle_area_gondor_west_bay_of_belfalas" X="76" Y="400" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_Gondor_East" X="908" Y="404" Width="63" Height="63"> </Element>
+		<Element ID="toggle_area_gondor_central_ringlo_vale" X="287" Y="66" Width="63" Height="63"> </Element>
+		<Element ID="toggle_area_gondor_central_dor_en_ernil" X="251" Y="520" Width="63" Height="63"> </Element>
+		<Element ID="Zoom_Instructions" X="46" Y="668" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_WorldMap" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="Toggle_area_gondor_central_lebennin" X="589" Y="267" Width="63" Height="63"> </Element>
+	</Element>
+	<Element ID="area_gondor_east_osgiliath_pvp" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="toggle_area_gondor_east_south_ithilien" X="862" Y="439" Width="63" Height="63"> </Element>
+		<Element ID="Zoom_Instructions" X="63" Y="642" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_WorldMap" X="1005" Y="2" Width="16" Height="16"> </Element>
+	</Element>
+	<Element ID="area_morgul_vale_minas_morgul" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Zoom_Instructions" X="800" Y="230" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_WorldMap" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="toggle_area_morgul_vale" X="120" Y="88" Width="63" Height="63"> </Element>
+	</Element>
+	<Element ID="morgul_vale_minas_morgul_button" X="1033" Y="192" Width="63" Height="63"> </Element>
+	<Element ID="area_gondor_far_anorien_taur_druadan" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="toggle_area_gondor_far_anorien_beacon_hills" X="34" Y="63" Width="63" Height="63"> </Element>
+		<Element ID="toggle_area_gondor_old_anorien_talath_anor" X="772" Y="220" Width="63" Height="63"> </Element>
+		<Element ID="Zoom_Instructions" X="843" Y="655" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_WorldMap" X="1005" Y="2" Width="16" Height="16"> </Element>
+	</Element>
+	<Element ID="area_gondor_far_anorien_taur_druadan_button" X="0" Y="0" Width="63" Height="63"> </Element>
+	<Element ID="Region_Gondor_Central_Button" X="0" Y="0" Width="63" Height="63"> </Element>
+	<Element ID="area_gondor_far_anorien_beacon_hills" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Sutcrofts_Toggle_EastWall" X="433" Y="50" Width="63" Height="63"> </Element>
+		<Element ID="toggle_area_gondor_far_anorien_taur_druadan" X="846" Y="502" Width="63" Height="63"> </Element>
+		<Element ID="Kingstead_Toggle_Eastfold" X="103" Y="323" Width="63" Height="63"> </Element>
+		<Element ID="Zoom_Instructions" X="843" Y="655" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_WorldMap" X="1005" Y="2" Width="16" Height="16"> </Element>
+	</Element>
+	<Element ID="area_gondor_central_dor_en_ernil" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="toggle_area_gondor_west_bay_of_belfalas" X="333" Y="330" Width="63" Height="63"> </Element>
+		<Element ID="toggle_area_gondor_central_ringlo_vale" X="450" Y="14" Width="63" Height="63"> </Element>
+		<Element ID="Zoom_Instructions" X="101" Y="253" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_WorldMap" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="Toggle_area_gondor_central_lebennin" X="933" Y="416" Width="63" Height="63"> </Element>
+	</Element>
+	<Element ID="area_gondor_far_anorien_beacon_hills_button" X="0" Y="0" Width="63" Height="63"> </Element>
+	<Element ID="area_gondor_central_dor_en_ernil_button" X="0" Y="0" Width="63" Height="63"> </Element>
+	<Element ID="region_gondor_far_anorien" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Toggle_region_gondor_old_anorien" X="929" Y="473" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_EastRohan" X="273" Y="12" Width="63" Height="63"> </Element>
+		<Element ID="toggle_area_gondor_far_anorien_beacon_hills" X="176" Y="450" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_WestRohan" X="61" Y="195" Width="63" Height="63"> </Element>
+		<Element ID="toggle_area_gondor_far_anorien_taur_druadan" X="756" Y="276" Width="63" Height="63"> </Element>
+		<Element ID="Zoom_Instructions" X="63" Y="642" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_WorldMap" X="1005" Y="2" Width="16" Height="16"> </Element>
+	</Element>
+	<Element ID="area_gondor_central_lebennin" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Toggle_area_gondor_central_pelargir" X="816" Y="548" Width="63" Height="63"> </Element>
+		<Element ID="toggle_area_gondor_east_upper_lebennin" X="929" Y="342" Width="63" Height="63"> </Element>
+		<Element ID="toggle_area_gondor_central_dor_en_ernil" X="69" Y="252" Width="63" Height="63"> </Element>
+		<Element ID="Zoom_Instructions" X="11" Y="658" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_WorldMap" X="1005" Y="2" Width="16" Height="16"> </Element>
+	</Element>
+	<Element ID="area_rohan_east_the_wold" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="TheWold_toggle_Wildermore" X="116" Y="106" Width="63" Height="63"> </Element>
+		<Element ID="TheWold_Toggle_Norcrofts" X="253" Y="543" Width="63" Height="63"> </Element>
+		<Element ID="TheWold_toggle_Harwick" X="402" Y="346" Width="63" Height="63"> </Element>
+		<Element ID="TheWold_Toggle_GreatRiver" X="270" Y="6" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_area_rohan_east_the_wold" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="TheWold_Toggle_EastWall" X="592" Y="702" Width="63" Height="63"> </Element>
+		<Element ID="ZoomInstructions_area_rohan_east_the_wold" X="863" Y="254" Width="134" Height="68"> </Element>
+	</Element>
+	<Element ID="area_mordor_mordor_besieged" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Zoom_Instructions" X="812" Y="640" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_WorldMap" X="1005" Y="2" Width="16" Height="16"> </Element>
+	</Element>
+	<Element ID="area_gondor_central_lebennin_button" X="0" Y="0" Width="63" Height="63"> </Element>
+	<Element ID="city_wildermore_forlaw" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Forlaw_Toggle_Wildermore_3" X="71" Y="511" Width="63" Height="63"> </Element>
+		<Element ID="Forlaw_Toggle_Wildermore" X="562" Y="693" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_city_wildermore_forlaw" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="ZoomInstructions_city_wildermore_forlaw" X="863" Y="254" Width="134" Height="68"> </Element>
+		<Element ID="Forlaw_Toggle_Wildermore_2" X="834" Y="372" Width="63" Height="63"> </Element>
+	</Element>
+	<Element ID="region_gondor_far_anorien_button" X="0" Y="0" Width="63" Height="63"> </Element>
+	<Element ID="area_gondor_central_pelargir" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="toggle_area_gondor_east_upper_lebennin" X="888" Y="29" Width="63" Height="63"> </Element>
+		<Element ID="Zoom_Instructions" X="46" Y="649" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_WorldMap" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="Toggle_area_gondor_central_lebennin" X="248" Y="35" Width="63" Height="63"> </Element>
+	</Element>
+	<Element ID="CityMap_2_Rivendell" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Trollshaws_Toggle_RivendellCity" X="307" Y="661" Width="63" Height="63"> </Element>
+		<Element ID="MistyMountains_Toggle_RivendellCity" X="687" Y="14" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_Rivendell" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="Zoom_Instructions_Rivendell_8" X="847" Y="15" Width="134" Height="68"> </Element>
+	</Element>
+	<Element ID="area_rohan_west_kingstead" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="toggle_housing_kingstead_meadows" X="508" Y="190" Width="63" Height="63"> </Element>
+		<Element ID="RohanWest_Toggle_Edoras" X="383" Y="298" Width="63" Height="63"> </Element>
+		<Element ID="Kingstead_Toggle_Stonedeans" X="245" Y="19" Width="63" Height="63"> </Element>
+		<Element ID="Kingstead_Toggle_Broadacres" X="479" Y="7" Width="63" Height="63"> </Element>
+		<Element ID="Kingstead_Toggle_EastRohan" X="681" Y="88" Width="63" Height="63"> </Element>
+		<Element ID="ZoomInstructions_area_rohan_west_kingstead" X="837" Y="16" Width="134" Height="68"> </Element>
+		<Element ID="Kingstead_Toggle_Eastfold" X="673" Y="504" Width="63" Height="63"> </Element>
+		<Element ID="Kingstead_Toggle_Westfold" X="245" Y="268" Width="63" Height="63"> </Element>
+		<Element ID="Kingstead_Toggle_PathsofDead" X="508" Y="690" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_area_rohan_west" X="1005" Y="2" Width="16" Height="16"> </Element>
+	</Element>
+	<Element ID="mordor_besieged_button" X="1033" Y="192" Width="63" Height="63"> </Element>
+	<Element ID="area_gondor_central_pelargir_button" X="0" Y="0" Width="63" Height="63"> </Element>
+	<Element ID="area_rohan_east_eaves_of_fangorn" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Toggle_area_rohan_east_eaves_of_fangorn" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="ZoomInstructions_area_rohan_east_eaves_of_fangorn" X="863" Y="254" Width="134" Height="68"> </Element>
+		<Element ID="eavesoffangorn_toggle_entwashvale" X="895" Y="650" Width="63" Height="63"> </Element>
+		<Element ID="RohanWest_Toggle_Entwood" X="138" Y="358" Width="63" Height="63"> </Element>
+	</Element>
+	<Element ID="area_gondor_central_ringlo_vale" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Toggle_area_gondor_lamedon" X="146" Y="111" Width="63" Height="63"> </Element>
+		<Element ID="toggle_area_gondor_central_dor_en_ernil" X="555" Y="672" Width="63" Height="63"> </Element>
+		<Element ID="Zoom_Instructions" X="63" Y="642" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_WorldMap" X="1005" Y="2" Width="16" Height="16"> </Element>
+	</Element>
+	<Element ID="city_wildermore_forlaw_Button" X="432" Y="349" Width="63" Height="63"> </Element>
+	<Element ID="CityMap_1_BreeCity" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Breeland_Toggle_BreeCity_1" X="802" Y="368" Width="63" Height="63"> </Element>
+		<Element ID="Breeland_Toggle_BreeCity_2" X="31" Y="181" Width="63" Height="63"> </Element>
+		<Element ID="Breeland_Toggle_BreeCity_3" X="791" Y="658" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_BreeCity" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="Zoom_Instructions_BreeCity_8" X="847" Y="15" Width="134" Height="68"> </Element>
+	</Element>
+	<Element ID="area_rohan_west_broadacres" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="RohanWest_Toggle_Entwood" X="55" Y="39" Width="63" Height="63"> </Element>
+		<Element ID="Broadacres_Toggle_Stonedeans" X="96" Y="327" Width="63" Height="63"> </Element>
+		<Element ID="ZoomInstructions_area_rohan_west_broadacres" X="38" Y="652" Width="134" Height="68"> </Element>
+		<Element ID="Broadacres_Toggle_Entwash" X="833" Y="213" Width="63" Height="63"> </Element>
+		<Element ID="Broadacres_Toggle_Kingstead" X="382" Y="692" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_area_rohan_west" X="1005" Y="2" Width="16" Height="16"> </Element>
+	</Element>
+	<Element ID="area_gondor_central_ringlo_vale_button" X="0" Y="0" Width="63" Height="63"> </Element>
+	<Element ID="area_rohan_east_entwash_vale" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="EntwashVale_Toggle_Wildermore" X="502" Y="26" Width="63" Height="63"> </Element>
+		<Element ID="EntwashVale_Toggle_EavesOfFangorn" X="131" Y="18" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_area_rohan_east_entwash_vale" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="EntwashVale_Toggle_Norcrofts" X="817" Y="429" Width="63" Height="63"> </Element>
+		<Element ID="ZoomInstructions_area_rohan_east_entwash_vale" X="863" Y="254" Width="134" Height="68"> </Element>
+		<Element ID="EntwashVale_Toggle_Sutcrofts" X="610" Y="694" Width="63" Height="63"> </Element>
+	</Element>
+	<Element ID="area_carrock_beorning" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Toggle_WorldMap" X="1005" Y="2" Width="16" Height="16"> </Element>
+	</Element>
+	<Element ID="CityMap_1_Archet" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Toggle_Archet" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="Zoom_Instructions_Archet" X="847" Y="15" Width="134" Height="68"> </Element>
+		<Element ID="Breeland_Toggle_Archet_1" X="186" Y="704" Width="63" Height="63"> </Element>
+	</Element>
+	<Element ID="area_rohan_west_eastfold" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Eastfold_Toggle_Kingstead" X="163" Y="76" Width="63" Height="63"> </Element>
+		<Element ID="ZoomInstructions_area_rohan_west_eastfold" X="838" Y="641" Width="134" Height="68"> </Element>
+		<Element ID="toggle_area_gondor_far_anorien_beacon_hills" X="898" Y="440" Width="63" Height="63"> </Element>
+		<Element ID="toggle_housing_eastfold_hills" X="80" Y="208" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_area_rohan_west" X="1005" Y="2" Width="16" Height="16"> </Element>
+	</Element>
+	<Element ID="area_gondor_central_pelargir_epicbattle" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="toggle_area_gondor_east_upper_lebennin" X="888" Y="29" Width="63" Height="63"> </Element>
+		<Element ID="Zoom_Instructions" X="46" Y="649" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_WorldMap" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="Toggle_area_gondor_central_lebennin" X="248" Y="35" Width="63" Height="63"> </Element>
+	</Element>
+	<Element ID="area_rohan_east_east_wall" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="toggle_area_gondor_far_anorien_beacon_hills" X="636" Y="661" Width="63" Height="63"> </Element>
+		<Element ID="EastWall_Toggle_TheWold" X="392" Y="10" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_area_rohan_east_east_wall" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="EastWall_Toggle_Norcrofts" X="205" Y="232" Width="63" Height="63"> </Element>
+		<Element ID="ZoomInstructions_area_rohan_east_east_wall" X="863" Y="254" Width="134" Height="68"> </Element>
+		<Element ID="EastWall_Toggle_Sutcrofts" X="97" Y="638" Width="63" Height="63"> </Element>
+	</Element>
+	<Element ID="CityMap_3_ThorinsGates" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Toggle_Housing_Thorin" X="215" Y="543" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_ThorinsGates" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="Zoom_Instructions_ThorinsGates_8" X="847" Y="15" Width="134" Height="68"> </Element>
+		<Element ID="EredLuin_Toggle_ThorinsGate" X="515" Y="705" Width="63" Height="63"> </Element>
+	</Element>
+	<Element ID="TerritoryMap_Gondor" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Toggle_region_gondor_old_anorien" X="732" Y="250" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_Gondor_Central" X="548" Y="490" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_Gondor_West" X="354" Y="436" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_Mordor" X="914" Y="330" Width="63" Height="63"> </Element>
+		<Element ID="toggle_area_gondor_old_anorien_minas_tirith_midsummer" X="740" Y="358" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_Rohan" X="430" Y="56" Width="63" Height="63"> </Element>
+		<Element ID="toggle_area_gondor_east_osgiliath_button" X="812" Y="346" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_Gondor_East" X="760" Y="440" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_Map_Panel" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="Zoom_Intructions" X="847" Y="16" Width="134" Height="68"> </Element>
+		<Element ID="toggle_morgul_vale" X="932" Y="416" Width="63" Height="63"> </Element>
+		<Element ID="toggle_area_gondor_old_anorien_minas_tirith" X="740" Y="358" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_region_gondor_far_anorien" X="532" Y="184" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_area_wastes_dead_marshes" X="840" Y="108" Width="63" Height="63"> </Element>
+		<Element ID="toggle_area_the_wastes" X="872" Y="130" Width="63" Height="63"> </Element>
+	</Element>
+	<Element ID="area_rohan_west_stonedeans" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Stonedeans_Toggle_Broadacres" X="714" Y="39" Width="63" Height="63"> </Element>
+		<Element ID="Stonedeans_Toggle_Kingstead" X="801" Y="451" Width="63" Height="63"> </Element>
+		<Element ID="Stonedeans_Toggle_Westfold" X="430" Y="659" Width="63" Height="63"> </Element>
+		<Element ID="ZoomInstructions_area_rohan_west_stonedeans" X="62" Y="640" Width="134" Height="68"> </Element>
+		<Element ID="RohanWest_Toggle_Entwood" X="494" Y="39" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_area_dunland_nan_curunir_flooded" X="273" Y="72" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_area_rohan_west" X="1005" Y="2" Width="16" Height="16"> </Element>
+	</Element>
+	<Element ID="area_wastes_dead_marshes_Button" X="432" Y="349" Width="63" Height="63"> </Element>
+	<Element ID="area_rohan_east_norcrofts" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Norcrofts_Toggle_Sutcrofts" X="294" Y="673" Width="63" Height="63"> </Element>
+		<Element ID="Norcrofts_Toggle_EastWall" X="852" Y="335" Width="63" Height="63"> </Element>
+		<Element ID="Norcrofts_Toggle_Wildermore" X="244" Y="54" Width="63" Height="63"> </Element>
+		<Element ID="Norcrofts_Toggle_EntwashVale" X="203" Y="282" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_area_rohan_east_norcrofts" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="Norcrofts_Toggle_TheWold" X="767" Y="41" Width="63" Height="63"> </Element>
+		<Element ID="ZoomInstructions_area_rohan_east_norcrofts" X="863" Y="254" Width="134" Height="68"> </Element>
+	</Element>
+	<Element ID="area_gondor_far_anorien_pelennor_hub_1" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Zoom_Instructions" X="63" Y="642" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_WorldMap" X="1005" Y="2" Width="16" Height="16"> </Element>
+	</Element>
+	<Element ID="EriadorButton" X="1033" Y="192" Width="63" Height="63"> </Element>
+	<Element ID="area_rohan_west_westfold" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Westfold_Toggle_Stonedeans" X="477" Y="29" Width="63" Height="63"> </Element>
+		<Element ID="Westfold_Toggle_Kingstead" X="834" Y="303" Width="63" Height="63"> </Element>
+		<Element ID="Westfold_Toggle_HelmsDeep" X="259" Y="371" Width="63" Height="63"> </Element>
+		<Element ID="ZoomInstructions_area_rohan_west_westfold" X="812" Y="17" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_area_rohan_west" X="1005" Y="2" Width="16" Height="16"> </Element>
+	</Element>
+	<Element ID="ShireButton" X="1047" Y="483" Width="63" Height="63"> </Element>
+	<Element ID="area_rohan_east_sutcrofts" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Sutcrofts_Toggle_EntwashVale" X="466" Y="12" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_area_rohan_east_sutcrofts" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="Sutcrofts_Toggle_Norcrofts" X="693" Y="128" Width="63" Height="63"> </Element>
+		<Element ID="ZoomInstructions_area_rohan_east_sutcrofts" X="863" Y="254" Width="134" Height="68"> </Element>
+		<Element ID="Sutcrofts_Toggle_EastWall" X="878" Y="317" Width="63" Height="63"> </Element>
+		<Element ID="Sutcrofts_Toggle_Snowbourn" X="375" Y="387" Width="63" Height="63"> </Element>
+	</Element>
+	<Element ID="Playerhousing_1_Falathlorn" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Toggle_Falathlorn" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="Zoom_Instructions_Falathlorn" X="847" Y="15" Width="134" Height="68"> </Element>
+		<Element ID="EredLuin_Toggle_Falathlorn_1" X="543" Y="77" Width="63" Height="63"> </Element>
+	</Element>
+	<Element ID="EttenmoorsButton" X="1047" Y="483" Width="123" Height="106"> </Element>
+	<Element ID="area_gondor_far_anorien_pelennor_hub_2" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Zoom_Instructions" X="63" Y="642" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_WorldMap" X="1005" Y="2" Width="16" Height="16"> </Element>
+	</Element>
+	<Element ID="LoneButton" X="1048" Y="349" Width="63" Height="63"> </Element>
+	<Element ID="CityMap_Rohan_kingstead_edoras" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Edoras_Toggle_Kingstead" X="870" Y="221" Width="63" Height="63"> </Element>
+		<Element ID="ZoomInstructions_CityMap_Rohan_kingstead_edoras" X="839" Y="35" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_area_rohan_west" X="1005" Y="2" Width="16" Height="16"> </Element>
+	</Element>
+	<Element ID="area_gondor_far_anorien_pelennor_hub_3" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Zoom_Instructions" X="63" Y="642" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_WorldMap" X="1005" Y="2" Width="16" Height="16"> </Element>
+	</Element>
+	<Element ID="NorthDownsButton" X="1044" Y="191" Width="63" Height="63"> </Element>
+	<Element ID="area_moria_second_hall_raid" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Toggle_Lothlorien" X="904" Y="582" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_area_moria_shadowy_abyss" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="Zoom_Instructions_area_moria_shadowy_abyss" X="839" Y="38" Width="138" Height="36"> </Element>
+	</Element>
+	<Element ID="area_gondor_far_anorien_pelennor_hub_4" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Zoom_Instructions" X="63" Y="642" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_WorldMap" X="1005" Y="2" Width="16" Height="16"> </Element>
+	</Element>
+	<Element ID="BreelandButton" X="1044" Y="191" Width="63" Height="63"> </Element>
+	<Element ID="FalathlornButton" X="10000" Y="10000" Width="63" Height="63"> </Element>
+	<Element ID="area_gondor_far_anorien_pelennor_hub_5" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Zoom_Instructions" X="63" Y="642" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_WorldMap" X="1005" Y="2" Width="16" Height="16"> </Element>
+	</Element>
+	<Element ID="area_dunland_nan_curunir_flooded_Button" X="0" Y="0" Width="63" Height="63"> </Element>
+	<Element ID="BreeCityButton" X="1044" Y="191" Width="63" Height="63"> </Element>
+	<Element ID="Region_Rohan_West" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="RohanWest_Toggle_HelmsDeep" X="129" Y="417" Width="63" Height="63"> </Element>
+		<Element ID="RohanWest_Toggle_Kingstead" X="426" Y="308" Width="63" Height="63"> </Element>
+		<Element ID="ZoomInstructions_region_rohan_west" X="841" Y="17" Width="134" Height="68"> </Element>
+		<Element ID="RohanWest_Toggle_Edoras" X="451" Y="395" Width="63" Height="63"> </Element>
+		<Element ID="RohanWest_Toggle_Eastfold" X="706" Y="525" Width="63" Height="63"> </Element>
+		<Element ID="RohanWest_Toggle_Entwood" X="325" Y="50" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_region_gondor_far_anorien" X="852" Y="573" Width="63" Height="63"> </Element>
+		<Element ID="RohanWest_Toggle_RohanEast" X="703" Y="279" Width="63" Height="63"> </Element>
+		<Element ID="RohanWest_Toggle_Broadacres" X="504" Y="115" Width="63" Height="63"> </Element>
+		<Element ID="RohanWest_Toggle_Stonedeans" X="326" Y="162" Width="63" Height="63"> </Element>
+		<Element ID="RohanWest_Toggle_Westfold" X="205" Y="302" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_area_rohan_west" X="1005" Y="2" Width="16" Height="16"> </Element>
+	</Element>
+	<Element ID="RegionMap_Gondor_West" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Toggle_Gondor_Central" X="916" Y="446" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_area_gondor_belfalas" X="550" Y="611" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_Gondor_West" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="Zoom_Instructions_Gondor_West" X="46" Y="668" Width="134" Height="68"> </Element>
+		<Element ID="toggle_area_gondor_west_bay_of_belfalas" X="492" Y="692" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_Gondor_Blackroot_Vale" X="549" Y="212" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_Gondor_Lamedon" X="695" Y="308" Width="63" Height="63"> </Element>
+		<Element ID="toggle_dol_amroth_gondor_west" X="411" Y="544" Width="63" Height="63"> </Element>
+		<Element ID="toggle_pathsofdead_gondor_west" X="533" Y="9" Width="63" Height="63"> </Element>
+	</Element>
+	<Element ID="RivendellCityButton" X="1044" Y="191" Width="63" Height="63"> </Element>
+	<Element ID="EredMithrin_WitheredHeath_Button" X="1044" Y="191" Width="63" Height="63"> </Element>
+	<Element ID="area_mordor_north_agarnaith" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="toggle_area_mordor_north_dor_amarth" X="280" Y="346" Width="63" Height="63"> </Element>
+		<Element ID="Zoom_Instructions" X="843" Y="655" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_WorldMap" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="toggle_area_mordor_north_talath_urui" X="372" Y="688" Width="63" Height="63"> </Element>
+	</Element>
+	<Element ID="AngmarButton" X="1044" Y="191" Width="63" Height="63"> </Element>
+	<Element ID="RegionMap_EredMithrin_WitheredHeath" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Toggle_Glimmerdeep" X="360" Y="240" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_Mirkwood_North" X="908" Y="664" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_Anvil" X="770" Y="110" Width="63" Height="63"> </Element>
+		<Element ID="toggle_elderslade_button" X="60" Y="556" Width="63" Height="63"> </Element>
+		<Element ID="Toggle3" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="Zoom_Instructions_3" X="640" Y="664" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_wells_of_langflood" X="184" Y="612" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_SteelKeep" X="76" Y="280" Width="63" Height="63"> </Element>
+	</Element>
+	<Element ID="area_mordor_north_dor_amarth" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="toggle_area_mordor_north_udun" X="44" Y="290" Width="63" Height="63"> </Element>
+		<Element ID="toggle_area_mordor_north_lhingris" X="34" Y="460" Width="63" Height="63"> </Element>
+		<Element ID="toggle_area_mordor_north_agarnaith" X="850" Y="604" Width="63" Height="63"> </Element>
+		<Element ID="Zoom_Instructions" X="843" Y="655" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_WorldMap" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="toggle_area_mordor_besieged" X="654" Y="266" Width="63" Height="63"> </Element>
+		<Element ID="toggle_area_mordor_north_talath_urui" X="180" Y="652" Width="63" Height="63"> </Element>
+	</Element>
+	<Element ID="MapBackground" X="0" Y="0" Width="1025" Height="768">
+		<Element ID="QuestGuideQuestListHolder" X="0" Y="522" Width="306" Height="186">
+			<Element ID="QuestGuideQuestList_Move" X="36" Y="4" Width="234" Height="15"> </Element>
+			<Element ID="ColorSwatch_Quest2" X="75" Y="48" Width="200" Height="32">
+				<Element ID="ColorChoice_Expand_Button" X="164" Y="8" Width="30" Height="19"> </Element>
+				<Element ID="ColorChoice_Border" X="175" Y="10" Width="15" Height="15"> </Element>
+				<Element ID="ColorChoice_Current" X="177" Y="12" Width="11" Height="11"> </Element>
+				<Element ID="ColorSwatch_Divider" X="160" Y="8" Width="1" Height="19"> </Element>
+				<Element ID="ColorChoice_Expanding_Window" X="6" Y="6" Width="150" Height="23">
+					<Element ID="Base_Box_Titlebar_TopRight" X="28" Y="0" Width="8" Height="23"> </Element>
+					<Element ID="Base_Box_Titlebar_TopLeft" X="0" Y="0" Width="8" Height="23"> </Element>
+					<Element ID="Base_Box_Titlebar_TopMid" X="8" Y="0" Width="20" Height="23"> </Element>
+					<Element ID="ColorChoice_List" X="10" Y="2" Width="130" Height="19">
+						<Element ID="ColorSwatch_HorizScrollbar" X="0" Y="13" Width="130" Height="10">
+							<Element ID="RightButton" X="20" Y="0" Width="10" Height="10"> </Element>
+							<Element ID="LeftButton" X="0" Y="0" Width="10" Height="10"> </Element>
+						</Element>
+					</Element>
+				</Element>
+			</Element>
+			<Element ID="ColorSwatch_Quest3" X="75" Y="71" Width="200" Height="32">
+				<Element ID="ColorChoice_Expand_Button" X="164" Y="8" Width="30" Height="19"> </Element>
+				<Element ID="ColorChoice_Border" X="175" Y="10" Width="15" Height="15"> </Element>
+				<Element ID="ColorChoice_Current" X="177" Y="12" Width="11" Height="11"> </Element>
+				<Element ID="ColorSwatch_Divider" X="160" Y="8" Width="1" Height="19"> </Element>
+				<Element ID="ColorChoice_Expanding_Window" X="6" Y="6" Width="150" Height="23">
+					<Element ID="Base_Box_Titlebar_TopRight" X="28" Y="0" Width="8" Height="23"> </Element>
+					<Element ID="Base_Box_Titlebar_TopLeft" X="0" Y="0" Width="8" Height="23"> </Element>
+					<Element ID="Base_Box_Titlebar_TopMid" X="8" Y="0" Width="20" Height="23"> </Element>
+					<Element ID="ColorChoice_List" X="10" Y="2" Width="130" Height="19">
+						<Element ID="ColorSwatch_HorizScrollbar" X="0" Y="13" Width="130" Height="10">
+							<Element ID="RightButton" X="20" Y="0" Width="10" Height="10"> </Element>
+							<Element ID="LeftButton" X="0" Y="0" Width="10" Height="10"> </Element>
+						</Element>
+					</Element>
+				</Element>
+			</Element>
+			<Element ID="ColorSwatch_Quest4" X="75" Y="94" Width="200" Height="32">
+				<Element ID="ColorChoice_Expand_Button" X="164" Y="8" Width="30" Height="19"> </Element>
+				<Element ID="ColorChoice_Border" X="175" Y="10" Width="15" Height="15"> </Element>
+				<Element ID="ColorChoice_Current" X="177" Y="12" Width="11" Height="11"> </Element>
+				<Element ID="ColorSwatch_Divider" X="160" Y="8" Width="1" Height="19"> </Element>
+				<Element ID="ColorChoice_Expanding_Window" X="6" Y="6" Width="150" Height="23">
+					<Element ID="Base_Box_Titlebar_TopRight" X="28" Y="0" Width="8" Height="23"> </Element>
+					<Element ID="Base_Box_Titlebar_TopLeft" X="0" Y="0" Width="8" Height="23"> </Element>
+					<Element ID="Base_Box_Titlebar_TopMid" X="8" Y="0" Width="20" Height="23"> </Element>
+					<Element ID="ColorChoice_List" X="10" Y="2" Width="130" Height="19">
+						<Element ID="ColorSwatch_HorizScrollbar" X="0" Y="13" Width="130" Height="10">
+							<Element ID="RightButton" X="20" Y="0" Width="10" Height="10"> </Element>
+							<Element ID="LeftButton" X="0" Y="0" Width="10" Height="10"> </Element>
+						</Element>
+					</Element>
+				</Element>
+			</Element>
+			<Element ID="QuestGuideQuestList" X="30" Y="31" Width="247" Height="130"> </Element>
+			<Element ID="ColorSwatch_Quest5" X="75" Y="117" Width="200" Height="32">
+				<Element ID="ColorChoice_Expand_Button" X="164" Y="8" Width="30" Height="19"> </Element>
+				<Element ID="ColorChoice_Border" X="175" Y="10" Width="15" Height="15"> </Element>
+				<Element ID="ColorChoice_Current" X="177" Y="12" Width="11" Height="11"> </Element>
+				<Element ID="ColorSwatch_Divider" X="160" Y="8" Width="1" Height="19"> </Element>
+				<Element ID="ColorChoice_Expanding_Window" X="6" Y="6" Width="150" Height="23">
+					<Element ID="Base_Box_Titlebar_TopRight" X="28" Y="0" Width="8" Height="23"> </Element>
+					<Element ID="Base_Box_Titlebar_TopLeft" X="0" Y="0" Width="8" Height="23"> </Element>
+					<Element ID="Base_Box_Titlebar_TopMid" X="8" Y="0" Width="20" Height="23"> </Element>
+					<Element ID="ColorChoice_List" X="10" Y="2" Width="130" Height="19">
+						<Element ID="ColorSwatch_HorizScrollbar" X="0" Y="13" Width="130" Height="10">
+							<Element ID="RightButton" X="20" Y="0" Width="10" Height="10"> </Element>
+							<Element ID="LeftButton" X="0" Y="0" Width="10" Height="10"> </Element>
+						</Element>
+					</Element>
+				</Element>
+			</Element>
+			<Element ID="ColorSwatch_Quest1" X="75" Y="25" Width="200" Height="32">
+				<Element ID="ColorChoice_Expand_Button" X="164" Y="8" Width="30" Height="19"> </Element>
+				<Element ID="ColorChoice_Border" X="175" Y="10" Width="15" Height="15"> </Element>
+				<Element ID="ColorChoice_Current" X="177" Y="12" Width="11" Height="11"> </Element>
+				<Element ID="ColorSwatch_Divider" X="160" Y="8" Width="1" Height="19"> </Element>
+				<Element ID="ColorChoice_Expanding_Window" X="6" Y="6" Width="150" Height="23">
+					<Element ID="Base_Box_Titlebar_TopRight" X="28" Y="0" Width="8" Height="23"> </Element>
+					<Element ID="Base_Box_Titlebar_TopLeft" X="0" Y="0" Width="8" Height="23"> </Element>
+					<Element ID="Base_Box_Titlebar_TopMid" X="8" Y="0" Width="20" Height="23"> </Element>
+					<Element ID="ColorChoice_List" X="10" Y="2" Width="130" Height="19">
+						<Element ID="ColorSwatch_HorizScrollbar" X="0" Y="13" Width="130" Height="10">
+							<Element ID="RightButton" X="20" Y="0" Width="10" Height="10"> </Element>
+							<Element ID="LeftButton" X="0" Y="0" Width="10" Height="10"> </Element>
+						</Element>
+					</Element>
+				</Element>
+			</Element>
+			<Element ID="QuestGuideQuestList_Box" X="0" Y="0" Width="306" Height="186">
+				<Element ID="box_questTracker_mapBox_r" X="195" Y="43" Width="121" Height="95"> </Element>
+				<Element ID="box_questTracker_mapBox_bl" X="0" Y="138" Width="115" Height="56"> </Element>
+				<Element ID="box_questTracker_mapBox_b" X="113" Y="137" Width="82" Height="78"> </Element>
+				<Element ID="box_questTracker_mapBox_br" X="195" Y="138" Width="122" Height="51"> </Element>
+				<Element ID="box_questTracker_mapBox_tl" X="0" Y="0" Width="115" Height="44"> </Element>
+				<Element ID="box_questTracker_mapBox_t" X="113" Y="0" Width="82" Height="58"> </Element>
+				<Element ID="box_questTracker_mapBox_tr" X="195" Y="0" Width="120" Height="55"> </Element>
+				<Element ID="box_questTracker_mapBox_l" X="0" Y="43" Width="115" Height="95"> </Element>
+				<Element ID="box_questTracker_mapBox_c" X="113" Y="43" Width="82" Height="94"> </Element>
+			</Element>
+		</Element>
+		<Element ID="FilterMenu" X="52" Y="18" Width="150" Height="25">
+			<Element ID="FilterMenu_Label" X="0" Y="0" Width="126" Height="23"> </Element>
+		</Element>
+		<Element ID="MapMenu" X="203" Y="18" Width="150" Height="25">
+			<Element ID="ShowMap_Label" X="0" Y="0" Width="150" Height="22"> </Element>
+		</Element>
+		<Element ID="CoordinateDisplay" X="52" Y="730" Width="450" Height="25"> </Element>
+		<Element ID="StablemasterButton" X="354" Y="18" Width="200" Height="23">
+			<Element ID="TextButtonReference_BottomRight" X="493" Y="493" Width="19" Height="19"> </Element>
+			<Element ID="TextButtonReference_MidRight" X="509" Y="19" Width="3" Height="474"> </Element>
+			<Element ID="TextButtonReference_Background" X="3" Y="3" Width="506" Height="506"> </Element>
+			<Element ID="TextButtonReference_TopRight" X="493" Y="0" Width="19" Height="19"> </Element>
+			<Element ID="TextButtonReference_TopLeft" X="0" Y="0" Width="19" Height="19"> </Element>
+			<Element ID="TextButtonReference_TopMid" X="19" Y="0" Width="474" Height="3"> </Element>
+			<Element ID="TextButtonReference_MidLeft" X="0" Y="19" Width="3" Height="474"> </Element>
+			<Element ID="TextButtonReference_BottomLeft" X="0" Y="493" Width="19" Height="19"> </Element>
+			<Element ID="TextButtonReference_BottomMid" X="19" Y="509" Width="474" Height="3"> </Element>
+			<Element ID="ShowMap_Label" X="0" Y="0" Width="200" Height="22"> </Element>
+		</Element>
+		<Element ID="QuestGuideOptionField" X="38" Y="714" Width="188" Height="20">
+			<Element ID="QuestGuideOptionText" X="13" Y="0" Width="178" Height="20"> </Element>
+			<Element ID="QuestGuideCheckbox" X="1" Y="5" Width="10" Height="10"> </Element>
+		</Element>
+	</Element>
+	<Element ID="TrollshawsButton" X="1044" Y="191" Width="63" Height="63"> </Element>
+	<Element ID="area_rohan_west_helms_deep" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="ZoomInstructions_area_rohan_west_helms_deep" X="843" Y="661" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_area_glittering_caves" X="512" Y="590" Width="63" Height="63"> </Element>
+		<Element ID="HelmsDeep_Toggle_Westfold" X="493" Y="9" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_area_rohan_west" X="1005" Y="2" Width="16" Height="16"> </Element>
+	</Element>
+	<Element ID="area_mordor_north_lhingris" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="toggle_area_mordor_north_dor_amarth" X="520" Y="92" Width="63" Height="63"> </Element>
+		<Element ID="toggle_area_mordor_north_udun" X="222" Y="14" Width="63" Height="63"> </Element>
+		<Element ID="Zoom_Instructions" X="843" Y="655" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_WorldMap" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="toggle_area_morgul_vale" X="348" Y="640" Width="63" Height="63"> </Element>
+		<Element ID="toggle_area_mordor_north_talath_urui" X="826" Y="508" Width="63" Height="63"> </Element>
+	</Element>
+	<Element ID="area_gondor_old_anorien_minas_tirith" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="toggle_area_gondor_old_anorien_pelennor" X="897" Y="357" Width="63" Height="63"> </Element>
+		<Element ID="Zoom_Instructions" X="749" Y="642" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_WorldMap" X="1005" Y="2" Width="16" Height="16"> </Element>
+	</Element>
+	<Element ID="EredLuinButton" X="1044" Y="190" Width="63" Height="63"> </Element>
+	<Element ID="area_mordor_north_orodruin" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="toggle_area_mordor_north_sammath_naur" X="640" Y="332" Width="63" Height="63"> </Element>
+		<Element ID="Zoom_Instructions" X="843" Y="655" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_WorldMap" X="1005" Y="2" Width="16" Height="16"> </Element>
+	</Element>
+	<Element ID="ToggleWorldMap" X="1005" Y="2" Width="16" Height="16"> </Element>
+	<Element ID="RegionMap_IronHills" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Toggle_Mirkwood_North" X="44" Y="402" Width="63" Height="63"> </Element>
+		<Element ID="Toggle3" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="Zoom_Instructions_3" X="805" Y="650" Width="134" Height="68"> </Element>
+	</Element>
+	<Element ID="area_gondor_old_anorien_minas_tirith_button" X="0" Y="0" Width="63" Height="63"> </Element>
+	<Element ID="area_torech_ungol" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Zoom_Instructions" X="800" Y="640" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_WorldMap" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="toggle_area_morgul_vale" X="184" Y="450" Width="63" Height="63"> </Element>
+	</Element>
+	<Element ID="area_mordor_north_talath_urui" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="toggle_area_mordor_north_dor_amarth" X="116" Y="194" Width="63" Height="63"> </Element>
+		<Element ID="toggle_area_mordor_north_lhingris" X="184" Y="528" Width="63" Height="63"> </Element>
+		<Element ID="toggle_area_mordor_north_agarnaith" X="792" Y="310" Width="63" Height="63"> </Element>
+		<Element ID="toggle_area_mordor_north_nargroth" X="900" Y="420" Width="63" Height="63"> </Element>
+		<Element ID="Zoom_Instructions" X="843" Y="655" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_WorldMap" X="1005" Y="2" Width="16" Height="16"> </Element>
+	</Element>
+	<Element ID="Region_Gondor_West_Button" X="432" Y="349" Width="63" Height="63"> </Element>
+	<Element ID="area_rohan_east_the_wold_Button" X="432" Y="349" Width="63" Height="63"> </Element>
+	<Element ID="ThorinsGatesButton" X="1044" Y="191" Width="63" Height="63"> </Element>
+	<Element ID="IronHills_Button" X="1044" Y="191" Width="63" Height="63"> </Element>
+	<Element ID="area_gondor_old_anorien_pelennor" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="toggle_area_gondor_old_anorien_minas_tirith_midsummer" X="301" Y="342" Width="63" Height="63"> </Element>
+		<Element ID="toggle_area_gondor_east_osgiliath_button" X="834" Y="167" Width="63" Height="63"> </Element>
+		<Element ID="toggle_area_gondor_old_anorien_talath_anor" X="405" Y="13" Width="63" Height="63"> </Element>
+		<Element ID="toggle_area_gondor_old_anorien_minas_tirith" X="301" Y="342" Width="63" Height="63"> </Element>
+		<Element ID="toggle_area_gondor_east_lossarnach" X="277" Y="694" Width="63" Height="63"> </Element>
+		<Element ID="toggle_area_gondor_old_anorien_minas_tirith_2" X="420" Y="344" Width="63" Height="63"> </Element>
+		<Element ID="Zoom_Instructions" X="63" Y="642" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_WorldMap" X="1005" Y="2" Width="16" Height="16"> </Element>
+	</Element>
+	<Element ID="area_mordor_north_udun" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="toggle_area_mordor_north_dor_amarth" X="780" Y="662" Width="63" Height="63"> </Element>
+		<Element ID="toggle_area_mordor_north_lhingris" X="360" Y="692" Width="63" Height="63"> </Element>
+		<Element ID="Zoom_Instructions" X="843" Y="655" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_WorldMap" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="toggle_area_the_wastes" X="80" Y="20" Width="63" Height="63"> </Element>
+	</Element>
+	<Element ID="area_rohan_west_kingstead_Button" X="432" Y="349" Width="63" Height="63"> </Element>
+	<Element ID="area_rohan_east_east_wall_Button" X="432" Y="349" Width="63" Height="63"> </Element>
+	<Element ID="GondorButton" X="1033" Y="192" Width="63" Height="63"> </Element>
+	<Element ID="ZoomOutMapInstructions" X="847" Y="15" Width="134" Height="68"> </Element>
+	<Element ID="Playerhousing_1_Breeland" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Toggle_BreelandHomesteads" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="Breeland_Toggle_BreelandHomesteads_1" X="736" Y="110" Width="63" Height="63"> </Element>
+		<Element ID="Zoom_Instructions_BreelandHomesteads" X="839" Y="38" Width="138" Height="36"> </Element>
+	</Element>
+	<Element ID="torech_ungol_button" X="1033" Y="192" Width="63" Height="63"> </Element>
+	<Element ID="area_rohan_west_broadacres_Button" X="432" Y="349" Width="63" Height="63"> </Element>
+	<Element ID="area_rohan_east_entwash_vale_Button" X="432" Y="349" Width="63" Height="63"> </Element>
+	<Element ID="MapPlayerMarker" X="0" Y="0" Width="28" Height="28"> </Element>
+	<Element ID="MistyMountainsButton" X="1044" Y="191" Width="63" Height="63"> </Element>
+	<Element ID="area_rohan_west_Eastfold_Button" X="432" Y="349" Width="63" Height="63"> </Element>
+	<Element ID="area_rohan_east_eaves_of_fangorn_Button" X="432" Y="349" Width="63" Height="63"> </Element>
+	<Element ID="DungeonMap" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="DungeonMap_ImageField" X="112" Y="84" Width="800" Height="600">
+			<Element ID="MapFogOfWarDisplay" X="0" Y="0" Width="800" Height="600">
+				<Element ID="MapFogOfWarField" X="0" Y="0" Width="1024" Height="768"> </Element>
+			</Element>
+		</Element>
+		<Element ID="DungeonMap_OverlayField" X="0" Y="0" Width="1024" Height="768"> </Element>
+		<Element ID="Toggle_FOW" X="1005" Y="2" Width="16" Height="16"> </Element>
+	</Element>
+	<Element ID="ArchetButton" X="10000" Y="10000" Width="63" Height="63"> </Element>
+	<Element ID="BreelandHomesteadsButton" X="10000" Y="10000" Width="63" Height="63"> </Element>
+	<Element ID="area_rohan_west_Stonedeans_Button" X="432" Y="349" Width="63" Height="63"> </Element>
+	<Element ID="area_rohan_east_norcrofts_Button" X="432" Y="349" Width="63" Height="63"> </Element>
+	<Element ID="ValesOfAnduinButton" X="1033" Y="192" Width="63" Height="63"> </Element>
+	<Element ID="MapNoteFilterMenu" X="0" Y="0" Width="150" Height="25">
+		<Element ID="Menu_02_SelectionWidget" X="133" Y="5" Width="16" Height="16"> </Element>
+		<Element ID="Menu_02_SelectionBackground" X="0" Y="0" Width="150" Height="23">
+			<Element ID="Base_Box_TopMid" X="19" Y="0" Width="474" Height="3"> </Element>
+			<Element ID="Base_Box_MidLeft" X="0" Y="19" Width="3" Height="474"> </Element>
+			<Element ID="Base_Box_BottomLeft" X="0" Y="493" Width="19" Height="19"> </Element>
+			<Element ID="Base_Box_BottomMid" X="19" Y="509" Width="474" Height="3"> </Element>
+			<Element ID="Base_Box_BottomRight" X="493" Y="493" Width="19" Height="19"> </Element>
+			<Element ID="Base_Box_MidRight" X="509" Y="19" Width="3" Height="474"> </Element>
+			<Element ID="Base_Box_Background" X="3" Y="3" Width="506" Height="506"> </Element>
+			<Element ID="Base_Box_TopRight" X="493" Y="0" Width="19" Height="19"> </Element>
+			<Element ID="Base_Box_TopLeft" X="0" Y="0" Width="19" Height="19"> </Element>
+		</Element>
+		<Element ID="Menu_02_SelectionDisplay" X="7" Y="-1" Width="134" Height="25"> </Element>
+	</Element>
+	<Element ID="Vales_Of_Anduin_Button" X="0" Y="0" Width="63" Height="63"> </Element>
+	<Element ID="area_gondor_old_anorien_pelennor_button" X="0" Y="0" Width="63" Height="63"> </Element>
+	<Element ID="area_rohan_west_Westfold_Button" X="432" Y="349" Width="63" Height="63"> </Element>
+	<Element ID="area_rohan_east_sutcrofts_Button" X="432" Y="349" Width="63" Height="63"> </Element>
+	<Element ID="AvailableMapMenu" X="0" Y="0" Width="150" Height="25">
+		<Element ID="DropDownButton_SelectionWidget" X="133" Y="5" Width="16" Height="16"> </Element>
+	</Element>
+	<Element ID="CityMap_Hollin_Gate" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Toggle_area_eregion_hollin_gate" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="Button_Eriador" X="9" Y="311" Width="63" Height="63"> </Element>
+		<Element ID="Button_Rhovanion" X="906" Y="423" Width="63" Height="63"> </Element>
+		<Element ID="Button_Moria" X="746" Y="438" Width="63" Height="63"> </Element>
+		<Element ID="Zoom_Instructions_area_eregion_hollin_gate" X="852" Y="54" Width="134" Height="68"> </Element>
+	</Element>
+	<Element ID="area_gondor_old_anorien_talath_anor" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="toggle_area_gondor_old_anorien_pelennor" X="326" Y="669" Width="63" Height="63"> </Element>
+		<Element ID="toggle_area_gondor_far_anorien_taur_druadan" X="188" Y="48" Width="63" Height="63"> </Element>
+		<Element ID="toggle_area_gondor_east_osgiliath" X="688" Y="686" Width="63" Height="63"> </Element>
+		<Element ID="Zoom_Instructions" X="843" Y="655" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_WorldMap" X="1005" Y="2" Width="16" Height="16"> </Element>
+	</Element>
+	<Element ID="citymap_rohan_kingstead_Edoras_Button" X="432" Y="349" Width="63" Height="63"> </Element>
+	<Element ID="RegionMap_Mirkwood" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Toggle_Lothlorien" X="8" Y="438" Width="63" Height="63"> </Element>
+		<Element ID="Toggle3" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="Zoom_Instructions_3" X="805" Y="150" Width="134" Height="68"> </Element>
+	</Element>
+	<Element ID="RegionMap_Vales_of_Anduin" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Toggle_Eregion_Button" X="240" Y="476" Width="63" Height="63"> </Element>
+		<Element ID="Toggle3" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="Toggle_Lothlorien_Button" X="416" Y="680" Width="63" Height="63"> </Element>
+		<Element ID="Zoom_Instructions_3" X="850" Y="654" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_Eryn_Lasgalen_Button" X="820" Y="44" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_wells_of_langflood" X="558" Y="44" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_Misty_Mountains_Button" X="320" Y="138" Width="63" Height="63"> </Element>
+	</Element>
+	<Element ID="Rivendell_City_Button" X="1044" Y="191" Width="63" Height="63"> </Element>
+	<Element ID="ThorinsGateHomesteadsButton" X="0" Y="0" Width="63" Height="63"> </Element>
+	<Element ID="area_gondor_old_anorien_talath_anor_button" X="0" Y="0" Width="63" Height="63"> </Element>
+	<Element ID="Region_Rohan_West_Button" X="432" Y="349" Width="63" Height="63"> </Element>
+	<Element ID="ShireHomesteadsButton" X="0" Y="0" Width="20" Height="20"> </Element>
+	<Element ID="region_gondor_old_anorien" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="toggle_area_gondor_old_anorien_pelennor" X="420" Y="435" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_Gondor_East" X="274" Y="644" Width="63" Height="63"> </Element>
+		<Element ID="toggle_area_gondor_old_anorien_talath_anor" X="501" Y="320" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_region_gondor_far_anorien" X="235" Y="27" Width="63" Height="63"> </Element>
+		<Element ID="toggle_area_gondor_old_anorien_minas_tirith" X="347" Y="519" Width="63" Height="63"> </Element>
+		<Element ID="toggle_area_gondor_east_south_ithilien" X="644" Y="632" Width="63" Height="63"> </Element>
+		<Element ID="toggle_area_gondor_east_osgiliath" X="599" Y="436" Width="63" Height="63"> </Element>
+		<Element ID="toggle_north_ithilien" X="612" Y="55" Width="63" Height="63"> </Element>
+		<Element ID="Zoom_Instructions" X="63" Y="642" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_WorldMap" X="1005" Y="2" Width="16" Height="16"> </Element>
+	</Element>
+	<Element ID="area_rohan_west_helms_deep_Button" X="432" Y="349" Width="63" Height="63"> </Element>
+	<Element ID="WorldMap" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="ToggleMap" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="Territory_Rohan" X="556" Y="378" Width="63" Height="63"> </Element>
+		<Element ID="Territory_Gondor" X="664" Y="530" Width="63" Height="63"> </Element>
+		<Element ID="Territory_Eriador" X="290" Y="216" Width="63" Height="63"> </Element>
+		<Element ID="Territory_Rhovanion" X="690" Y="176" Width="63" Height="63"> </Element>
+		<Element ID="Territory_Mordor" X="860" Y="512" Width="63" Height="63"> </Element>
+	</Element>
+	<Element ID="Playerhousing_1_Shire" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Toggle_ShireHomesteads" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="Shire_Toggle_ShireHomesteads_1" X="813" Y="304" Width="63" Height="63"> </Element>
+		<Element ID="Zoom_Instructions_ShireHomesteads" X="839" Y="38" Width="138" Height="36"> </Element>
+	</Element>
+	<Element ID="HollinGateCityButton" X="1044" Y="191" Width="63" Height="63"> </Element>
+	<Element ID="region_gondor_old_anorien_button" X="0" Y="0" Width="63" Height="63"> </Element>
+	<Element ID="RegionMap_13_Lothlorien" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Toggle_South_Mirkwood" X="930" Y="426" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_Moria" X="90" Y="98" Width="63" Height="63"> </Element>
+		<Element ID="GreatRiverButton" X="796" Y="660" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_Vales_Of_Anduin" X="880" Y="98" Width="63" Height="63"> </Element>
+		<Element ID="Region_1_Lothlorien" X="644" Y="452" Width="63" Height="63"> </Element>
+		<Element ID="Toggle3" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="Zoom_Instructions_3" X="698" Y="73" Width="134" Height="68"> </Element>
+	</Element>
+	<Element ID="TerritoryMap" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Region_7_Shire" X="446" Y="408" Width="63" Height="63"> </Element>
+		<Element ID="Region_10_Evendim" X="466" Y="190" Width="63" Height="63"> </Element>
+		<Element ID="Region_15_Dunland" X="783" Y="674" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_Rhovanion" X="936" Y="392" Width="63" Height="63"> </Element>
+		<Element ID="Region_9_Ettenmoors" X="814" Y="256" Width="63" Height="63"> </Element>
+		<Element ID="Yondershire_Toggle" X="432" Y="306" Width="63" Height="63"> </Element>
+		<Element ID="Region_15_Enedwaith" X="770" Y="575" Width="63" Height="63"> </Element>
+		<Element ID="Region_15_NanCurunir" X="885" Y="648" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_Map_Panel" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="Zoom_Intructions" X="847" Y="16" Width="134" Height="68"> </Element>
+		<Element ID="Region_1" X="240" Y="264" Width="63" Height="63"> </Element>
+		<Element ID="Region_2_Lone" X="660" Y="400" Width="63" Height="63"> </Element>
+		<Element ID="Region_3_North_Downs" X="644" Y="246" Width="63" Height="63"> </Element>
+		<Element ID="Region_11_Forochel" X="450" Y="104" Width="63" Height="63"> </Element>
+		<Element ID="Region_4_Breeland" X="565" Y="350" Width="63" Height="63"> </Element>
+		<Element ID="Region_12_Eregion" X="876" Y="500" Width="63" Height="63"> </Element>
+		<Element ID="Region_5_Angmar" X="754" Y="160" Width="63" Height="63"> </Element>
+		<Element ID="Region_6_Trollshaws" X="830" Y="330" Width="63" Height="63"> </Element>
+		<Element ID="Region_8_MistyMountains" X="930" Y="232" Width="63" Height="63"> </Element>
+	</Element>
+	<Element ID="Playerhousing_1_ThorinsHall" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Zoom_Instructions_ThorinsHalHomesteads" X="770" Y="667" Width="138" Height="36"> </Element>
+		<Element ID="Toggle_ThorinsHalHomesteads" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="EredLuin_Toggle_ThorinsHallHomesteads_1" X="789" Y="487" Width="63" Height="63"> </Element>
+	</Element>
+	<Element ID="CityMap_OldForest" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Zoom_Instructions_OldForest" X="847" Y="15" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_OldForest" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="barrowdowns_toggle_oldforest" X="767" Y="236" Width="63" Height="63"> </Element>
+	</Element>
+	<Element ID="RegionMap_Gondor_East" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="toggle_area_gondor_old_anorien_pelennor" X="547" Y="229" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_region_gondor_old_anorien" X="542" Y="14" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_area_gondor_central_pelargir" X="98" Y="663" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_Gondor_Central" X="59" Y="609" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_Gondor_East" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="Zoom_Instructions_Gondor_East" X="729" Y="658" Width="134" Height="68"> </Element>
+		<Element ID="toggle_area_gondor_old_anorien_minas_tirith" X="468" Y="123" Width="63" Height="63"> </Element>
+		<Element ID="toggle_upper_lebennin" X="250" Y="612" Width="63" Height="63"> </Element>
+		<Element ID="toggle_area_gondor_east_lossarnach" X="341" Y="507" Width="63" Height="63"> </Element>
+		<Element ID="toggle_area_gondor_east_south_ithilien" X="793" Y="255" Width="63" Height="63"> </Element>
+		<Element ID="toggle_area_gondor_east_osgiliath" X="709" Y="64" Width="63" Height="63"> </Element>
+		<Element ID="toggle_north_ithilien" X="868" Y="14" Width="63" Height="63"> </Element>
+	</Element>
+	<Element ID="MirkwoodButton" X="1044" Y="191" Width="63" Height="63"> </Element>
+	<Element ID="CityMap_4_Anuminas" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Toggle_Anuminas" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="Zoom_Instructions_Anuminas_8" X="847" Y="15" Width="134" Height="68"> </Element>
+	</Element>
+	<Element ID="Moria_area_moria_balrogs_lair" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Toggle_area_moria_balrogs_lair" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="Zoom_Instructions_area_moria_balrogs_lair" X="839" Y="38" Width="138" Height="36"> </Element>
+	</Element>
+	<Element ID="SteelKeepButton" X="1044" Y="191" Width="63" Height="63"> </Element>
+	<Element ID="Moria_area_moria_shadowy_abyss" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Toggle_area_moria_shadowy_abyss" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="Zoom_Instructions_area_moria_shadowy_abyss" X="839" Y="38" Width="138" Height="36"> </Element>
+		<Element ID="Toggle_Redhorn" X="30" Y="135" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_ZelekMalek" X="156" Y="51" Width="63" Height="63"> </Element>
+	</Element>
+	<Element ID="RegionMap_SteelKeep" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Toggle3" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="Zoom_Instructions_3" X="805" Y="150" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_Ered_Mithrin" X="255" Y="697" Width="63" Height="63"> </Element>
+	</Element>
+	<Element ID="area_gondor_west_cape_belfalas" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Toggle_Gondor_West" X="372" Y="127" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_Gondor_Central" X="893" Y="146" Width="63" Height="63"> </Element>
+		<Element ID="area_gondor_belfalas_housing_button" X="362" Y="260" Width="63" Height="63"> </Element>
+		<Element ID="Zoom_Instructions" X="600" Y="140" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_WorldMap" X="1005" Y="2" Width="16" Height="16"> </Element>
+	</Element>
+	<Element ID="Moria_area_moria_aflame_deeps" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Toggle_CentralDeeps" X="862" Y="406" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_area_moria_aflame_deeps" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="Toggle_WaterWorks" X="91" Y="432" Width="63" Height="63"> </Element>
+		<Element ID="Zoom_Instructions_area_moria_aflame_deeps" X="839" Y="38" Width="138" Height="36"> </Element>
+		<Element ID="Toggle_EasternLevels" X="463" Y="22" Width="63" Height="63"> </Element>
+	</Element>
+	<Element ID="AnuminasButton" X="1044" Y="191" Width="63" Height="63"> </Element>
+	<Element ID="RegionMap_15_Enedwaith" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Toggle_Dunland_2" X="491" Y="671" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_Dunland" X="272" Y="661" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_Eregion" X="579" Y="21" Width="63" Height="63"> </Element>
+		<Element ID="Toggle3" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="Zoom_Instructions_3" X="782" Y="23" Width="179" Height="95"> </Element>
+	</Element>
+	<Element ID="Moria_area_moria_flooded_deeps" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Toggle_WesternDeeps" X="572" Y="71" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_area_moria_flooded_deeps" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="Toggle_AflameDeeps" X="783" Y="302" Width="63" Height="63"> </Element>
+		<Element ID="Zoom_Instructions_area_moria_flooded_deeps" X="839" Y="38" Width="138" Height="36"> </Element>
+	</Element>
+	<Element ID="Region_Gondor_East_Button" X="0" Y="0" Width="63" Height="63"> </Element>
+	<Element ID="Moria_area_moria_central_deeps" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Toggle_1" X="749" Y="89" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_2" X="763" Y="272" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_3" X="270" Y="653" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_area_Broken_Stair" X="557" Y="68" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_area_moria_central_deeps" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="Zoom_Instructions_area_moria_central_deeps" X="839" Y="38" Width="138" Height="36"> </Element>
+		<Element ID="Toggle_4" X="210" Y="225" Width="63" Height="63"> </Element>
+	</Element>
+	<Element ID="area_gondor_east_upper_lebennin" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Toggle_area_gondor_central_pelargir" X="287" Y="603" Width="63" Height="63"> </Element>
+		<Element ID="toggle_area_gondor_east_lossarnach" X="875" Y="269" Width="63" Height="63"> </Element>
+		<Element ID="Zoom_Instructions" X="63" Y="642" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_WorldMap" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="Toggle_area_gondor_central_lebennin" X="168" Y="526" Width="63" Height="63"> </Element>
+	</Element>
+	<Element ID="RegionMap_Glimmerdeep" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Toggle3" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="Zoom_Instructions_3" X="805" Y="150" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_Ered_Mithrin" X="255" Y="697" Width="63" Height="63"> </Element>
+	</Element>
+	<Element ID="Moria_area_moria_western_deeps" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Toggle_1" X="428" Y="662" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_2" X="486" Y="2" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_area_moria_western_deeps" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="Zoom_Instructions_area_moria_western_deeps" X="839" Y="38" Width="138" Height="36"> </Element>
+	</Element>
+	<Element ID="MapNoteTemplate" X="0" Y="0" Width="30" Height="30">
+		<Element ID="MTButton" X="0" Y="0" Width="30" Height="30"> </Element>
+	</Element>
+	<Element ID="area_gondor_east_upper_lebennin_button" X="0" Y="0" Width="63" Height="63"> </Element>
+	<Element ID="Moria_area_moria_eastern_levels" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Toggle_1" X="477" Y="12" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_area_moria_eastern_levels" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="Toggle_2" X="66" Y="55" Width="63" Height="63"> </Element>
+		<Element ID="Zoom_Instructions_area_moria_eastern_levels" X="839" Y="38" Width="138" Height="36"> </Element>
+		<Element ID="Toggle_5" X="312" Y="678" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_3" X="51" Y="275" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_Dimrill_Dale" X="921" Y="313" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_4" X="209" Y="544" Width="63" Height="63"> </Element>
+	</Element>
+	<Element ID="RohanButton" X="1033" Y="192" Width="63" Height="63"> </Element>
+	<Element ID="area_gondor_east_lossarnach" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="toggle_area_gondor_old_anorien_pelennor" X="839" Y="66" Width="63" Height="63"> </Element>
+		<Element ID="toggle_area_gondor_east_upper_lebennin" X="324" Y="536" Width="63" Height="63"> </Element>
+		<Element ID="toggle_area_gondor_east_south_ithilien" X="799" Y="458" Width="63" Height="63"> </Element>
+		<Element ID="Zoom_Instructions" X="63" Y="642" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_WorldMap" X="1005" Y="2" Width="16" Height="16"> </Element>
+	</Element>
+	<Element ID="GlimmerdeepButton" X="1044" Y="191" Width="63" Height="63"> </Element>
+	<Element ID="Moria_area_moria_central_levels" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Toggle_1" X="575" Y="6" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_6" X="765" Y="262" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_2" X="427" Y="116" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_5" X="509" Y="692" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_3" X="271" Y="261" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_area_moria_central_levels" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="Toggle_4" X="576" Y="559" Width="63" Height="63"> </Element>
+		<Element ID="Zoom_Instructions_area_moria_central_levels" X="839" Y="38" Width="138" Height="36"> </Element>
+	</Element>
+	<Element ID="RealScrollMapDisplay" X="0" Y="0" Width="496" Height="480">
+		<Element ID="RegionMapField" X="0" Y="0" Width="512" Height="512"> </Element>
+	</Element>
+	<Element ID="area_gondor_east_lossarnach_button" X="0" Y="0" Width="63" Height="63"> </Element>
+	<Element ID="Moria_area_moria_western_levels" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Zoom_Instructions_area_moria_western_levels" X="839" Y="38" Width="138" Height="36"> </Element>
+		<Element ID="Toggle_1" X="673" Y="103" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_2" X="26" Y="350" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_3" X="688" Y="585" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_4" X="936" Y="390" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_area_moria_western_levels" X="1005" Y="2" Width="16" Height="16"> </Element>
+	</Element>
+	<Element ID="area_gondor_east_south_ithilien" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Toggle_region_gondor_old_anorien" X="411" Y="16" Width="63" Height="63"> </Element>
+		<Element ID="toggle_area_gondor_old_anorien_pelennor" X="441" Y="193" Width="63" Height="63"> </Element>
+		<Element ID="toggle_area_gondor_old_anorien_minas_tirith" X="301" Y="253" Width="63" Height="63"> </Element>
+		<Element ID="toggle_area_gondor_east_lossarnach" X="274" Y="621" Width="63" Height="63"> </Element>
+		<Element ID="toggle_area_gondor_east_osgiliath" X="633" Y="75" Width="63" Height="63"> </Element>
+		<Element ID="toggle_north_ithilien" X="830" Y="18" Width="63" Height="63"> </Element>
+		<Element ID="Zoom_Instructions" X="63" Y="642" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_WorldMap" X="1005" Y="2" Width="16" Height="16"> </Element>
+	</Element>
+	<Element ID="RegionMap_Erebor" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Toggle_Erebor_Homesteads" X="62" Y="472" Width="63" Height="63"> </Element>
+		<Element ID="Toggle3" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="Zoom_Instructions_3" X="805" Y="150" Width="134" Height="68"> </Element>
+	</Element>
+	<Element ID="Moria_area_moria_durins_way" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Toggle_1" X="180" Y="245" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_area_moria_durins_way" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="Toggle_2" X="81" Y="522" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_3" X="498" Y="543" Width="63" Height="63"> </Element>
+		<Element ID="Zoom_Instructions_area_moria_durins_way" X="839" Y="38" Width="138" Height="36"> </Element>
+		<Element ID="Toggle_4" X="829" Y="543" Width="63" Height="63"> </Element>
+	</Element>
+	<Element ID="RealMapFogOfWarDisplay" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="MapFogOfWarField" X="0" Y="0" Width="1024" Height="768"> </Element>
+	</Element>
+	<Element ID="area_gondor_east_south_ithilien_button" X="0" Y="0" Width="63" Height="63"> </Element>
+	<Element ID="EreborButton" X="1044" Y="191" Width="63" Height="63"> </Element>
+	<Element ID="Moria_area_moria_zirakzigil" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Toggle_1" X="554" Y="650" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_area_moria_zirakzigil" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="Zoom_Instructions_area_moria_zirakzigil" X="839" Y="38" Width="138" Height="36"> </Element>
+	</Element>
+	<Element ID="TerritoryMap_Rhovanion" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Toggle_Eriador" X="34" Y="320" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_Rohan" X="282" Y="690" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_Mirkwood_North" X="480" Y="168" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_IronHills" X="860" Y="140" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_Map_Panel" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="Toggle_Vales_Of_Anduin" X="284" Y="376" Width="63" Height="63"> </Element>
+		<Element ID="Region_1_Lothlorien" X="160" Y="600" Width="63" Height="63"> </Element>
+		<Element ID="Zoom_Intructions" X="847" Y="16" Width="134" Height="68"> </Element>
+		<Element ID="Region_1_Moria" X="92" Y="486" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_Mirkwood" X="465" Y="665" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_Gundabad" X="150" Y="60" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_Ered_Mithrin" X="460" Y="34" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_wells_of_langflood" X="260" Y="190" Width="63" Height="63"> </Element>
+	</Element>
+	<Element ID="area_gondor_east_osgiliath" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="toggle_area_gondor_old_anorien_pelennor" X="65" Y="421" Width="63" Height="63"> </Element>
+		<Element ID="toggle_area_gondor_east_south_ithilien" X="862" Y="439" Width="63" Height="63"> </Element>
+		<Element ID="Zoom_Instructions" X="63" Y="642" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_WorldMap" X="1005" Y="2" Width="16" Height="16"> </Element>
+	</Element>
+	<Element ID="RegionMap_1" X="-1" Y="0" Width="1024" Height="768">
+		<Element ID="Playerhousing_1_Falathlorn" X="830" Y="584" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_1" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="Yondershire_Toggle" X="880" Y="532" Width="63" Height="63"> </Element>
+		<Element ID="City_3_ThorinsGates" X="260" Y="70" Width="63" Height="63"> </Element>
+		<Element ID="Zoom_Instructions_1" X="100" Y="540" Width="134" Height="68"> </Element>
+		<Element ID="Playerhousing_1_Thorins" X="98" Y="96" Width="63" Height="63"> </Element>
+	</Element>
+	<Element ID="EnedwaithButton" X="1044" Y="191" Width="63" Height="63"> </Element>
+	<Element ID="TerritoryMap_Mordor" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Toggle_Rohan" X="52" Y="40" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_Rhovanion" X="344" Y="26" Width="63" Height="63"> </Element>
+		<Element ID="toggle_area_mordor_morgul_vale" X="254" Y="400" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_Map_Panel" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="Zoom_Intructions" X="847" Y="200" Width="134" Height="68"> </Element>
+		<Element ID="toggle_area_gorgoroth" X="388" Y="200" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_Gondor" X="54" Y="260" Width="63" Height="63"> </Element>
+		<Element ID="toggle_area_the_wastes" X="172" Y="64" Width="63" Height="63"> </Element>
+		<Element ID="toggle_region_march_of_the_king" X="148" Y="300" Width="63" Height="63"> </Element>
+	</Element>
+	<Element ID="area_gondor_east_osgiliath_button" X="0" Y="0" Width="63" Height="63"> </Element>
+	<Element ID="TerritoryMap_Rohan" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Toggle_Eriador" X="42" Y="216" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_Mordor" X="920" Y="566" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_Rhovanion" X="536" Y="20" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_EastRohan" X="558" Y="486" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_Dunland" X="38" Y="390" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_Map_Panel" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="Toggle_Fangorn" X="334" Y="230" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_WestRohan" X="250" Y="444" Width="63" Height="63"> </Element>
+		<Element ID="Zoom_Intructions" X="847" Y="100" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_EastRohan_2" X="590" Y="294" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_Eisengard" X="144" Y="290" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_Gondor" X="600" Y="674" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_Mirkwood" X="732" Y="32" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_Edoras" X="390" Y="468" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_Helms_Deep" X="182" Y="510" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_Wildemore" X="480" Y="142" Width="63" Height="63"> </Element>
+	</Element>
+	<Element ID="area_paths_of_the_dead" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Toggle_Gondor_Blackroot_Vale" X="615" Y="702" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_PathsOfDead" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="Zoom_Instructions_PathsOfDead" X="847" Y="15" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_region_west_rohan_area_kingstead" X="623" Y="9" Width="63" Height="63"> </Element>
+	</Element>
+	<Element ID="RegionMap_14_Moria" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="area_moria_western_deepsToggle" X="254" Y="392" Width="63" Height="63"> </Element>
+		<Element ID="area_moria_eastern_levelsToggle" X="610" Y="295" Width="63" Height="63"> </Element>
+		<Element ID="area_moria_broken_stairToggle" X="558" Y="371" Width="63" Height="63"> </Element>
+		<Element ID="area_moria_central_levelsToggle" X="415" Y="278" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_Lothlorien" X="826" Y="293" Width="63" Height="63"> </Element>
+		<Element ID="area_moria_western_levelsToggle" X="243" Y="280" Width="63" Height="63"> </Element>
+		<Element ID="area_moria_balrogs_lairToggle" X="2000" Y="2000" Width="63" Height="63"> </Element>
+		<Element ID="area_moria_shadowy_abyssToggle" X="680" Y="475" Width="63" Height="63"> </Element>
+		<Element ID="Eriador_Toggle" X="68" Y="290" Width="63" Height="63"> </Element>
+		<Element ID="area_moria_zirakzigilToggle" X="780" Y="73" Width="63" Height="63"> </Element>
+		<Element ID="Toggle3" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="area_moria_durins_wayToggle" X="409" Y="157" Width="63" Height="63"> </Element>
+		<Element ID="Zoom_Instructions_3" X="422" Y="55" Width="134" Height="68"> </Element>
+		<Element ID="area_moria_aflame_deepsToggle" X="377" Y="516" Width="63" Height="63"> </Element>
+		<Element ID="area_moria_flooded_deepsToggle" X="219" Y="575" Width="63" Height="63"> </Element>
+		<Element ID="area_moria_central_deepsToggle" X="496" Y="405" Width="63" Height="63"> </Element>
+	</Element>
+	<Element ID="area_moria_zirakzigilButton" X="1044" Y="191" Width="63" Height="63"> </Element>
+	<Element ID="area_paths_of_the_dead_button" X="433" Y="349" Width="63" Height="63"> </Element>
+	<Element ID="area_moria_durins_wayButton" X="1044" Y="191" Width="63" Height="63"> </Element>
+	<Element ID="area_moria_western_levelsButton" X="1044" Y="191" Width="63" Height="63"> </Element>
+	<Element ID="shelobs_lair_button" X="1033" Y="192" Width="63" Height="63"> </Element>
+	<Element ID="area_gondor_dol_amroth" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Toggle_DolAmroth" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="zoom_instructions_DolAmroth" X="852" Y="58" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_area_belfalas_area_dolamroth" X="911" Y="464" Width="63" Height="63"> </Element>
+	</Element>
+	<Element ID="area_moria_central_levelsButton" X="1044" Y="191" Width="63" Height="63"> </Element>
+	<Element ID="area_shelobs_lair" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Zoom_Instructions" X="240" Y="640" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_WorldMap" X="1005" Y="2" Width="16" Height="16"> </Element>
+	</Element>
+	<Element ID="area_gondor_dol_amroth_button" X="433" Y="349" Width="63" Height="63"> </Element>
+	<Element ID="area_moria_eastern_levelsButton" X="1044" Y="191" Width="63" Height="63"> </Element>
+	<Element ID="area_moria_western_deepsButton" X="1044" Y="191" Width="63" Height="63"> </Element>
+	<Element ID="area_moria_central_deepsButton" X="1044" Y="191" Width="63" Height="63"> </Element>
+	<Element ID="area_moria_flooded_deepsButton" X="1044" Y="191" Width="63" Height="63"> </Element>
+	<Element ID="Winter_Festival_City_Button" X="1044" Y="191" Width="63" Height="63"> </Element>
+	<Element ID="area_moria_aflame_deepsButton" X="1044" Y="191" Width="63" Height="63"> </Element>
+	<Element ID="CityMap_Winter_Festival" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Zoom_Instructions_Winter_Festival" X="847" Y="15" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_Winter_Festival" X="1005" Y="2" Width="16" Height="16"> </Element>
+	</Element>
+	<Element ID="area_moria_shadowy_abyssButton" X="1044" Y="191" Width="63" Height="63"> </Element>
+	<Element ID="oldForest_City_Button" X="1044" Y="191" Width="63" Height="63"> </Element>
+	<Element ID="GondorWestButton" X="1033" Y="192" Width="63" Height="63"> </Element>
+	<Element ID="area_rohan_housing_foothills" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="toggle_citymap_edoras" X="100" Y="110" Width="63" Height="63"> </Element>
+		<Element ID="Zoom_Instructions" X="240" Y="640" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_WorldMap" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="toggle_area_eastfold" X="636" Y="140" Width="63" Height="63"> </Element>
+	</Element>
+	<Element ID="area_moria_balrogs_lairButton" X="1044" Y="191" Width="63" Height="63"> </Element>
+	<Element ID="area_rohan_housing_plains" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="toggle_area_kingstead" X="852" Y="572" Width="63" Height="63"> </Element>
+		<Element ID="Zoom_Instructions" X="240" Y="640" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_WorldMap" X="1005" Y="2" Width="16" Height="16"> </Element>
+	</Element>
+	<Element ID="RegionMap_2_Trollshaws" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Toggle_The_Angle" X="346" Y="504" Width="63" Height="63"> </Element>
+		<Element ID="Misty_Toggle_Trollshaws" X="858" Y="34" Width="63" Height="63"> </Element>
+		<Element ID="LoneLands_Toggle_Trollshaws" X="130" Y="246" Width="63" Height="63"> </Element>
+		<Element ID="Rivendell_Toggle_Trollshaws" X="828" Y="120" Width="63" Height="63"> </Element>
+		<Element ID="Toogle_2" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="Zoom_Instructions_2" X="820" Y="640" Width="134" Height="68"> </Element>
+		<Element ID="EregionToggle" X="686" Y="596" Width="63" Height="63"> </Element>
+	</Element>
+	<Element ID="rohan_housing_foothills_button" X="1033" Y="192" Width="63" Height="63"> </Element>
+	<Element ID="area_gondor_old_anorien_minas_tirith_epicbattle" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="toggle_area_gondor_old_anorien_pelennor" X="912" Y="364" Width="63" Height="63"> </Element>
+		<Element ID="Zoom_Instructions" X="735" Y="635" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_WorldMap" X="1005" Y="2" Width="16" Height="16"> </Element>
+	</Element>
+	<Element ID="rohan_housing_plains_button" X="1033" Y="192" Width="63" Height="63"> </Element>
+	<Element ID="area_gondor_old_anorien_minas_tirith_epicbook" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="toggle_area_gondor_old_anorien_pelennor" X="912" Y="364" Width="63" Height="63"> </Element>
+		<Element ID="Zoom_Instructions" X="745" Y="658" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_WorldMap" X="1005" Y="2" Width="16" Height="16"> </Element>
+	</Element>
+	<Element ID="area_gundabad_gundabad_mountain" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Toggle_area_angmar" X="160" Y="30" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_elderslade" X="660" Y="520" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_welkinlofts" X="126" Y="408" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_car_bronach" X="374" Y="80" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_gundabad_interior" X="308" Y="520" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_area_moria_shadowy_abyss" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="Zoom_Instructions_area_moria_shadowy_abyss" X="848" Y="440" Width="138" Height="36"> </Element>
+		<Element ID="toggle_area_ered_mithrin" X="886" Y="600" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_wells_of_anduin" X="566" Y="692" Width="63" Height="63"> </Element>
+	</Element>
+	<Element ID="MapQuestLandblockObjectiveTemplate" X="0" Y="0" Width="50" Height="50"> </Element>
+	<Element ID="area_gundabad_mountain_button" X="1044" Y="191" Width="63" Height="63"> </Element>
+	<Element ID="area_gondor_havens_of_belfalas" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="toggle_area_gondor_west_bay_of_belfalas" X="523" Y="500" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_Lamedon" X="925" Y="150" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_Gondor_Blackroot_Vale" X="604" Y="5" Width="63" Height="63"> </Element>
+		<Element ID="zoom_instructions_Belfalas" X="861" Y="32" Width="134" Height="68"> </Element>
+		<Element ID="toggle_dol_amroth_belfalas" X="458" Y="285" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_WorldMap" X="1005" Y="2" Width="16" Height="16"> </Element>
+	</Element>
+	<Element ID="MapQuestRadiusObjectiveTemplate" X="179" Y="39" Width="50" Height="50"> </Element>
+	<Element ID="MapQuestStaticObjectiveTemplate" X="179" Y="39" Width="32" Height="32"> </Element>
+	<Element ID="area_anduin_wells_of_langflood" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="toggle_area_edlerslade" X="586" Y="12" Width="63" Height="63"> </Element>
+		<Element ID="toggle_area_ered_mithrin" X="744" Y="36" Width="63" Height="63"> </Element>
+		<Element ID="toggle_area_vales_of_anduin" X="720" Y="680" Width="63" Height="63"> </Element>
+		<Element ID="Zoom_Instructions" X="160" Y="540" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_WorldMap" X="1005" Y="2" Width="16" Height="16"> </Element>
+	</Element>
+	<Element ID="area_gundabad_welkinlofts" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Toggle_car_bronach" X="728" Y="46" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_clovengap" X="462" Y="330" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_area_moria_shadowy_abyss" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="Zoom_Instructions_area_moria_shadowy_abyss" X="839" Y="38" Width="138" Height="36"> </Element>
+	</Element>
+	<Element ID="RegionMap_10_Evendim" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Anuminas_Toggle_Anuminas" X="397" Y="521" Width="63" Height="63"> </Element>
+		<Element ID="Yondershire_Toggle" X="292" Y="696" Width="63" Height="63"> </Element>
+		<Element ID="Evendim_Toggle_Shire" X="504" Y="705" Width="63" Height="63"> </Element>
+		<Element ID="Evendim_Toggle_NorthDowns" X="898" Y="297" Width="63" Height="63"> </Element>
+		<Element ID="Evendim_Toggle_Forochel" X="728" Y="2" Width="63" Height="63"> </Element>
+		<Element ID="Toggle10" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="Zoom_Instructions_10" X="41" Y="470" Width="134" Height="68"> </Element>
+	</Element>
+	<Element ID="area_gundabad_welkinlofts_button" X="1044" Y="191" Width="63" Height="63"> </Element>
+	<Element ID="wells_of_langflood_button" X="1033" Y="192" Width="63" Height="63"> </Element>
+	<Element ID="Region_Rohan_East" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="EastRohan_Toggle_TheWold" X="773" Y="42" Width="63" Height="63"> </Element>
+		<Element ID="EastRohan_toggle_GreatRiver" X="414" Y="6" Width="63" Height="63"> </Element>
+		<Element ID="EastRohan_Toggle_EavesOfFangorn" X="129" Y="44" Width="63" Height="63"> </Element>
+		<Element ID="EastRohan_Toggle_Sutcrofts" X="255" Y="552" Width="63" Height="63"> </Element>
+		<Element ID="EastRohan_Toggle_Norcrofts" X="445" Y="305" Width="63" Height="63"> </Element>
+		<Element ID="EastRohan_Toggle_EntwashVale" X="296" Y="192" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_region_gondor_far_anorien" X="727" Y="665" Width="63" Height="63"> </Element>
+		<Element ID="EastRohan_Toggle_RohanWest" X="246" Y="641" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_Rohan_East" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="ZoomInstructions_Rohan_East" X="863" Y="254" Width="134" Height="68"> </Element>
+		<Element ID="EastRohan_Toggle_Wildermore" X="357" Y="94" Width="63" Height="63"> </Element>
+		<Element ID="EastRohan_Toggle_EastWall" X="574" Y="518" Width="63" Height="63"> </Element>
+	</Element>
+	<Element ID="area_gondor_belfalas_button" X="433" Y="349" Width="63" Height="63"> </Element>
+	<Element ID="EvendimButton" X="1044" Y="191" Width="63" Height="63"> </Element>
+	<Element ID="RegionMap_3_Lone_Lands" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Toggle3" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="Zoom_Instructions_3" X="422" Y="55" Width="134" Height="68"> </Element>
+		<Element ID="Breeland_Toggle_LoneLands_1" X="22" Y="338" Width="63" Height="63"> </Element>
+		<Element ID="Breeland_Toggle_LoneLands_2" X="42" Y="39" Width="63" Height="63"> </Element>
+		<Element ID="Trollshaws_Toggle_LoneLands_1" X="936" Y="253" Width="63" Height="63"> </Element>
+	</Element>
+	<Element ID="area_lorien_caras_galadhonButton" X="1044" Y="191" Width="63" Height="63"> </Element>
+	<Element ID="area_gundabad_car_bronach" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Toggle_area_moria_shadowy_abyss" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="Toggle_Angmar" X="98" Y="140" Width="63" Height="63"> </Element>
+		<Element ID="Zoom_Instructions_area_moria_shadowy_abyss" X="839" Y="38" Width="138" Height="36"> </Element>
+	</Element>
+	<Element ID="area_gundabad_car_bronach_button" X="1044" Y="191" Width="63" Height="63"> </Element>
+	<Element ID="region_Rohan_East_Button" X="1044" Y="191" Width="63" Height="63"> </Element>
+	<Element ID="area_gondor_blackroot_vale" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Toggle_Lamedon" X="805" Y="346" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_Belfalas" X="603" Y="699" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_PathsOfDead" X="587" Y="21" Width="63" Height="63"> </Element>
+		<Element ID="Zoom_Instructions" X="861" Y="32" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_WorldMap" X="1005" Y="2" Width="16" Height="16"> </Element>
+	</Element>
+	<Element ID="area_gundabad_interior" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Toggle_welkinlofts" X="517" Y="89" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_car_bronach" X="791" Y="112" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_gloomingtarn" X="282" Y="499" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_stonejaws" X="834" Y="329" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_deepscrave" X="642" Y="668" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_mattugard" X="841" Y="488" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_area_moria_shadowy_abyss" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="Zoom_Instructions_area_moria_shadowy_abyss" X="839" Y="38" Width="138" Height="36"> </Element>
+		<Element ID="Toggle_Mount_Gundabad" X="867" Y="630" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_Clovengap_Button" X="324" Y="210" Width="63" Height="63"> </Element>
+	</Element>
+	<Element ID="area_gundabad_interior_button" X="1044" Y="191" Width="63" Height="63"> </Element>
+	<Element ID="area_gundabad_clovengap_button" X="1044" Y="191" Width="63" Height="63"> </Element>
+	<Element ID="area_gondor_blackroot_vale_button" X="433" Y="349" Width="63" Height="63"> </Element>
+	<Element ID="RegionMap_11_Forochel" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Forochel_Toggle_Evendim" X="729" Y="706" Width="63" Height="63"> </Element>
+		<Element ID="Toggle11" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="ZoomInstructions_Forochel_1" X="863" Y="254" Width="134" Height="68"> </Element>
+	</Element>
+	<Element ID="area_mordor_north_lhingris_button" X="0" Y="0" Width="63" Height="63"> </Element>
+	<Element ID="area_gundabad_clovengap" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Toggle_welkinlofts" X="842" Y="147" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_gloomingtarn" X="486" Y="682" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_area_moria_shadowy_abyss" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="Zoom_Instructions_area_moria_shadowy_abyss" X="839" Y="38" Width="138" Height="36"> </Element>
+	</Element>
+	<Element ID="area_gondor_lamedon" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Toggle_Belfalas" X="384" Y="659" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_Blackroot_Vale" X="255" Y="31" Width="63" Height="63"> </Element>
+		<Element ID="toggle_area_gondor_central_ringlo_vale" X="856" Y="533" Width="63" Height="63"> </Element>
+		<Element ID="Zoom_Instructions" X="861" Y="32" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_WorldMap" X="1005" Y="2" Width="16" Height="16"> </Element>
+	</Element>
+	<Element ID="RegionMap_4_Angmar" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Northdowns_Toggle_Angmar_1" X="430" Y="678" Width="63" Height="63"> </Element>
+		<Element ID="Northdowns_Toggle_Angmar_2" X="108" Y="702" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_4" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="Zoom_Instructions_4" X="741" Y="11" Width="134" Height="68"> </Element>
+	</Element>
+	<Element ID="area_gondor_lamedon_button" X="433" Y="349" Width="63" Height="63"> </Element>
+	<Element ID="CityMap_Isengard_Depths_Flooded" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Toggle_area_eregion_CityMap_Isengard_Depths" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="Zoom_Instructions_area_dunland_CityMap_Isengard_Depths" X="829" Y="143" Width="134" Height="68"> </Element>
+	</Element>
+	<Element ID="city_isengard_depths_flooded_button" X="433" Y="349" Width="63" Height="63"> </Element>
+	<Element ID="RegionMap_16_Dunland" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Dunland_Toggle_Isengard" X="784" Y="238" Width="63" Height="63"> </Element>
+		<Element ID="Dunland_Toggle_Galtrev" X="340" Y="259" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_DunlandRegion" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="Dunland_Toggle_NanCurunir" X="780" Y="103" Width="63" Height="63"> </Element>
+		<Element ID="Dunland_Toggle_GapOfRohan" X="659" Y="620" Width="63" Height="63"> </Element>
+		<Element ID="Dunland_Toggle_areaDunland" X="181" Y="109" Width="63" Height="63"> </Element>
+		<Element ID="Zoom_Instructions_16" X="172" Y="669" Width="134" Height="68"> </Element>
+	</Element>
+	<Element ID="area_gundabad_gloomingtarn_button" X="1044" Y="191" Width="63" Height="63"> </Element>
+	<Element ID="area_mordor_north_udun_button" X="0" Y="0" Width="63" Height="63"> </Element>
+	<Element ID="CityMap_Dunland_TalMathedras" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Toggle_TalMathedras" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="Zoom_Instructions_TalMathedras" X="847" Y="15" Width="134" Height="68"> </Element>
+	</Element>
+	<Element ID="area_gundabad_deepscrave_button" X="1044" Y="191" Width="63" Height="63"> </Element>
+	<Element ID="area_mordor_north_talath_urui_button" X="0" Y="0" Width="63" Height="63"> </Element>
+	<Element ID="area_gundabad_mattugard_button" X="1044" Y="191" Width="63" Height="63"> </Element>
+	<Element ID="area_mordor_north_agarnaith_button" X="0" Y="0" Width="63" Height="63"> </Element>
+	<Element ID="area_gundabad_stonejaws_button" X="1044" Y="191" Width="63" Height="63"> </Element>
+	<Element ID="area_mordor_north_nargroth_button" X="0" Y="0" Width="63" Height="63"> </Element>
+	<Element ID="city_TalMathedras_Button" X="1047" Y="483" Width="63" Height="63"> </Element>
+	<Element ID="Citymap_GreatRiver_Stangard" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Toggle_Stangard" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="Zoom_Instructions_Stangard" X="847" Y="15" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_GreatRiver" X="372" Y="32" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_GreatRiver_left" X="99" Y="384" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_GreatRiver_Right" X="896" Y="222" Width="63" Height="63"> </Element>
+	</Element>
+	<Element ID="area_mordor_north_orodruin_button" X="0" Y="0" Width="63" Height="63"> </Element>
+	<Element ID="area_Stangard_Button" X="1033" Y="192" Width="63" Height="63"> </Element>
+	<Element ID="area_mordor_north_sammath_naur_button" X="0" Y="0" Width="63" Height="63"> </Element>
+	<Element ID="area_gondor_dol_amroth_copy" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Toggle_DolAmroth" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="zoom_instructions_DolAmroth" X="852" Y="58" Width="134" Height="68"> </Element>
+	</Element>
+	<Element ID="AnvilButton" X="1044" Y="191" Width="63" Height="63"> </Element>
+	<Element ID="CityMap_5_Galtrev" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Toggle_Galtrev" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="Zoom_Instructions_Galtrev_8" X="847" Y="15" Width="134" Height="68"> </Element>
+	</Element>
+	<Element ID="area_gundabad_gloomingtarn" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Toggle_deepscrave" X="907" Y="618" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_area_moria_shadowy_abyss" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="Zoom_Instructions_area_moria_shadowy_abyss" X="839" Y="38" Width="138" Height="36"> </Element>
+		<Element ID="Toggle_Clovengap_Button" X="461" Y="16" Width="63" Height="63"> </Element>
+	</Element>
+	<Element ID="CityMap_6_Isengard" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Toggle_Isengard" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="Zoom_Instructions_Isengard_8" X="847" Y="15" Width="134" Height="68"> </Element>
+	</Element>
+	<Element ID="area_gundabad_deepscrave" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Toggle_gloomingtarn" X="140" Y="330" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_stonejaws" X="854" Y="26" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_mattugard" X="929" Y="255" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_area_moria_shadowy_abyss" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="Zoom_Instructions_area_moria_shadowy_abyss" X="756" Y="662" Width="138" Height="36"> </Element>
+	</Element>
+	<Element ID="area_gundabad_mattugard" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Toggle_elderslade" X="612" Y="515" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_stonejaws" X="255" Y="17" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_deepscrave" X="52" Y="545" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_area_moria_shadowy_abyss" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="Zoom_Instructions_area_moria_shadowy_abyss" X="839" Y="38" Width="138" Height="36"> </Element>
+	</Element>
+	<Element ID="RegionMap_Felegoth" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Toggle_Mirkwood_North" X="255" Y="697" Width="63" Height="63"> </Element>
+		<Element ID="Toggle3" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="Zoom_Instructions_3" X="805" Y="150" Width="134" Height="68"> </Element>
+	</Element>
+	<Element ID="RegionMap_Mirkwood_North" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Toggle_IronHills_Button" X="846" Y="332" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_Felegoth_Button" X="412" Y="334" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_Rhovanion2" X="668" Y="670" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_Vales_Of_Anduin" X="70" Y="563" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_Erebor" X="700" Y="80" Width="63" Height="63"> </Element>
+		<Element ID="Toggle3" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="Zoom_Instructions_3" X="850" Y="654" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_EredMithrin_Button" X="460" Y="52" Width="63" Height="63"> </Element>
+	</Element>
+	<Element ID="RegionMap_Anvil" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Toggle3" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="Zoom_Instructions_3" X="805" Y="220" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_Ered_Mithrin" X="850" Y="630" Width="63" Height="63"> </Element>
+	</Element>
+	<Element ID="area_gundabad_stonejaws" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Toggle_car_bronach" X="530" Y="79" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_mattugard" X="310" Y="688" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_area_moria_shadowy_abyss" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="Zoom_Instructions_area_moria_shadowy_abyss" X="839" Y="38" Width="138" Height="36"> </Element>
+	</Element>
+	<Element ID="FelegothButton" X="1044" Y="191" Width="63" Height="63"> </Element>
+	<Element ID="area_mordor_north_dor_amarth_button" X="0" Y="0" Width="63" Height="63"> </Element>
+	<Element ID="MirkwoodNorthButton" X="1044" Y="191" Width="63" Height="63"> </Element>
+	<Element ID="raid_gondor_far_anorien_pelennor" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Zoom_Instructions" X="63" Y="642" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_WorldMap" X="1005" Y="2" Width="16" Height="16"> </Element>
+	</Element>
+	<Element ID="Areamap_Erebor_Homesteads" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Toggle_Erebor_Button" X="640" Y="548" Width="63" Height="63"> </Element>
+		<Element ID="Toggle3" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="Zoom_Instructions_3" X="805" Y="150" Width="134" Height="68"> </Element>
+	</Element>
+	<Element ID="area_mountains_shadow_minas_tirith" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="toggle_area_mountains_shadow_pelennor" X="909" Y="363" Width="63" Height="63"> </Element>
+		<Element ID="Zoom_Instructions" X="749" Y="642" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_WorldMap" X="1005" Y="2" Width="16" Height="16"> </Element>
+	</Element>
+	<Element ID="Erebor_Homesteads_Button" X="1044" Y="191" Width="63" Height="63"> </Element>
+	<Element ID="RegionMap_5_North_Downs" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Angmar_Toggle_NorthDowns_1" X="709" Y="76" Width="63" Height="63"> </Element>
+		<Element ID="Angmar_Toggle_NorthDowns_2" X="929" Y="118" Width="63" Height="63"> </Element>
+		<Element ID="Breeland_Toggle_NorthDowns" X="228" Y="653" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_5" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="Zoom_Instructions_5" X="46" Y="668" Width="134" Height="68"> </Element>
+		<Element ID="Evendim_Toggle_NorthDowns_1" X="23" Y="182" Width="63" Height="63"> </Element>
+	</Element>
+	<Element ID="area_mordor_north_sammath_naur" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Zoom_Instructions" X="843" Y="655" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_WorldMap" X="1005" Y="2" Width="16" Height="16"> </Element>
+	</Element>
+	<Element ID="area_mordor_north_nargroth" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Zoom_Instructions" X="843" Y="655" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_WorldMap" X="1005" Y="2" Width="16" Height="16"> </Element>
+	</Element>
+	<Element ID="barrowdowns_north_button" X="0" Y="0" Width="20" Height="20"> </Element>
+	<Element ID="CityMap_Barrowdowns_North" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="bree2_toggle_barrowdownsnorth" X="734" Y="465" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_Barrowdowns_North" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="BarrowdownsSouth_toggle_barrowdownsNorth" X="712" Y="689" Width="63" Height="63"> </Element>
+		<Element ID="oldForest_toggle_BarrowdownsNorth" X="205" Y="427" Width="63" Height="63"> </Element>
+		<Element ID="bree1_toggle_barrowdownsnorth" X="544" Y="76" Width="63" Height="63"> </Element>
+		<Element ID="Zoom_Instructions_Barrowdowns_North" X="847" Y="15" Width="134" Height="68"> </Element>
+	</Element>
+	<Element ID="area_gondor_old_anorien_minas_tirith_midsummer" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Zoom_Instructions" X="749" Y="642" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_WorldMap" X="1005" Y="2" Width="16" Height="16"> </Element>
+	</Element>
+	<Element ID="area_gondor_old_anorien_minas_tirith_midsummer_button" X="0" Y="0" Width="63" Height="63"> </Element>
+	<Element ID="region_eastRohan_Button" X="433" Y="349" Width="63" Height="63"> </Element>
+	<Element ID="Area_Rohan_Entwood" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Toggle_area_rohan_east_eaves_of_fangorn" X="896" Y="181" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_area_rohan_west_stonedeans" X="842" Y="682" Width="63" Height="63"> </Element>
+		<Element ID="zoom_instructions_Area_Rohan_Entwood" X="852" Y="58" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_Map" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="Toggle_area_rohan_west_broadacres" X="882" Y="548" Width="63" Height="63"> </Element>
+	</Element>
+	<Element ID="MoriaButton" X="1044" Y="191" Width="63" Height="63"> </Element>
+	<Element ID="MordorButton" X="1033" Y="192" Width="63" Height="63"> </Element>
+	<Element ID="barrowdowns_south_button" X="0" Y="0" Width="20" Height="20"> </Element>
+	<Element ID="area_trollshaws_the_angle" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Toggle_Trollshaws" X="740" Y="34" Width="63" Height="63"> </Element>
+		<Element ID="LoneLands_Toggle_Trollshaws" X="66" Y="120" Width="63" Height="63"> </Element>
+		<Element ID="Toogle_2" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="Zoom_Instructions_2" X="750" Y="632" Width="134" Height="68"> </Element>
+		<Element ID="EregionToggle" X="586" Y="676" Width="63" Height="63"> </Element>
+	</Element>
+	<Element ID="CityMap_Barrowdowns_South" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Zoom_Instructions_Barrowdowns_South" X="847" Y="15" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_Barrowdowns_South" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="BarrowdownsNorth_toggle_BarrowdownsSouth" X="581" Y="9" Width="63" Height="63"> </Element>
+	</Element>
+	<Element ID="Trollshaws_the_angle_button" X="1044" Y="191" Width="63" Height="63"> </Element>
+	<Element ID="area_gondor_west_bay_of_belfalas_button" X="0" Y="0" Width="63" Height="63"> </Element>
+	<Element ID="CityMap_Rohan_wold_Harwick" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Zoom_Instructions_harwick" X="847" Y="15" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_harwick" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="Toggle_area_rohan_east_the_wold" X="392" Y="13" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_area_rohan_east_the_wold_left" X="175" Y="269" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_area_rohan_east_the_wold_Right" X="751" Y="536" Width="63" Height="63"> </Element>
+	</Element>
+	<Element ID="area_the_wastes" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="toggle_area_mountains_shadow_north_ithilien" X="301" Y="685" Width="63" Height="63"> </Element>
+		<Element ID="toggle_area_gorgoroth" X="780" Y="700" Width="63" Height="63"> </Element>
+		<Element ID="Zoom_Instructions" X="843" Y="655" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_WorldMap" X="1005" Y="2" Width="16" Height="16"> </Element>
+	</Element>
+	<Element ID="area_gondor_west_bay_of_belfalas_cape_housing" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Toggle_Gondor_West" X="414" Y="112" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_Gondor_Central" X="936" Y="340" Width="63" Height="63"> </Element>
+		<Element ID="Zoom_Instructions" X="600" Y="140" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_WorldMap" X="1005" Y="2" Width="16" Height="16"> </Element>
+	</Element>
+	<Element ID="Region_Great_River" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="GreatRiver_toggle_EastRohan" X="568" Y="563" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_Lothlorien" X="361" Y="29" Width="63" Height="63"> </Element>
+		<Element ID="zoom_instructions_greatRiver" X="852" Y="58" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_GreatRiver" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="region_greatRiver_toggle_stangard" X="363" Y="295" Width="63" Height="63"> </Element>
+	</Element>
+	<Element ID="area_the_wastes_button" X="0" Y="0" Width="63" Height="63"> </Element>
+	<Element ID="area_mordor_gorgoroth" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="toggle_area_mordor_north_udun" X="196" Y="30" Width="63" Height="63"> </Element>
+		<Element ID="toggle_area_mordor_north_lhingris" X="210" Y="424" Width="63" Height="63"> </Element>
+		<Element ID="toggle_area_mordor_north_agarnaith" X="876" Y="340" Width="63" Height="63"> </Element>
+		<Element ID="toggle_area_mordor_north_orodruin" X="540" Y="320" Width="63" Height="63"> </Element>
+		<Element ID="toggle_area_mordor_north_dol_amarth" X="572" Y="158" Width="63" Height="63"> </Element>
+		<Element ID="Zoom_Instructions" X="843" Y="655" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_WorldMap" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="toggle_area_morgul_vale" X="212" Y="624" Width="63" Height="63"> </Element>
+		<Element ID="toggle_area_mordor_north_talath_urui" X="645" Y="588" Width="63" Height="63"> </Element>
+		<Element ID="toggle_area_the_wastes" X="52" Y="24" Width="63" Height="63"> </Element>
+	</Element>
+	<Element ID="area_mountains_shadow_north_ithilien" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="toggle_area_mountains_shadow_osgiliath" X="484" Y="600" Width="63" Height="63"> </Element>
+		<Element ID="toggle_morgul_vale" X="790" Y="650" Width="63" Height="63"> </Element>
+		<Element ID="toggle_area_mountains_shadow_pelennor" X="338" Y="574" Width="63" Height="63"> </Element>
+		<Element ID="toggle_area_south_ithilien" X="650" Y="700" Width="63" Height="63"> </Element>
+		<Element ID="Zoom_Instructions" X="820" Y="60" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_WorldMap" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="toggle_area_the_wastes" X="610" Y="0" Width="63" Height="63"> </Element>
+		<Element ID="toggle_old_anorien" X="244" Y="400" Width="63" Height="63"> </Element>
+	</Element>
+	<Element ID="area_mordor_gorgoroth_button" X="0" Y="0" Width="63" Height="63"> </Element>
+	<Element ID="area_the_wastes_morannon_battle" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Zoom_Instructions" X="843" Y="655" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_WorldMap" X="1005" Y="2" Width="16" Height="16"> </Element>
+	</Element>
+	<Element ID="area_mountains_shadow_osgiliath" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="toggle_area_mountains_shadow_north_ithilien" X="937" Y="466" Width="63" Height="63"> </Element>
+		<Element ID="toggle_area_mountains_shadow_pelennor" X="70" Y="448" Width="63" Height="63"> </Element>
+		<Element ID="Zoom_Instructions" X="843" Y="655" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_WorldMap" X="1005" Y="2" Width="16" Height="16"> </Element>
+	</Element>
+	<Element ID="area_gondor_north_ithilien_cormallen" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="toggle_area_mountains_shadow_osgiliath" X="484" Y="600" Width="63" Height="63"> </Element>
+		<Element ID="toggle_area_mountains_shadow_pelennor" X="338" Y="574" Width="63" Height="63"> </Element>
+		<Element ID="toggle_area_south_ithilien" X="650" Y="700" Width="63" Height="63"> </Element>
+		<Element ID="Zoom_Instructions" X="63" Y="642" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_WorldMap" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="toggle_area_the_wastes" X="610" Y="0" Width="63" Height="63"> </Element>
+		<Element ID="toggle_old_anorien" X="244" Y="400" Width="63" Height="63"> </Element>
+	</Element>
+	<Element ID="area_mountains_shadow_pelennor" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="toggle_area_mountains_shadow_minas_tirith" X="330" Y="410" Width="63" Height="63"> </Element>
+		<Element ID="toggle_area_mountains_shadow_north_ithilien" X="766" Y="40" Width="63" Height="63"> </Element>
+		<Element ID="toggle_region_gondor_old_anorean" X="326" Y="32" Width="63" Height="63"> </Element>
+		<Element ID="toggle_area_mountains_shadow_osgiliath" X="746" Y="296" Width="63" Height="63"> </Element>
+		<Element ID="toggle_region_gondor_east_gondor" X="784" Y="632" Width="63" Height="63"> </Element>
+		<Element ID="Zoom_Instructions" X="843" Y="655" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_WorldMap" X="1005" Y="2" Width="16" Height="16"> </Element>
+	</Element>
+	<Element ID="area_mountains_shadow_north_ithilien_button" X="0" Y="0" Width="63" Height="63"> </Element>
+	<Element ID="area_gondor_east_osgiliath_instance" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="toggle_area_gondor_east_south_ithilien" X="862" Y="439" Width="63" Height="63"> </Element>
+		<Element ID="Zoom_Instructions" X="63" Y="642" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_WorldMap" X="1005" Y="2" Width="16" Height="16"> </Element>
+	</Element>
+	<Element ID="GreatRiverButton" X="432" Y="349" Width="63" Height="63"> </Element>
+	<Element ID="RegionMap_6_Breeland" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="barrowdowns_north_Toggle_Breeland" X="378" Y="530" Width="63" Height="63"> </Element>
+		<Element ID="City_1_BreeCity" X="506" Y="480" Width="63" Height="63"> </Element>
+		<Element ID="City_1_Archet" X="584" Y="320" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_6" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="NorthDowns_Toggle_Breeland_1" X="858" Y="26" Width="63" Height="63"> </Element>
+		<Element ID="Zoom_Instructions_6" X="750" Y="280" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_breeland_wildwood" X="300" Y="176" Width="63" Height="63"> </Element>
+		<Element ID="NorthDowns_Toggle_Breeland_2" X="432" Y="26" Width="63" Height="63"> </Element>
+		<Element ID="barrowdowns_south_Toggle_Breeland" X="432" Y="626" Width="63" Height="63"> </Element>
+		<Element ID="oldForest_Toggle_Breeland" X="252" Y="560" Width="63" Height="63"> </Element>
+		<Element ID="Shire_Toggle_Breeland_1" X="100" Y="528" Width="63" Height="63"> </Element>
+		<Element ID="LoneLands_Toggle_Breeland_1" X="880" Y="600" Width="63" Height="63"> </Element>
+		<Element ID="breelandHomesteads_Toggle_Breeland" X="628" Y="672" Width="63" Height="63"> </Element>
+	</Element>
+	<Element ID="area_mountains_shadow_osgiliath_button" X="0" Y="0" Width="63" Height="63"> </Element>
+	<Element ID="area_wastes_dagorlad_second_age" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Zoom_Instructions" X="843" Y="655" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_WorldMap" X="1005" Y="2" Width="16" Height="16"> </Element>
+	</Element>
+	<Element ID="area_dunland_nan_curunir_flooded" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Toggle_Isengard_Depths_Flooded" X="499" Y="193" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_area_rohan_west_stonedeans" X="781" Y="240" Width="63" Height="63"> </Element>
+		<Element ID="zoom_instructions_area_dunland_nan_curunir" X="48" Y="115" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_area_dunland_nan_curunir_flooded" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="Toggle_area_rohan_west_westfold" X="469" Y="700" Width="63" Height="63"> </Element>
+	</Element>
+	<Element ID="area_mountains_shadow_pelennor_button" X="0" Y="0" Width="63" Height="63"> </Element>
+	<Element ID="Citymap_Dunland_HeathfellsSlaveCaves" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Toggle_HeathfellsSlaveCaves" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="Zoom_Instructions_HeathfellsSlaveCaves" X="847" Y="15" Width="134" Height="68"> </Element>
+	</Element>
+	<Element ID="area_rohan_glittering_caves" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="ZoomInstructions_area_rohan_west_helms_deep" X="843" Y="661" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_area_helms_deep" X="166" Y="200" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_area_rohan_west" X="1005" Y="2" Width="16" Height="16"> </Element>
+	</Element>
+	<Element ID="area_rohan_glittering_caves_Button" X="432" Y="349" Width="63" Height="63"> </Element>
+	<Element ID="area_mountains_shadow_minas_tirith_button" X="0" Y="0" Width="63" Height="63"> </Element>
+	<Element ID="QuestGuideQuestList_ShowOnMap" X="588" Y="681" Width="244" Height="23">
+		<Element ID="Button_QuestTracker_EntryButton_l" X="0" Y="0" Width="8" Height="23"> </Element>
+		<Element ID="Button_QuestTracker_EntryButton_c" X="8" Y="0" Width="226" Height="23"> </Element>
+		<Element ID="Button_QuestTracker_EntryButton_r" X="234" Y="0" Width="8" Height="23"> </Element>
+		<Element ID="Button_QuestTracker_EntryButton_checkbox" X="7" Y="6" Width="10" Height="10"> </Element>
+		<Element ID="QuestGuideQuestList_QuestName" X="19" Y="1" Width="188" Height="20"> </Element>
+	</Element>
+	<Element ID="RegionMap_Mirkwood_Dul_Guldur_Ruins" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Toggle3" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="Zoom_Instructions_3" X="805" Y="150" Width="134" Height="68"> </Element>
+	</Element>
+	<Element ID="region_march_of_the_king" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="toggle_area_old_anorean" X="252" Y="336" Width="63" Height="63"> </Element>
+		<Element ID="toggle_area_east_gondor" X="566" Y="694" Width="63" Height="63"> </Element>
+		<Element ID="toggle_area_mountains_shadow_minas_tirith" X="348" Y="560" Width="63" Height="63"> </Element>
+		<Element ID="toggle_area_mountains_shadow_north_ithilien" X="591" Y="267" Width="63" Height="63"> </Element>
+		<Element ID="toggle_area_mountains_shadow_osgiliath" X="573" Y="505" Width="63" Height="63"> </Element>
+		<Element ID="toggle_morgul_vale" X="764" Y="550" Width="63" Height="63"> </Element>
+		<Element ID="toggle_area_mountains_shadow_pelennor" X="449" Y="547" Width="63" Height="63"> </Element>
+		<Element ID="Zoom_Instructions" X="843" Y="655" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_WorldMap" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="toggle_area_the_wastes" X="664" Y="19" Width="63" Height="63"> </Element>
+	</Element>
+	<Element ID="area_rohan_west_helms_deep_copy_1" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="ZoomInstructions_area_rohan_west_helms_deep" X="843" Y="661" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_area_glittering_caves" X="512" Y="590" Width="63" Height="63"> </Element>
+		<Element ID="HelmsDeep_Toggle_Westfold" X="493" Y="9" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_area_rohan_west" X="1005" Y="2" Width="16" Height="16"> </Element>
+	</Element>
+	<Element ID="region_march_of_the_king_button" X="0" Y="0" Width="63" Height="63"> </Element>
+	<Element ID="area_anduin_elderslade" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="toggle_wells_of_langflood_button" X="740" Y="698" Width="63" Height="63"> </Element>
+		<Element ID="toggle_area_ered_mithrin" X="912" Y="586" Width="63" Height="63"> </Element>
+		<Element ID="Zoom_Instructions" X="160" Y="540" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_WorldMap" X="1005" Y="2" Width="16" Height="16"> </Element>
+	</Element>
+	<Element ID="area_rohan_west_helms_deep_copy_2" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="ZoomInstructions_area_rohan_west_helms_deep" X="843" Y="661" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_area_glittering_caves" X="512" Y="590" Width="63" Height="63"> </Element>
+		<Element ID="HelmsDeep_Toggle_Westfold" X="493" Y="9" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_area_rohan_west" X="1005" Y="2" Width="16" Height="16"> </Element>
+	</Element>
+	<Element ID="CityMap_Isengard_Depths" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Toggle_area_eregion_CityMap_Isengard_Depths" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="Zoom_Instructions_area_dunland_CityMap_Isengard_Depths" X="829" Y="143" Width="134" Height="68"> </Element>
+	</Element>
+	<Element ID="elderslade_button" X="1033" Y="192" Width="63" Height="63"> </Element>
+	<Element ID="area_rohan_west_helms_deep_copy_3" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="ZoomInstructions_area_rohan_west_helms_deep" X="843" Y="661" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_area_glittering_caves" X="512" Y="590" Width="63" Height="63"> </Element>
+		<Element ID="HelmsDeep_Toggle_Westfold" X="493" Y="9" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_area_rohan_west" X="1005" Y="2" Width="16" Height="16"> </Element>
+	</Element>
+	<Element ID="CityMap_Ring_of_Isengard" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Zoom_Instructions_area_dunland_CityMap_Ring_of_Isengard" X="857" Y="56" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_area_eregion_CityMap_CityMap_Ring_of_Isengard" X="1005" Y="2" Width="16" Height="16"> </Element>
+	</Element>
+	<Element ID="area_rohan_west_helms_deep_copy_4" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="ZoomInstructions_area_rohan_west_helms_deep" X="843" Y="661" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_area_glittering_caves" X="512" Y="590" Width="63" Height="63"> </Element>
+		<Element ID="HelmsDeep_Toggle_Westfold" X="493" Y="9" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_area_rohan_west" X="1005" Y="2" Width="16" Height="16"> </Element>
+	</Element>
+	<Element ID="area_anduin_elderslade_warzone" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Zoom_Instructions" X="160" Y="540" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_WorldMap" X="1005" Y="2" Width="16" Height="16"> </Element>
+	</Element>
+	<Element ID="area_rohan_west_helms_deep_copy_5" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="ZoomInstructions_area_rohan_west_helms_deep" X="843" Y="661" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_area_glittering_caves" X="512" Y="590" Width="63" Height="63"> </Element>
+		<Element ID="HelmsDeep_Toggle_Westfold" X="493" Y="9" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_area_rohan_west" X="1005" Y="2" Width="16" Height="16"> </Element>
+	</Element>
+	<Element ID="elderslade_warzone_button" X="1033" Y="192" Width="63" Height="63"> </Element>
+	<Element ID="area_rohan_west_helms_deep_copy_6" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="ZoomInstructions_area_rohan_west_helms_deep" X="843" Y="661" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_area_glittering_caves" X="512" Y="590" Width="63" Height="63"> </Element>
+		<Element ID="HelmsDeep_Toggle_Westfold" X="493" Y="9" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_area_rohan_west" X="1005" Y="2" Width="16" Height="16"> </Element>
+	</Element>
+	<Element ID="CityMap_Caras_Galadhon" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Zoom_Instructions_ThorinsHalHomesteads" X="846" Y="39" Width="138" Height="36"> </Element>
+		<Element ID="Toggle_ThorinsHalHomesteads" X="1005" Y="2" Width="16" Height="16"> </Element>
+	</Element>
+	<Element ID="area_rohan_west_helms_deep_copy_7" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="ZoomInstructions_area_rohan_west_helms_deep" X="843" Y="661" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_area_glittering_caves" X="512" Y="590" Width="63" Height="63"> </Element>
+		<Element ID="HelmsDeep_Toggle_Westfold" X="493" Y="9" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_area_rohan_west" X="1005" Y="2" Width="16" Height="16"> </Element>
+	</Element>
+	<Element ID="Area_Dunland" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="areaDunland_Toggle_Galtrev" X="429" Y="324" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_Dunland" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="areaDunland_Toggle_GapOfRohan1" X="663" Y="619" Width="63" Height="63"> </Element>
+		<Element ID="areaDunland_Toggle_TalMathedras" X="690" Y="146" Width="63" Height="63"> </Element>
+		<Element ID="areaDunland_Toggle_Lichbluffs" X="475" Y="46" Width="63" Height="63"> </Element>
+		<Element ID="areaDunland_Toggle_Mournshaws" X="223" Y="133" Width="63" Height="63"> </Element>
+		<Element ID="zoom_instructions_dunland" X="852" Y="58" Width="134" Height="68"> </Element>
+	</Element>
+	<Element ID="CityMap_Rohan_Sutcrofts_Snowbourn" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Toggle_area_rohan_east_sutcrofts" X="318" Y="28" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_Snowbourn" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="Zoom_Instructions_Snowbourn" X="847" Y="15" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_area_rohan_east_sutcrofts_left" X="621" Y="687" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_area_rohan_east_sutcrofts_Right" X="868" Y="289" Width="63" Height="63"> </Element>
+	</Element>
+	<Element ID="city_rohan_sutcrofts_snowbourn_button" X="433" Y="349" Width="63" Height="63"> </Element>
+	<Element ID="city_rohan_wold_harwick_button" X="433" Y="420" Width="63" Height="710"> </Element>
+	<Element ID="RegionMap_7_Shire" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Yondershire_Toggle" X="124" Y="167" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_7" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="Zoom_Instructions_7" X="676" Y="666" Width="134" Height="68"> </Element>
+		<Element ID="Evendim_Toggle_Shire_1" X="640" Y="16" Width="63" Height="63"> </Element>
+		<Element ID="shireHomesteads_toggle_shire" X="286" Y="669" Width="63" Height="63"> </Element>
+		<Element ID="Breeland_Toggle_Shire_2" X="913" Y="378" Width="63" Height="63"> </Element>
+	</Element>
+	<Element ID="EregionButton" X="1044" Y="191" Width="63" Height="63"> </Element>
+	<Element ID="RhovanionButton" X="1033" Y="192" Width="63" Height="63"> </Element>
+	<Element ID="area_rohan_glittering_caves_big_battle" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="ZoomInstructions_area_rohan_west_helms_deep" X="843" Y="661" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_area_helms_deep" X="166" Y="200" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_area_rohan_west" X="1005" Y="2" Width="16" Height="16"> </Element>
+	</Element>
+	<Element ID="RegionMap_12_Eregion" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Toggle_Enedwaith" X="310" Y="705" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_Vales_of_Anduin_Button" X="820" Y="406" Width="63" Height="63"> </Element>
+		<Element ID="ToggleTrollshaws" X="111" Y="37" Width="63" Height="63"> </Element>
+		<Element ID="ToggleTrollshaws_2" X="706" Y="2" Width="63" Height="63"> </Element>
+		<Element ID="Toggle3" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="ToggleMoriaMap" X="757" Y="512" Width="63" Height="63"> </Element>
+		<Element ID="Zoom_Instructions_3" X="814" Y="81" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_HollinGate" X="636" Y="540" Width="63" Height="63"> </Element>
+	</Element>
+	<Element ID="area_wildermore" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Toggle_area_wildermore" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="Wildermore_Toggle_TheWold" X="817" Y="298" Width="63" Height="63"> </Element>
+		<Element ID="ZoomInstructions_area_wildermore" X="863" Y="254" Width="134" Height="68"> </Element>
+		<Element ID="Wildermore_Toggle_Norcrofts" X="759" Y="673" Width="63" Height="63"> </Element>
+		<Element ID="Wildermore_Toggle_EntwashVale" X="371" Y="517" Width="63" Height="63"> </Element>
+		<Element ID="Wildermore_Toggle_Forlaw" X="608" Y="394" Width="63" Height="63"> </Element>
+	</Element>
+	<Element ID="area_wastes_dead_marshes" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Zoom_Instructions" X="861" Y="32" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_WorldMap" X="1005" Y="2" Width="16" Height="16"> </Element>
+	</Element>
+	<Element ID="area_dunland_nan_curunir" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="nanCurunir_Toggle_GapOfRohan" X="470" Y="705" Width="63" Height="63"> </Element>
+		<Element ID="nanCurunir_Toggle_Isengard" X="498" Y="210" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_area_dunland_nan_curunir" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="zoom_instructions_area_dunland_nan_curunir" X="48" Y="115" Width="134" Height="68"> </Element>
+	</Element>
+	<Element ID="area_wildermore_Button" X="432" Y="349" Width="63" Height="63"> </Element>
+	<Element ID="area_yondershire" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Toggle_7" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="Zoom_Instructions_7" X="840" Y="640" Width="134" Height="68"> </Element>
+		<Element ID="Evendim_Toggle_Shire_1" X="680" Y="654" Width="63" Height="63"> </Element>
+		<Element ID="Breeland_Toggle_Shire_2" X="906" Y="284" Width="63" Height="63"> </Element>
+		<Element ID="EredLuin_Toggle_Shire_1" X="46" Y="336" Width="63" Height="63"> </Element>
+	</Element>
+	<Element ID="ForochelButton" X="1044" Y="191" Width="63" Height="63"> </Element>
+	<Element ID="YonderShireButton" X="1047" Y="483" Width="63" Height="63"> </Element>
+	<Element ID="Moria_area_moria_broken_stair" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Toggle_1" X="500" Y="135" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_2" X="480" Y="565" Width="63" Height="63"> </Element>
+		<Element ID="Zoom_Instructions_area_moria_broken_stair" X="839" Y="38" Width="138" Height="36"> </Element>
+		<Element ID="Toggle_area_moria_broken_stair" X="1005" Y="2" Width="16" Height="16"> </Element>
+	</Element>
+	<Element ID="area_moria_broken_stairButton" X="1044" Y="191" Width="63" Height="63"> </Element>
+	<Element ID="area_gondor_west_bay_of_belfalas_housing_button" X="0" Y="0" Width="63" Height="63"> </Element>
+	<Element ID="area_breeland_wildwood" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Toggle_Evendim" X="318" Y="288" Width="63" Height="63"> </Element>
+		<Element ID="Zoom_Instructions_Barrowdowns_South" X="44" Y="300" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_Barrowdowns_South" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="Toggle_North_Downs" X="898" Y="60" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_Breeland" X="868" Y="572" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_TheShire" X="165" Y="620" Width="63" Height="63"> </Element>
+	</Element>
+	<Element ID="area_rohan_west_entwood_button" X="433" Y="349" Width="63" Height="63"> </Element>
+	<Element ID="RegionMap_8_MistyMountains" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Vales_Of_Anduin_Button" X="878" Y="172" Width="63" Height="63"> </Element>
+		<Element ID="City_2_Rivendell_2" X="280" Y="471" Width="63" Height="63"> </Element>
+		<Element ID="Toogle_8" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="City_2_Rivendell" X="245" Y="598" Width="63" Height="63"> </Element>
+		<Element ID="Zoom_Instructions_8" X="50" Y="421" Width="134" Height="68"> </Element>
+	</Element>
+	<Element ID="breeland_wildwood_button" X="0" Y="0" Width="20" Height="20"> </Element>
+	<Element ID="area_dunland_gap_rohan" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Toggle_area_dunland_gap_of_rohan" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="gapOfRohan_toggle_NanCurunir" X="888" Y="194" Width="63" Height="63"> </Element>
+		<Element ID="zoom_instructions_area_dunland_gap_of_rohan" X="852" Y="102" Width="134" Height="68"> </Element>
+		<Element ID="gapOfRohan_toggle_AreaDunland2" X="219" Y="223" Width="63" Height="63"> </Element>
+		<Element ID="gapOfRohan_toggle_AreaDunland3" X="504" Y="125" Width="63" Height="63"> </Element>
+	</Element>
+	<Element ID="area_NanCurunir_Button" X="1033" Y="192" Width="63" Height="63"> </Element>
+	<Element ID="LothlorienButton" X="1044" Y="191" Width="63" Height="63"> </Element>
+	<Element ID="area_GapOfRohan_Button" X="1033" Y="192" Width="63" Height="63"> </Element>
+	<Element ID="region_Dunland_Button" X="1033" Y="192" Width="63" Height="63"> </Element>
+	<Element ID="CityMap_4_Eregion" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Trollshaws_Toggle_RivendellCity" X="307" Y="661" Width="63" Height="63"> </Element>
+		<Element ID="MistyMountains_Toggle_RivendellCity" X="687" Y="14" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_Rivendell" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="Zoom_Instructions_Rivendell_8" X="847" Y="15" Width="134" Height="68"> </Element>
+	</Element>
+	<Element ID="city_Galtrev_Button" X="1047" Y="483" Width="63" Height="63"> </Element>
+	<Element ID="area_Dunland_Button" X="1033" Y="192" Width="63" Height="63"> </Element>
+	<Element ID="city_Isengard_Button" X="1047" Y="483" Width="63" Height="63"> </Element>
+	<Element ID="RegionMap_9_Ettenmoors" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Toggle9" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="Zoom_Instructions_9" X="845" Y="496" Width="134" Height="68"> </Element>
+	</Element>
+	<Element ID="area_mordor_morgul_vale" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="toggle_shelobs_lair" X="60" Y="200" Width="63" Height="63"> </Element>
+		<Element ID="toggle_area_gorgoroth" X="788" Y="224" Width="63" Height="63"> </Element>
+		<Element ID="toggle_area_torech_ungol" X="620" Y="176" Width="63" Height="63"> </Element>
+		<Element ID="toggle_area_minas_morgul" X="446" Y="356" Width="63" Height="63"> </Element>
+		<Element ID="Zoom_Instructions" X="832" Y="100" Width="134" Height="68"> </Element>
+		<Element ID="Toggle_WorldMap" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="toggle_area_ithilien" X="250" Y="300" Width="63" Height="63"> </Element>
+	</Element>
+	<Element ID="area_azanulbizar_dimrill_dale" X="0" Y="0" Width="1024" Height="768">
+		<Element ID="Toggle_Lothlorien" X="904" Y="582" Width="63" Height="63"> </Element>
+		<Element ID="Toggle_area_moria_shadowy_abyss" X="1005" Y="2" Width="16" Height="16"> </Element>
+		<Element ID="Zoom_Instructions_area_moria_shadowy_abyss" X="839" Y="38" Width="138" Height="36"> </Element>
+	</Element>
+</PanelFile>

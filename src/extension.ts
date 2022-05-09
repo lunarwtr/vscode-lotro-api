@@ -59,7 +59,7 @@ function initconfigs(context: vscode.ExtensionContext) {
 	}
 	if (extensionPath) {
 		// define plugin location
-		config.update("runtime.plugin", path.join(extensionPath!, 'Lua', 'Plugin', 'plugin.lua'));
+		config.update("runtime.plugin", path.join(extensionPath!, 'resources', 'Lua', 'Plugin', 'plugin.lua'));
 		// define API library location
 		const library: string[] | undefined = config.get("workspace.library");
 		if (library) {
@@ -68,14 +68,14 @@ function initconfigs(context: vscode.ExtensionContext) {
 				// early version settings were placed in global settings.. update them
 				config.update("workspace.library", filteredLib, true);
 			}
-			filteredLib.push(path.join(extensionPath!, 'Lua', 'EmmyLua', 'Turbine'));
+			filteredLib.push(path.join(extensionPath!, 'resources', 'Lua', 'EmmyLua', 'Turbine'));
 			config.update("workspace.library", filteredLib);
 		}
 		// define plugin association and schema locations
 		const xmlConfig = vscode.workspace.getConfiguration("xml");
 		let schemasAssoc: XMLSchemaAssocation[] | undefined = xmlConfig.get("fileAssociations");
 		if (schemasAssoc) {
-			schemasAssoc = schemas.map(s => ({ ...s, systemId: path.join(extensionPath!, 'xsds', s.systemId) }))
+			schemasAssoc = schemas.map(s => ({ ...s, systemId: path.join(extensionPath!, 'resources', 'xsds', s.systemId) }))
 				.concat(schemasAssoc.filter(a => !/(\.((plugin|music|skin)compendium|plugin)|SkinDefinition\.xml)$/.test(a.pattern)));
 			xmlConfig.update("fileAssociations", schemasAssoc);
 		}

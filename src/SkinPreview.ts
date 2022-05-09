@@ -91,7 +91,7 @@ export class SkinPreviewManager implements vscode.WebviewPanelSerializer<SkinSta
 			enableScripts: true,
 			localResourceRoots: [
 				... this._imageProvider.getResourceRoots(),
-				vscode.Uri.joinPath(this._extensionUri, 'media')
+				vscode.Uri.joinPath(this._extensionUri, 'resources', 'media')
 			]
 		};
 	}
@@ -186,13 +186,13 @@ export class SkinPreviewPanel {
 
 		//this._parser.buildSkinDataJson(path.join(path.dirname(this._resource.fsPath), 'SkinData.json'));
 		// Local path to main script run in the webview
-		const scriptPathOnDisk = vscode.Uri.joinPath(this._extensionUri, 'media', 'main.js');
+		const scriptPathOnDisk = vscode.Uri.joinPath(this._extensionUri, 'resources', 'media', 'main.js');
 
 		// And the uri we use to load this script in the webview
 		const scriptUri = webview.asWebviewUri(scriptPathOnDisk);
 
 		// Local path to css styles
-		const stylesPathMainPath = vscode.Uri.joinPath(this._extensionUri, 'media', 'skin.css');
+		const stylesPathMainPath = vscode.Uri.joinPath(this._extensionUri, 'resources', 'media', 'skin.css');
 
 		// Uri to load styles into webview
 		const stylesMainUri = webview.asWebviewUri(stylesPathMainPath);

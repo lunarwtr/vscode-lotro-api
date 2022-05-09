@@ -5,14 +5,14 @@
 - Improvement: Initial work for rendering skins in a webview (work in progress)
 - Improvement: Added configuration for pointing at skinning asset folder
 - Improvement: display images that are ID based if they are derived from Skinning Assets.
-![](https://github.com/lunarwtr/vscode-lotro-api/raw/main/img/skinpreview.gif)
+![](https://github.com/lunarwtr/vscode-lotro-api/raw/main/resources/img/skinpreview.gif)
 
 ## [1.0.10] - 2022-04-21
 ### Added
 - Improvement: Adding hover display of images in SkinDefinition.xml files
 - Improvement: Adding hover display of images in .plugin files
 - Improvement: Adding hover display of images in .lua files
-![](https://github.com/lunarwtr/vscode-lotro-api/raw/main/img/imageview.gif)
+![](https://github.com/lunarwtr/vscode-lotro-api/raw/main/resources/img/imageview.gif)
 
 ## [1.0.9] - 2022-04-16
 ### Added
@@ -26,14 +26,14 @@
 - Improvement: Adding Attributes stance enum classes
 - Improvement: Adding undocumented IsA function to base Turbine.Object class
 - Improvement: In editor color display and color picker for Turbine.UI.Color classes
-    ![](https://github.com/lunarwtr/vscode-lotro-api/raw/main/img/color2.gif)
+    ![](https://github.com/lunarwtr/vscode-lotro-api/raw/main/resources/img/color2.gif)
 
 ## [1.0.7] - 2022-03-27
 ### Added
 - Improvement: Added support for UI Skinning files (xml schema + snippets)
-    ![](https://github.com/lunarwtr/vscode-lotro-api/raw/main/img/skinning.gif)
+    ![](https://github.com/lunarwtr/vscode-lotro-api/raw/main/resources/img/skinning.gif)
 - Improvement: Turbine.UI.Color documentation references small images of colors.
-    ![](https://github.com/lunarwtr/vscode-lotro-api/raw/main/img/color.gif)
+    ![](https://github.com/lunarwtr/vscode-lotro-api/raw/main/resources/img/color.gif)
 - Improvement: Documented several "table" types in lotro api.
 - Improvement: Documented callback functions for sorting and filtering in UI components
 

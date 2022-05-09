@@ -39,7 +39,7 @@ $docmap{Turbine}{Gameplay}{Equipment}{field} = $docmap{Turbine}{Gameplay}{Equipm
 $docmap{Turbine}{Gameplay}{Equipment}{__details}{langtype} = 'enumeration';
 delete $docmap{Turbine}{Gameplay}{EquipmentSlot};
 
-open OUT, ">:utf8", "../Lua/EmmyLua/Turbine/Turbine.lua" or die "Cannot open Turbine.lua: $!";
+open OUT, ">:utf8", "../resources/Lua/EmmyLua/Turbine/Turbine.lua" or die "Cannot open Turbine.lua: $!";
 emmylua($docmap{'Turbine'});
 close OUT;
 # my $json = JSON->new;

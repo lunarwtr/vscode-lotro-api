@@ -41,7 +41,7 @@ perl ripdocs.pl
 ```
 * Manual change lines as described in [manual-changes.txt](manual-changes.txt)
 ```bash
-cd Lua/EmmyLua/Turbine
+cd resources/Lua/EmmyLua/Turbine
 patch -p0 < ../../../lotro-docs/manual-changes.txt
 ```
 ## Perl Modules

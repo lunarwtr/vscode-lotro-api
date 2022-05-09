@@ -24,7 +24,7 @@
         "DDO",
         "Dungeons and Dragons Online"
     ],
-    "icon": "img/vscode-lotro-api.png",
+    "icon": "resources/img/vscode-lotro-api.png",
     "activationEvents": [
         "onLanguage:xml",
         "onLanguage:lua",
@@ -36,11 +36,11 @@
         "snippets": [
             {
                 "language": "xml",
-                "path": "./snippets/xml.json"
+                "path": "./resources/snippets/xml.json"
             },
             {
                 "language": "lua",
-                "path": "./snippets/lua.json"
+                "path": "./resources/snippets/lua.json"
             }
         ],
         "languages": [
@@ -61,7 +61,7 @@
             {
                 "command": "skinviewer.open",
                 "title": "LotRO Skin Viewer: View Skin",
-                "icon": "media/ring.png"
+                "icon": "resources/media/ring.png"
             }
         ],
         "menus": {
