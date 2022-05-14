@@ -1,9 +1,8 @@
 
-import path from 'path';
 import * as vscode from 'vscode';
 import { Configuration } from './configuration';
 import { ImageProvider } from './LotroImageHoverProvider';
-import { determineBoundingBox, e2a, panels, SkinDefinitionParser, SkinElement } from './SkinDataProvider';
+import { determineBoundingBox, e2a, SkinDefinitionParser, SkinElement } from './SkinDataProvider';
 
 export class SkinPreviewManager implements vscode.WebviewPanelSerializer<SkinState> {
 
@@ -39,11 +38,10 @@ export class SkinPreviewManager implements vscode.WebviewPanelSerializer<SkinSta
 		//const textDocument = await vscode.workspace.openTextDocument(resource);
 		if (!/\bSkinDefinition\.xml$/.test(resource.fsPath)) return;
 
-		const column = (vscode.window.activeTextEditor && vscode.window.activeTextEditor.viewColumn) || vscode.ViewColumn.One;
-
 		// If we already have a panel, show it.
+		vscode.window.visibleTextEditors.filter(e => console.log(e));
 		if (this.currentPanel) {
-			this.currentPanel.reveal(column);
+			this.currentPanel.reveal();
 			return;
 		}
 
@@ -51,34 +49,41 @@ export class SkinPreviewManager implements vscode.WebviewPanelSerializer<SkinSta
 		const panel = vscode.window.createWebviewPanel(
 			this.viewType,
 			'Skin Preview',
-			column,
+			Configuration.skinningPreviewColumn(),
 			this.getWebviewOptions()
 		);
 
-		const state = { resource: resource.toString(), zoom: 'fit', selectedPanelID: 'ID_UISkin_Toolbar' };
+		const state = { resource: resource.toString(), zoom: 'fit', selectedPanelID: 'ID_UISkin_Toolbar', showBorders: true };
 		this.currentPanel = new SkinPreviewPanel(panel, this._extensionUri, state, this._imageProvider);
 
 		// Listen for when the panel is disposed
 		// This happens when the user closes the panel or when the panel is closed programmatically
-		panel.onDidDispose(() => {
-			this.currentPanel?.dispose();
-			this.currentPanel = undefined;
-		}, null, this._disposables);
-
+		panel.onDidDispose(() => this.disposeCurrentPanel(), null, this._disposables);
+		//this.currentPanel.onDispose(() => this.currentPanel = undefined, null, this._disposables);
 	}
 
-	async deserializeWebviewPanel(panel: vscode.WebviewPanel, state: SkinState) {
-		console.log(`Got state: ${JSON.stringify(state || {})}`);
-		// Reset the webview options so we use latest uri for `localResourceRoots`.
-		panel.webview.options = this.getWebviewOptions();
-		this.currentPanel = new SkinPreviewPanel(panel, this._extensionUri, state, this._imageProvider);
-	}
-
-	public dispose(): void {
+	private disposeCurrentPanel() {
 		if (this.currentPanel) {
 			this.currentPanel.dispose();
 			this.currentPanel = undefined;
 		}
+	}
+
+	async deserializeWebviewPanel(panel: vscode.WebviewPanel, state: SkinState) {
+		console.log(`Got state: ${JSON.stringify(state || {})}`);
+		this.disposeCurrentPanel();
+		// Reset the webview options so we use latest uri for `localResourceRoots`.
+		panel.webview.options = this.getWebviewOptions();
+		this.currentPanel = new SkinPreviewPanel(panel, this._extensionUri, state, this._imageProvider);
+		
+		// Listen for when the panel is disposed
+		// This happens when the user closes the panel or when the panel is closed programmatically
+		panel.onDidDispose(() => this.disposeCurrentPanel(), null, this._disposables);
+		//this.currentPanel.onDispose(() => this.currentPanel = undefined, null, this._disposables);
+	}
+
+	public dispose(): void {
+		this.disposeCurrentPanel();
 
 		while (this._disposables.length) {
 			const x = this._disposables.pop();
@@ -106,6 +111,9 @@ export class SkinPreviewPanel {
 	private _resource: vscode.Uri;
 	private _parser: SkinDefinitionParser;
 	private _document!: vscode.TextDocument;
+	
+	private readonly _onDisposeEmitter = new vscode.EventEmitter<void>();
+	public readonly onDispose = this._onDisposeEmitter.event;
 
 	public constructor(private _panel: vscode.WebviewPanel, protected _extensionUri: vscode.Uri, protected _state: SkinState, protected _imageProvider: ImageProvider) {
 		this._resource = vscode.Uri.parse(_state.resource);
@@ -148,8 +156,8 @@ export class SkinPreviewPanel {
 		this._update();
 	}
 
-	public reveal(column: vscode.ViewColumn) {
-		this._panel.reveal(column);
+	public reveal() {
+		this._panel.reveal(this._panel.viewColumn);
 	}
 
 	public dispose() {
@@ -160,6 +168,8 @@ export class SkinPreviewPanel {
 			const x = this._disposables.pop();
 			if (x) x.dispose();
 		}
+
+		this._onDisposeEmitter.fire();
 	}
 
 	private async _update() {
@@ -177,10 +187,7 @@ export class SkinPreviewPanel {
 		this._document = await vscode.workspace.openTextDocument(this._resource);
 		this._parser.parseFromString(this._document.getText());
 
-		let panel = this._parser.panels[panelID];
-		if (!panel) {
-			panel = panels[panelID];
-		}
+		const panel = this._parser.panels[panelID];
 
 		const bb = determineBoundingBox(panel);
 
@@ -214,16 +221,20 @@ export class SkinPreviewPanel {
 						<button class="skin-btn" type="button" title="Fit" id="zoom_fit">&harr;</button>	
 					</div>
 					${this._renderSkinPanelDropdown(panelID)}
+					<input type="checkbox" id="show_skin_border" name="show_skin_border" value="true"${this._state.showBorders ? ' checked' : ''}>
+    				<label for="show_skin_border">Borders</label>
 				</div>
-				<div id="skin-panel-container" class="skin-panel" style="width: ${bb.right - bb.left}px; height: ${bb.bottom - bb.top}px;" data-state="${encodeHTMLEntities(JSON.stringify(this._state || {}))}">
+				<div id="skin-panel-container" class="skin-panel-container">
+				<div id="skin-panel" class="skin-panel${this._state.showBorders ? ' display-borders' : ''}" style="width: ${bb.right - bb.left}px; height: ${bb.bottom - bb.top}px;" data-state="${encodeHTMLEntities(JSON.stringify(this._state || {}))}">
 					${await this._renderSkinPanel(panelID, panel)}
+				</div>
 				</div>
 				<script src="${scriptUri}"></script>
 			</body>
 			</html>`;
 	}
 	private _renderSkinPanelDropdown(selected: string) {
-		return `<select id="skin-panel-ddl">${Object.keys(panels).sort().map(id => `<option${selected === id ? ' selected' : ''}>${id}</option>`)}</select>`;
+		return `<select class="skin-panel-ddl" id="skin-panel-ddl">${Object.keys(this._parser.panels).sort().map(id => `<option${selected === id ? ' selected' : ''}>${id}</option>`)}</select>`;
 	}
 	private async _renderSkinPanel(panelID: string, panel?: SkinElement) {
 		if (!panel) {
@@ -244,11 +255,10 @@ export class SkinPreviewPanel {
 					const file = this._parser.assets[a.n];
 					// the skin has this asset defined
 					img = await this._imageProvider.findImageForWorkspace(this._document, file);
+				} else if (a.id) {
+					// fall back to main skin assets
+					img = await this._imageProvider.findImageById(a.id);
 				}
-			}
-			if (!img && el.assets && el.assets.length > 0) {
-				// fall back to main skin assets
-				img = await this._imageProvider.findImageById(el.assets[0]);
 			}
 		} catch (ex) {
 			console.error(ex);
@@ -262,8 +272,10 @@ export class SkinPreviewPanel {
 		if (img) {
 			styles.push(`background-image: url('${this._panel.webview.asWebviewUri(img.cachedUri ? img.cachedUri : img.uri)}');`);
 		}
-		if (/Highlight/.test(el.id)) {
+		if (/Highlight/.test(el.id) || el.b.x >= 2000 || el.b.y >= 2000) {
 			styles.push(`display: none;`);
+			// TODO: hide 2000px offset scrollbars
+			// i.e. AccomplishmentDisplay_MainListbox_HorizScrollbar
 		}
 		return `<div id="${el.id}" tooltip="${el.id}" class="skin-element" style="${styles.join(' ')}">${el.c ? (await Promise.all(el.c.map(async c => await this._renderSkinElement(c, level + 1)))).join('') : ''}</div>`;
 	}
@@ -275,4 +287,5 @@ export interface SkinState {
 	resource: string;
 	selectedPanelID: string;
 	zoom: any;
+	showBorders: boolean;
 };

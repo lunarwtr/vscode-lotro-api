@@ -27,7 +27,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 	// Register our color provider for Turbine Colors
 	let luaColorShowDisposable = vscode.languages.registerColorProvider({ pattern: "**/*.lua" }, new LuaColorShow());
-	const imageProvider = new ImageProvider(vscode.workspace.workspaceFolders, path.join(os.tmpdir(), 'lotro-api'), Configuration.skinningAssetsPath());
+	const imageProvider = new ImageProvider(vscode.workspace.workspaceFolders, path.join(os.tmpdir(), 'lotro-api'));
 	const hoverProvider = new LotroImageHoverProvider(imageProvider);
 	const hover = vscode.languages.registerHoverProvider(["lua", "xml"], hoverProvider);
 	const preview = new SkinPreviewManager(context.extensionUri, imageProvider);

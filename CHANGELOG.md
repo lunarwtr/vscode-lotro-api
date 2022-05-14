@@ -1,5 +1,12 @@
 # Change Log
 
+## [1.0.12] - 2022-05-14
+### Added
+- Improvement: Skinning preview nearly complete
+- Improvement: New Setting to keep converted TGA in skin asset folder
+- Improvement: Setting to open preview Beside editor or not
+- Fix: Skin is now merged with base skin definition to suppliment what is left out by author
+
 ## [1.0.11] - 2022-05-07
 ### Added
 - Improvement: Initial work for rendering skins in a webview (work in progress)

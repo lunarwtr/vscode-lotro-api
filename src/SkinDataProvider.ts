@@ -1,11 +1,15 @@
 const data: SkinData = require('./SkinData.json');
-import * as fs from 'fs';
-import * as vscode from 'vscode';
 import { DOMParser as dom } from '@xmldom/xmldom';
-import * as xpath from 'xpath';
+import * as fs from 'fs';
 import path from 'path';
+import * as vscode from 'vscode';
+import * as xpath from 'xpath';
+import { mergeSkinXml } from './SkinMerge';
+
+const DEFAULT_SKIN_DICTIONARY_PATH = path.join(vscode.extensions.getExtension('lunarwtr.lotro-api')!.extensionPath, 'resources', 'skinning', 'SkinDictionary.xml');
 
 export interface Asset {
+    id: string;
     // width
     w: number,
     // name
@@ -40,38 +44,25 @@ export interface PanelBoundBox {
     right: number
 }
 
-export interface SkinData {
-    panels: { [key: string]: SkinElement },
-    assets: { [key: string]: Asset }
-}
-
-function traverseAndMapAssets(el: SkinElement, element2Asset: Element2Asset) {
-    if (el.assets && el.assets.length > 0) {
-        const assets = el.assets.map(a => data.assets[a]);
-        element2Asset[el.id] = assets;
-    }
-    if (el.c) {
-        for (let i = 0; i < el.c.length; i++) {
-            traverseAndMapAssets(el.c[i], element2Asset);
-        }
-    }
-}
-
 interface Asset2ID { [key: string]: string }
 interface Element2Asset { [key: string]: Asset[] }
+interface ID2Asset { [key: string]: Asset }
 
-export const e2a: Element2Asset = {};
-Object.values(data.panels).forEach(e => traverseAndMapAssets(e, e2a));
-export const a2id = Object.entries(data.assets).reduce<Asset2ID>((res, cur) => {
-    res[cur[1].n] = cur[0];
-    return res;
-}, {});
+export interface SkinData {
+    e2a: Element2Asset,
+    a2id: Asset2ID,
+    assets: ID2Asset
+};
 
 export function determineBoundingBox(el: SkinElement, offsetX?: number, offsetY?: number, bb?: PanelBoundBox): PanelBoundBox {
     if (!el) {
         return { top: 0, bottom: 0, left: 0, right: 0 };
     }
     const b = el.b;
+    if (b.x >= 2000 || b.y >= 2000) {
+        // escape out if element is pushed way off
+        return bb!;
+    }
     const x = offsetX ? offsetX + b.x : b.x;
     const y = offsetY ? offsetY + b.y : b.y;
     if (bb) {
@@ -85,7 +76,6 @@ export function determineBoundingBox(el: SkinElement, offsetX?: number, offsetY?
     el.c?.forEach(e => determineBoundingBox(e, x, y, bb));
     return bb;
 }
-
 
 function attr(path: string, node: Node): string {
     return (xpath.select1(path, node) as Attr)?.value || '';
@@ -107,7 +97,11 @@ export class SkinDefinitionParser {
 
     public parseFromString(content: string) {
         const doc = new dom().parseFromString(content);        
-        
+        const defaultSkin = new dom().parseFromString(fs.readFileSync(DEFAULT_SKIN_DICTIONARY_PATH).toString());    
+        mergeSkinXml(doc.documentElement, defaultSkin.documentElement);
+        // const ser = new XMLSerializer();
+        // fs.writeFileSync(path.join(os.tmpdir(), "lotro-api", "Merged.xml"), ser.serializeToString(doc));
+
         // <SkinName Name="xxxxxxxx"></SkinName>
         this._skinName = attr('//SkinName/@Name', doc);
 
@@ -145,28 +139,6 @@ export class SkinDefinitionParser {
     public get assets() { return this._assets; }
     public get panels() { return this._panels; }
 
-    public buildSkinDataJson(file: string) {
-
-        const newAssets: { [key: string]: Asset } = {};
-        function addAssetToElement(el: SkinElement) {
-            el.assets = e2a[el.id]?.map(a => {
-                const id = a2id[a.n];
-                if (id) newAssets[id] = a;
-                return id;
-            }).filter(id => !!id);
-            el.c?.forEach(el => addAssetToElement(el));
-        }
-        Object.values(this._panels).forEach(el => addAssetToElement(el));
-
-        const res: SkinData = {
-            panels: this._panels,
-            assets: newAssets
-        };
-
-        fs.writeFileSync(file, JSON.stringify(res));
-
-    }
-
 }
 
-export const { panels, assets } = data;
+export const { a2id, e2a, assets } = data;

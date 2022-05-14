@@ -20,6 +20,7 @@ export interface Image {
     lastmodified: number;
     description?: string;
 }
+const IMAGE_EXTENSIONS = [ 'jpg', 'png', 'tga' ];
 
 export class ImageProvider {
 
@@ -28,7 +29,7 @@ export class ImageProvider {
     private _imageCache: Map<string, Image>;
     private _disposables: vscode.Disposable[] = [];
 
-    constructor(folders: readonly vscode.WorkspaceFolder[] | undefined, protected _tempDir: string, protected _skinningAssetPath: string | null) {
+    constructor(folders: readonly vscode.WorkspaceFolder[] | undefined, protected _tempDir: string) {
         this._workflowPluginRoots = new Map<string, Set<string>>();
         this._imageCache = new Map<string, Image>();
         this._tempFileImages = [];
@@ -52,12 +53,6 @@ export class ImageProvider {
                 }
             });
         });
-
-        vscode.workspace.onDidChangeConfiguration((event: vscode.ConfigurationChangeEvent) => {
-            if (event.affectsConfiguration('lotro-api.skinningAssets')) {
-                this._skinningAssetPath = Configuration.skinningAssetsPath();
-            }
-        }, null, this._disposables);
     }
 
     dispose() {
@@ -107,24 +102,35 @@ export class ImageProvider {
             const asset = skinningAssets[imageId];
             if (!asset) return;
 
-            if (!this._skinningAssetPath) return;
-            const imagePath = path.join(this._skinningAssetPath, `${asset.n}.tga`);
-            if (!fs.existsSync(imagePath)) return;
-            const tga = new TGA(fs.readFileSync(imagePath));
-            if (!tga) return;
-            const tmpFile = path.join(this._tempDir, imageId + ".png");
-            this._tempFileImages.push(tmpFile);
-            const png = await this.createPngFromTga(tga, tmpFile);
-
-            const image: Image = {
+            const skinningAssetPath = Configuration.skinningAssetsPath();
+            if (!skinningAssetPath) return;
+            let imagePathBase = path.join(skinningAssetPath, asset.n);
+            const imagePath = IMAGE_EXTENSIONS.map(ext => `${imagePathBase}.${ext}`).find(p => fs.existsSync(p));
+            if (!imagePath) return;
+            
+            let image: Image = {
                 uri: vscode.Uri.from({ scheme: 'file', path: imagePath }),
-                cachedUri: vscode.Uri.from({ scheme: 'file', path: tmpFile }),
                 lastmodified: 0,
-                ext: ".png",
-                width: png.width,
-                height: png.height,
-                description: asset.n
+                description: asset.n,
+                ext: path.extname(imagePath)
             };
+            if (/\.tga$/.test(imagePath)) {
+                const tga = new TGA(fs.readFileSync(imagePath));
+                if (!tga) return;
+                const keepConvertedAssets = Configuration.keepConvertedAssets();
+                const tmpFile = keepConvertedAssets ? `${imagePathBase}.png` : path.join(this._tempDir, imageId + ".png");
+                if (keepConvertedAssets) this._tempFileImages.push(tmpFile);
+                const png = await this.createPngFromTga(tga, tmpFile);
+                image.cachedUri = vscode.Uri.from({ scheme: 'file', path: tmpFile });
+                image.width = png.width;
+                image.height = png.height;
+            } else {
+                const size = sizeOf(fs.readFileSync(imagePath));
+                image.width = size.width;
+                image.height = size.height;
+                this._imageCache.set(imagePath, image);
+                return image;
+            }
 
             this._imageCache.set(imageId, image);
             return image;
@@ -187,8 +193,10 @@ export class ImageProvider {
         const roots = [
             vscode.Uri.from({ scheme: 'file', path: this._tempDir })
         ];
-        if (this._skinningAssetPath) {
-            roots.push(vscode.Uri.from({ scheme: 'file', path: this._skinningAssetPath }));
+        
+        const skinningAssetPath = Configuration.skinningAssetsPath();
+        if (skinningAssetPath) {
+            roots.push(vscode.Uri.from({ scheme: 'file', path: skinningAssetPath }));
         }
         vscode.workspace.workspaceFolders?.forEach(f => roots.push(f.uri));
         return roots;
