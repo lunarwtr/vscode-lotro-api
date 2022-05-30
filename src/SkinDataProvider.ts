@@ -1,5 +1,5 @@
 const data: SkinData = require('./SkinData.json');
-import { DOMParser as dom } from '@xmldom/xmldom';
+import { DOMParser as dom } from '@lunarwater/xmldom';
 import * as fs from 'fs';
 import path from 'path';
 import * as vscode from 'vscode';
@@ -66,8 +66,8 @@ export function determineBoundingBox(el: SkinElement, offsetX?: number, offsetY?
     const x = offsetX ? offsetX + b.x : b.x;
     const y = offsetY ? offsetY + b.y : b.y;
     if (bb) {
-        bb.top = Math.min(y, bb.top);
-        bb.left = Math.min(x, bb.left);
+        bb.top = Math.max(0, Math.min(y, bb.top));
+        bb.left =  Math.max(0, Math.min(x, bb.left));
         bb.bottom = Math.max(y + b.h, bb.bottom);
         bb.right = Math.max(x + b.w, bb.right);
     } else {
