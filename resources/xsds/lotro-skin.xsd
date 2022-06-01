@@ -1,62 +1,177 @@
 <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-<!-- <xs:include schemaLocation="lotro-skin-artassets.xsd" /> -->
-<xs:include schemaLocation="lotro-skin-panelfiles.xsd" />
-<xs:element name="opt">
+  <xs:include schemaLocation="lotro-skin-panelfiles.xsd" />
+  <xs:element name="opt">
     <xs:complexType>
       <xs:choice maxOccurs="unbounded" minOccurs="0">
-        <xs:element name="SkinName">
+        <xs:element name="SkinName" minOccurs="1" maxOccurs="1">
           <xs:complexType>
+            <xs:annotation>
+              <xs:documentation xml:lang="en">
+                Required tag for naming a LotRO skin.
+              </xs:documentation>
+            </xs:annotation> 
             <xs:simpleContent>
               <xs:extension base="xs:string">
-                <xs:attribute type="xs:string" name="Name"/>
+                <xs:attribute type="xs:string" name="Name">
+                  <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                      Name for the current LotRO skin.
+                    </xs:documentation>
+                  </xs:annotation> 
+                </xs:attribute>
               </xs:extension>
             </xs:simpleContent>
           </xs:complexType>
         </xs:element>
         <xs:element name="Mapping" maxOccurs="unbounded" minOccurs="0">
           <xs:complexType>
+            <xs:annotation>
+              <xs:documentation xml:lang="en">
+                Represents the mapping between an in game texture asset and its replacement.
+              </xs:documentation>
+            </xs:annotation>  
             <xs:simpleContent>
               <xs:extension base="xs:string">
-                <xs:attribute type="xs:string" name="ArtAssetID" use="optional"/>
-                <xs:attribute type="MappingURI" name="FileName" use="optional"/>
+                <xs:attribute type="xs:string" name="ArtAssetID" use="optional">
+                  <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                      The keyword that you use to identify the texture asset to override.
+                    </xs:documentation>
+                  </xs:annotation>
+                </xs:attribute>
+                <xs:attribute type="MappingURI" name="FileName" use="optional">
+                  <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                      The path to a TGA or JPG file to override texture asset.
+                    </xs:documentation>
+                  </xs:annotation>                  
+                </xs:attribute>
               </xs:extension>
             </xs:simpleContent>
           </xs:complexType>
         </xs:element>
         <xs:element name="PanelFile">
           <xs:complexType mixed="true">
+            <xs:annotation>
+              <xs:documentation>
+                A PanelFile is the "top level UI".  It is also called a panel.  A PanelFile will
+                contain one or more "Element" tags to specify the position and size of the
+                elements in the panel's heirarchy.
+              </xs:documentation>
+            </xs:annotation>
             <xs:sequence>
               <xs:element ref="Element" minOccurs="0" />
             </xs:sequence>
-            <xs:attribute type="PanelFileID" name="ID" />
+            <xs:attribute type="PanelFileID" name="ID">
+              <xs:annotation>
+                <xs:documentation>
+                  The keyword that you use to specify the panel to be modified.  
+                  This keyword is what hooks up the sub-tags into a UI in the engine. It's required.
+                </xs:documentation>
+              </xs:annotation>
+            </xs:attribute>
           </xs:complexType>
         </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="oneOfEachArtAssetID">
-      <xs:selector xpath="Mapping"/>
-      <xs:field xpath="@ArtAssetID"/>
+      <xs:selector xpath="Mapping" />
+      <xs:field xpath="@ArtAssetID" />
     </xs:unique>
     <xs:unique name="oneOfEachPanelFileID">
-      <xs:selector xpath="PanelFile"/>
-      <xs:field xpath="@ID"/>
+      <xs:selector xpath="PanelFile" />
+      <xs:field xpath="@ID" />
     </xs:unique>
   </xs:element>
   <xs:element name="Element">
     <xs:complexType mixed="true">
-        <xs:sequence>
-            <xs:element ref="Element" maxOccurs="unbounded" minOccurs="0"/>
-        </xs:sequence>
-        <xs:attribute type="xs:string" name="ID" use="optional"/>
-        <xs:attribute type="xs:int" name="X" use="optional"/>
-        <xs:attribute type="xs:int" name="Y" use="optional"/>
-        <xs:attribute type="xs:int" name="Width" use="optional"/>
-        <xs:attribute type="xs:int" name="Height" use="optional"/>
+      <xs:sequence>
+        <xs:element ref="Element" maxOccurs="unbounded" minOccurs="0" />
+      </xs:sequence>
+      <xs:attribute type="xs:string" name="ID" use="optional">
+        <xs:annotation>
+          <xs:documentation>
+            The ID is a string the engine expects and uses to identify the element in the
+            UI to be modified.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute type="xs:int" name="X" use="optional">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">
+            X coordinate location within the parent that this child element appears.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute type="xs:int" name="Y" use="optional">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">
+            Y coordinate location within the parent that this child element appears.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute type="xs:int" name="Width" use="optional">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">
+            Width of the element in the UI. Width must be greater than or equal to 1. 
+            A zero width is an error. 
+            
+            Setting width and height to 1 is how the background of an element is erased. (This could
+            also be accomplished by changing the skinned texture of the element field
+            to an empty tga.)
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute type="xs:int" name="Height" use="optional">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">
+            Height of the element in the UI. Height must be greater than or equal to 1. 
+            A zero width is an error. 
+            
+            Setting width and height to 1 is how the background of an element is erased. (This could
+            also be accomplished by changing the skinned texture of the element field
+            to an empty tga.)
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute type="Detach" name="Detach" use="optional">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">
+            Detach is a special keyword that's only used by the toolbar at this time!
+            It removes the attachment information from the element so that it appears
+            where you've placed it. Many of the UIs have attachments that position
+            items within the panel to make them look right. Arbitrarily changing the
+            "Detach" keyword may have strange or undesirable consequences. "Detach"
+            can either be "1" or "0". If there is no Detach="1" specified with the
+            element, the default is Detach=0.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute type="xs:int" name="ScaleOriginX" use="optional">
+        <xs:annotation>
+          <xs:documentation>
+            Identify the X origin that an element should scale from
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute type="xs:int" name="ScaleOriginY" use="optional">
+        <xs:annotation>
+          <xs:documentation>
+            Identify the Y origin that an element should scale from
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
     </xs:complexType>
   </xs:element>
   <xs:simpleType name="MappingURI">
     <xs:restriction base="xs:anyURI">
-      <xs:pattern value=".*\.(jpg|JPG|tga|TGA|Jpg|Jpg)"/>
+      <xs:pattern value=".*\.(jpg|JPG|tga|TGA|Jpg|Jpg)" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Detach">
+    <xs:restriction base="xs:int">
+      <xs:enumeration value="0" />
+      <xs:enumeration value="1" />
     </xs:restriction>
   </xs:simpleType>
 </xs:schema>

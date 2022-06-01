@@ -1,5 +1,14 @@
 <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:simpleType name="PanelFileID" final="restriction">
+    <xs:union memberTypes="PanelFileIDEnumeration">
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:minLength value="1" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+  <xs:simpleType name="PanelFileIDEnumeration">
     <xs:restriction base="xs:string">
       <xs:enumeration value="ID_UISkin_GamePlay_Undocked_ExtraShortcutBar1" />
       <xs:enumeration value="ID_UISkin_ItemSocketUseGem" />
@@ -109,7 +118,7 @@
       <xs:enumeration value="ID_UISkin_GamePlay_Undocked_ShiftBar" />
       <xs:enumeration value="ID_UISkin_TraitPanel_Window" />
       <xs:enumeration value="ID_UISkin_PVPMuckleUI" />
-      <xs:enumeration value="ID_UISkin_HousingForSaleSign_MainField" />      
+      <xs:enumeration value="ID_UISkin_HousingForSaleSign_MainField" />
     </xs:restriction>
   </xs:simpleType>
 </xs:schema>

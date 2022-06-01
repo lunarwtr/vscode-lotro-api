@@ -234,13 +234,21 @@ export class SkinPreviewPanel {
 			</html>`;
 	}
 	private _renderSkinPanelDropdown(selected: string) {
-		return `<select class="skin-panel-ddl" id="skin-panel-ddl">${Object.keys(this._parser.panels).sort().map(id => `<option${selected === id ? ' selected' : ''}>${id}</option>`)}</select>`;
+
+		const keys = Object.keys(this._parser.panels).sort();
+		const rp = this._parser.referencedPanels.sort();
+		const dditems = rp;
+		if (dditems.length) {
+			dditems.push('----------------------');
+		}
+		dditems.push(...keys.filter(x => !rp.includes(x)));
+		return `<select class="skin-panel-ddl" id="skin-panel-ddl">${dditems.map(id => `<option${selected === id ? ' selected' : ''}>${id}</option>`)}</select>`;
 	}
-	private async _renderSkinPanel(panelID: string, panel?: SkinElement) {
-		if (!panel) {
+	private async _renderSkinPanel(panelID: string, panels?: SkinElement[]) {
+		if (!panels) {
 			return `<h2>Panel ${panelID} Not Found</h2>`;
 		}
-		return await this._renderSkinElement(panel, 0);
+		return (await Promise.all(panels.map(p => this._renderSkinElement(p, 0)))).join('');
 	}
 	private async _renderSkinElement(el: SkinElement, level: number): Promise<string> {
 		const left = level === 0 ? 0 : (el.b.x || 0);

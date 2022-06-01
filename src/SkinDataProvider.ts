@@ -6,7 +6,9 @@ import * as vscode from 'vscode';
 import * as xpath from 'xpath';
 import { mergeSkinXml } from './SkinMerge';
 
-const DEFAULT_SKIN_DICTIONARY_PATH = path.join(vscode.extensions.getExtension('lunarwtr.lotro-api')!.extensionPath, 'resources', 'skinning', 'SkinDictionary.xml');
+const DEFAULT_SKIN_DICTIONARY_FOLDER_PATH = path.join(vscode.extensions.getExtension('lunarwtr.lotro-api')!.extensionPath, 'resources', 'skinning');
+const DEFAULT_SKIN_DICTIONARY_PATH = path.join(DEFAULT_SKIN_DICTIONARY_FOLDER_PATH, 'SkinDictionary.xml');
+const EXTRA_SKIN_DICTIONARY_PATH = path.join(DEFAULT_SKIN_DICTIONARY_FOLDER_PATH, 'SkinDictionary-extra.xml');
 
 export interface Asset {
     id: string;
@@ -54,7 +56,18 @@ export interface SkinData {
     assets: ID2Asset
 };
 
-export function determineBoundingBox(el: SkinElement, offsetX?: number, offsetY?: number, bb?: PanelBoundBox): PanelBoundBox {
+export function determineBoundingBox(els: SkinElement[]): PanelBoundBox {
+    if (!els) {
+        return { top: 0, bottom: 0, left: 0, right: 0 };
+    }
+    let bb: PanelBoundBox | undefined = undefined;
+    for (let i = 0; i < els.length; i++) {
+        bb = determineElementBoundingBox(els[i], undefined, undefined, bb);
+    }
+    return bb!;
+}
+
+export function determineElementBoundingBox(el: SkinElement, offsetX?: number, offsetY?: number, bb?: PanelBoundBox): PanelBoundBox {
     if (!el) {
         return { top: 0, bottom: 0, left: 0, right: 0 };
     }
@@ -73,7 +86,7 @@ export function determineBoundingBox(el: SkinElement, offsetX?: number, offsetY?
     } else {
         bb = { top: y, bottom: y + b.h, left: x, right: x + b.w };
     }
-    el.c?.forEach(e => determineBoundingBox(e, x, y, bb));
+    el.c?.forEach(e => determineElementBoundingBox(e, x, y, bb));
     return bb;
 }
 
@@ -89,16 +102,28 @@ export class SkinDefinitionParser {
 
     private _skinName: string = "";
     private _assets:  { [key: string]: string } = {};
-    private _panels: { [key: string]: SkinElement } = {};
+    private _panels: { [key: string]: SkinElement[] } = {};
+    private _referencedPanels: string[] = [];
 
 	public async parseFromResource(_resource: vscode.Uri) {
         this.parseFromString(fs.readFileSync(_resource.fsPath).toString());
 	}
 
-    public parseFromString(content: string) {
-        const doc = new dom().parseFromString(content);        
+    public parseFromString(content: string, includeExtraPanels?: boolean) {
+        const doc = new dom().parseFromString(content); 
+        
+        this._referencedPanels = [];
+        nodes('//PanelFile', doc).forEach( panel => {
+            const id = attr('./@ID', panel);
+            if (id) this._referencedPanels.push(id);
+        });
+
         const defaultSkin = new dom().parseFromString(fs.readFileSync(DEFAULT_SKIN_DICTIONARY_PATH).toString());    
         mergeSkinXml(doc.documentElement, defaultSkin.documentElement);
+        if (includeExtraPanels) {
+            const extraSkin = new dom().parseFromString(fs.readFileSync(EXTRA_SKIN_DICTIONARY_PATH).toString());    
+            mergeSkinXml(doc.documentElement, extraSkin.documentElement);
+        }
         // const ser = new XMLSerializer();
         // fs.writeFileSync(path.join(os.tmpdir(), "lotro-api", "Merged.xml"), ser.serializeToString(doc));
 
@@ -119,7 +144,7 @@ export class SkinDefinitionParser {
             const id = attr('./@ID', panel);
             const n = nodes('./Element', panel);
             if (n && n.length > 0) {
-                this._panels[id] = this.parsePanelElement(n[0]);
+                this._panels[id] = n.map(cur => this.parsePanelElement(cur));
             }
         });
     }
@@ -138,6 +163,7 @@ export class SkinDefinitionParser {
     public get skinName(): string { return this._skinName; }
     public get assets() { return this._assets; }
     public get panels() { return this._panels; }
+    public get referencedPanels(): string[] { return this._referencedPanels; }
 
 }
 
