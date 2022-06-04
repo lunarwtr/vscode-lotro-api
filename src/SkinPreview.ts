@@ -2,7 +2,7 @@
 import * as vscode from 'vscode';
 import { Configuration } from './configuration';
 import { ImageProvider } from './LotroImageHoverProvider';
-import { determineBoundingBox, e2a, SkinDefinitionParser, SkinElement } from './SkinDataProvider';
+import { determineBoundingBox, e2a, PanelDetail, SkinDefinitionParser, SkinElement } from './SkinDataProvider';
 
 export class SkinPreviewManager implements vscode.WebviewPanelSerializer<SkinState> {
 
@@ -102,6 +102,8 @@ export class SkinPreviewManager implements vscode.WebviewPanelSerializer<SkinSta
 	}
 }
 
+interface ProgressReport { message?: string; increment?: number }
+
 /**
  * Manages cat coding webview panels
  */
@@ -114,10 +116,12 @@ export class SkinPreviewPanel {
 	
 	private readonly _onDisposeEmitter = new vscode.EventEmitter<void>();
 	public readonly onDispose = this._onDisposeEmitter.event;
+	private _progress: vscode.Progress<ProgressReport> | null;
 
 	public constructor(private _panel: vscode.WebviewPanel, protected _extensionUri: vscode.Uri, protected _state: SkinState, protected _imageProvider: ImageProvider) {
 		this._resource = vscode.Uri.parse(_state.resource);
 		this._parser = new SkinDefinitionParser();
+		this._progress = null;
 
 		// Set the webview's initial html content
 		this._update();
@@ -173,8 +177,21 @@ export class SkinPreviewPanel {
 	}
 
 	private async _update() {
-		const webview = this._panel.webview;
-		this._updateForPanelID(webview, this._state.selectedPanelID);
+		if (this._progress) {
+			console.log(`already has progress going`);
+			return;
+		}
+		await vscode.window.withProgress({
+			location: vscode.ProgressLocation.Notification,
+			title: `Loading ${this._state.selectedPanelID}`,
+			cancellable: false
+		}, (progress, token) => {
+			this._progress = progress; 
+			progress.report({ increment: 0 });
+			const webview = this._panel.webview;
+			return this._updateForPanelID(webview, this._state.selectedPanelID);
+		});
+		this._progress = null;
 	}
 
 	private async _updateForPanelID(webview: vscode.Webview, panelID: string) {
@@ -185,11 +202,15 @@ export class SkinPreviewPanel {
 	private async _getHtmlForWebview(webview: vscode.Webview, panelID: string) {
 
 		this._document = await vscode.workspace.openTextDocument(this._resource);
-		this._parser.parseFromString(this._document.getText());
+
+		this._progress!.report({ message: 'Parsing skinning document.'});
+
+		await this._parser.parseFromString(this._document.getText(), Configuration.showUnofficialPanels());
 
 		const panel = this._parser.panels[panelID];
 
-		const bb = determineBoundingBox(panel);
+		this._progress!.report({ message: 'Determinging panel bounding box.'});
+		const bb = determineBoundingBox(panel.elements);
 
 		//this._parser.buildSkinDataJson(path.join(path.dirname(this._resource.fsPath), 'SkinData.json'));
 		// Local path to main script run in the webview
@@ -234,26 +255,23 @@ export class SkinPreviewPanel {
 			</html>`;
 	}
 	private _renderSkinPanelDropdown(selected: string) {
-
-		const keys = Object.keys(this._parser.panels).sort();
-		const rp = this._parser.referencedPanels.sort();
-		const dditems = rp;
-		if (dditems.length) {
-			dditems.push('----------------------');
-		}
-		dditems.push(...keys.filter(x => !rp.includes(x)));
-		return `<select class="skin-panel-ddl" id="skin-panel-ddl">${dditems.map(id => `<option${selected === id ? ' selected' : ''}>${id}</option>`)}</select>`;
+		const panels = this._parser.panels;
+		const keys = Object.keys(this._parser.panels).sort((a,b) => panels[a].source - panels[b].source || panels[a].id.localeCompare(panels[b].id));
+		return `<select class="skin-panel-ddl" id="skin-panel-ddl">${keys.map(id => `<option class="panel-source${panels[id].source}" value="${id}"${selected === id ? ' selected' : ''}>${id.replace(/^ID_UISkin_/,'')}</option>`).join('')}</select>`;
 	}
-	private async _renderSkinPanel(panelID: string, panels?: SkinElement[]) {
-		if (!panels) {
+	private async _renderSkinPanel(panelID: string, panel?: PanelDetail) {
+		if (!panel) {
 			return `<h2>Panel ${panelID} Not Found</h2>`;
 		}
-		return (await Promise.all(panels.map(p => this._renderSkinElement(p, 0)))).join('');
+		const stat = { currentCount: 0, total: panel.elementCount };
+		const p = (await Promise.all(panel.elements.map((p) => this._renderSkinElement(p, 0, stat)))).join('');
+		return p;
 	}
-	private async _renderSkinElement(el: SkinElement, level: number): Promise<string> {
+	private async _renderSkinElement(el: SkinElement, level: number, stat: SkinRenderProgress): Promise<string> {
 		const left = level === 0 ? 0 : (el.b.x || 0);
 		const top = level === 0 ? 0 : (el.b.y || 0);
-
+		stat.currentCount++;
+		this._progress!.report({ message: `Rendering ${el.id}`, increment: Math.round(stat.currentCount * 100.0 / stat.total)});
 		let img;
 		try {
 			const assets = e2a[el.id];
@@ -285,12 +303,16 @@ export class SkinPreviewPanel {
 			// TODO: hide 2000px offset scrollbars
 			// i.e. AccomplishmentDisplay_MainListbox_HorizScrollbar
 		}
-		return `<div id="${el.id}" tooltip="${el.id}" class="skin-element" style="${styles.join(' ')}">${el.c ? (await Promise.all(el.c.map(async c => await this._renderSkinElement(c, level + 1)))).join('') : ''}</div>`;
+		return `<div id="${el.id}" tooltip="${el.id}" class="skin-element" style="${styles.join(' ')}">${el.c ? (await Promise.all(el.c.map(async c => await this._renderSkinElement(c, level + 1, stat)))).join('') : ''}</div>`;
 	}
 }
 
 const encodeHTMLEntities = (s: string) => s.replace(/[\u00A0-\u9999\<\>\&\"]/g, i => '&#' + i.charCodeAt(0) + ';');
 
+interface SkinRenderProgress {
+	currentCount: number;
+	total: number;
+}
 export interface SkinState {
 	resource: string;
 	selectedPanelID: string;

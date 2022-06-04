@@ -1,5 +1,17 @@
 # Change Log
 
+## [1.0.13] - 2022-06-04
+### Added
+- Improvement: Skinning preview speed improvements
+- Improvement: Progress bar added for loading of skinning preview
+- Improvement: Additional image mappings for skinning elements for better rendering
+- Improvement: Addition of unofficial skinning panels & new configuration setting to activate
+- Improvement: Skinning Preview panel dropdown now sorts order changed so author skin panels are first, then defaults, then unofficial (if turned on)
+- Improvement: Added support for XML Entity variables
+- Improvement: Added XSD schema documentation for skinning elements
+- Fix: Fixed issue where images were not loading from cache and being regenerated each time.
+![](https://github.com/lunarwtr/vscode-lotro-api/raw/main/resources/img/skinpreview2.gif)
+
 ## [1.0.12] - 2022-05-14
 ### Added
 - Improvement: Skinning preview nearly complete

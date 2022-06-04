@@ -34,6 +34,14 @@ body {
 .skin-panel-ddl {
 	width: 250px;
 }
+.skin-panel-ddl .panel-source0 {
+    font-style: italic;
+    font-weight: bold;
+}
+.skin-panel-ddl .panel-source2 {
+	color: gray;
+	font-style: italic;
+}
 .skin-btn {
 	border: none;
 	color: var(--vscode-panelTitle-inactiveForeground);

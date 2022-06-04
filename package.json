@@ -2,7 +2,7 @@
     "name": "lotro-api",
     "displayName": "LotRO API",
     "description": "Lord of the Rings Online API - Adds IntelliSense features for LotRO API.",
-    "version": "1.0.12",
+    "version": "1.0.13",
     "publisher": "lunarwtr",
     "repository": {
         "type": "git",
@@ -93,6 +93,11 @@
                     "type": "boolean",
                     "default": false,
                     "description": "Keep converted TGA to PNG skinning assets in Skinning Assets Folder.\n\n(Speeds up Skinning Preview rendering speed)"
+                },
+                "lotro-api.showUnofficialPanels": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Show unofficial panels in preview dropdown.  (might be buggy)"
                 },
                 "lotro-api.skinningPreviewColumn": {
                     "type": "string",

@@ -1,10 +1,13 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 const data: SkinData = require('./SkinData.json');
 import { DOMParser as dom } from '@lunarwater/xmldom';
 import * as fs from 'fs';
 import path from 'path';
+import { promisify } from 'util';
 import * as vscode from 'vscode';
 import * as xpath from 'xpath';
 import { mergeSkinXml } from './SkinMerge';
+const readFileAsync = promisify(fs.readFile);
 
 const DEFAULT_SKIN_DICTIONARY_FOLDER_PATH = path.join(vscode.extensions.getExtension('lunarwtr.lotro-api')!.extensionPath, 'resources', 'skinning');
 const DEFAULT_SKIN_DICTIONARY_PATH = path.join(DEFAULT_SKIN_DICTIONARY_FOLDER_PATH, 'SkinDictionary.xml');
@@ -98,30 +101,43 @@ function nodes(path: string, node: Node): Array<Element> {
     return xpath.select(path, node) as Array<Element>;
 }
 
+export enum PanelSource {
+    AUTHOR,
+    DEFAULT,
+    EXTENDED
+};
+
+export interface PanelDetail {
+    id: string;
+    source: PanelSource;
+    elementCount: number;
+    elements: SkinElement[];
+};
+interface ParseStat {
+    totalCount: number;
+}
 export class SkinDefinitionParser {
 
     private _skinName: string = "";
     private _assets:  { [key: string]: string } = {};
-    private _panels: { [key: string]: SkinElement[] } = {};
+    private _panels: { [key: string]: PanelDetail } = {};
     private _referencedPanels: string[] = [];
 
-	public async parseFromResource(_resource: vscode.Uri) {
-        this.parseFromString(fs.readFileSync(_resource.fsPath).toString());
+	public async parseFromResource(_resource: vscode.Uri, includeExtraPanels: boolean) {
+        this.parseFromString((await readFileAsync(_resource.fsPath)).toString(), includeExtraPanels);
 	}
 
-    public parseFromString(content: string, includeExtraPanels?: boolean) {
+    public async parseFromString(content: string, includeExtraPanels: boolean) {
         const doc = new dom().parseFromString(content); 
         
-        this._referencedPanels = [];
-        nodes('//PanelFile', doc).forEach( panel => {
-            const id = attr('./@ID', panel);
-            if (id) this._referencedPanels.push(id);
-        });
+        this._referencedPanels = this.panelsInDoc(doc);
+        let extraSkinPanels: string[] = [];
 
-        const defaultSkin = new dom().parseFromString(fs.readFileSync(DEFAULT_SKIN_DICTIONARY_PATH).toString());    
+        const defaultSkin = new dom().parseFromString((await readFileAsync(DEFAULT_SKIN_DICTIONARY_PATH)).toString());
         mergeSkinXml(doc.documentElement, defaultSkin.documentElement);
         if (includeExtraPanels) {
-            const extraSkin = new dom().parseFromString(fs.readFileSync(EXTRA_SKIN_DICTIONARY_PATH).toString());    
+            const extraSkin = new dom().parseFromString((await readFileAsync(EXTRA_SKIN_DICTIONARY_PATH)).toString());
+            extraSkinPanels = this.panelsInDoc(extraSkin);
             mergeSkinXml(doc.documentElement, extraSkin.documentElement);
         }
         // const ser = new XMLSerializer();
@@ -143,21 +159,40 @@ export class SkinDefinitionParser {
         nodes('//PanelFile', doc).forEach( panel => {
             const id = attr('./@ID', panel);
             const n = nodes('./Element', panel);
+            let source = PanelSource.DEFAULT;
+            if (this._referencedPanels.includes(id)) {
+                source = PanelSource.AUTHOR;
+            } else if (extraSkinPanels.includes(id)) {
+                source = PanelSource.EXTENDED;
+            }
+            const stat = { totalCount: 0 };
+            const elements = n.map(cur => this.parsePanelElement(cur, stat));
             if (n && n.length > 0) {
-                this._panels[id] = n.map(cur => this.parsePanelElement(cur));
+                this._panels[id] = { source, elements, id, elementCount: stat.totalCount };
             }
         });
     }
 
-    private parsePanelElement(node:  Element): SkinElement {
+    private panelsInDoc(doc: Document): string[] {
+        const panels: string[] = [];
+        nodes('//PanelFile', doc).forEach( panel => {
+            const id = attr('./@ID', panel);
+            if (id) panels.push(id);
+        });
+        return panels;
+    }
+
+    private parsePanelElement(node:  Element, stats: ParseStat): SkinElement {
+        const id = node.getAttribute('ID') || '';
+        stats.totalCount++;
         const bounds: Bounds = {
             w: parseInt(node.getAttribute('Width') || '0', 10),
             x: parseInt(node.getAttribute('X') || '0', 10),
             y: parseInt(node.getAttribute('Y') || '0', 10),
             h: parseInt(node.getAttribute('Height') || '0', 10),
         };
-        const children = nodes('./Element', node).map(e => this.parsePanelElement(e));
-        return { id: node.getAttribute('ID') || '', b: bounds, c: children };
+        const children = nodes('./Element', node).map(e => this.parsePanelElement(e, stats));
+        return { id: id, b: bounds, c: children };
     }
     
     public get skinName(): string { return this._skinName; }

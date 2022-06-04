@@ -6,6 +6,10 @@ export class Configuration {
         return vscode.workspace.getConfiguration('lotro-api').get('keepConvertedAssets', false);
     }
 
+    static showUnofficialPanels(): boolean {
+        return vscode.workspace.getConfiguration('lotro-api').get('showUnofficialPanels', false);
+    }
+
     public static skinningAssetsPath(): string | null {
         return vscode.workspace.getConfiguration('lotro-api').get('skinningAssets', null);
     }

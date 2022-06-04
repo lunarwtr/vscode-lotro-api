@@ -7,9 +7,25 @@ import * as path from 'path';
 import { PNG } from 'pngjs';
 import TGA from 'tga';
 import { debounce } from 'ts-debounce';
+import { promisify } from 'util';
 import * as vscode from 'vscode';
 import { Configuration } from './configuration';
 import { assets as skinningAssets } from './SkinDataProvider';
+const readFileAsync = promisify(fs.readFile);
+const existsAsync = promisify(fs.exists);
+const statAsync = promisify(fs.stat);
+
+async function findAsyncSequential<T>(
+    array: T[],
+    predicate: (t: T) => Promise<boolean>,
+): Promise<T | undefined> {
+    for (const t of array) {
+        if (await predicate(t)) {
+            return t;
+        }
+    }
+    return undefined;
+}
 
 export interface Image {
     uri: vscode.Uri;
@@ -33,12 +49,16 @@ export class ImageProvider {
         this._workflowPluginRoots = new Map<string, Set<string>>();
         this._imageCache = new Map<string, Image>();
         this._tempFileImages = [];
-
+        
+        const skinningAssetPath = Configuration.skinningAssetsPath();
         fs.mkdirSync(this._tempDir, { recursive: true });
 
         // Monitor all plugin files being added or removed from workspaces
         if (folders === undefined) return;
         folders.forEach(f => {
+            if (skinningAssetPath && skinningAssetPath.startsWith(f.uri.fsPath)) {
+                return;
+            }
             const watcher = chokidar.watch(path.join(f.uri.fsPath, '**/*.plugin'), {
                 persistent: true,
                 depth: 5
@@ -105,7 +125,7 @@ export class ImageProvider {
             const skinningAssetPath = Configuration.skinningAssetsPath();
             if (!skinningAssetPath) return;
             let imagePathBase = path.join(skinningAssetPath, asset.n);
-            const imagePath = IMAGE_EXTENSIONS.map(ext => `${imagePathBase}.${ext}`).find(p => fs.existsSync(p));
+            const imagePath = await findAsyncSequential<string>(IMAGE_EXTENSIONS.map(ext => `${imagePathBase}.${ext}`), async (p) => await existsAsync(p));
             if (!imagePath) return;
             
             let image: Image = {
@@ -115,7 +135,8 @@ export class ImageProvider {
                 ext: path.extname(imagePath)
             };
             if (/\.tga$/.test(imagePath)) {
-                const tga = new TGA(fs.readFileSync(imagePath));
+                const buf = await readFileAsync(imagePath);
+                const tga = new TGA(buf);
                 if (!tga) return;
                 const keepConvertedAssets = Configuration.keepConvertedAssets();
                 const tmpFile = keepConvertedAssets ? `${imagePathBase}.png` : path.join(this._tempDir, imageId + ".png");
@@ -125,11 +146,9 @@ export class ImageProvider {
                 image.width = png.width;
                 image.height = png.height;
             } else {
-                const size = sizeOf(fs.readFileSync(imagePath));
+                const size = sizeOf(await readFileAsync(imagePath));
                 image.width = size.width;
                 image.height = size.height;
-                this._imageCache.set(imagePath, image);
-                return image;
             }
 
             this._imageCache.set(imageId, image);
@@ -148,10 +167,10 @@ export class ImageProvider {
         }
 
         // find which one has a match
-        const imagePath = paths.map(p => path.resolve(p, file)).find(p => fs.existsSync(p));
+        const imagePath = await findAsyncSequential<string>(paths.map(p => path.resolve(p, file)), async (p) => await existsAsync(p));
         if (!imagePath) return;
 
-        const stats = fs.statSync(imagePath);
+        const stats = await statAsync(imagePath);
         let image = this._imageCache.get(imagePath);
         if (image && stats.mtimeMs === image.lastmodified) {
             return image;
@@ -170,7 +189,7 @@ export class ImageProvider {
                 const tmpFile = path.join(this._tempDir, hash + ".png");
                 this._tempFileImages.push(tmpFile);
 
-                const png = await this.createPngFromTga(new TGA(fs.readFileSync(imagePath)), tmpFile);
+                const png = await this.createPngFromTga(new TGA(await readFileAsync(imagePath)), tmpFile);
 
                 image.cachedUri = vscode.Uri.from({ scheme: 'file', path: tmpFile });
                 image.width = png.width;
@@ -180,7 +199,7 @@ export class ImageProvider {
             } catch (ex) { }
 
         } else {
-            const size = sizeOf(fs.readFileSync(imagePath));
+            const size = sizeOf(await readFileAsync(imagePath));
             image.width = size.width;
             image.height = size.height;
             this._imageCache.set(imagePath, image);
