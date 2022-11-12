@@ -1,5 +1,5 @@
---- Turbine.lua.orig	2022-04-17 14:39:24.307987200 -0600
-+++ Turbine.lua	2022-04-17 15:28:07.507987200 -0600
+--- Turbine.lua.orig	2022-11-11 18:34:42.956576500 -0700
++++ Turbine.lua	2022-11-11 18:32:33.646576500 -0700
 @@ -124,12 +124,12 @@
  Engine = {}
  
@@ -450,7 +450,27 @@
  
  ---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_PluginData$Members.html)
  ---Provides the ability to save and load plugin data.
-@@ -2971,11 +3207,11 @@
+@@ -2953,7 +3189,7 @@
+ ---Loads plugin data from a given key.
+ ---@param dataScope number The scope of the data. Data scope can be specified to an Account, a Server, or to a specific Character.
+ ---@param key string The key the data is stored under.
+----@param dataLoadEventHandler Object A function that is called when the data loaded.
++---@param dataLoadEventHandler function A function that is called when the data loaded.
+ ---@return Object #The loaded data. If the data does not exist, this will simply return nil.
+ PluginData.Load = function (dataScope, key, dataLoadEventHandler) end
+ 
+@@ -2961,21 +3197,20 @@
+ ---@param dataScope number The scope of the data. This specifies the level of availability of this data when loading. Data scope can be specified to an Account, a Server, or to a specific Character.
+ ---@param key string The key to store the data under.
+ ---@param data Object The data to save.
+----@param saveCompleteEventHandler Object Event handler called when the data is saved. It has two arguments, the first specifies if the save succeeded and the second is a message if it failed.
++---@param saveCompleteEventHandler function Event handler called when the data is saved. It has two arguments, the first specifies if the save succeeded and the second is a message if it failed.
+ PluginData.Save = function (dataScope, key, data, saveCompleteEventHandler) end
+ 
+-
+ ---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_PluginManager$Members.html)
+ ---Provides access to plugin management methods.
+ ---@class PluginManager
  PluginManager = {}
  
  ---Gets the plugins that are currently available.
@@ -464,7 +484,7 @@
  PluginManager.GetLoadedPlugins = function () end
  
  ---Loads the plugin that is requested.
-@@ -2989,6 +3225,9 @@
+@@ -2989,6 +3224,9 @@
  ---@param scriptState string The name of the script state to be unloaded.
  PluginManager.UnloadScriptState = function (scriptState) end
  
@@ -474,7 +494,7 @@
  
  ---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Shell$Members.html)
  ---Provides programmer extensibility to the chat window.
-@@ -3176,15 +3415,21 @@
+@@ -3176,15 +3414,21 @@
  
  
  ---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_UI_Color$Members.html)
@@ -498,7 +518,7 @@
  ---@field public Beige Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Beige.png) `Turbine.UI.Color(1,0.96100002527237,0.96100002527237,0.8629999756813)`
  ---@field public Bisque Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Bisque.png) `Turbine.UI.Color(1,1,0.89399999380112,0.76899999380112)`
  ---@field public Black Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Black.png) `Turbine.UI.Color(1,0,0,0)`
-@@ -3227,7 +3472,6 @@
+@@ -3227,7 +3471,6 @@
  ---@field public FloralWhite Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/FloralWhite.png) `Turbine.UI.Color(1,1,0.98000001907349,0.94099998474121)`
  ---@field public ForestGreen Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/ForestGreen.png) `Turbine.UI.Color(1,0.1330000013113,0.5450000166893,0.1330000013113)`
  ---@field public Fuchsia Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Fuchsia.png) `Turbine.UI.Color(1,1,0,1)`
@@ -506,7 +526,7 @@
  ---@field public Gainsboro Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Gainsboro.png) `Turbine.UI.Color(1,0.8629999756813,0.8629999756813,0.8629999756813)`
  ---@field public GhostWhite Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/GhostWhite.png) `Turbine.UI.Color(1,0.97299998998642,0.97299998998642,1)`
  ---@field public Gold Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Gold.png) `Turbine.UI.Color(1,1,0.84299999475479,0)`
-@@ -3296,7 +3540,6 @@
+@@ -3296,7 +3539,6 @@
  ---@field public Plum Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Plum.png) `Turbine.UI.Color(1,0.86699998378754,0.62699997425079,0.86699998378754)`
  ---@field public PowderBlue Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/PowderBlue.png) `Turbine.UI.Color(1,0.68999999761581,0.87800002098083,0.90200001001358)`
  ---@field public Purple Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Purple.png) `Turbine.UI.Color(1,0.50199997425079,0,0.50199997425079)`
@@ -514,7 +534,7 @@
  ---@field public Red Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/Red.png) `Turbine.UI.Color(1,1,0,0)`
  ---@field public RosyBrown Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/RosyBrown.png) `Turbine.UI.Color(1,0.73699998855591,0.56099998950958,0.56099998950958)`
  ---@field public RoyalBlue Color ![](https://lunarwtr.github.io/lotro-api-docs/colors/images/RoyalBlue.png) `Turbine.UI.Color(1,0.25499999523163,0.41200000047684,0.88200002908707)`
-@@ -3567,6 +3810,21 @@
+@@ -3567,6 +3809,21 @@
  ---@param backgroundImage any The path or id of the image to set the background of the control to.
  function Control:SetBackground(backgroundImage) end
  
@@ -536,7 +556,7 @@
  ---Sets the blend mode applied to the background image.
  ---@param value number The new background blend mode.
  function Control:SetBlendMode(value) end
-@@ -3715,6 +3973,7 @@
+@@ -3715,6 +3972,7 @@
  Control.MouseUp = function (sender, args) end
  
  ---Event fired when a mouse wheel moves.
@@ -544,7 +564,7 @@
  ---@param sender table The event sender.
  ---@param args EventControlMouseWheelArgsTable The event arguments
  Control.MouseWheel = function (sender, args) end
-@@ -3865,8 +4124,9 @@
+@@ -3865,8 +4123,9 @@
  ---`Graphic(dataId)` : Constructs a graphic from a game asset by its ID.
  ---`Graphic(filename)` : Constructs a graphic from a file.
  ---@overload fun():Graphic
@@ -556,7 +576,7 @@
  ---@param filename string 
  ---@return Graphic
  Turbine.UI.Graphic = function (filename) end
-@@ -3876,8 +4136,9 @@
+@@ -3876,8 +4135,9 @@
  ---`Graphic(dataId)` : Constructs a graphic from a game asset by its ID.
  ---`Graphic(filename)` : Constructs a graphic from a file.
  ---@overload fun():Graphic
@@ -568,7 +588,7 @@
  ---@param filename string 
  ---@return Graphic
  function Graphic:Constructor(filename) end
-@@ -4178,9 +4439,19 @@
+@@ -4178,9 +4438,19 @@
  ---@param value number The number of pixels to indent wrapped rows or columns.
  function ListBox:SetWrapIndentAmount(value) end
  
@@ -590,7 +610,7 @@
  
  ---Event fired when an item is added.
  ---@param sender table The event sender.
-@@ -4843,6 +5114,29 @@
+@@ -4843,6 +5113,29 @@
  ---@param value Effect The effect the control is displaying.
  function EffectDisplay:SetEffect(value) end
  
@@ -620,23 +640,29 @@
  
  ---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_UI_Lotro_EntityControl$Members.html)
  ---A control for providing standard entity selection and context sensitive menu support.
-@@ -5207,6 +5501,7 @@
+@@ -5207,8 +5500,9 @@
  ---`Shortcut(type, data)` : Initializes a new shortcut.
  ---@overload fun():Shortcut
  ---@overload fun(item:Item):Shortcut
 +---@diagnostic disable-next-line: undefined-doc-param
  ---@param item Item The item to create the shortcut from.
- ---@param type ShortcutType The type of shortcut that will be created.
+----@param type ShortcutType The type of shortcut that will be created.
++---@param type number The type of shortcut that will be created. (See Turbine.UI.Lotro.ShortcutType) 
  ---@param data string the data string associated with this shortcut.
-@@ -5219,6 +5514,7 @@
+ ---@return Shortcut
+ Turbine.UI.Lotro.Shortcut = function (type, data) end
+@@ -5219,8 +5513,9 @@
  ---`Shortcut(type, data)` : Initializes a new shortcut.
  ---@overload fun():Shortcut
  ---@overload fun(item:Item):Shortcut
 +---@diagnostic disable-next-line: undefined-doc-param
  ---@param item Item The item to create the shortcut from.
- ---@param type ShortcutType The type of shortcut that will be created.
+----@param type ShortcutType The type of shortcut that will be created.
++---@param type number The type of shortcut that will be created.  (See Turbine.UI.Lotro.ShortcutType)
  ---@param data string the data string associated with this shortcut.
-@@ -5367,6 +5663,9 @@
+ ---@return Shortcut
+ function Shortcut:Constructor(type, data) end
+@@ -5367,6 +5662,9 @@
  ---@param args EventMenuItemClickArgsTable The event arguments
  MenuItem.Click = function (sender, args) end
  
@@ -646,7 +672,30 @@
  
  ---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_UI_MenuItemList$Members.html)
  ---Defines a list of menu items.
-@@ -5566,19 +5865,19 @@
+@@ -5504,11 +5802,11 @@
+ function ScrollBar:GetValue() end
+ 
+ ---Sets the button that is used to decrement the value.
+----@param value Object The button to decrement the value.
++---@param value Button The button to decrement the value.
+ function ScrollBar:SetDecrementButton(value) end
+ 
+ ---Sets the button that is used to increment the value.
+----@param value Object The button to increment the value.
++---@param value Button The button to increment the value.
+ function ScrollBar:SetIncrementButton(value) end
+ 
+ ---Sets the large change value of the scrollbar.
+@@ -5532,7 +5830,7 @@
+ function ScrollBar:SetSmallChange(value) end
+ 
+ ---Sets the thumb button.
+----@param value Object The button to drag the value.
++---@param value Control The button to drag the value.
+ function ScrollBar:SetThumbButton(value) end
+ 
+ ---Sets the current value of the scrollbar.
+@@ -5566,19 +5864,19 @@
  function ScrollableControl:Constructor() end
  
  ---Gets the horizontal scroll bar.
@@ -670,7 +719,7 @@
  function ScrollableControl:SetVerticalScrollBar(value) end
  
  
-@@ -5743,8 +6042,10 @@
+@@ -5743,8 +6041,10 @@
  ---Expands all nodes in the tree view.
  function TreeView:ExpandAll() end
  
@@ -682,7 +731,7 @@
  function TreeView:GetFilter() end
  
  ---Gets the width of the indentation insert prefer nodes at each level in the tree.
-@@ -5759,16 +6060,24 @@
+@@ -5759,16 +6059,24 @@
  ---@return TreeNode #The currently selected node.
  function TreeView:GetSelectedNode() end
  
@@ -710,7 +759,7 @@
  
  ---Sets the width of the indentation insert prefer nodes at each level in the tree.
  ---@param value number The width in pixels to indent nested levels of tree nodes.
-@@ -5779,14 +6088,34 @@
+@@ -5779,14 +6087,34 @@
  function TreeView:SetSelectedNode(value) end
  
  ---Sets a function that is used to sort tree elements. This function needs to enforce consistent ordering or there is a potential for a client crash.
@@ -747,7 +796,7 @@
  
  ---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_UI_VerticalLayout.html)
  ---Specifies how to perform vertical layouts.
-@@ -5899,3 +6228,469 @@
+@@ -5899,3 +6227,469 @@
  ---@param sender table The event sender.
  ---@param args EventWindowDeactivatedArgsTable The event arguments
  Window.Deactivated = function (sender, args) end

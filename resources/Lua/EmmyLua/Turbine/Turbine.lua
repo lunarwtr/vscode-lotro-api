@@ -3189,7 +3189,7 @@ PluginData = {}
 ---Loads plugin data from a given key.
 ---@param dataScope number The scope of the data. Data scope can be specified to an Account, a Server, or to a specific Character.
 ---@param key string The key the data is stored under.
----@param dataLoadEventHandler Object A function that is called when the data loaded.
+---@param dataLoadEventHandler function A function that is called when the data loaded.
 ---@return Object #The loaded data. If the data does not exist, this will simply return nil.
 PluginData.Load = function (dataScope, key, dataLoadEventHandler) end
 
@@ -3197,9 +3197,8 @@ PluginData.Load = function (dataScope, key, dataLoadEventHandler) end
 ---@param dataScope number The scope of the data. This specifies the level of availability of this data when loading. Data scope can be specified to an Account, a Server, or to a specific Character.
 ---@param key string The key to store the data under.
 ---@param data Object The data to save.
----@param saveCompleteEventHandler Object Event handler called when the data is saved. It has two arguments, the first specifies if the save succeeded and the second is a message if it failed.
+---@param saveCompleteEventHandler function Event handler called when the data is saved. It has two arguments, the first specifies if the save succeeded and the second is a message if it failed.
 PluginData.Save = function (dataScope, key, data, saveCompleteEventHandler) end
-
 
 ---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_PluginManager$Members.html)
 ---Provides access to plugin management methods.
@@ -5503,7 +5502,7 @@ Shortcut = {}
 ---@overload fun(item:Item):Shortcut
 ---@diagnostic disable-next-line: undefined-doc-param
 ---@param item Item The item to create the shortcut from.
----@param type ShortcutType The type of shortcut that will be created.
+---@param type number The type of shortcut that will be created. (See Turbine.UI.Lotro.ShortcutType) 
 ---@param data string the data string associated with this shortcut.
 ---@return Shortcut
 Turbine.UI.Lotro.Shortcut = function (type, data) end
@@ -5516,7 +5515,7 @@ Turbine.UI.Lotro.Shortcut = function (type, data) end
 ---@overload fun(item:Item):Shortcut
 ---@diagnostic disable-next-line: undefined-doc-param
 ---@param item Item The item to create the shortcut from.
----@param type ShortcutType The type of shortcut that will be created.
+---@param type number The type of shortcut that will be created.  (See Turbine.UI.Lotro.ShortcutType)
 ---@param data string the data string associated with this shortcut.
 ---@return Shortcut
 function Shortcut:Constructor(type, data) end
@@ -5803,11 +5802,11 @@ function ScrollBar:GetThumbButton() end
 function ScrollBar:GetValue() end
 
 ---Sets the button that is used to decrement the value.
----@param value Object The button to decrement the value.
+---@param value Button The button to decrement the value.
 function ScrollBar:SetDecrementButton(value) end
 
 ---Sets the button that is used to increment the value.
----@param value Object The button to increment the value.
+---@param value Button The button to increment the value.
 function ScrollBar:SetIncrementButton(value) end
 
 ---Sets the large change value of the scrollbar.
@@ -5831,7 +5830,7 @@ function ScrollBar:SetOrientation(value) end
 function ScrollBar:SetSmallChange(value) end
 
 ---Sets the thumb button.
----@param value Object The button to drag the value.
+---@param value Control The button to drag the value.
 function ScrollBar:SetThumbButton(value) end
 
 ---Sets the current value of the scrollbar.
