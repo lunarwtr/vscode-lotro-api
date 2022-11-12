@@ -1,5 +1,10 @@
 # Change Log
 
+## [1.0.14] - 2022-11-11
+### Added
+- Fix: Fixed several innacuracies in the LOTRO API emmylua documentation
+- Chore: Updated libraries dependencies for security
+  
 ## [1.0.13] - 2022-06-04
 ### Added
 - Improvement: Skinning preview speed improvements
