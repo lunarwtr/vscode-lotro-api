@@ -1,5 +1,11 @@
 # Change Log
 
+
+## [1.0.15] - 2023-06-17
+### Added
+- Fix: Disable diagnostics for `duplicate-set-field`
+- Fix: Fix diagnostics warnings when using `class` utility to define a new class.
+
 ## [1.0.14] - 2022-11-11
 ### Added
 - Fix: Fixed several innacuracies in the LOTRO API emmylua documentation

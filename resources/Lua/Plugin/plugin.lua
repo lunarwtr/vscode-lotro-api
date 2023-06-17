@@ -89,9 +89,9 @@ function OnSetText(uri, text)
             if altpname ~= nil then
                 pname = altpname
             end
-            def = ('---@class %s : %s\n---@type fun():%s\n'):format(name, pname, name)
+            def = ('---@class %s : %s\n---@overload fun():%s\n'):format(name, pname, name)
         else
-            def = ('---@class %s\n---@type fun():%s\n'):format(name, name)
+            def = ('---@class %s\n---@overload fun():%s\n'):format(name, name)
         end
         diffs[#diffs+1] = {
             start  = start,
