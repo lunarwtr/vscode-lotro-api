@@ -2,7 +2,7 @@
     "name": "lotro-api",
     "displayName": "LotRO API",
     "description": "Lord of the Rings Online API - Adds IntelliSense features for LotRO API.",
-    "version": "1.0.14",
+    "version": "1.0.15",
     "publisher": "lunarwtr",
     "repository": {
         "type": "git",

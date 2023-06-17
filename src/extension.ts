@@ -71,6 +71,14 @@ function initconfigs(context: vscode.ExtensionContext) {
 			filteredLib.push(path.join(extensionPath!, 'resources', 'Lua', 'EmmyLua', 'Turbine'));
 			config.update("workspace.library", filteredLib);
 		}
+		// turn off annoying diagnostics
+		let disabledDiag: string[] | undefined = config.get("diagnostics.disable");
+		if (disabledDiag) {
+			if (disabledDiag.indexOf('duplicate-set-field') === -1) {
+				disabledDiag.push('duplicate-set-field');
+			}
+			config.update("diagnostics.disable", disabledDiag);
+		}
 		// define plugin association and schema locations
 		const xmlConfig = vscode.workspace.getConfiguration("xml");
 		let schemasAssoc: XMLSchemaAssocation[] | undefined = xmlConfig.get("fileAssociations");
