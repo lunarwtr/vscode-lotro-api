@@ -1,5 +1,9 @@
 # Change Log
 
+## [1.0.18] - 2026-03-29
+- Fix: random import bugs experienced by people
+- Improvement: added updated documentation
+- Fix: fixed issue with class attributes and mount events not linking up
 
 ## [1.0.16] - 2023-06-17
 ### Added
