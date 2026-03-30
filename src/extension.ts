@@ -77,6 +77,9 @@ function initconfigs(context: vscode.ExtensionContext) {
 			if (disabledDiag.indexOf('duplicate-set-field') === -1) {
 				disabledDiag.push('duplicate-set-field');
 			}
+			if (disabledDiag.indexOf('inject-field') === -1) {
+				disabledDiag.push('inject-field');
+			}
 			config.update("diagnostics.disable", disabledDiag);
 		}
 		// define plugin association and schema locations

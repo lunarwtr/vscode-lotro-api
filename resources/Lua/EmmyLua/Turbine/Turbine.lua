@@ -1,3 +1,5 @@
+---@diagnostic disable
+
 ---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine.html)
 ---The core Turbine API package.
 ---@class Turbine
@@ -393,11 +395,13 @@ Alignment = {
 ---@field public HunterStance HunterStance 
 ---@field public LoreMasterAttributes LoreMasterAttributes 
 ---@field public ManAttributes ManAttributes 
+---@field public MarinerAttributes MarinerAttributes 
 ---@field public MinstrelAttributes MinstrelAttributes 
 ---@field public MinstrelStance MinstrelStance 
 ---@field public MonsterPlayerAttributes MonsterPlayerAttributes 
 ---@field public RangerAttributes RangerAttributes 
 ---@field public ReaverAttributes ReaverAttributes 
+---@field public RiverHobbitAttributes RiverHobbitAttributes
 ---@field public RuneKeeperAttributes RuneKeeperAttributes 
 ---@field public StalkerAttributes StalkerAttributes 
 ---@field public StoutAxeAttributes StoutAxeAttributes 
@@ -932,6 +936,12 @@ LoreMasterAttributes = {}
 ---@class ManAttributes : Attributes
 ManAttributes = {}
 
+---@class MarinerAttributes : ClassAttributes
+MarinerAttributes = {}
+
+---Gets the balance of a mariner.
+---@return number #The balance of a mariner.
+function MarinerAttributes:GetBalance() end
 
 ---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_Attributes_MinstrelAttributes$Members.html)
 ---@class MinstrelAttributes : ClassAttributes
@@ -1013,6 +1023,8 @@ RangerAttributes = {}
 ---@class ReaverAttributes : ClassAttributes
 ReaverAttributes = {}
 
+---@class RiverHobbitAttributes : Attributes
+RiverHobbitAttributes = {}
 
 ---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_Attributes_RuneKeeperAttributes$Members.html)
 ---@class RuneKeeperAttributes : ClassAttributes
@@ -1287,6 +1299,8 @@ Class = {
 	Guardian = 23,
 	-- Captain class.
 	Captain = 24,
+	-- Mariner class.
+	Mariner = 216,
 	-- Minstrel class.
 	Minstrel = 31,
 	-- Burglar class.
@@ -1941,6 +1955,8 @@ ItemCategory = {
 	Device = 50,
 	-- Category for a relic.
 	Relic = 51,
+	-- Category for a Boerning.
+	Beorning = 233,
 	-- Category for a book.
 	Book = 52,
 	-- Category for a non-inventory item.
@@ -2029,6 +2045,8 @@ ItemCategory = {
 	ExpertCookScroll = 114,
 	-- Category for an artisan cook scroll.
 	ArtisanCookScroll = 115,
+	-- Category for a mariner item.
+	Mariner = 294,
 	-- Category for a master cook scroll.
 	MasterCookScroll = 116,
 	-- Category for a supreme cook scroll.
@@ -2340,7 +2358,7 @@ ItemWearState = {
 LocalPlayer = {}
 
 ---Gets the general attributes of a player.
----@return Attributes | FreePeopleAttributes
+---@return FreePeopleAttributes
 function LocalPlayer:GetAttributes() end
 
 ---Gets the player's backpack.
@@ -2348,7 +2366,7 @@ function LocalPlayer:GetAttributes() end
 function LocalPlayer:GetBackpack() end
 
 ---Gets attribute information specific to a class.
----@return ClassAttributes #Attributes specified to the class.
+---@return BeorningAttributes|BlackArrowAttributes|BurglarAttributes|CaptainAttributes|ChampionAttributes|ChickenAttributes|DefilerAttributes|GuardianAttributes|HunterAttributes|LoreMasterAttributes|MarinerAttributes|MinstrelAttributes|RangerAttributes|ReaverAttributes|RuneKeeperAttributes|StalkerAttributes|TrollAttributes|WarLeaderAttributes|WardenAttributes|WeaverAttributes|ClassAttributes #Attributes specified to the class.
 function LocalPlayer:GetClassAttributes() end
 
 ---Gets the player's equipment.
@@ -2360,7 +2378,7 @@ function LocalPlayer:GetEquipment() end
 LocalPlayer.GetInstance = function () end
 
 ---Gets the player's mount.
----@return Mount #A reference to the player's current mount of nil if the player is not riding a mount.
+---@return CombatMount|BasicMount|Mount #A reference to the player's current mount of nil if the player is not riding a mount.
 function LocalPlayer:GetMount() end
 
 ---Gets attribute information specific to a race.
@@ -2760,6 +2778,8 @@ Race = {
 	Beorning = 114,
 	-- High Elf race.
 	HighElf = 117,
+	-- River Hobbit race.
+	RiverHobbit = 125,
 	-- Dwarf Stout-axe race.
 	StoutAxe = 120,
 }
@@ -2929,7 +2949,7 @@ function SkillList:GetCount() end
 
 ---Gets a skill from the list.
 ---@param index number The index of the skill to get.
----@return Skill #The skill at the specified index.
+---@return ActiveSkill|UntrainedSkill|GambitSkill|Skill #The skill at the specified index.
 function SkillList:GetItem(index) end
 
 ---Event fired when a skill is added to the player.
@@ -3106,7 +3126,8 @@ Language = {
 	French = 268435459,
 	-- German.
 	German = 268435460,
-	-- Russian - deprecated.
+	---@deprecated
+	---@field Russian number #Russian - deprecated.	
 	Russian = 268435463,
 }
 
@@ -5872,11 +5893,11 @@ function ScrollableControl:GetHorizontalScrollBar() end
 function ScrollableControl:GetVerticalScrollBar() end
 
 ---Sets the horizontal scroll bar.
----@param value ScrollBar The horizontal scroll bar to use.
+---@param value ScrollBar|nil The horizontal scroll bar to use.
 function ScrollableControl:SetHorizontalScrollBar(value) end
 
 ---Sets the vertical scroll bar.
----@param value ScrollBar The vertical scroll bar to use.
+---@param value ScrollBar|nil The vertical scroll bar to use.
 function ScrollableControl:SetVerticalScrollBar(value) end
 
 
@@ -6693,3 +6714,5 @@ function table.setn(list,n) end
 ---@return number
 ---@deprecated
 function math.mod(x,y) end
+
+---@diagnostic disable

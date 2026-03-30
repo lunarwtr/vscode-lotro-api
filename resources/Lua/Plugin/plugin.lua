@@ -25,13 +25,14 @@ local rootHasPlugin = nil
 local definednamespace = {}
 function OnSetText(uri, text)
     local diffs = {}
-    for before, start, realName, finish, after in text:gmatch [=[()import[ ]*["']()(.-)()["'];?()]=] do
+    -- for before, start, realName, finish, after in text:gmatch [=[()import[ ]*["']()(.-)()["'];?()]=] do
+    for before, start, realName, finish, after in text:gmatch [=[()%f[%a]import%s*['"]()(.-)()['"]%s*;?()]=] do
         if realName ~= 'Turbine' and not string.starts(realName, 'Turbine.') then
             local prev = nil;
             local def = "";
             for p in string.gmatch(realName, "([^.]+)") do
                 if definednamespace[p] == nil then
-                    def = def .. "---@class "..p.."\n"..p.." = {}\n"
+                    def = def .. "\n---@class "..p.."\n"..p.." = {}\n"
                     if prev then
                         def = def .. prev .. "." .. p .. "=" .. p .. "\n"
                     end
@@ -40,8 +41,8 @@ function OnSetText(uri, text)
                 prev = p
             end
             diffs[#diffs+1] = {
-                start  = after + 1,
-                finish = after,
+                start  = after,
+                finish = after - 1,
                 text   = def,
             }
             local rootPath = fs.path(client.info.rootPath)
@@ -52,9 +53,13 @@ function OnSetText(uri, text)
                 if rootHasPlugin == nil then
                     rootHasPlugin = false
                     for path in fs.pairs(rootPath, nil) do
-                        if path:extension():string() == '.plugin' then
-                            rootHasPlugin = true
-                            break
+                        local filename = path:filename():string()
+                        if fs.is_regular_file(path) then
+                            local ext = fs.path(path):extension();
+                            if ext ~= nil and ext == '.plugin' then
+                                rootHasPlugin = true
+                                break
+                            end
                         end
                     end
                 end
@@ -78,7 +83,7 @@ function OnSetText(uri, text)
     end
     definednamespace = {}
     --- NewClassName = class(Turbine.UI.Window)
-    for start, newclass, parent in text:gmatch("()([%.%w]*)%s*=%s*class%(%s*([^%)%s]*)%s*%)") do
+    for start, newclass, parent in text:gmatch("()([_%.%w]*)%s*=%s*class%(%s*([^%)%s]*)%s*%)") do
         local ncp = split(newclass, ".");
         local name = ncp[#ncp]
         local def = '';

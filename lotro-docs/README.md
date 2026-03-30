@@ -5,7 +5,7 @@
 I wish this was more automated.  Will work on that in another revision.
 
 * Install [API Table Dump](https://www.lotrointerface.com/downloads/info578.html) made by Galuhad
-* Ensure the Turbine extra's plugin is not installed
+* !!!!!IMPORTANT!!!!! Ensure the Turbine extra's plugin is not installed
 * Launch LOTRO
 * Turn on Chat Logging
 * Load API Table Dump addon
@@ -13,9 +13,9 @@ I wish this was more automated.  Will work on that in another revision.
 * Copy dump from chatlog and format into LUA.
 * Convert to JSON by adding the following to bottom of LUA and running with lua interpreter
 ```lua
-json = require 'lunajson'
+dofile("encode_json_sorted.lua")
 local fh = io.open("TurbineDump.json", "w")
-fh:write(json.encode(Dump))
+fh:write(encode_json_sorted(Dump))
 fh:close()
 ```
 ```bash
@@ -41,7 +41,7 @@ perl ripdocs.pl
 ```
 * Manual change lines as described in [manual-changes.txt](manual-changes.txt)
 ```bash
-cd resources/Lua/EmmyLua/Turbine
+cd ../resources/Lua/EmmyLua/Turbine
 patch -p0 < ../../../lotro-docs/manual-changes.txt
 ```
 ## Perl Modules
