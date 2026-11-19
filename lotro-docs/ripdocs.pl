@@ -20,8 +20,11 @@ my %longnametoclass = (
 	"Turbine.UI.Lotro.Window" => "LotroWindow"
 );
 
-my $DOC_BASE_PATH = 'lotro-api-docs/U25';
-my $URL_BASE = "https://lunarwtr.github.io/$DOC_BASE_PATH";
+# Documentation version (folder name in lotro-api-docs and in the published URL).
+# LOTRO_DOC_DIR can point at an unpacked SSG documentation folder anywhere on disk.
+my $DOC_VERSION = $ENV{LOTRO_DOC_VERSION} || 'U49';
+my $DOC_BASE_PATH = $ENV{LOTRO_DOC_DIR} || "lotro-api-docs/$DOC_VERSION";
+my $URL_BASE = "https://lunarwtr.github.io/lotro-api-docs/$DOC_VERSION";
 my $turbineDump = decode_json(loadfile('TurbineDump.json', 'utf8'));
 
 my %pagecache = ();
@@ -34,7 +37,8 @@ my %docmap = ();
 # exit;
 converttree($root);
 
-# hack to move enums from old location ... remove after LUA documenation is updated past U25
+# The documentation (still in U49) describes the slots as Turbine.Gameplay.EquipmentSlot, but the
+# game exposes them on Turbine.Gameplay.Equipment (see TurbineDump.json), so move the enum there.
 $docmap{Turbine}{Gameplay}{Equipment}{field} = $docmap{Turbine}{Gameplay}{EquipmentSlot}{field};
 $docmap{Turbine}{Gameplay}{Equipment}{__details}{langtype} = 'enumeration';
 delete $docmap{Turbine}{Gameplay}{EquipmentSlot};
@@ -80,7 +84,15 @@ sub emmylua {
 	if (defined $node->{field}) {
 		my @fields = @{ $node->{field} };
 		my $hasprimval = $d->{langtype} eq 'enumeration' || ($fields[0]{type} !~ /Turbine/ && $name ne 'Color');
-		if ($hasprimval) {
+		# enum values only come from TurbineDump.json; enums newer than the dump have none
+		my $hasallvalues = !grep { !defined $_->{value} || $_->{value} eq '' } @fields;
+		if ($hasprimval && !$hasallvalues) {
+			foreach my $ref (@fields) {
+				my $desc = commentnewline($ref->{description}, 1);
+				print OUT "---\@field public $ref->{name} number $desc\n";
+			}
+			print OUT "$d->{name} = {}\n";
+		} elsif ($hasprimval) {
 			print OUT "$d->{name} = {\n";
 			foreach my $ref (sort { $a->{value} <=> $b->{value} } @fields) {
 				my $desc = commentnewline($ref->{description});

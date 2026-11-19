@@ -1,5 +1,14 @@
 # Change Log
 
+## [Unreleased]
+- Improvement: Lua API documentation regenerated from the SSG Update 49 documentation (links now point to `lotro-api-docs/U49`)
+- Improvement: new U49 UI scaling API: `Window:GetScale/SetScale`, `Get/SetScalingOriginPoint`, `Get/SetUIScalingGroup`, `RegisterForGlobalScaling/UnregisterForGlobalScaling`, `Window.UIScaleChanged` event, `Display.GetUIGroupScale`, `Plugin:GetUsesGlobalScaling` and the `UIScalingGroupType` enum
+- Improvement: `Control:AttachEdges/GetEdgeAttachments` and the `EdgeAttachmentType` enum
+- Improvement: minimum/maximum size methods are now on `Control` (they were only on `Window` in U25)
+- Improvement: documented `BrawlerAttributes` (`GetStance`, `StanceChanged`) and `MarinerAttributes` (`GetBalance`, `BalanceChanged`); removed the hand-written Mariner stub
+- Fix: `ShellCommand:Execute` is annotated as `(command, argumentText)`, matching how the game calls it (the documentation lists only `argumentText`)
+- Chore: `ripdocs.pl` takes the documentation folder/version from `LOTRO_DOC_DIR` / `LOTRO_DOC_VERSION` and writes enums without known values as `number` fields
+
 ## [1.0.18] - 2026-03-29
 - Fix: random import bugs experienced by people
 - Improvement: added updated documentation
