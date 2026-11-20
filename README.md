@@ -8,7 +8,7 @@ Adds IntelliSense features for Lord of the Rings Online API to VS Code. This ext
 
 ### Features
 
-* IntelliSense for Lord of the Rings Online LUA API (v32.0.4)
+* IntelliSense for Lord of the Rings Online LUA API (Update 49)
 ![](https://github.com/lunarwtr/vscode-lotro-api/raw/main/resources/img/api.gif)
 * IntelliSense for LotRO `.plugin`, `.plugincompendium`, `.skincompendium`, `.musiccompendium`  file xml
 ![](https://github.com/lunarwtr/vscode-lotro-api/raw/main/resources/img/plugin.gif)

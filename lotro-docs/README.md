@@ -32,13 +32,22 @@ $ lua TurbineDump.lua > TurbineDump.json
 
 ## Generate EmmyLua
  
-* Download Latest [SSG HTML Documentation](https://www.lotrointerface.com/downloads/fileinfo.php?id=1054) from lotrointerface.com.  The newest was for Update 25
-* Unzip and place in a subfolder of `lotro-docs`.  (I used U25)
-* Edit [ripdocs.pl](ripdocs.pl) to have a $BASE_DOC_DIR variable pointing at the folder
+* Download the latest SSG HTML Lua documentation (currently Update 49, `SSG_U49_LuaDocumentation`)
+* Unzip it to `lotro-api-docs/U49`, or anywhere else and point `LOTRO_DOC_DIR` at it
 * Run the ripdocs script
 ```bash
-perl ripdocs.pl
+perl ripdocs.pl                                              # reads lotro-api-docs/U49
+LOTRO_DOC_DIR=/path/to/SSG_U49_LuaDocumentation perl ripdocs.pl
 ```
+* `LOTRO_DOC_VERSION` (default `U49`) selects the folder name and the version used in the
+  `[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/...)` links, so the same
+  documentation folder has to be published to the `lotro-api-docs` repository for the links to work
+* Enum values are not in the HTML documentation; they come from `TurbineDump.json`. Enums that are
+  newer than the dump (currently `EdgeAttachmentType` and `UIScalingGroupType`) are written as
+  `number` fields without values until a new dump is made
+* Enum members and enums that exist only in `TurbineDump.json` (not in the HTML documentation) are
+  added automatically with the description "Not in the SSG documentation (present in the game
+  client)." To update enum values, commit a fresh `TurbineDump.json` and re-run `ripdocs.pl`
 * Manual change lines as described in [manual-changes.txt](manual-changes.txt)
 ```bash
 cd ../resources/Lua/EmmyLua/Turbine
@@ -50,4 +59,16 @@ You may need to install perl modules
 ```
 sudo apt install build-essential perl
 cpan i HTML::Entities Mojo::DOM JSON
+```
+
+## Updating manual-changes.txt
+
+`manual-changes.txt` is a plain `diff -u` from the generated file to the final one. After editing the
+final `Turbine.lua`, regenerate it so the next documentation update can re-apply the changes:
+```bash
+cd ../resources/Lua/EmmyLua/Turbine
+cp Turbine.lua /tmp/Turbine.final.lua
+(cd ../../../../lotro-docs && perl ripdocs.pl)          # writes the plain generated Turbine.lua
+mv Turbine.lua Turbine.lua.orig && cp /tmp/Turbine.final.lua Turbine.lua
+diff -u Turbine.lua.orig Turbine.lua > ../../../../lotro-docs/manual-changes.txt; rm Turbine.lua.orig
 ```
