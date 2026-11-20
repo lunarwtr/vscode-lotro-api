@@ -7,7 +7,12 @@
 - Improvement: minimum/maximum size methods are now on `Control` (they were only on `Window` in U25)
 - Improvement: documented `BrawlerAttributes` (`GetStance`, `StanceChanged`) and `MarinerAttributes` (`GetBalance`, `BalanceChanged`); removed the hand-written Mariner stub
 - Fix: `ShellCommand:Execute` is annotated as `(command, argumentText)`, matching how the game calls it (the documentation lists only `argumentText`)
+- Fix: added the `Attributes.WardenGambit` enum (`Spear`, `Shield`, `Fist`, `Javelin`), which has a documentation page but was missing
+- Fix: added the `Attributes.BrawlerStance` enum (`None`), which is in the game client but not in the documentation
+- Fix: added enum members that exist in the game client but not in the documentation: `Class.Brawler`, `ItemCategory.Brawler`, `Equipment.Bridle`, `Lotro.ShortcutType.Emote`, `Lotro.ShortcutType.Undef`
 - Chore: `ripdocs.pl` takes the documentation folder/version from `LOTRO_DOC_DIR` / `LOTRO_DOC_VERSION` and writes enums without known values as `number` fields
+- Chore: `ripdocs.pl` finds `Attributes` enum pages automatically instead of using a fixed list, and adds enums and enum members that are only in `TurbineDump.json` (marked "Not in the SSG documentation")
+- Chore: `Class.Mariner`, `ItemCategory.Beorning`, `ItemCategory.Mariner` and `Race.RiverHobbit` now come from `TurbineDump.json` and were removed from `manual-changes.txt`
 
 ## [1.0.18] - 2026-03-29
 - Fix: random import bugs experienced by people

@@ -45,6 +45,9 @@ LOTRO_DOC_DIR=/path/to/SSG_U49_LuaDocumentation perl ripdocs.pl
 * Enum values are not in the HTML documentation; they come from `TurbineDump.json`. Enums that are
   newer than the dump (currently `EdgeAttachmentType` and `UIScalingGroupType`) are written as
   `number` fields without values until a new dump is made
+* Enum members and enums that exist only in `TurbineDump.json` (not in the HTML documentation) are
+  added automatically with the description "Not in the SSG documentation (present in the game
+  client)." To update enum values, commit a fresh `TurbineDump.json` and re-run `ripdocs.pl`
 * Manual change lines as described in [manual-changes.txt](manual-changes.txt)
 ```bash
 cd ../resources/Lua/EmmyLua/Turbine

@@ -377,6 +377,7 @@ Alignment = {
 ---@field public BeorningAttributes BeorningAttributes 
 ---@field public BlackArrowAttributes BlackArrowAttributes 
 ---@field public BrawlerAttributes BrawlerAttributes 
+---@field public BrawlerStance BrawlerStance Not in the SSG documentation (present in the game client).
 ---@field public BurglarAttributes BurglarAttributes 
 ---@field public BurglarStance BurglarStance 
 ---@field public CaptainAttributes CaptainAttributes 
@@ -408,6 +409,7 @@ Alignment = {
 ---@field public TrollAttributes TrollAttributes 
 ---@field public WarLeaderAttributes WarLeaderAttributes 
 ---@field public WardenAttributes WardenAttributes 
+---@field public WardenGambit WardenGambit 
 ---@field public WardenStance WardenStance 
 ---@field public WeaverAttributes WeaverAttributes 
 Attributes = {}
@@ -453,6 +455,14 @@ function BrawlerAttributes:GetStance() end
 ---@param sender table The event sender.
 ---@param args EventBrawlerAttributesStanceChangedArgsTable The event arguments
 BrawlerAttributes.StanceChanged = function (sender, args) end
+
+
+---Not in the SSG documentation (present in the game client).
+---@class BrawlerStance
+BrawlerStance = {
+	-- Not in the SSG documentation (present in the game client).
+	None = 0,
+}
 
 
 ---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Gameplay_Attributes_BurglarAttributes$Members.html)
@@ -1145,6 +1155,20 @@ WardenAttributes.MaxGambitCountChanged = function (sender, args) end
 WardenAttributes.StanceChanged = function (sender, args) end
 
 
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Gameplay_Attributes_WardenGambit.html)
+---@class WardenGambit
+WardenGambit = {
+	-- Spear gambit.
+	Spear = 1,
+	-- Shield gambit.
+	Shield = 2,
+	-- Fist gambit.
+	Fist = 3,
+	-- Javelin gambit.
+	Javelin = 4,
+}
+
+
 ---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Gameplay_Attributes_WardenStance.html)
 ---@class WardenStance
 WardenStance = {
@@ -1321,8 +1345,6 @@ Class = {
 	Guardian = 23,
 	-- Captain class.
 	Captain = 24,
-	-- Mariner class.
-	Mariner = 216,
 	-- Minstrel class.
 	Minstrel = 31,
 	-- Burglar class.
@@ -1357,6 +1379,10 @@ Class = {
 	Warden = 194,
 	-- Beorning class.
 	Beorning = 214,
+	-- Not in the SSG documentation (present in the game client).
+	Brawler = 215,
+	-- Not in the SSG documentation (present in the game client).
+	Mariner = 216,
 }
 
 
@@ -1768,6 +1794,8 @@ Equipment = {
 	CraftTool = 19,
 	-- The class equipment slot.
 	Class = 20,
+	-- Not in the SSG documentation (present in the game client).
+	Bridle = 21,
 }
 
 ---Gets and item from the player's backpack.
@@ -1977,8 +2005,6 @@ ItemCategory = {
 	Device = 50,
 	-- Category for a relic.
 	Relic = 51,
-	-- Category for a Boerning.
-	Beorning = 233,
 	-- Category for a book.
 	Book = 52,
 	-- Category for a non-inventory item.
@@ -2067,8 +2093,6 @@ ItemCategory = {
 	ExpertCookScroll = 114,
 	-- Category for an artisan cook scroll.
 	ArtisanCookScroll = 115,
-	-- Category for a mariner item.
-	Mariner = 294,
 	-- Category for a master cook scroll.
 	MasterCookScroll = 116,
 	-- Category for a supreme cook scroll.
@@ -2245,6 +2269,12 @@ ItemCategory = {
 	Festival = 205,
 	-- Category for a legendary weapon add legacy item.
 	LegendaryWeaponAddLegacy = 206,
+	-- Not in the SSG documentation (present in the game client).
+	Beorning = 233,
+	-- Not in the SSG documentation (present in the game client).
+	Brawler = 288,
+	-- Not in the SSG documentation (present in the game client).
+	Mariner = 294,
 }
 
 
@@ -2800,10 +2830,10 @@ Race = {
 	Beorning = 114,
 	-- High Elf race.
 	HighElf = 117,
-	-- River Hobbit race.
-	RiverHobbit = 125,
 	-- Dwarf Stout-axe race.
 	StoutAxe = 120,
+	-- Not in the SSG documentation (present in the game client).
+	RiverHobbit = 125,
 }
 
 
@@ -5684,10 +5714,14 @@ function Shortcut:SetType(value) end
 ShortcutType = {
 	-- Specifies an undefined shortcut.
 	Undefined = 0,
+	-- Not in the SSG documentation (present in the game client).
+	Undef = 0,
 	-- Specifies an item shortcut.
 	Item = 2,
 	-- Specifies an alias shortcut.
 	Alias = 4,
+	-- Not in the SSG documentation (present in the game client).
+	Emote = 5,
 	-- Specifies a skill shortcut.
 	Skill = 6,
 	-- Specifies a pet shortcut.

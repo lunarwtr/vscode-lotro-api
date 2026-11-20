@@ -43,6 +43,10 @@ $docmap{Turbine}{Gameplay}{Equipment}{field} = $docmap{Turbine}{Gameplay}{Equipm
 $docmap{Turbine}{Gameplay}{Equipment}{__details}{langtype} = 'enumeration';
 delete $docmap{Turbine}{Gameplay}{EquipmentSlot};
 
+# The game client has enumerations and enum members that the documentation does not list,
+# so pull them from TurbineDump.json.
+addmissingenums($docmap{'Turbine'});
+
 open OUT, ">:utf8", "../resources/Lua/EmmyLua/Turbine/Turbine.lua" or die "Cannot open Turbine.lua: $!";
 emmylua($docmap{'Turbine'});
 close OUT;
@@ -230,6 +234,61 @@ sub emmylua {
 
 }
 
+sub addmissingenums {
+	my($node) = @_;
+
+	my $d = $node->{'__details'};
+	my $dump = loadturbinevalues($d->{longname});
+	if (defined $dump && ref $dump eq 'HASH') {
+		if ($d->{langtype} eq 'enumeration' && defined $node->{field}) {
+			# enum members only in the game client
+			my %known = map { $_->{name} => 1 } @{ $node->{field} };
+			foreach my $name (sort keys %{$dump}) {
+				next if ($known{$name} || $name eq 'IsA');
+				my $ref = $dump->{$name};
+				next unless (ref $ref eq 'HASH' && defined $ref->{value});
+				push(@{ $node->{field} }, dumpfield($d->{longname}, $name, $ref));
+			}
+		} elsif ($d->{langtype} eq 'package') {
+			# whole enumerations only in the game client
+			foreach my $name (sort keys %{$dump}) {
+				next if (defined $node->{$name});
+				my $ref = $dump->{$name};
+				next unless (ref $ref eq 'HASH');
+				my @members = grep { $_ ne 'IsA' } keys %{$ref};
+				next unless (scalar @members);
+				next if (grep { ref $ref->{$_} ne 'HASH' || !defined $ref->{$_}{value} || $ref->{$_}{value} !~ m/^-?\d+(\.\d+)?$/ } @members);
+				my $longname = "$d->{longname}.$name";
+				$node->{$name} = {
+					'__details' => {
+						name => $name,
+						longname => $longname,
+						langtype => 'enumeration',
+						description => 'Not in the SSG documentation (present in the game client).'
+					},
+					field => [ map { dumpfield($longname, $_, $ref->{$_}) } sort @members ]
+				};
+			}
+		}
+	}
+	foreach my $field (sort keys %{ $node }) {
+		next if ($field =~ m/^(__details|constructor|event|field|method|overload)$/);
+		addmissingenums($node->{$field});
+	}
+}
+
+sub dumpfield {
+	my($parent, $name, $ref) = @_;
+	return {
+		name => $name,
+		longname => "$parent.$name",
+		langtype => 'field',
+		type => $ref->{type},
+		value => $ref->{value},
+		description => 'Not in the SSG documentation (present in the game client).'
+	};
+}
+
 sub converttree {
 	my($node, $db) = @_;
 	my $ln = $node->{longname};
@@ -354,8 +413,10 @@ sub rippage {
 		$page{sections}{'classes'} = \@rows;
 		# enums
 		my @enumrows = ();
-		foreach my $newfile (('Turbine_Gameplay_Attributes_BurglarStance.html', 'Turbine_Gameplay_Attributes_ChampionStance.html', 'Turbine_Gameplay_Attributes_GuardianStance.html', 'Turbine_Gameplay_Attributes_HunterStance.html', 'Turbine_Gameplay_Attributes_MinstrelStance.html', 'Turbine_Gameplay_Attributes_WardenStance.html')) {
-			#$newfile =~ s/^.*\///;
+		# every enum page in the Attributes package (the *Stance pages, WardenGambit, ...)
+		my @enumfiles = sort grep { m/^Turbine_Gameplay_Attributes_[A-Za-z]+\.html$/ && !m/Attributes\.html$/ }
+			map { s/^.*\///r } glob("$DOC_BASE_PATH/Turbine_Gameplay_Attributes_*.html");
+		foreach my $newfile (@enumfiles) {
 			my $longname = file2id($newfile);
 			my $name = $longname;
 			$name =~ s/^.*\.//;
