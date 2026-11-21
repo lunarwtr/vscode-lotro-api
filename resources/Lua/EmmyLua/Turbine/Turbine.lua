@@ -1,6 +1,6 @@
 ---@diagnostic disable
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine.html)
 ---The core Turbine API package.
 ---@class Turbine
 ---@field public Chat Chat This class provides events for when messages are received through the game. This includes player chat, tells, in game messages, and announcements.
@@ -20,9 +20,8 @@
 Turbine = {}
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Chat$Members.html)
----This class provides events for when messages are received through the game. This includes player chat,
----              tells, in game messages, and announcements.
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Chat$Members.html)
+---This class provides events for when messages are received through the game. This includes player chat, tells, in game messages, and announcements.
 ---@class Chat : Object
 Chat = {}
 
@@ -32,7 +31,7 @@ Chat = {}
 Chat.Received = function (sender, args) end
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_ChatType.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_ChatType.html)
 ---Defines the type of chat data.
 ---@class ChatType
 ChatType = {
@@ -107,7 +106,7 @@ ChatType = {
 }
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_DataScope.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_DataScope.html)
 ---Defines the scope of plugin data.
 ---@class DataScope
 DataScope = {
@@ -120,7 +119,7 @@ DataScope = {
 }
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Engine$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Engine$Members.html)
 ---Provides engine level information to user plugins.
 ---@class Engine
 Engine = {}
@@ -160,7 +159,7 @@ Engine.GetScriptVersion = function () end
 Engine.ScriptLog = function (message) end
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Gameplay.html)
 ---Provides classes for accessing game related information.
 ---@class Gameplay
 ---@field public ActiveSkill ActiveSkill Information about an active player's skill.
@@ -214,7 +213,7 @@ Engine.ScriptLog = function (message) end
 Gameplay = {}
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_ActiveSkill$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Gameplay_ActiveSkill$Members.html)
 ---Information about an active player's skill.
 ---@class ActiveSkill : Skill
 ActiveSkill = {}
@@ -241,7 +240,7 @@ function ActiveSkill:IsUsable() end
 ActiveSkill.ResetTimeChanged = function (sender, args) end
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_Actor$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Gameplay_Actor$Members.html)
 ---Base class for any entity that interacts in the world.
 ---@class Actor : Entity
 Actor = {}
@@ -359,7 +358,7 @@ Actor.TemporaryMoraleChanged = function (sender, args) end
 Actor.TemporaryPowerChanged = function (sender, args) end
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_Alignment.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Gameplay_Alignment.html)
 ---The alignment of a player.
 ---@class Alignment
 Alignment = {
@@ -372,11 +371,13 @@ Alignment = {
 }
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_Attributes.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Gameplay_Attributes.html)
 ---Provides classes for accessing game related information.
 ---@class Attributes : PropertyHandler
 ---@field public BeorningAttributes BeorningAttributes 
 ---@field public BlackArrowAttributes BlackArrowAttributes 
+---@field public BrawlerAttributes BrawlerAttributes 
+---@field public BrawlerStance BrawlerStance Not in the SSG documentation (present in the game client).
 ---@field public BurglarAttributes BurglarAttributes 
 ---@field public BurglarStance BurglarStance 
 ---@field public CaptainAttributes CaptainAttributes 
@@ -408,12 +409,13 @@ Alignment = {
 ---@field public TrollAttributes TrollAttributes 
 ---@field public WarLeaderAttributes WarLeaderAttributes 
 ---@field public WardenAttributes WardenAttributes 
+---@field public WardenGambit WardenGambit 
 ---@field public WardenStance WardenStance 
 ---@field public WeaverAttributes WeaverAttributes 
 Attributes = {}
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_Attributes_BeorningAttributes$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Gameplay_Attributes_BeorningAttributes$Members.html)
 ---@class BeorningAttributes : ClassAttributes
 BeorningAttributes = {}
 
@@ -436,12 +438,34 @@ BeorningAttributes.FormChanged = function (sender, args) end
 BeorningAttributes.WrathChanged = function (sender, args) end
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_Attributes_BlackArrowAttributes$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Gameplay_Attributes_BlackArrowAttributes$Members.html)
 ---@class BlackArrowAttributes : ClassAttributes
 BlackArrowAttributes = {}
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_Attributes_BurglarAttributes$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Gameplay_Attributes_BrawlerAttributes$Members.html)
+---@class BrawlerAttributes : ClassAttributes
+BrawlerAttributes = {}
+
+---Gets the current stance.
+---@return number #The current stance.
+function BrawlerAttributes:GetStance() end
+
+---Event fired when the stance changes.
+---@param sender table The event sender.
+---@param args EventBrawlerAttributesStanceChangedArgsTable The event arguments
+BrawlerAttributes.StanceChanged = function (sender, args) end
+
+
+---Not in the SSG documentation (present in the game client).
+---@class BrawlerStance
+BrawlerStance = {
+	-- Not in the SSG documentation (present in the game client).
+	None = 0,
+}
+
+
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Gameplay_Attributes_BurglarAttributes$Members.html)
 ---@class BurglarAttributes : ClassAttributes
 BurglarAttributes = {}
 
@@ -473,7 +497,7 @@ BurglarAttributes.IsCriticalTier2Changed = function (sender, args) end
 BurglarAttributes.StanceChanged = function (sender, args) end
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_Attributes_BurglarStance.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Gameplay_Attributes_BurglarStance.html)
 ---@class BurglarStance
 BurglarStance = {
 	-- No stance.
@@ -481,7 +505,7 @@ BurglarStance = {
 }
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_Attributes_CaptainAttributes$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Gameplay_Attributes_CaptainAttributes$Members.html)
 ---@class CaptainAttributes : ClassAttributes
 CaptainAttributes = {}
 
@@ -522,7 +546,7 @@ CaptainAttributes.IsReadiedTier1Changed = function (sender, args) end
 CaptainAttributes.IsReadiedTier2Changed = function (sender, args) end
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_Attributes_ChampionAttributes$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Gameplay_Attributes_ChampionAttributes$Members.html)
 ---@class ChampionAttributes : ClassAttributes
 ChampionAttributes = {}
 
@@ -545,7 +569,7 @@ ChampionAttributes.FervorChanged = function (sender, args) end
 ChampionAttributes.StanceChanged = function (sender, args) end
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_Attributes_ChampionStance.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Gameplay_Attributes_ChampionStance.html)
 ---@class ChampionStance
 ChampionStance = {
 	-- No stance.
@@ -553,27 +577,27 @@ ChampionStance = {
 }
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_Attributes_ChickenAttributes$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Gameplay_Attributes_ChickenAttributes$Members.html)
 ---@class ChickenAttributes : ClassAttributes
 ChickenAttributes = {}
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_Attributes_DefilerAttributes$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Gameplay_Attributes_DefilerAttributes$Members.html)
 ---@class DefilerAttributes : ClassAttributes
 DefilerAttributes = {}
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_Attributes_DwarfAttributes$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Gameplay_Attributes_DwarfAttributes$Members.html)
 ---@class DwarfAttributes : Attributes
 DwarfAttributes = {}
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_Attributes_ElfAttributes$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Gameplay_Attributes_ElfAttributes$Members.html)
 ---@class ElfAttributes : Attributes
 ElfAttributes = {}
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_Attributes_FreePeopleAttributes$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Gameplay_Attributes_FreePeopleAttributes$Members.html)
 ---@class FreePeopleAttributes : Attributes
 FreePeopleAttributes = {}
 
@@ -805,7 +829,7 @@ function FreePeopleAttributes:CanEvade() end
 ---@return boolean 
 function FreePeopleAttributes:CanParry() end
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_Attributes_GuardianAttributes$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Gameplay_Attributes_GuardianAttributes$Members.html)
 ---@class GuardianAttributes : ClassAttributes
 GuardianAttributes = {}
 
@@ -873,7 +897,7 @@ GuardianAttributes.IsParryTier3AvailableChanged = function (sender, args) end
 GuardianAttributes.StanceChanged = function (sender, args) end
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_Attributes_GuardianStance.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Gameplay_Attributes_GuardianStance.html)
 ---@class GuardianStance
 GuardianStance = {
 	-- No stance.
@@ -881,17 +905,17 @@ GuardianStance = {
 }
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_Attributes_HighElfAttributes$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Gameplay_Attributes_HighElfAttributes$Members.html)
 ---@class HighElfAttributes : Attributes
 HighElfAttributes = {}
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_Attributes_HobbitAttributes$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Gameplay_Attributes_HobbitAttributes$Members.html)
 ---@class HobbitAttributes : Attributes
 HobbitAttributes = {}
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_Attributes_HunterAttributes$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Gameplay_Attributes_HunterAttributes$Members.html)
 ---@class HunterAttributes : ClassAttributes
 HunterAttributes = {}
 
@@ -914,7 +938,7 @@ HunterAttributes.FocusChanged = function (sender, args) end
 HunterAttributes.StanceChanged = function (sender, args) end
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_Attributes_HunterStance.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Gameplay_Attributes_HunterStance.html)
 ---@class HunterStance
 HunterStance = {
 	-- No stance.
@@ -927,23 +951,31 @@ HunterStance = {
 	Endurance = 3,
 }
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_Attributes_LoreMasterAttributes$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Gameplay_Attributes_LoreMasterAttributes$Members.html)
 ---@class LoreMasterAttributes : ClassAttributes
 LoreMasterAttributes = {}
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_Attributes_ManAttributes$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Gameplay_Attributes_ManAttributes$Members.html)
 ---@class ManAttributes : Attributes
 ManAttributes = {}
 
+
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Gameplay_Attributes_MarinerAttributes$Members.html)
 ---@class MarinerAttributes : ClassAttributes
 MarinerAttributes = {}
 
----Gets the balance of a mariner.
----@return number #The balance of a mariner.
+---Gets the current balance of a mariner.
+---@return number #The current balance of a Mariner.
 function MarinerAttributes:GetBalance() end
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_Attributes_MinstrelAttributes$Members.html)
+---Event fired when the balance of a mariner has changed.
+---@param sender table The event sender.
+---@param args EventMarinerAttributesBalanceChangedArgsTable The event arguments
+MarinerAttributes.BalanceChanged = function (sender, args) end
+
+
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Gameplay_Attributes_MinstrelAttributes$Members.html)
 ---@class MinstrelAttributes : ClassAttributes
 MinstrelAttributes = {}
 
@@ -984,7 +1016,7 @@ MinstrelAttributes.IsSerenadeTier3Changed = function (sender, args) end
 MinstrelAttributes.StanceChanged = function (sender, args) end
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_Attributes_MinstrelStance.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Gameplay_Attributes_MinstrelStance.html)
 ---@class MinstrelStance
 MinstrelStance = {
 	-- No stance.
@@ -996,7 +1028,7 @@ MinstrelStance = {
 }
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_Attributes_MonsterPlayerAttributes$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Gameplay_Attributes_MonsterPlayerAttributes$Members.html)
 ---@class MonsterPlayerAttributes : Attributes
 MonsterPlayerAttributes = {}
 
@@ -1014,19 +1046,19 @@ function MonsterPlayerAttributes:GetMoney() end
 ---@return number #gold
 function MonsterPlayerAttributes:GetMoneyComponents() end
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_Attributes_RangerAttributes$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Gameplay_Attributes_RangerAttributes$Members.html)
 ---@class RangerAttributes : ClassAttributes
 RangerAttributes = {}
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_Attributes_ReaverAttributes$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Gameplay_Attributes_ReaverAttributes$Members.html)
 ---@class ReaverAttributes : ClassAttributes
 ReaverAttributes = {}
 
 ---@class RiverHobbitAttributes : Attributes
 RiverHobbitAttributes = {}
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_Attributes_RuneKeeperAttributes$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Gameplay_Attributes_RuneKeeperAttributes$Members.html)
 ---@class RuneKeeperAttributes : ClassAttributes
 RuneKeeperAttributes = {}
 
@@ -1049,17 +1081,17 @@ RuneKeeperAttributes.AttunementChanged = function (sender, args) end
 RuneKeeperAttributes.IsChargedChanged = function (sender, args) end
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_Attributes_StalkerAttributes$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Gameplay_Attributes_StalkerAttributes$Members.html)
 ---@class StalkerAttributes : ClassAttributes
 StalkerAttributes = {}
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_Attributes_StoutAxeAttributes$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Gameplay_Attributes_StoutAxeAttributes$Members.html)
 ---@class StoutAxeAttributes : Attributes
 StoutAxeAttributes = {}
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_Attributes_TrollAttributes$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Gameplay_Attributes_TrollAttributes$Members.html)
 ---@class TrollAttributes : ClassAttributes
 TrollAttributes = {}
 
@@ -1073,12 +1105,12 @@ function TrollAttributes:GetRampage() end
 TrollAttributes.RampageChanged = function (sender, args) end
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_Attributes_WarLeaderAttributes$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Gameplay_Attributes_WarLeaderAttributes$Members.html)
 ---@class WarLeaderAttributes : ClassAttributes
 WarLeaderAttributes = {}
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_Attributes_WardenAttributes$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Gameplay_Attributes_WardenAttributes$Members.html)
 ---@class WardenAttributes : ClassAttributes
 WardenAttributes = {}
 
@@ -1123,7 +1155,21 @@ WardenAttributes.MaxGambitCountChanged = function (sender, args) end
 WardenAttributes.StanceChanged = function (sender, args) end
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_Attributes_WardenStance.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Gameplay_Attributes_WardenGambit.html)
+---@class WardenGambit
+WardenGambit = {
+	-- Spear gambit.
+	Spear = 1,
+	-- Shield gambit.
+	Shield = 2,
+	-- Fist gambit.
+	Fist = 3,
+	-- Javelin gambit.
+	Javelin = 4,
+}
+
+
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Gameplay_Attributes_WardenStance.html)
 ---@class WardenStance
 WardenStance = {
 	-- No stance.
@@ -1135,12 +1181,12 @@ WardenStance = {
 }
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_Attributes_WeaverAttributes$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Gameplay_Attributes_WeaverAttributes$Members.html)
 ---@class WeaverAttributes : ClassAttributes
 WeaverAttributes = {}
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_Backpack$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Gameplay_Backpack$Members.html)
 ---Provides access to a player's backpack.
 ---@class Backpack : Object
 Backpack = {}
@@ -1187,7 +1233,7 @@ Backpack.ItemRemoved = function (sender, args) end
 Backpack.SizeChanged = function (sender, args) end
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_Bank$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Gameplay_Bank$Members.html)
 ---A container of items that are only accessible at designated bank locations.
 ---@class Bank : Object
 Bank = {}
@@ -1265,7 +1311,7 @@ Bank.ItemRemoved = function (sender, args) end
 Bank.ItemsRefreshed = function (sender, args) end
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_BasicMount$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Gameplay_BasicMount$Members.html)
 ---A basic mount.
 ---@class BasicMount : Mount
 BasicMount = {}
@@ -1289,7 +1335,7 @@ BasicMount.MaxMoraleChanged = function (sender, args) end
 BasicMount.MoraleChanged = function (sender, args) end
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_Class.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Gameplay_Class.html)
 ---The Class of a player.
 ---@class Class
 Class = {
@@ -1299,8 +1345,6 @@ Class = {
 	Guardian = 23,
 	-- Captain class.
 	Captain = 24,
-	-- Mariner class.
-	Mariner = 216,
 	-- Minstrel class.
 	Minstrel = 31,
 	-- Burglar class.
@@ -1335,16 +1379,20 @@ Class = {
 	Warden = 194,
 	-- Beorning class.
 	Beorning = 214,
+	-- Not in the SSG documentation (present in the game client).
+	Brawler = 215,
+	-- Not in the SSG documentation (present in the game client).
+	Mariner = 216,
 }
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_ClassAttributes$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Gameplay_ClassAttributes$Members.html)
 ---Base class for class information.
 ---@class ClassAttributes : Attributes
 ClassAttributes = {}
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_CombatMount$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Gameplay_CombatMount$Members.html)
 ---A mount that can be used in combat.
 ---@class CombatMount : Mount
 CombatMount = {}
@@ -1485,7 +1533,7 @@ CombatMount.TemporaryMoraleChanged = function (sender, args) end
 CombatMount.TemporaryPowerChanged = function (sender, args) end
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_CraftTier.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Gameplay_CraftTier.html)
 ---A crafting tier.
 ---@class CraftTier
 CraftTier = {
@@ -1512,7 +1560,7 @@ CraftTier = {
 }
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_Effect$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Gameplay_Effect$Members.html)
 ---Represents an effect that can be applied to an entity.
 ---@class Effect : Object
 Effect = {}
@@ -1603,7 +1651,7 @@ Effect.NameChanged = function (sender, args) end
 Effect.StartTimeChanged = function (sender, args) end
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_EffectCategory.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Gameplay_EffectCategory.html)
 ---Describes the category of an effect.
 ---@class EffectCategory
 EffectCategory = {
@@ -1632,7 +1680,7 @@ EffectCategory = {
 }
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_EffectList$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Gameplay_EffectList$Members.html)
 ---A utility class used by Actors to hold the list of effects.
 ---@class EffectList : Object
 EffectList = {}
@@ -1672,7 +1720,7 @@ EffectList.EffectRemoved = function (sender, args) end
 EffectList.EffectsCleared = function (sender, args) end
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_Entity$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Gameplay_Entity$Members.html)
 ---Base class for any entity in the game.
 ---@class Entity : PropertyHandler
 Entity = {}
@@ -1691,12 +1739,12 @@ function Entity:IsLocalPlayer() end
 Entity.NameChanged = function (sender, args) end
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_EntityReference$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Gameplay_EntityReference$Members.html)
 ---@class EntityReference : Object
 EntityReference = {}
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_Equipment$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Gameplay_Equipment$Members.html)
 ---Provides access to a player's equipment.
 ---@class Equipment : Object
 Equipment = {
@@ -1746,6 +1794,8 @@ Equipment = {
 	CraftTool = 19,
 	-- The class equipment slot.
 	Class = 20,
+	-- Not in the SSG documentation (present in the game client).
+	Bridle = 21,
 }
 
 ---Gets and item from the player's backpack.
@@ -1768,13 +1818,13 @@ Equipment.ItemEquipped = function (sender, args) end
 Equipment.ItemUnequipped = function (sender, args) end
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_GambitSkill$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Gameplay_GambitSkill$Members.html)
 ---Information about a gambit skill.
 ---@class GambitSkill : Skill
 GambitSkill = {}
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_GambitSkillInfo$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Gameplay_GambitSkillInfo$Members.html)
 ---Information about a gambit skill.
 ---@class GambitSkillInfo : SkillInfo
 GambitSkillInfo = {}
@@ -1837,7 +1887,7 @@ function Item:GetUnderlayImageID() end
 ---@return boolean #A flag indicating if the item is considered magical.
 function Item:IsMagic() end
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_Item$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Gameplay_Item$Members.html)
 ---An item that a user can have.
 ---@class Item : Entity
 Item = {}
@@ -1847,7 +1897,7 @@ Item = {}
 function Item:GetItemInfo() end
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_ItemCategory.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Gameplay_ItemCategory.html)
 ---Describes the category of an item.
 ---@class ItemCategory
 ItemCategory = {
@@ -1955,8 +2005,6 @@ ItemCategory = {
 	Device = 50,
 	-- Category for a relic.
 	Relic = 51,
-	-- Category for a Boerning.
-	Beorning = 233,
 	-- Category for a book.
 	Book = 52,
 	-- Category for a non-inventory item.
@@ -2045,8 +2093,6 @@ ItemCategory = {
 	ExpertCookScroll = 114,
 	-- Category for an artisan cook scroll.
 	ArtisanCookScroll = 115,
-	-- Category for a mariner item.
-	Mariner = 294,
 	-- Category for a master cook scroll.
 	MasterCookScroll = 116,
 	-- Category for a supreme cook scroll.
@@ -2223,10 +2269,16 @@ ItemCategory = {
 	Festival = 205,
 	-- Category for a legendary weapon add legacy item.
 	LegendaryWeaponAddLegacy = 206,
+	-- Not in the SSG documentation (present in the game client).
+	Beorning = 233,
+	-- Not in the SSG documentation (present in the game client).
+	Brawler = 288,
+	-- Not in the SSG documentation (present in the game client).
+	Mariner = 294,
 }
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_ItemDurability.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Gameplay_ItemDurability.html)
 ---Describes the durability of an item.
 ---@class ItemDurability
 ItemDurability = {
@@ -2249,7 +2301,7 @@ ItemDurability = {
 }
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_ItemInfo$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Gameplay_ItemInfo$Members.html)
 ---Container for various item information.
 ---@class ItemInfo : Object
 ItemInfo = {}
@@ -2316,7 +2368,7 @@ function ItemInfo:IsMagic() end
 function ItemInfo:IsUnique() end
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_ItemQuality.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Gameplay_ItemQuality.html)
 ---Describes the quality of an item.
 ---@class ItemQuality
 ItemQuality = {
@@ -2335,7 +2387,7 @@ ItemQuality = {
 }
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_ItemWearState.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Gameplay_ItemWearState.html)
 ---Describes the current wear state of an item.
 ---@class ItemWearState
 ItemWearState = {
@@ -2352,7 +2404,7 @@ ItemWearState = {
 }
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_LocalPlayer$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Gameplay_LocalPlayer$Members.html)
 ---A class that represents the local player.
 ---@class LocalPlayer : Player
 LocalPlayer = {}
@@ -2432,7 +2484,7 @@ LocalPlayer.InCombatChanged = function (sender, args) end
 LocalPlayer.MountChanged = function (sender, args) end
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_Mount$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Gameplay_Mount$Members.html)
 ---Class representing an in game mount.
 ---@class Mount : Entity
 Mount = {}
@@ -2442,7 +2494,7 @@ Mount = {}
 function Mount:GetName() end
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_Party$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Gameplay_Party$Members.html)
 ---This class provides access to party information. This is either your fellowship or your tribe depending on your alliance.
 ---@class Party : Object
 Party = {}
@@ -2505,7 +2557,7 @@ Party.MemberAdded = function (sender, args) end
 Party.MemberRemoved = function (sender, args) end
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_PartyMember$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Gameplay_PartyMember$Members.html)
 ---@class PartyMember : Player
 PartyMember = {}
 
@@ -2542,13 +2594,13 @@ function PartyMember:IsLinkDead() end
 function PartyMember:IsVoiceEnabled() end
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_Pet$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Gameplay_Pet$Members.html)
 ---A pet is an actor that a player owns and controls.
 ---@class Pet : Actor
 Pet = {}
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_Player$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Gameplay_Player$Members.html)
 ---A class that represents a player in the game.
 ---@class Player : Actor
 Player = {}
@@ -2625,7 +2677,7 @@ Player.RaidChanged = function (sender, args) end
 Player.ReadyStateChanged = function (sender, args) end
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_Profession.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Gameplay_Profession.html)
 ---A profession a free people player can have.
 ---@class Profession
 Profession = {
@@ -2654,7 +2706,7 @@ Profession = {
 }
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_ProfessionInfo$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Gameplay_ProfessionInfo$Members.html)
 ---Information about a profession.
 ---@class ProfessionInfo : Object
 ProfessionInfo = {}
@@ -2755,12 +2807,12 @@ ProfessionInfo.RecipeAdded = function (sender, args) end
 ProfessionInfo.RecipeRemoved = function (sender, args) end
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_PropertyHandler$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Gameplay_PropertyHandler$Members.html)
 ---@class PropertyHandler : EntityReference
 PropertyHandler = {}
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_Race.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Gameplay_Race.html)
 ---The Race of a player.
 ---@class Race
 Race = {
@@ -2778,14 +2830,14 @@ Race = {
 	Beorning = 114,
 	-- High Elf race.
 	HighElf = 117,
-	-- River Hobbit race.
-	RiverHobbit = 125,
 	-- Dwarf Stout-axe race.
 	StoutAxe = 120,
+	-- Not in the SSG documentation (present in the game client).
+	RiverHobbit = 125,
 }
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_ReadyState.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Gameplay_ReadyState.html)
 ---The ready state of a player.
 ---@class ReadyState
 ReadyState = {
@@ -2798,7 +2850,7 @@ ReadyState = {
 }
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_Recipe$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Gameplay_Recipe$Members.html)
 ---Information about a recipe.
 ---@class Recipe : Object
 Recipe = {}
@@ -2882,7 +2934,7 @@ function Recipe:HasCriticalResultItem() end
 function Recipe:IsSingleUse() end
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_RecipeIngredient$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Gameplay_RecipeIngredient$Members.html)
 ---Information about a recipe ingredient.
 ---@class RecipeIngredient : Object
 RecipeIngredient = {}
@@ -2900,13 +2952,13 @@ function RecipeIngredient:GetItemInfo() end
 function RecipeIngredient:GetRequiredQuantity() end
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_SharedStorage$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Gameplay_SharedStorage$Members.html)
 ---A bank that represents the player's shared storage. This storage is available to all characters on the same account.
 ---@class SharedStorage : Bank
 SharedStorage = {}
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_Skill$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Gameplay_Skill$Members.html)
 ---Information about a skill.
 ---@class Skill : Object
 Skill = {}
@@ -2916,7 +2968,7 @@ Skill = {}
 function Skill:GetSkillInfo() end
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_SkillInfo$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Gameplay_SkillInfo$Members.html)
 ---Information about a skill.
 ---@class SkillInfo : Object
 SkillInfo = {}
@@ -2938,7 +2990,7 @@ function SkillInfo:GetName() end
 function SkillInfo:GetType() end
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_SkillList$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Gameplay_SkillList$Members.html)
 ---A list of skills.
 ---@class SkillList : Object
 SkillList = {}
@@ -2962,7 +3014,7 @@ SkillList.SkillAdded = function (sender, args) end
 ---@param args EventSkillListSkillRemovedArgsTable The event arguments
 SkillList.SkillRemoved = function (sender, args) end
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_SkillType.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Gameplay_SkillType.html)
 ---A type of skill.
 ---@class SkillType
 SkillType = {
@@ -2975,7 +3027,7 @@ SkillType = {
 }
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_UntrainedSkill$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Gameplay_UntrainedSkill$Members.html)
 ---Information about a skill the player has not trained yet.
 ---@class UntrainedSkill : Skill
 UntrainedSkill = {}
@@ -2993,13 +3045,13 @@ function UntrainedSkill:GetRequiredLevel() end
 function UntrainedSkill:GetRequiredRank() end
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_Vault$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Gameplay_Vault$Members.html)
 ---A bank that represents the player's vault storage. This storage is only available to the current logged in character.
 ---@class Vault : Bank
 Vault = {}
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_Vocation.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Gameplay_Vocation.html)
 ---The vocation of a free people player.
 ---@class Vocation
 Vocation = {
@@ -3022,7 +3074,7 @@ Vocation = {
 }
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_Wallet$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Gameplay_Wallet$Members.html)
 ---Provides access to a player's wallet.
 ---@class Wallet : Object
 Wallet = {}
@@ -3068,7 +3120,7 @@ function BankItem:GetBoundOwner() end
 ---@return number #the index of the bank chest
 function BankItem:GetChest() end
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Gameplay_WalletItem$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Gameplay_WalletItem$Members.html)
 ---An item that is contained in a user's wallet.
 ---@class WalletItem : Object
 WalletItem = {}
@@ -3112,7 +3164,7 @@ WalletItem.MaxQuantityChanged = function (sender, args) end
 WalletItem.QuantityChanged = function (sender, args) end
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Language.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Language.html)
 ---Defines the client languages.
 ---@class Language
 Language = {
@@ -3132,7 +3184,7 @@ Language = {
 }
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_LotroPluginManager$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_LotroPluginManager$Members.html)
 ---Provides access to plugin management methods.
 ---@class LotroPluginManager : PluginManager
 LotroPluginManager = {}
@@ -3142,7 +3194,7 @@ LotroPluginManager = {}
 LotroPluginManager.ShowOptions = function (plugin) end
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Object$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Object$Members.html)
 ---The base object class for API classes.
 ---@class Object
 Object = {}
@@ -3162,7 +3214,7 @@ function Object:Constructor() end
 ---@return boolean
 function Object:IsA(target) end
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Plugin$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Plugin$Members.html)
 ---Provides information about a specific plugin that has been loaded.
 ---@class Plugin : Object
 Plugin = {}
@@ -3174,6 +3226,10 @@ function Plugin:GetAuthor() end
 ---Gets the name of the plugin.
 ---@return string #The name of the plugin.
 function Plugin:GetName() end
+
+---Gets the whether or not the loaded plugin is set to use Global scaling.
+---@return boolean #
+function Plugin:GetUsesGlobalScaling() end
 
 ---Gets the version of the plugin.
 ---@return string #The version of the plugin.
@@ -3202,7 +3258,7 @@ plugin = {}
 ---@type table<string,Plugin>
 Plugins = {}
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_PluginData$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_PluginData$Members.html)
 ---Provides the ability to save and load plugin data.
 ---@class PluginData
 PluginData = {}
@@ -3221,7 +3277,7 @@ PluginData.Load = function (dataScope, key, dataLoadEventHandler) end
 ---@param saveCompleteEventHandler function Event handler called when the data is saved. It has two arguments, the first specifies if the save succeeded and the second is a message if it failed.
 PluginData.Save = function (dataScope, key, data, saveCompleteEventHandler) end
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_PluginManager$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_PluginManager$Members.html)
 ---Provides access to plugin management methods.
 ---@class PluginManager
 PluginManager = {}
@@ -3249,7 +3305,7 @@ PluginManager.UnloadScriptState = function (scriptState) end
 ---@param plugin Plugin #The plugin to display options for
 PluginManager.ShowOptions = function(plugin) end
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_Shell$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_Shell$Members.html)
 ---Provides programmer extensibility to the chat window.
 ---@class Shell
 Shell = {}
@@ -3279,7 +3335,7 @@ Shell.RemoveCommand = function (shellCommand) end
 Shell.WriteLine = function (text) end
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_ShellCommand$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_ShellCommand$Members.html)
 ---A command that can be register for use in the chat window.
 ---@class ShellCommand
 ShellCommand = {}
@@ -3295,8 +3351,12 @@ Turbine.ShellCommand = function () end
 function ShellCommand:Constructor() end
 
 ---Executes the command.
+---
+---The game calls it as a method with the typed command name and the argument text,
+---so define it as `function cmd:Execute(command, argumentText)`.
+---@param command string The command name the user typed (one of the registered names).
 ---@param argumentText string The arguments string passed along with the command.
-function ShellCommand:Execute(argumentText) end
+function ShellCommand:Execute(command, argumentText) end
 
 ---Gets the help information for the command.
 ---@return string #The help information for the command.
@@ -3307,7 +3367,7 @@ function ShellCommand:GetHelp() end
 function ShellCommand:GetShortHelp() end
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_UI.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_UI.html)
 ---The core UI package that allows users to create low level controls.
 ---@class UI
 ---@field public BlendMode BlendMode Specifies a blending method.
@@ -3320,6 +3380,7 @@ function ShellCommand:GetShortHelp() end
 ---@field public ControlList ControlList | function Defines a list of controls.
 ---@field public Display Display Provides display information.
 ---@field public DragDropInfo DragDropInfo Container for information about drag drop events.
+---@field public EdgeAttachmentType EdgeAttachmentType Specifies the how a Control to updates its size and positioning relative to its parent.
 ---@field public FontStyle FontStyle Specifies styles that can be applied to fonts.
 ---@field public Graphic Graphic | function Represents a graphic resources that is loaded from the DAT files or from disk.
 ---@field public HorizontalLayout HorizontalLayout Specifies how to perform horizontal layouts.
@@ -3336,12 +3397,13 @@ function ShellCommand:GetShortHelp() end
 ---@field public TreeNode TreeNode | function The base for any element that will be part of a tree view control.
 ---@field public TreeNodeList TreeNodeList | function Defines a list of controls.
 ---@field public TreeView TreeView | function A control to display data in a tree.
+---@field public UIScalingGroupType UIScalingGroupType Specifies the UI scaling group assigned to a Window.
 ---@field public VerticalLayout VerticalLayout Specifies how to perform vertical layouts.
 ---@field public Window Window | function A top level window control.
 UI = {}
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_UI_BlendMode.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_UI_BlendMode.html)
 ---Specifies a blending method.
 ---@class BlendMode
 BlendMode = {
@@ -3366,7 +3428,7 @@ BlendMode = {
 }
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_UI_Button$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_UI_Button$Members.html)
 ---A simple button control.
 ---@class Button : Label
 Button = {}
@@ -3392,7 +3454,7 @@ Button.Click = function (sender, args) end
 Button.EnabledChanged = function (sender, args) end
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_UI_CheckBox$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_UI_CheckBox$Members.html)
 ---A control used to indicate a boolean state.
 ---@class CheckBox : Label
 CheckBox = {}
@@ -3434,7 +3496,7 @@ CheckBox.CheckedChanged = function (sender, args) end
 CheckBox.EnabledChanged = function (sender, args) end
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_UI_Color$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_UI_Color$Members.html)
 ---
 ---[View Color Table](https://lunarwtr.github.io/lotro-api-docs/colors/images/)
 ---[![](https://lunarwtr.github.io/lotro-api-docs/colors/images/rainbow.png)](https://lunarwtr.github.io/lotro-api-docs/colors/images/)
@@ -3617,7 +3679,7 @@ Turbine.UI.Color = function (a, r, g, b) end
 function Color:Constructor(a, r, g, b) end
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_UI_ContentAlignment.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_UI_ContentAlignment.html)
 ---Specifies the alignment of content within a region.
 ---@class ContentAlignment
 ContentAlignment = {
@@ -3644,7 +3706,7 @@ ContentAlignment = {
 }
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_UI_ContextMenu$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_UI_ContextMenu$Members.html)
 ---Defines a menu that can be displayed to the user.
 ---@class ContextMenu : Object
 ContextMenu = {}
@@ -3675,7 +3737,7 @@ function ContextMenu:ShowMenu() end
 function ContextMenu:ShowMenuAt(x, y) end
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_UI_Control$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_UI_Control$Members.html)
 ---The base control class for all available user interface elements.
 ---@class Control : Object
 Control = {}
@@ -3689,6 +3751,13 @@ Turbine.UI.Control = function () end
 ---`Control()` : Initializes a new Control
 ---@return Control
 function Control:Constructor() end
+
+---Tells the Control how to update its size and positioning when its parent element is resized.
+---@param left number The desired EdgeAttachmentType of the left edge.
+---@param top number The desired EdgeAttachmentType of the top edge.
+---@param right number The desired EdgeAttachmentType of the right edge.
+---@param bottom number The desired EdgeAttachmentType of the bottom edge.
+function Control:AttachEdges(left, top, right, bottom) end
 
 ---Request that the control take focus.
 function Control:Focus() end
@@ -3717,6 +3786,13 @@ function Control:GetBlendMode() end
 ---@return ControlList #The list of child controls.
 function Control:GetControls() end
 
+---Get the EdgeAttachmentTypes set for the control.
+---@return number #List of four elements containing the left, top, right, bottom EdgeAttachmentTypes of the control.
+---@return number #
+---@return number #
+---@return number #
+function Control:GetEdgeAttachments() end
+
 ---Gets the height of the control.
 ---@return number #The height of the control.
 function Control:GetHeight() end
@@ -3724,6 +3800,32 @@ function Control:GetHeight() end
 ---Gets the left coordinate of the control.
 ---@return number #The left position of the window.
 function Control:GetLeft() end
+
+---Gets the maximum height of the control.
+---@return number #The maximum height of the control.
+function Control:GetMaximumHeight() end
+
+---Gets the maximum size of the control.
+---@return number #The maximum width and height as a pair of integers.
+---@return number #
+function Control:GetMaximumSize() end
+
+---Gets the maximum width of the control.
+---@return number #The maximum width of the control.
+function Control:GetMaximumWidth() end
+
+---Gets the minimum height of the control.
+---@return number #The minimum height of the control.
+function Control:GetMinimumHeight() end
+
+---Gets the minimum size of the control.
+---@return number #The minimum width and height as a pair of integers.
+---@return number #
+function Control:GetMinimumSize() end
+
+---Gets the minimum width of the control.
+---@return number #The minimum width of the control.
+function Control:GetMinimumWidth() end
 
 ---Gets the mouse position relative to this control.
 ---@return number #The mouse position relative to this control.
@@ -3860,6 +3962,32 @@ function Control:SetHeight(value) end
 ---Sets the left coordinate of the window.
 ---@param value number The left position of the window.
 function Control:SetLeft(value) end
+
+---Sets the maximum height of the control.
+---@param value number The maximum height of the control.
+function Control:SetMaximumHeight(value) end
+
+---Sets the maximum size of the control.
+---@param width number The desired maximum width.
+---@param height number The desired maximum height.
+function Control:SetMaximumSize(width, height) end
+
+---Sets the maximum width of the control.
+---@param value number The maximum width of the control.
+function Control:SetMaximumWidth(value) end
+
+---Sets the minimum height of the control.
+---@param value number The minimum height of the control.
+function Control:SetMinimumHeight(value) end
+
+---Sets the minimum size of the control.
+---@param width number The desired minimum width.
+---@param height number The desired minimum height.
+function Control:SetMinimumSize(width, height) end
+
+---Sets the minimum width of the control.
+---@param value number The minimum width of the control.
+function Control:SetMinimumWidth(value) end
 
 ---Gets a flag indicating if the mouse will see this control.
 ---@param value boolean True if the control should process mouse messages.
@@ -4019,7 +4147,7 @@ Control.Update = function (sender, args) end
 Control.VisibleChanged = function (sender, args) end
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_UI_ControlList$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_UI_ControlList$Members.html)
 ---Defines a list of controls.
 ---@class ControlList : Object
 ControlList = {}
@@ -4079,7 +4207,7 @@ function ControlList:RemoveAt(index) end
 function ControlList:Set(index, item) end
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_UI_Display$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_UI_Display$Members.html)
 ---Provides display information.
 ---@class Display
 Display = {}
@@ -4106,12 +4234,17 @@ Display.GetMouseY = function () end
 ---@return number #
 Display.GetSize = function () end
 
+---Gets the value of the player's UI scaling option matching the requested UIScalingGroupType.
+---@param value number The UIScalingGroupType enumeration.
+---@return number #The scale multiplier of the UIScalingGroupType.
+Display.GetUIGroupScale = function (value) end
+
 ---Gets the width of the display.
 ---@return number #The display width.
 Display.GetWidth = function () end
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_UI_DragDropInfo$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_UI_DragDropInfo$Members.html)
 ---Container for information about drag drop events.
 ---@class DragDropInfo : Object
 DragDropInfo = {}
@@ -4123,7 +4256,20 @@ function DragDropInfo:IsSuccessful() end
 function DragDropInfo:SetSuccessful(value) end
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_UI_FontStyle.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_UI_EdgeAttachmentType.html)
+---Specifies the how a Control to updates its size and positioning relative to its parent.
+---@class EdgeAttachmentType
+---@field public None number Dimensions remain unchanged.
+---@field public Center number Move this edge to be half of this control's width (Left or Right edge) or height (Top or Bottom edge) from the center of the parent control.
+---@field public Mirror number Adjust this edge to be the same pixel distance between this control's opposite edge and the parent's opposite edge.
+---@field public Proportional number Keep the same ratio distance between this control's edge and the parent's corresponding edge.
+---@field public Opposite number Keep the same pixel distance between this control's edge and the parent's opposite edge.
+---@field public Same number Keep the same pixel distance between this control's edge and the parent's corresponding edge.
+---@field public RatioProportional number Adjust this edge to match object's size ratio compared against the this control's orthagonal edges' positions. Can be used in conjunction with Same/Opposite/Proportional for this control's opposite edge to keep the size ratio while matching the positioning for that opposite edge.
+EdgeAttachmentType = {}
+
+
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_UI_FontStyle.html)
 ---Specifies styles that can be applied to fonts.
 ---@class FontStyle
 FontStyle = {
@@ -4134,7 +4280,7 @@ FontStyle = {
 }
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_UI_Graphic$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_UI_Graphic$Members.html)
 ---Represents a graphic resources that is loaded from the DAT files or from disk.
 ---@class Graphic : Object
 Graphic = {}
@@ -4164,7 +4310,7 @@ Turbine.UI.Graphic = function (filename) end
 function Graphic:Constructor(filename) end
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_UI_HorizontalLayout.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_UI_HorizontalLayout.html)
 ---Specifies how to perform horizontal layouts.
 ---@class HorizontalLayout
 HorizontalLayout = {
@@ -4175,7 +4321,7 @@ HorizontalLayout = {
 }
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_UI_Label$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_UI_Label$Members.html)
 ---A simple label for displaying text.
 ---@class Label : ScrollableControl
 Label = {}
@@ -4310,7 +4456,7 @@ function Label:SetText(value) end
 function Label:SetTextAlignment(value) end
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_UI_ListBox$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_UI_ListBox$Members.html)
 ---A simple list box for laying out child controls in a list.
 ---@class ListBox : ScrollableControl
 ListBox = {}
@@ -4489,7 +4635,7 @@ ListBox.ItemRemoved = function (sender, args) end
 ListBox.SelectedIndexChanged = function (sender, args) end
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_UI_Lotro.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_UI_Lotro.html)
 ---The Lord of the Rings UI package.
 ---@class Lotro
 ---@field public Action Action List available actions that can be interpretted.
@@ -4516,7 +4662,7 @@ ListBox.SelectedIndexChanged = function (sender, args) end
 Lotro = {}
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_UI_Lotro_Action.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_UI_Lotro_Action.html)
 ---List available actions that can be interpretted.
 ---@class Action
 Action = {
@@ -5063,13 +5209,13 @@ Action = {
 }
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_UI_Lotro_BaseItemControl$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_UI_Lotro_BaseItemControl$Members.html)
 ---Base item control for Lotro interface item classes.
 ---@class BaseItemControl : Control
 BaseItemControl = {}
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_UI_Lotro_Button$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_UI_Lotro_Button$Members.html)
 ---A standard Lord of the Rings silver button.
 ---@class LotroButton : Button
 LotroButton = {}
@@ -5085,7 +5231,7 @@ Turbine.UI.Lotro.Button = function () end
 function LotroButton:Constructor() end
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_UI_Lotro_CheckBox$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_UI_Lotro_CheckBox$Members.html)
 ---A standard Lord of the Rings check box.
 ---@class LotroCheckBox : CheckBox
 LotroCheckBox = {}
@@ -5101,7 +5247,7 @@ Turbine.UI.Lotro.CheckBox = function () end
 function LotroCheckBox:Constructor() end
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_UI_Lotro_DragDropInfo$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_UI_Lotro_DragDropInfo$Members.html)
 ---Container for information about drag drop events.
 ---@class LotroDragDropInfo : DragDropInfo
 LotroDragDropInfo = {}
@@ -5111,7 +5257,7 @@ LotroDragDropInfo = {}
 function LotroDragDropInfo:GetShortcut() end
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_UI_Lotro_EffectDisplay$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_UI_Lotro_EffectDisplay$Members.html)
 ---Provides a control for displaying an effect indicator.
 ---@class EffectDisplay : Control
 EffectDisplay = {}
@@ -5158,7 +5304,7 @@ function EntityControl:SetEntity(entity) end
 ---@param value boolean True if selection is to be enabled, false to disable.
 function EntityControl:SetSelectionEnabled(value) end
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_UI_Lotro_EntityControl$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_UI_Lotro_EntityControl$Members.html)
 ---A control for providing standard entity selection and context sensitive menu support.
 ---@class EntityControl : Control
 EntityControl = {}
@@ -5174,7 +5320,7 @@ Turbine.UI.Lotro.EntityControl = function () end
 function EntityControl:Constructor() end
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_UI_Lotro_EquipmentSlot$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_UI_Lotro_EquipmentSlot$Members.html)
 ---A EquipmentSlot button for for equipping items.
 ---@class EquipmentSlot : BaseItemControl
 EquipmentSlot = {}
@@ -5203,7 +5349,7 @@ function EquipmentSlot:SetEquipmentSlot(value) end
 EquipmentSlot.DragDrop = function (sender, args) end
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_UI_Lotro_Font.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_UI_Lotro_Font.html)
 ---The list of available fonts.
 ---@class Font
 Font = {
@@ -5308,7 +5454,7 @@ Font = {
 }
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_UI_Lotro_GoldButton$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_UI_Lotro_GoldButton$Members.html)
 ---A standard Lord of the Rings gold button.
 ---@class GoldButton : LotroButton
 GoldButton = {}
@@ -5324,7 +5470,7 @@ Turbine.UI.Lotro.GoldButton = function () end
 function GoldButton:Constructor() end
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_UI_Lotro_GoldWindow$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_UI_Lotro_GoldWindow$Members.html)
 ---A standard Lord of the Rings gold window.
 ---@class GoldWindow : LotroWindow
 GoldWindow = {}
@@ -5340,7 +5486,7 @@ Turbine.UI.Lotro.GoldWindow = function () end
 function GoldWindow:Constructor() end
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_UI_Lotro_ItemControl$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_UI_Lotro_ItemControl$Members.html)
 ---Provides a control for displaying an item.
 ---@class ItemControl : BaseItemControl
 ItemControl = {}
@@ -5364,7 +5510,7 @@ function ItemControl:GetItem() end
 function ItemControl:SetItem(value) end
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_UI_Lotro_ItemInfoControl$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_UI_Lotro_ItemInfoControl$Members.html)
 ---Provides a control for displaying item information.
 ---@class ItemInfoControl : BaseItemControl
 ItemInfoControl = {}
@@ -5401,7 +5547,7 @@ function ItemInfoControl:SetQuantity(value) end
 ItemInfoControl.EnabledChanged = function (sender, args) end
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_UI_Lotro_LotroUI$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_UI_Lotro_LotroUI$Members.html)
 ---Provides access to the built in game UIs.
 ---@class LotroUI : Object
 LotroUI = {}
@@ -5420,7 +5566,7 @@ LotroUI.Reset = function () end
 LotroUI.SetEnabled = function (hudElement, value) end
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_UI_Lotro_LotroUIElement$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_UI_Lotro_LotroUIElement$Members.html)
 ---The list of UIs that can be enabled or disabled.
 ---@class LotroUIElement
 LotroUIElement = {
@@ -5447,7 +5593,7 @@ LotroUIElement = {
 }
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_UI_Lotro_Quickslot$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_UI_Lotro_Quickslot$Members.html)
 ---A quickslot button for using skills or items.
 ---@class Quickslot : Control
 Quickslot = {}
@@ -5489,7 +5635,7 @@ Quickslot.DragDrop = function (sender, args) end
 Quickslot.ShortcutChanged = function (sender, args) end
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_UI_Lotro_ScrollBar$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_UI_Lotro_ScrollBar$Members.html)
 ---A standard Lord of the Rings scroll bar.
 ---@class LotroScrollBar : ScrollBar
 LotroScrollBar = {}
@@ -5510,7 +5656,7 @@ function LotroScrollBar:Constructor() end
 LotroScrollBar.OrientationChanged = function (sender, args) end
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_UI_Lotro_Shortcut$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_UI_Lotro_Shortcut$Members.html)
 ---Encapsulates information about a short cut.
 ---@class Shortcut : Object
 Shortcut = {}
@@ -5562,16 +5708,20 @@ function Shortcut:SetData(value) end
 function Shortcut:SetType(value) end
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_UI_Lotro_ShortcutType.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_UI_Lotro_ShortcutType.html)
 ---Defines one of the shortcut types.
 ---@class ShortcutType
 ShortcutType = {
 	-- Specifies an undefined shortcut.
 	Undefined = 0,
+	-- Not in the SSG documentation (present in the game client).
+	Undef = 0,
 	-- Specifies an item shortcut.
 	Item = 2,
 	-- Specifies an alias shortcut.
 	Alias = 4,
+	-- Not in the SSG documentation (present in the game client).
+	Emote = 5,
 	-- Specifies a skill shortcut.
 	Skill = 6,
 	-- Specifies a pet shortcut.
@@ -5581,7 +5731,7 @@ ShortcutType = {
 }
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_UI_Lotro_TextBox$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_UI_Lotro_TextBox$Members.html)
 ---A standard Lord of the Rings text box.
 ---@class LotroTextBox : TextBox
 LotroTextBox = {}
@@ -5597,7 +5747,7 @@ Turbine.UI.Lotro.TextBox = function () end
 function LotroTextBox:Constructor() end
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_UI_Lotro_Window$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_UI_Lotro_Window$Members.html)
 ---A standard Lord of the Rings silver window.
 ---@class LotroWindow : Window
 LotroWindow = {}
@@ -5625,7 +5775,7 @@ function LotroWindow:SetResizable(value) end
 function LotroWindow:SetText(value) end
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_UI_MenuItem$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_UI_MenuItem$Members.html)
 ---Defines a menu item.
 ---@class MenuItem : Object
 MenuItem = {}
@@ -5687,7 +5837,7 @@ MenuItem.Click = function (sender, args) end
 ---@return MenuItemList #Returns the menu items collection.
 function MenuItem:GetItems() end
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_UI_MenuItemList$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_UI_MenuItemList$Members.html)
 ---Defines a list of menu items.
 ---@class MenuItemList : Object
 MenuItemList = {}
@@ -5747,7 +5897,7 @@ function MenuItemList:RemoveAt(index) end
 function MenuItemList:Set(index, item) end
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_UI_MouseButton.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_UI_MouseButton.html)
 ---Defines one of the mouse buttons.
 ---@class MouseButton
 MouseButton = {
@@ -5760,7 +5910,7 @@ MouseButton = {
 }
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_UI_Orientation.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_UI_Orientation.html)
 ---Specifies orientation of objects.
 ---@class Orientation
 Orientation = {
@@ -5771,7 +5921,7 @@ Orientation = {
 }
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_UI_ScrollBar$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_UI_ScrollBar$Members.html)
 ---A control for scrolling contents.
 ---@class ScrollBar : Control
 ScrollBar = {}
@@ -5869,7 +6019,7 @@ ScrollBar.OrientationChanged = function (sender, args) end
 ScrollBar.ValueChanged = function (sender, args) end
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_UI_ScrollableControl$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_UI_ScrollableControl$Members.html)
 ---Defines a control that can be scrolled.
 ---@class ScrollableControl : Control
 ScrollableControl = {}
@@ -5901,7 +6051,7 @@ function ScrollableControl:SetHorizontalScrollBar(value) end
 function ScrollableControl:SetVerticalScrollBar(value) end
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_UI_TextBox$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_UI_TextBox$Members.html)
 ---A control for inputting text.
 ---@class TextBox : Label
 TextBox = {}
@@ -5935,7 +6085,7 @@ TextBox.EnabledChanged = function (sender, args) end
 TextBox.TextChanged = function (sender, args) end
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_UI_TreeNode$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_UI_TreeNode$Members.html)
 ---The base for any element that will be part of a tree view control.
 ---@class TreeNode : Control
 TreeNode = {}
@@ -5991,7 +6141,7 @@ function TreeNode:SetExpanded(value) end
 TreeNode.SelectedChanged = function (sender, args) end
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_UI_TreeNodeList$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_UI_TreeNodeList$Members.html)
 ---Defines a list of controls.
 ---@class TreeNodeList : Object
 TreeNodeList = {}
@@ -6041,7 +6191,7 @@ function TreeNodeList:Remove(node) end
 function TreeNodeList:RemoveAt(index) end
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_UI_TreeView$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_UI_TreeView$Members.html)
 ---A control to display data in a tree.
 ---@class TreeView : ScrollableControl
 TreeView = {}
@@ -6137,7 +6287,69 @@ TreeView.SelectedNodeChanged = function (sender, args) end
 ---@return TreeNode #The node at the specified location in the tree view otherwise if no node is there this will return nil.
 function TreeView:GetItemAt(x, y) end
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_UI_VerticalLayout.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_UI_UIScalingGroupType.html)
+---Specifies the UI scaling group assigned to a Window.
+---@class UIScalingGroupType
+---@field public QuickslotBars number 
+---@field public PetQuickslotBar number 
+---@field public PetVitals number 
+---@field public OpponentVitals number 
+---@field public Radar number 
+---@field public Toolbar number 
+---@field public QuestTracker number 
+---@field public Vitals number 
+---@field public Alerts number 
+---@field public FellowshipVitals1 number 
+---@field public FellowshipVitals2 number 
+---@field public FellowshipVitals3 number 
+---@field public FellowshipVitals4 number 
+---@field public ClassAbilities number 
+---@field public MountDisplay number 
+---@field public SoldierVitals number 
+---@field public EscortVitals number 
+---@field public AllegianceProgress number 
+---@field public InventoryBags number 
+---@field public Character number 
+---@field public Options number 
+---@field public Panels number 
+---@field public BarberShop number 
+---@field public Tooltips number 
+---@field public Deeds number 
+---@field public TraitTree number 
+---@field public HobbitPresents number 
+---@field public Wallet number 
+---@field public ItemWear number 
+---@field public MountedCombat number 
+---@field public BigBattles number 
+---@field public Skirmish number 
+---@field public Mail number 
+---@field public Chat number 
+---@field public DressingRoom number 
+---@field public Help number 
+---@field public Webstore number 
+---@field public Vault number 
+---@field public Inspect number 
+---@field public Wardrobe number 
+---@field public Barter number 
+---@field public ProgressBar number 
+---@field public Menus number 
+---@field public HudText number 
+---@field public Auction number 
+---@field public QuestBestow number 
+---@field public Global number 
+---@field public Pregame number 
+---@field public MapQuestGuideFrame number 
+---@field public QuestActionButton number 
+---@field public Tutorials number 
+---@field public TargetProgressBar number 
+---@field public Map number 
+---@field public TargetAssist number 
+---@field public FellowshipManoeuvres number 
+---@field public LootRoll number 
+UIScalingGroupType = {}
+
+
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_UI_VerticalLayout.html)
 ---Specifies how to perform vertical layouts.
 ---@class VerticalLayout
 VerticalLayout = {
@@ -6148,7 +6360,7 @@ VerticalLayout = {
 }
 
 
----[Documentation](https://lunarwtr.github.io/lotro-api-docs/U25/Turbine_UI_Window$Members.html)
+---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_UI_Window$Members.html)
 ---A top level window control.
 ---@class Window : Control
 Window = {}
@@ -6169,65 +6381,45 @@ function Window:Activate() end
 ---Closes the window.
 function Window:Close() end
 
----Gets the maximum height of the window.
----@return number #The maximum height of the window.
-function Window:GetMaximumHeight() end
+---Get the total scale multiplier of the Window (global scale * local scale).
+---@return number #The scale multiplier of the Window.
+function Window:GetScale() end
 
----Gets the maximum size of the window.
----@return number #The maximum width and height as a pair of integers.
+---Get the scaling anchor point around which the Window scales.
+---@return number #List of two elements containing the horizontal and vertical position of the origin point, relative to the control's position point.
 ---@return number #
-function Window:GetMaximumSize() end
-
----Gets the maximum width of the window.
----@return number #The maximum width of the window.
-function Window:GetMaximumWidth() end
-
----Gets the minimum height of the window.
----@return number #The minimum height of the window.
-function Window:GetMinimumHeight() end
-
----Gets the minimum size of the window.
----@return number #The minimum width and height as a pair of integers.
----@return number #
-function Window:GetMinimumSize() end
-
----Gets the minimum width of the window.
----@return number #The minimum width of the window.
-function Window:GetMinimumWidth() end
+function Window:GetScalingOriginPoint() end
 
 ---Gets the text of the window.
 ---@return string #The text of the window.
 function Window:GetText() end
 
----Sets the maximum height of the window.
----@param value number The maximum height of the window.
-function Window:SetMaximumHeight(value) end
+---Get the UIScalingGroupType assigned for the Window.
+---@return number #The UIScalingGroupType enumeration assigned to the window.
+function Window:GetUIScalingGroup() end
 
----Sets the maximum size of the window.
----@param width number The desired maximum width.
----@param height number The desired maximum height.
-function Window:SetMaximumSize(width, height) end
+---Enable Global scaling multiplier for the Window's scale.
+function Window:RegisterForGlobalScaling() end
 
----Sets the maximum width of the window.
----@param value number The maximum width of the window.
-function Window:SetMaximumWidth(value) end
+---Updates the local scale multiplier of the Window. If registered for Global scaling, this value is multiplied by the Global scale factor.
+---@param value number The desired local scale multipler of the window.
+function Window:SetScale(value) end
 
----Sets the minimum height of the window.
----@param value number The minimum height of the window.
-function Window:SetMinimumHeight(value) end
-
----Sets the minimum size of the window.
----@param width number The desired minimum width.
----@param height number The desired minimum height.
-function Window:SetMinimumSize(width, height) end
-
----Sets the minimum width of the window.
----@param value number The minimum width of the window.
-function Window:SetMinimumWidth(value) end
+---Set the scaling anchor point around which the Window scales.
+---@param width number The desired horizontal position of the anchor point.
+---@param height number The desired vertical position of the anchor point.
+function Window:SetScalingOriginPoint(width, height) end
 
 ---Sets the text of the window.
 ---@param value string The text of the window.
 function Window:SetText(value) end
+
+---Set the UIScalingGroupType assignment for the Window.
+---@param value number The UIScalingGroupType enumeration to assign to the window.
+function Window:SetUIScalingGroup(value) end
+
+---Disable Global scaling multiplier for the Window's scale.
+function Window:UnregisterForGlobalScaling() end
 
 ---Event fired when a window is activated.
 ---@param sender table The event sender.
@@ -6248,6 +6440,15 @@ Window.Closing = function (sender, args) end
 ---@param sender table The event sender.
 ---@param args EventWindowDeactivatedArgsTable The event arguments
 Window.Deactivated = function (sender, args) end
+
+---Event fired when the player changes a scaling option that affects this Window.
+---@param sender table The event sender.
+---@param args EventWindowUIScaleChangedArgsTable The event arguments:
+---                
+----> Index: number - UIScalingGroupType enumeration that updated this window's scale
+---                
+----> Value: number - Scaling multiplier of the update group
+Window.UIScaleChanged = function (sender, args) end
 
 ---(NOT A REAL CLASS) For describing data types and field names of table.
 ---@class WindowRotationTable : table<string, number>
@@ -6332,6 +6533,8 @@ function Window:SetRotation(rotation) end
 ---@alias EventBeorningAttributesFormChangedArgsTable table
 
 ---@alias EventBeorningAttributesWrathChangedArgsTable table
+
+---@alias EventBrawlerAttributesStanceChangedArgsTable table
 
 ---@alias EventBurglarAttributesIsCriticalTier1ChangedArgsTable table
 
@@ -6549,6 +6752,8 @@ function Window:SetRotation(rotation) end
 
 ---@alias EventLotroScrollBarOrientationChangedArgsTable table
 
+---@alias EventMarinerAttributesBalanceChangedArgsTable table
+
 ---@alias EventMenuItemClickArgsTable table
 
 ---@alias EventMinstrelAttributesIsSerenadeTier1ChangedArgsTable table
@@ -6667,6 +6872,11 @@ function Window:SetRotation(rotation) end
 ---@field Cancel number #
 
 ---@alias EventWindowDeactivatedArgsTable table
+
+---(NOT A REAL CLASS) For describing data types and field names of the args table.
+---@class EventWindowUIScaleChangedArgsTable : table
+---@field Index number # UIScalingGroupType enumeration that updated this window's scale
+---@field Value number # Scaling multiplier of the update group
 
 ---(NOT A REAL CLASS) For describing data types and field names of the GetDate table.
 ---@class EngineGetDateTable : table
