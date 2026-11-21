@@ -1,6 +1,6 @@
 # Change Log
 
-## [Unreleased]
+## [1.0.19]
 - Improvement: Lua API documentation regenerated from the SSG Update 49 documentation (links now point to `lotro-api-docs/U49`)
 - Improvement: new U49 UI scaling API: `Window:GetScale/SetScale`, `Get/SetScalingOriginPoint`, `Get/SetUIScalingGroup`, `RegisterForGlobalScaling/UnregisterForGlobalScaling`, `Window.UIScaleChanged` event, `Display.GetUIGroupScale`, `Plugin:GetUsesGlobalScaling` and the `UIScalingGroupType` enum
 - Improvement: `Control:AttachEdges/GetEdgeAttachments` and the `EdgeAttachmentType` enum
