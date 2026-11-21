@@ -1084,13 +1084,21 @@ Dump = {
                 ["Add"] = {type = "function"}
             },
 
+            ["Graphic"] = {
+                ["IsA"] = {type = "function"},
+                ["Constructor"] = {type = "function"}
+            },
+
             ["DragDropInfo"] = {
                 ["SetSuccessful"] = {type = "function"},
                 ["IsSuccessful"] = {type = "function"}
             },
 
-            ["Graphic"] = {
-                ["IsA"] = {type = "function"},
+            ["ContextMenu"] = {
+                ["ShowMenuAt"] = {type = "function"},
+                ["Close"] = {type = "function"},
+                ["GetItems"] = {type = "function"},
+                ["ShowMenu"] = {type = "function"},
                 ["Constructor"] = {type = "function"}
             },
 
@@ -1107,11 +1115,11 @@ Dump = {
                 ["Undefined"] = {type = "number", value = 8}
             },
 
-            ["ContextMenu"] = {
-                ["ShowMenuAt"] = {type = "function"},
-                ["Close"] = {type = "function"},
-                ["GetItems"] = {type = "function"},
-                ["ShowMenu"] = {type = "function"},
+            ["ScrollableControl"] = {
+                ["SetVerticalScrollBar"] = {type = "function"},
+                ["GetHorizontalScrollBar"] = {type = "function"},
+                ["GetVerticalScrollBar"] = {type = "function"},
+                ["SetHorizontalScrollBar"] = {type = "function"},
                 ["Constructor"] = {type = "function"}
             },
 
@@ -1147,14 +1155,6 @@ Dump = {
                 ["GetItemAt"] = {type = "function"}
             },
 
-            ["ScrollableControl"] = {
-                ["SetVerticalScrollBar"] = {type = "function"},
-                ["GetHorizontalScrollBar"] = {type = "function"},
-                ["GetVerticalScrollBar"] = {type = "function"},
-                ["SetHorizontalScrollBar"] = {type = "function"},
-                ["Constructor"] = {type = "function"}
-            },
-
             ["TextBox"] = {
                 ["IsReadOnly"] = {type = "function"},
                 ["SetReadOnly"] = {type = "function"},
@@ -1162,36 +1162,21 @@ Dump = {
             },
 
             ["Window"] = {
-                ["Activate"] = {type = "function"},
-                ["SetMinimumSize"] = {type = "function"},
-                ["Close"] = {type = "function"},
-                ["GetMaximumHeight"] = {type = "function"},
-                ["SetText"] = {type = "function"},
-                ["GetMaximumWidth"] = {type = "function"},
-                ["GetScalingOriginPoint"] = {type = "function"},
-                ["SetMaximumHeight"] = {type = "function"},
-                ["GetMinimumWidth"] = {type = "function"},
-                ["GetMaximumSize"] = {type = "function"},
-                ["UnregisterForGlobalScaling"] = {type = "function"},
                 ["SetScale"] = {type = "function"},
-                ["SetMaximumWidth"] = {type = "function"},
-                ["GetMinimumHeight"] = {type = "function"},
-                ["SetRotation"] = {type = "function"},
                 ["Constructor"] = {type = "function"},
+                ["Close"] = {type = "function"},
+                ["Activate"] = {type = "function"},
+                ["SetText"] = {type = "function"},
+                ["SetRotation"] = {type = "function"},
+                ["GetScalingOriginPoint"] = {type = "function"},
                 ["GetRotation"] = {type = "function"},
                 ["GetText"] = {type = "function"},
-                ["SetMinimumHeight"] = {type = "function"},
+                ["GetUIScalingGroup"] = {type = "function"},
                 ["SetScalingOriginPoint"] = {type = "function"},
-                ["SetMaximumSize"] = {type = "function"},
-                ["SetMinimumWidth"] = {type = "function"},
-                ["GetMinimumSize"] = {type = "function"},
+                ["UnregisterForGlobalScaling"] = {type = "function"},
+                ["SetUIScalingGroup"] = {type = "function"},
+                ["GetScale"] = {type = "function"},
                 ["RegisterForGlobalScaling"] = {type = "function"}
-            },
-
-            ["VerticalLayout"] = {
-                ["BottomToTop"] = {type = "number", value = 1},
-                ["IsA"] = {type = "function"},
-                ["TopToBottom"] = {type = "number", value = 0}
             },
 
             ["TreeNodeList"] = {
@@ -1204,6 +1189,23 @@ Dump = {
                 ["Contains"] = {type = "function"},
                 ["Get"] = {type = "function"},
                 ["Add"] = {type = "function"}
+            },
+
+            ["VerticalLayout"] = {
+                ["BottomToTop"] = {type = "number", value = 1},
+                ["IsA"] = {type = "function"},
+                ["TopToBottom"] = {type = "number", value = 0}
+            },
+
+            ["EdgeAttachmentType"] = {
+                ["Opposite"] = {type = "number", value = 4},
+                ["Same"] = {type = "number", value = 5},
+                ["Center"] = {type = "number", value = 1},
+                ["IsA"] = {type = "function"},
+                ["RatioProportional"] = {type = "number", value = 6},
+                ["Proportional"] = {type = "number", value = 3},
+                ["Mirror"] = {type = "number", value = 2},
+                ["None"] = {type = "number", value = 0}
             },
 
             ["MenuItemList"] = {
@@ -1289,57 +1291,71 @@ Dump = {
             },
 
             ["Control"] = {
-                ["SetWantsKeyEvents"] = {type = "function"},
-                ["IsAltKeyDown"] = {type = "function"},
-                ["SetHeight"] = {type = "function"},
+                ["GetBackColorBlendMode"] = {type = "function"},
+                ["SetMaximumSize"] = {type = "function"},
                 ["GetZOrder"] = {type = "function"},
-                ["SetStretchMode"] = {type = "function"},
+                ["HasFocus"] = {type = "function"},
                 ["PointToScreen"] = {type = "function"},
+                ["GetMaximumSize"] = {type = "function"},
                 ["SetZOrder"] = {type = "function"},
-                ["GetBlendMode"] = {type = "function"},
                 ["GetWidth"] = {type = "function"},
-                ["GetBackground"] = {type = "function"},
                 ["GetSize"] = {type = "function"},
-                ["SetBlendMode"] = {type = "function"},
-                ["SetBackground"] = {type = "function"},
+                ["SetBackColorBlendMode"] = {type = "function"},
+                ["SetMaximumWidth"] = {type = "function"},
                 ["GetParent"] = {type = "function"},
-                ["SetParent"] = {type = "function"},
+                ["GetHeight"] = {type = "function"},
                 ["SetWidth"] = {type = "function"},
                 ["IsEnabled"] = {type = "function"},
-                ["IsDisplayed"] = {type = "function"},
+                ["SetEnabled"] = {type = "function"},
                 ["IsControlKeyDown"] = {type = "function"},
-                ["Constructor"] = {type = "function"},
-                ["IsShiftKeyDown"] = {type = "function"},
-                ["GetMousePosition"] = {type = "function"},
-                ["SetTop"] = {type = "function"},
-                ["GetAllowDrop"] = {type = "function"},
-                ["GetLeft"] = {type = "function"},
-                ["Focus"] = {type = "function"},
-                ["HasFocus"] = {type = "function"},
-                ["SetPosition"] = {type = "function"},
                 ["SetVisible"] = {type = "function"},
-                ["SetMouseVisible"] = {type = "function"},
-                ["GetStretchMode"] = {type = "function"},
                 ["SetSize"] = {type = "function"},
                 ["SetAllowDrop"] = {type = "function"},
                 ["PointToClient"] = {type = "function"},
                 ["SetWantsUpdates"] = {type = "function"},
-                ["SetLeft"] = {type = "function"},
                 ["IsVisible"] = {type = "function"},
-                ["SetBackColorBlendMode"] = {type = "function"},
-                ["SetEnabled"] = {type = "function"},
-                ["GetOpacity"] = {type = "function"},
-                ["IsMouseVisible"] = {type = "function"},
+                ["GetMinimumHeight"] = {type = "function"},
                 ["GetWantsKeyEvents"] = {type = "function"},
-                ["GetTop"] = {type = "function"},
-                ["GetBackColorBlendMode"] = {type = "function"},
-                ["SetBackColor"] = {type = "function"},
-                ["GetBackColor"] = {type = "function"},
+                ["Constructor"] = {type = "function"},
                 ["GetWantsUpdates"] = {type = "function"},
+                ["GetMinimumSize"] = {type = "function"},
+                ["SetOpacity"] = {type = "function"},
+                ["SetWantsKeyEvents"] = {type = "function"},
+                ["GetMaximumHeight"] = {type = "function"},
+                ["GetBackColor"] = {type = "function"},
+                ["SetStretchMode"] = {type = "function"},
+                ["SetMinimumHeight"] = {type = "function"},
+                ["GetOpacity"] = {type = "function"},
+                ["GetBlendMode"] = {type = "function"},
+                ["GetBackground"] = {type = "function"},
+                ["SetBackColor"] = {type = "function"},
+                ["SetBackground"] = {type = "function"},
+                ["AttachEdges"] = {type = "function"},
+                ["IsDisplayed"] = {type = "function"},
+                ["GetEdgeAttachments"] = {type = "function"},
+                ["SetTop"] = {type = "function"},
+                ["GetLeft"] = {type = "function"},
+                ["SetPosition"] = {type = "function"},
+                ["IsShiftKeyDown"] = {type = "function"},
+                ["SetMinimumSize"] = {type = "function"},
+                ["IsAltKeyDown"] = {type = "function"},
+                ["SetHeight"] = {type = "function"},
+                ["GetMaximumWidth"] = {type = "function"},
+                ["SetMaximumHeight"] = {type = "function"},
+                ["GetMinimumWidth"] = {type = "function"},
+                ["GetMousePosition"] = {type = "function"},
+                ["SetLeft"] = {type = "function"},
+                ["IsMouseVisible"] = {type = "function"},
+                ["Focus"] = {type = "function"},
+                ["GetTop"] = {type = "function"},
+                ["SetParent"] = {type = "function"},
+                ["SetMouseVisible"] = {type = "function"},
+                ["GetAllowDrop"] = {type = "function"},
+                ["GetStretchMode"] = {type = "function"},
                 ["GetPosition"] = {type = "function"},
                 ["GetControls"] = {type = "function"},
-                ["GetHeight"] = {type = "function"},
-                ["SetOpacity"] = {type = "function"}
+                ["SetBlendMode"] = {type = "function"},
+                ["SetMinimumWidth"] = {type = "function"}
             },
 
             ["Orientation"] = {
@@ -1351,8 +1367,9 @@ Dump = {
             ["Display"] = {
                 ["GetSize"] = {type = "function"},
                 ["GetHeight"] = {type = "function"},
-                ["GetMouseX"] = {type = "function"},
                 ["IsA"] = {type = "function"},
+                ["GetMouseX"] = {type = "function"},
+                ["GetUIGroupScale"] = {type = "function"},
                 ["GetMousePosition"] = {type = "function"},
                 ["GetWidth"] = {type = "function"},
                 ["GetMouseY"] = {type = "function"}
@@ -1846,6 +1863,8 @@ Dump = {
                     ["GetEquipmentSlot"] = {type = "function"}
                 },
 
+                ["CheckBox"] = {["Constructor"] = {type = "function"}},
+
                 ["Quickslot"] = {
                     ["GetShortcut"] = {type = "function"},
                     ["SetUseOnRightClick"] = {type = "function"},
@@ -1854,7 +1873,19 @@ Dump = {
                     ["Constructor"] = {type = "function"}
                 },
 
-                ["CheckBox"] = {["Constructor"] = {type = "function"}},
+                ["LotroUIElement"] = {
+                    ["Backpack5"] = {type = "number", value = 268435463},
+                    ["Backpack4"] = {type = "number", value = 268435462},
+                    ["Backpack6"] = {type = "number", value = 268435464},
+                    ["Backpack2"] = {type = "number", value = 268435460},
+                    ["Party"] = {type = "number", value = 268435458},
+                    ["IsA"] = {type = "function"},
+                    ["Vitals"] = {type = "number", value = 268435465},
+                    ["Target"] = {type = "number", value = 268435467},
+                    ["PluginsManager"] = {type = "number", value = 268435457},
+                    ["Backpack1"] = {type = "number", value = 268435459},
+                    ["Backpack3"] = {type = "number", value = 268435461}
+                },
 
                 ["ShortcutType"] = {
                     ["Undef"] = {type = "number", value = 0},
@@ -1962,18 +1993,65 @@ Dump = {
                     ["Verdana20"] = {type = "number", value = 1107296278}
                 },
 
-                ["LotroUIElement"] = {
-                    ["Backpack5"] = {type = "number", value = 268435463},
-                    ["Backpack4"] = {type = "number", value = 268435462},
-                    ["Backpack6"] = {type = "number", value = 268435464},
-                    ["Backpack2"] = {type = "number", value = 268435460},
-                    ["Party"] = {type = "number", value = 268435458},
+                ["UIScalingGroupType"] = {
+                    ["QuickslotBars"] = {type = "number", value = 1},
+                    ["MountDisplay"] = {type = "number", value = 23},
+                    ["ClassAbilities"] = {type = "number", value = 22},
+                    ["EscortVitals"] = {type = "number", value = 25},
+                    ["InventoryBags"] = {type = "number", value = 27},
+                    ["Chat"] = {type = "number", value = 45},
+                    ["Alerts"] = {type = "number", value = 14},
+                    ["Help"] = {type = "number", value = 47},
+                    ["FellowshipVitals3"] = {type = "number", value = 17},
+                    ["QuestBestow"] = {type = "number", value = 58},
+                    ["HudText"] = {type = "number", value = 56},
+                    ["LootRoll"] = {type = "number", value = 71},
+                    ["Wallet"] = {type = "number", value = 38},
+                    ["DressingRoom"] = {type = "number", value = 46},
+                    ["Tooltips"] = {type = "number", value = 33},
+                    ["FellowshipVitals4"] = {type = "number", value = 18},
+                    ["BigBattles"] = {type = "number", value = 41},
+                    ["FellowshipManoeuvres"] = {type = "number", value = 70},
+                    ["SoldierVitals"] = {type = "number", value = 24},
+                    ["Auction"] = {type = "number", value = 57},
+                    ["Skirmish"] = {type = "number", value = 43},
+                    ["TargetAssist"] = {type = "number", value = 67},
+                    ["Mail"] = {type = "number", value = 44},
+                    ["PetVitals"] = {type = "number", value = 3},
+                    ["Pregame"] = {type = "number", value = 61},
+                    ["Inspect"] = {type = "number", value = 51},
+                    ["PetQuickslotBar"] = {type = "number", value = 2},
+                    ["Menus"] = {type = "number", value = 55},
+                    ["TargetProgressBar"] = {type = "number", value = 65},
+                    ["FellowshipVitals2"] = {type = "number", value = 16},
+                    ["Tutorials"] = {type = "number", value = 64},
+                    ["HobbitPresents"] = {type = "number", value = 37},
+                    ["Panels"] = {type = "number", value = 31},
+                    ["Barter"] = {type = "number", value = 53},
+                    ["Radar"] = {type = "number", value = 5},
+                    ["Character"] = {type = "number", value = 29},
+                    ["Deeds"] = {type = "number", value = 34},
+                    ["Global"] = {type = "number", value = 60},
+                    ["ProgressBar"] = {type = "number", value = 54},
+                    ["MountedCombat"] = {type = "number", value = 40},
+                    ["QuestActionButton"] = {type = "number", value = 63},
+                    ["QuestTracker"] = {type = "number", value = 10},
+                    ["Map"] = {type = "number", value = 66},
+                    ["BarberShop"] = {type = "number", value = 32},
+                    ["Options"] = {type = "number", value = 30},
+                    ["AllegianceProgress"] = {type = "number", value = 26},
+                    ["Vitals"] = {type = "number", value = 11},
+                    ["Webstore"] = {type = "number", value = 48},
+                    ["Toolbar"] = {type = "number", value = 6},
+                    ["FellowshipVitals1"] = {type = "number", value = 15},
+                    ["Vault"] = {type = "number", value = 49},
+                    ["TraitTree"] = {type = "number", value = 36},
+                    ["OpponentVitals"] = {type = "number", value = 4},
+                    ["Wardrobe"] = {type = "number", value = 52},
+                    ["ItemWear"] = {type = "number", value = 39},
+                    ["MapQuestGuideFrame"] = {type = "number", value = 62},
                     ["IsA"] = {type = "function"},
-                    ["Vitals"] = {type = "number", value = 268435465},
-                    ["Target"] = {type = "number", value = 268435467},
-                    ["PluginsManager"] = {type = "number", value = 268435457},
-                    ["Backpack1"] = {type = "number", value = 268435459},
-                    ["Backpack3"] = {type = "number", value = 268435461}
+                    ["None"] = {type = "number", value = 0}
                 },
 
                 ["TextBox"] = {["Constructor"] = {type = "function"}},
@@ -2010,6 +2088,7 @@ Dump = {
         },
 
         ["Plugin"] = {
+            ["GetUsesGlobalScaling"] = {type = "function"},
             ["GetVersion"] = {type = "function"},
             ["GetName"] = {type = "function"},
             ["GetAuthor"] = {type = "function"}
@@ -2973,7 +3052,7 @@ Dump = {
 
 dofile("encode_json_sorted.lua")
 
---local json = require 'lunajson'
+-- local json = require 'lunajson'
 local fh = io.open("TurbineDump.json", "w")
 fh:write(encode_json_sorted(Dump))
 fh:close()

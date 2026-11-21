@@ -4259,14 +4259,22 @@ function DragDropInfo:SetSuccessful(value) end
 ---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_UI_EdgeAttachmentType.html)
 ---Specifies the how a Control to updates its size and positioning relative to its parent.
 ---@class EdgeAttachmentType
----@field public None number Dimensions remain unchanged.
----@field public Center number Move this edge to be half of this control's width (Left or Right edge) or height (Top or Bottom edge) from the center of the parent control.
----@field public Mirror number Adjust this edge to be the same pixel distance between this control's opposite edge and the parent's opposite edge.
----@field public Proportional number Keep the same ratio distance between this control's edge and the parent's corresponding edge.
----@field public Opposite number Keep the same pixel distance between this control's edge and the parent's opposite edge.
----@field public Same number Keep the same pixel distance between this control's edge and the parent's corresponding edge.
----@field public RatioProportional number Adjust this edge to match object's size ratio compared against the this control's orthagonal edges' positions. Can be used in conjunction with Same/Opposite/Proportional for this control's opposite edge to keep the size ratio while matching the positioning for that opposite edge.
-EdgeAttachmentType = {}
+EdgeAttachmentType = {
+	-- Dimensions remain unchanged.
+	None = 0,
+	-- Move this edge to be half of this control's width (Left or Right edge) or height (Top or Bottom edge) from the center of the parent control.
+	Center = 1,
+	-- Adjust this edge to be the same pixel distance between this control's opposite edge and the parent's opposite edge.
+	Mirror = 2,
+	-- Keep the same ratio distance between this control's edge and the parent's corresponding edge.
+	Proportional = 3,
+	-- Keep the same pixel distance between this control's edge and the parent's opposite edge.
+	Opposite = 4,
+	-- Keep the same pixel distance between this control's edge and the parent's corresponding edge.
+	Same = 5,
+	-- Adjust this edge to match object's size ratio compared against the this control's orthagonal edges' positions. Can be used in conjunction with Same/Opposite/Proportional for this control's opposite edge to keep the size ratio while matching the positioning for that opposite edge.
+	RatioProportional = 6,
+}
 
 
 ---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_UI_FontStyle.html)
@@ -4658,6 +4666,7 @@ ListBox.SelectedIndexChanged = function (sender, args) end
 ---@field public Shortcut Shortcut | function Encapsulates information about a short cut.
 ---@field public ShortcutType ShortcutType Defines one of the shortcut types.
 ---@field public TextBox LotroTextBox | function A standard Lord of the Rings text box.
+---@field public UIScalingGroupType UIScalingGroupType Not in the SSG documentation (present in the game client).
 ---@field public Window LotroWindow | function A standard Lord of the Rings silver window.
 Lotro = {}
 
@@ -5745,6 +5754,126 @@ Turbine.UI.Lotro.TextBox = function () end
 ---`TextBox()` : Initializes a new TextBox
 ---@return LotroTextBox
 function LotroTextBox:Constructor() end
+
+
+---Not in the SSG documentation (present in the game client).
+---@class UIScalingGroupType
+UIScalingGroupType = {
+	-- Not in the SSG documentation (present in the game client).
+	None = 0,
+	-- Not in the SSG documentation (present in the game client).
+	QuickslotBars = 1,
+	-- Not in the SSG documentation (present in the game client).
+	PetQuickslotBar = 2,
+	-- Not in the SSG documentation (present in the game client).
+	PetVitals = 3,
+	-- Not in the SSG documentation (present in the game client).
+	OpponentVitals = 4,
+	-- Not in the SSG documentation (present in the game client).
+	Radar = 5,
+	-- Not in the SSG documentation (present in the game client).
+	Toolbar = 6,
+	-- Not in the SSG documentation (present in the game client).
+	QuestTracker = 10,
+	-- Not in the SSG documentation (present in the game client).
+	Vitals = 11,
+	-- Not in the SSG documentation (present in the game client).
+	Alerts = 14,
+	-- Not in the SSG documentation (present in the game client).
+	FellowshipVitals1 = 15,
+	-- Not in the SSG documentation (present in the game client).
+	FellowshipVitals2 = 16,
+	-- Not in the SSG documentation (present in the game client).
+	FellowshipVitals3 = 17,
+	-- Not in the SSG documentation (present in the game client).
+	FellowshipVitals4 = 18,
+	-- Not in the SSG documentation (present in the game client).
+	ClassAbilities = 22,
+	-- Not in the SSG documentation (present in the game client).
+	MountDisplay = 23,
+	-- Not in the SSG documentation (present in the game client).
+	SoldierVitals = 24,
+	-- Not in the SSG documentation (present in the game client).
+	EscortVitals = 25,
+	-- Not in the SSG documentation (present in the game client).
+	AllegianceProgress = 26,
+	-- Not in the SSG documentation (present in the game client).
+	InventoryBags = 27,
+	-- Not in the SSG documentation (present in the game client).
+	Character = 29,
+	-- Not in the SSG documentation (present in the game client).
+	Options = 30,
+	-- Not in the SSG documentation (present in the game client).
+	Panels = 31,
+	-- Not in the SSG documentation (present in the game client).
+	BarberShop = 32,
+	-- Not in the SSG documentation (present in the game client).
+	Tooltips = 33,
+	-- Not in the SSG documentation (present in the game client).
+	Deeds = 34,
+	-- Not in the SSG documentation (present in the game client).
+	TraitTree = 36,
+	-- Not in the SSG documentation (present in the game client).
+	HobbitPresents = 37,
+	-- Not in the SSG documentation (present in the game client).
+	Wallet = 38,
+	-- Not in the SSG documentation (present in the game client).
+	ItemWear = 39,
+	-- Not in the SSG documentation (present in the game client).
+	MountedCombat = 40,
+	-- Not in the SSG documentation (present in the game client).
+	BigBattles = 41,
+	-- Not in the SSG documentation (present in the game client).
+	Skirmish = 43,
+	-- Not in the SSG documentation (present in the game client).
+	Mail = 44,
+	-- Not in the SSG documentation (present in the game client).
+	Chat = 45,
+	-- Not in the SSG documentation (present in the game client).
+	DressingRoom = 46,
+	-- Not in the SSG documentation (present in the game client).
+	Help = 47,
+	-- Not in the SSG documentation (present in the game client).
+	Webstore = 48,
+	-- Not in the SSG documentation (present in the game client).
+	Vault = 49,
+	-- Not in the SSG documentation (present in the game client).
+	Inspect = 51,
+	-- Not in the SSG documentation (present in the game client).
+	Wardrobe = 52,
+	-- Not in the SSG documentation (present in the game client).
+	Barter = 53,
+	-- Not in the SSG documentation (present in the game client).
+	ProgressBar = 54,
+	-- Not in the SSG documentation (present in the game client).
+	Menus = 55,
+	-- Not in the SSG documentation (present in the game client).
+	HudText = 56,
+	-- Not in the SSG documentation (present in the game client).
+	Auction = 57,
+	-- Not in the SSG documentation (present in the game client).
+	QuestBestow = 58,
+	-- Not in the SSG documentation (present in the game client).
+	Global = 60,
+	-- Not in the SSG documentation (present in the game client).
+	Pregame = 61,
+	-- Not in the SSG documentation (present in the game client).
+	MapQuestGuideFrame = 62,
+	-- Not in the SSG documentation (present in the game client).
+	QuestActionButton = 63,
+	-- Not in the SSG documentation (present in the game client).
+	Tutorials = 64,
+	-- Not in the SSG documentation (present in the game client).
+	TargetProgressBar = 65,
+	-- Not in the SSG documentation (present in the game client).
+	Map = 66,
+	-- Not in the SSG documentation (present in the game client).
+	TargetAssist = 67,
+	-- Not in the SSG documentation (present in the game client).
+	FellowshipManoeuvres = 70,
+	-- Not in the SSG documentation (present in the game client).
+	LootRoll = 71,
+}
 
 
 ---[Documentation](https://lunarwtr.github.io/lotro-api-docs/U49/Turbine_UI_Lotro_Window$Members.html)

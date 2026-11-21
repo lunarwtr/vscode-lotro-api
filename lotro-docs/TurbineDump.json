@@ -2587,6 +2587,9 @@
             "GetName": {
                 "type": "function"
             },
+            "GetUsesGlobalScaling": {
+                "type": "function"
+            },
             "GetVersion": {
                 "type": "function"
             }
@@ -5335,6 +5338,9 @@
                 }
             },
             "Control": {
+                "AttachEdges": {
+                    "type": "function"
+                },
                 "Constructor": {
                     "type": "function"
                 },
@@ -5359,10 +5365,31 @@
                 "GetControls": {
                     "type": "function"
                 },
+                "GetEdgeAttachments": {
+                    "type": "function"
+                },
                 "GetHeight": {
                     "type": "function"
                 },
                 "GetLeft": {
+                    "type": "function"
+                },
+                "GetMaximumHeight": {
+                    "type": "function"
+                },
+                "GetMaximumSize": {
+                    "type": "function"
+                },
+                "GetMaximumWidth": {
+                    "type": "function"
+                },
+                "GetMinimumHeight": {
+                    "type": "function"
+                },
+                "GetMinimumSize": {
+                    "type": "function"
+                },
+                "GetMinimumWidth": {
                     "type": "function"
                 },
                 "GetMousePosition": {
@@ -5450,6 +5477,24 @@
                     "type": "function"
                 },
                 "SetLeft": {
+                    "type": "function"
+                },
+                "SetMaximumHeight": {
+                    "type": "function"
+                },
+                "SetMaximumSize": {
+                    "type": "function"
+                },
+                "SetMaximumWidth": {
+                    "type": "function"
+                },
+                "SetMinimumHeight": {
+                    "type": "function"
+                },
+                "SetMinimumSize": {
+                    "type": "function"
+                },
+                "SetMinimumWidth": {
                     "type": "function"
                 },
                 "SetMouseVisible": {
@@ -5540,6 +5585,9 @@
                 "GetSize": {
                     "type": "function"
                 },
+                "GetUIGroupScale": {
+                    "type": "function"
+                },
                 "GetWidth": {
                     "type": "function"
                 },
@@ -5553,6 +5601,39 @@
                 },
                 "SetSuccessful": {
                     "type": "function"
+                }
+            },
+            "EdgeAttachmentType": {
+                "Center": {
+                    "type": "number",
+                    "value": 1
+                },
+                "IsA": {
+                    "type": "function"
+                },
+                "Mirror": {
+                    "type": "number",
+                    "value": 2
+                },
+                "None": {
+                    "type": "number",
+                    "value": 0
+                },
+                "Opposite": {
+                    "type": "number",
+                    "value": 4
+                },
+                "Proportional": {
+                    "type": "number",
+                    "value": 3
+                },
+                "RatioProportional": {
+                    "type": "number",
+                    "value": 6
+                },
+                "Same": {
+                    "type": "number",
+                    "value": 5
                 }
             },
             "FontStyle": {
@@ -7317,6 +7398,239 @@
                         "type": "function"
                     }
                 },
+                "UIScalingGroupType": {
+                    "Alerts": {
+                        "type": "number",
+                        "value": 14
+                    },
+                    "AllegianceProgress": {
+                        "type": "number",
+                        "value": 26
+                    },
+                    "Auction": {
+                        "type": "number",
+                        "value": 57
+                    },
+                    "BarberShop": {
+                        "type": "number",
+                        "value": 32
+                    },
+                    "Barter": {
+                        "type": "number",
+                        "value": 53
+                    },
+                    "BigBattles": {
+                        "type": "number",
+                        "value": 41
+                    },
+                    "Character": {
+                        "type": "number",
+                        "value": 29
+                    },
+                    "Chat": {
+                        "type": "number",
+                        "value": 45
+                    },
+                    "ClassAbilities": {
+                        "type": "number",
+                        "value": 22
+                    },
+                    "Deeds": {
+                        "type": "number",
+                        "value": 34
+                    },
+                    "DressingRoom": {
+                        "type": "number",
+                        "value": 46
+                    },
+                    "EscortVitals": {
+                        "type": "number",
+                        "value": 25
+                    },
+                    "FellowshipManoeuvres": {
+                        "type": "number",
+                        "value": 70
+                    },
+                    "FellowshipVitals1": {
+                        "type": "number",
+                        "value": 15
+                    },
+                    "FellowshipVitals2": {
+                        "type": "number",
+                        "value": 16
+                    },
+                    "FellowshipVitals3": {
+                        "type": "number",
+                        "value": 17
+                    },
+                    "FellowshipVitals4": {
+                        "type": "number",
+                        "value": 18
+                    },
+                    "Global": {
+                        "type": "number",
+                        "value": 60
+                    },
+                    "Help": {
+                        "type": "number",
+                        "value": 47
+                    },
+                    "HobbitPresents": {
+                        "type": "number",
+                        "value": 37
+                    },
+                    "HudText": {
+                        "type": "number",
+                        "value": 56
+                    },
+                    "Inspect": {
+                        "type": "number",
+                        "value": 51
+                    },
+                    "InventoryBags": {
+                        "type": "number",
+                        "value": 27
+                    },
+                    "IsA": {
+                        "type": "function"
+                    },
+                    "ItemWear": {
+                        "type": "number",
+                        "value": 39
+                    },
+                    "LootRoll": {
+                        "type": "number",
+                        "value": 71
+                    },
+                    "Mail": {
+                        "type": "number",
+                        "value": 44
+                    },
+                    "Map": {
+                        "type": "number",
+                        "value": 66
+                    },
+                    "MapQuestGuideFrame": {
+                        "type": "number",
+                        "value": 62
+                    },
+                    "Menus": {
+                        "type": "number",
+                        "value": 55
+                    },
+                    "MountDisplay": {
+                        "type": "number",
+                        "value": 23
+                    },
+                    "MountedCombat": {
+                        "type": "number",
+                        "value": 40
+                    },
+                    "None": {
+                        "type": "number",
+                        "value": 0
+                    },
+                    "OpponentVitals": {
+                        "type": "number",
+                        "value": 4
+                    },
+                    "Options": {
+                        "type": "number",
+                        "value": 30
+                    },
+                    "Panels": {
+                        "type": "number",
+                        "value": 31
+                    },
+                    "PetQuickslotBar": {
+                        "type": "number",
+                        "value": 2
+                    },
+                    "PetVitals": {
+                        "type": "number",
+                        "value": 3
+                    },
+                    "Pregame": {
+                        "type": "number",
+                        "value": 61
+                    },
+                    "ProgressBar": {
+                        "type": "number",
+                        "value": 54
+                    },
+                    "QuestActionButton": {
+                        "type": "number",
+                        "value": 63
+                    },
+                    "QuestBestow": {
+                        "type": "number",
+                        "value": 58
+                    },
+                    "QuestTracker": {
+                        "type": "number",
+                        "value": 10
+                    },
+                    "QuickslotBars": {
+                        "type": "number",
+                        "value": 1
+                    },
+                    "Radar": {
+                        "type": "number",
+                        "value": 5
+                    },
+                    "Skirmish": {
+                        "type": "number",
+                        "value": 43
+                    },
+                    "SoldierVitals": {
+                        "type": "number",
+                        "value": 24
+                    },
+                    "TargetAssist": {
+                        "type": "number",
+                        "value": 67
+                    },
+                    "TargetProgressBar": {
+                        "type": "number",
+                        "value": 65
+                    },
+                    "Toolbar": {
+                        "type": "number",
+                        "value": 6
+                    },
+                    "Tooltips": {
+                        "type": "number",
+                        "value": 33
+                    },
+                    "TraitTree": {
+                        "type": "number",
+                        "value": 36
+                    },
+                    "Tutorials": {
+                        "type": "number",
+                        "value": 64
+                    },
+                    "Vault": {
+                        "type": "number",
+                        "value": 49
+                    },
+                    "Vitals": {
+                        "type": "number",
+                        "value": 11
+                    },
+                    "Wallet": {
+                        "type": "number",
+                        "value": 38
+                    },
+                    "Wardrobe": {
+                        "type": "number",
+                        "value": 52
+                    },
+                    "Webstore": {
+                        "type": "number",
+                        "value": 48
+                    }
+                },
                 "Window": {
                     "Constructor": {
                         "type": "function"
@@ -7635,52 +7949,40 @@
                 "Constructor": {
                     "type": "function"
                 },
-                "GetMaximumHeight": {
-                    "type": "function"
-                },
-                "GetMaximumSize": {
-                    "type": "function"
-                },
-                "GetMaximumWidth": {
-                    "type": "function"
-                },
-                "GetMinimumHeight": {
-                    "type": "function"
-                },
-                "GetMinimumSize": {
-                    "type": "function"
-                },
-                "GetMinimumWidth": {
-                    "type": "function"
-                },
                 "GetRotation": {
+                    "type": "function"
+                },
+                "GetScale": {
+                    "type": "function"
+                },
+                "GetScalingOriginPoint": {
                     "type": "function"
                 },
                 "GetText": {
                     "type": "function"
                 },
-                "SetMaximumHeight": {
+                "GetUIScalingGroup": {
                     "type": "function"
                 },
-                "SetMaximumSize": {
-                    "type": "function"
-                },
-                "SetMaximumWidth": {
-                    "type": "function"
-                },
-                "SetMinimumHeight": {
-                    "type": "function"
-                },
-                "SetMinimumSize": {
-                    "type": "function"
-                },
-                "SetMinimumWidth": {
+                "RegisterForGlobalScaling": {
                     "type": "function"
                 },
                 "SetRotation": {
                     "type": "function"
                 },
+                "SetScale": {
+                    "type": "function"
+                },
+                "SetScalingOriginPoint": {
+                    "type": "function"
+                },
                 "SetText": {
+                    "type": "function"
+                },
+                "SetUIScalingGroup": {
+                    "type": "function"
+                },
+                "UnregisterForGlobalScaling": {
                     "type": "function"
                 }
             }

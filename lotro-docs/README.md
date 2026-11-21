@@ -32,7 +32,7 @@ $ lua TurbineDump.lua > TurbineDump.json
 
 ## Generate EmmyLua
  
-* Download the latest SSG HTML Lua documentation (currently Update 49, `SSG_U49_LuaDocumentation`)
+* Download the latest SSG HTML Lua documentation (currently Update 49, [SSG U49 Lua Documentation](https://www.lotrointerface.com/downloads/info1325-SSGU49LuaAPIDocumentation.html) )
 * Unzip it to `lotro-api-docs/U49`, or anywhere else and point `LOTRO_DOC_DIR` at it
 * Run the ripdocs script
 ```bash
@@ -51,7 +51,7 @@ LOTRO_DOC_DIR=/path/to/SSG_U49_LuaDocumentation perl ripdocs.pl
 * Manual change lines as described in [manual-changes.txt](manual-changes.txt)
 ```bash
 cd ../resources/Lua/EmmyLua/Turbine
-patch -p0 < ../../../lotro-docs/manual-changes.txt
+patch -p0 < ../../../../lotro-docs/manual-changes.txt
 ```
 ## Perl Modules
 

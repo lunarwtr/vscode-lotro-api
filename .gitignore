@@ -4,5 +4,8 @@ node_modules
 .vscode-test/
 *.vsix
 lotro-docs/U25/
+lotro-docs/U49/
 *.bak
 .vscode
+*.old
+*.diff
